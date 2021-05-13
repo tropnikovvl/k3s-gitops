@@ -1,0 +1,41 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: longhorn
+  namespace: longhorn-system
+spec:
+  releaseName: longhorn
+  interval: 5m
+  chart:
+    spec:
+      # renovate: registryUrl=https://charts.longhorn.io
+      chart: longhorn
+      version: 1.1.1
+      sourceRef:
+        kind: HelmRepository
+        name: longhorn-charts
+        namespace: flux-system
+      interval: 5m
+  values:
+    persistence:
+      defaultClass: true
+      defaultClassReplicaCount: 1
+      reclaimPolicy: Retain
+    defaultSettings:
+      defaultReplicaCount: 1
+      createDefaultDiskLabeledNodes: true
+      backupTarget: s3://k3s-backup@casalani/
+      backupTargetCredentialSecret: longhorn-backup-secret
+      storageMinimalAvailablePercentage: "10"
+      taintToleration: arm=true:NoExecute
+      dataLocality: "disabled"
+#     ingress:
+#       enabled: true
+#       host: longhorn.casalani.de
+# #      tlsSecret: "cert-manager/acme-cert"
+#       tls: true
+#       annotations:
+#         kubernetes.io/ingress.class: nginx
+#         kubernetes.io/tls-acme: "true"
+#         cert-manager.io/cluster-issuer: letsencrypt-prod
