@@ -1,7 +1,7 @@
+---
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-- notification
-- gotk-components.yaml
-- gotk-sources.yaml
-- gotk-sync.yaml
+- alert.yaml
+- provider.yaml
+- slack-url.enc.yaml
