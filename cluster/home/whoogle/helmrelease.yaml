@@ -43,11 +43,11 @@ spec:
         requiredDuringSchedulingIgnoredDuringExecution:
           nodeSelectorTerms:
             - matchExpressions:
-                - key: type
+                - key: node-role.kubernetes.io/worker
                   operator: In
                   values:
                     - worker
-                - key: arch
+                - key: kubernetes.io/arch
                   operator: In
                   values:
                     - amd64
