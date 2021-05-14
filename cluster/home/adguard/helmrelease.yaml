@@ -69,23 +69,22 @@ spec:
         cpu: 15m
       limits:
         memory: 750Mi
-    tolerations:
-      - key: "arm64"
-        operator: "Exists"
-
-    # affinity:
-    #   nodeAffinity:
-    #     requiredDuringSchedulingIgnoredDuringExecution:
-    #       nodeSelectorTerms:
-    #         - matchExpressions:
-    #             - key: type
-    #               operator: In
-    #               values:
-    #                 - worker
-                # - key: arch
-                #   operator: In
-                #   values:
-                #     - arm
+    # tolerations:
+    #   - key: "arm64"
+    #     operator: "Exists"
+    affinity:
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+            - matchExpressions:
+                - key: node-role.kubernetes.io/worker
+                  operator: In
+                  values:
+                    - worker
+                - key: kubernetes.io/arch
+                  operator: In
+                  values:
+                    - arm64
     # ################ Adguard Home Config ###########################################
     config: |
       bind_host: 0.0.0.0
