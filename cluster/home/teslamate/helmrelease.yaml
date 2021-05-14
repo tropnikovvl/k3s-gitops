@@ -55,7 +55,7 @@ spec:
           failureThreshold: 30
           periodSeconds: 10
     postgresql:
-      enabled: true
+      enabled: false
       image:
         repository: postgres
         tag: '13'
