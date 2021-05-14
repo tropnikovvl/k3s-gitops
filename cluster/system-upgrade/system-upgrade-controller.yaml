@@ -64,6 +64,9 @@ spec:
         - key: "node-role.kubernetes.io/control-plane"
           operator: "Exists"
           effect: "NoSchedule"
+        - key: "k3s-controlplane"
+          operator: "Exists"
+          effect: "NoSchedule"
       containers:
         - name: system-upgrade-controller
           image: rancher/system-upgrade-controller:v0.7.0
