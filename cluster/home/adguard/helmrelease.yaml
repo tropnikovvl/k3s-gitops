@@ -69,15 +69,19 @@ spec:
         cpu: 15m
       limits:
         memory: 750Mi
-    affinity:
-      nodeAffinity:
-        requiredDuringSchedulingIgnoredDuringExecution:
-          nodeSelectorTerms:
-            - matchExpressions:
-                - key: type
-                  operator: In
-                  values:
-                    - worker
+    tolerations:
+      - key: "arm64"
+        operator: "Exists"
+
+    # affinity:
+    #   nodeAffinity:
+    #     requiredDuringSchedulingIgnoredDuringExecution:
+    #       nodeSelectorTerms:
+    #         - matchExpressions:
+    #             - key: type
+    #               operator: In
+    #               values:
+    #                 - worker
                 # - key: arch
                 #   operator: In
                 #   values:
