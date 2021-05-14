@@ -22,8 +22,8 @@ spec:
       tag: 1.22.0
     timeZone: "Europe/Berlin"
     env:
-      DATABASE_USER: "postgres"
-      DATABASE_PASS: "teslamate-pass"
+      DATABASE_USER: "teslamate"
+      DATABASE_PASS: "teslamate"
       DATABASE_NAME: "teslamate"
       DATABASE_HOST: teslamate-postgresql
       DISABLE_MQTT: "true"
