@@ -36,9 +36,7 @@ spec:
     persistence:
       data:
         enabled: true
-        storageClass: "longhorn"
-        size: 5Gi
-        accessMode: ReadWriteOnce
+        existingClaim: octoprint-config
     securityContext:
       privileged: true
     additionalVolumeMounts:
