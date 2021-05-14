@@ -1,0 +1,53 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: freshrss
+  namespace: home
+spec:
+  interval: 5m
+  chart:
+    spec:
+      # renovate: registryUrl=https://k8s-at-home.com/charts
+      chart: freshrss
+      version: 4.4.0
+      sourceRef:
+        kind: HelmRepository
+        name: k8s-at-home-charts
+        namespace: flux-system
+      interval: 5m
+  values:
+    image:
+      repository: linuxserver/freshrss
+      tag: version-1.17.0
+      pullPolicy: IfNotPresent
+    env:
+      TZ: "Europe/Berlin"
+    persistence:
+      config:
+        enabled: true
+        existingClaim: freshrss-config
+    ingress:
+      enabled: true
+      annotations:
+        kubernetes.io/ingress.class: "nginx"
+      hosts:
+        - host: "freshrss.casalani.de"
+          paths:
+            - path: /
+      tls:
+        - hosts:
+            - "freshrss.casalani.de"
+    affinity:
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+            - matchExpressions:
+                - key: type
+                  operator: In
+                  values:
+                    - worker
+                - key: arch
+                  operator: In
+                  values:
+                    - arm
