@@ -26,7 +26,7 @@ spec:
       defaultReplicaCount: 1
       createDefaultDiskLabeledNodes: true
       backupTarget: s3://k3s-backup@casalani/
-      backupTargetCredentialSecret: longhorn-backup-secret
+      backupTargetCredentialSecret: longhorn-backup-target
       storageMinimalAvailablePercentage: "10"
       taintToleration: arm=true:NoExecute
       dataLocality: "disabled"
