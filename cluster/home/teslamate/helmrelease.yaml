@@ -72,7 +72,3 @@ spec:
         enabled: false
       volumePermissions:
         enabled: false
-  valuesFrom:
-  - kind: Secret
-    name: "teslamate-helm-values"
-    optional: false
