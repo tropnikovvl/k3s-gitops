@@ -56,4 +56,8 @@ spec:
                 requests:
                   storage: 20Gi
       ingress:
-        enabled: false
+        enabled: true
+        annotations:
+          kubernetes.io/ingress.class: "nginx"
+        hosts:
+        - "prom.int.casalani.de"
