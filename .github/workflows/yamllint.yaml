@@ -1,0 +1,21 @@
+---
+name: 'Yamllint GitHub Actions'
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+jobs:
+  yamllint:
+    name: 'Yamllint'
+    runs-on: ubuntu-20.04
+    steps:
+      - name: 'Checkout'
+        uses: actions/checkout@master
+      - name: 'Yamllint'
+        uses: karancode/yamllint-github-action@master
+        with:
+          yamllint_file_or_dir: './'
+          yamllint_config_filepath: "./.github/yamllint.config.yaml"
+        env:
+          GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
