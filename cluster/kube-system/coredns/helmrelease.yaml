@@ -19,11 +19,11 @@ spec:
   values:
     replicaCount: 3
     serviceType: LoadBalancer
-    # prometheus:
-    #   service:
-    #     enabled: true
-    #   monitor:
-    #     enabled: true
+    prometheus:
+      service:
+        enabled: true
+      monitor:
+        enabled: true
     service:
       externalTrafficPolicy: Local
       loadBalancerIP: 192.168.10.50

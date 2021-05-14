@@ -28,11 +28,11 @@ spec:
         externalTrafficPolicy: Local
       extraArgs:
         default-ssl-certificate: "cert-manager/acme-crt-secret"
-      # metrics:
-      #   enabled: true
-      #   serviceMonitor:
-      #     enabled: true
-      #     namespace: kube-system
+      metrics:
+        enabled: true
+        serviceMonitor:
+          enabled: true
+          namespace: kube-system
     defaultBackend:
       enabled: true
       image:
