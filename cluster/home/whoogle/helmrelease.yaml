@@ -38,19 +38,16 @@ spec:
         cpu: 25m
       limits:
         memory: 128Mi
-    tolerations:
-      - key: "arm64"
-        operator: "Exists"
-    # affinity:
-    #   nodeAffinity:
-    #     requiredDuringSchedulingIgnoredDuringExecution:
-    #       nodeSelectorTerms:
-    #         - matchExpressions:
-    #             - key: node-role.kubernetes.io/worker
-    #               operator: In
-    #               values:
-    #                 - worker
-    #             - key: kubernetes.io/arch
-    #               operator: In
-    #               values:
-    #                 - amd64
+    affinity:
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+            - matchExpressions:
+                - key: node-role.kubernetes.io/worker
+                  operator: In
+                  values:
+                    - worker
+                - key: kubernetes.io/arch
+                  operator: In
+                  values:
+                    - amd64
