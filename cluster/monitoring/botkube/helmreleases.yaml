@@ -33,6 +33,7 @@ spec:
               - all
             ignore:
               - kube-system
+              - system-upgrade
           events:
             - create
             - delete
