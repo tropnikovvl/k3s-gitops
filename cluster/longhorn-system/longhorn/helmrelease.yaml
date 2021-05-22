@@ -23,7 +23,7 @@ spec:
       defaultClassReplicaCount: 1
       reclaimPolicy: Retain
     defaultSettings:
-      defaultReplicaCount: 1
+      defaultReplicaCount: 2
       createDefaultDiskLabeledNodes: true
       backupTarget: s3://k3s-backup@casalani/
       backupTargetCredentialSecret: longhorn-backup-target
