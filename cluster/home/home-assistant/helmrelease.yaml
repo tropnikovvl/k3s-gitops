@@ -29,6 +29,13 @@ spec:
       type: LoadBalancer
       loadBalancerIP: 192.168.10.61
       externalTrafficPolicy: Local
+    probes:
+      liveness:
+        enabled: false
+      readiness:
+        enabled: false
+      startup:
+        enabled: false
     persistence:
       config:
         enabled: true
