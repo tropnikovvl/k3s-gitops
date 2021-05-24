@@ -51,9 +51,6 @@ spec:
       tls:
         - hosts:
             - "home.casalani.de"
-    probes:
-      readiness:
-        enabled: false
     addons:
       codeserver:
         enabled: true
