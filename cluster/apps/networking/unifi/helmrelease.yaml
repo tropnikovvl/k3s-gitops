@@ -1,0 +1,80 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: unifi
+  namespace: networking
+spec:
+  interval: 5m
+  chart:
+    spec:
+      # renovate: registryUrl=https://k8s-at-home.com/charts/
+      chart: unifi
+      version: 2.0.2
+      sourceRef:
+        kind: HelmRepository
+        name: k8s-at-home-charts
+        namespace: flux-system
+      interval: 5m
+  values:
+    image:
+      repository: jacobalberty/unifi
+      tag: 6.2.25
+
+    timezone: Europe/Berlin
+
+    persistence:
+      enabled: true
+      size: "5Gi"
+      storageClass: "longhorn"
+      accessMode: ReadWriteOnce
+
+    guiService:
+      type: LoadBalancer
+      annotations:
+        metallb.universe.tf/allow-shared-ip: unifi
+      loadBalancerIP: 192.168.10.52
+      externalTrafficPolicy: Local
+
+    controllerService:
+      type: LoadBalancer
+      annotations:
+        metallb.universe.tf/allow-shared-ip: unifi
+      loadBalancerIP: 192.168.10.52
+      externalTrafficPolicy: Local
+
+    stunService:
+      type: LoadBalancer
+      annotations:
+        metallb.universe.tf/allow-shared-ip: unifi
+      loadBalancerIP: 192.168.10.52
+      externalTrafficPolicy: Local
+
+    discoveryService:
+      type: LoadBalancer
+      annotations:
+        metallb.universe.tf/allow-shared-ip: unifi
+      loadBalancerIP: 192.168.10.52
+      externalTrafficPolicy: Local
+
+    ingress:
+      enabled: true
+      hosts:
+      - unifi.int.casalani.de
+
+    resources:
+      requests:
+        cpu: "0.02"
+        memory: "1024M"
+      limits:
+        memory: "1536M"
+
+    affinity:
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+            - matchExpressions:
+                - key: kubernetes.io/arch
+                  operator: In
+                  values:
+                    - amd64
