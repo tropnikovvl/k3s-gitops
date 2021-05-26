@@ -95,10 +95,9 @@ spec:
         - name: TeslaMate
           type: postgres
           access: proxy
-          url: teslamate-postgresql.home.svc.cluster.local:5432
+          url: 192.168.10.21:5433
           database: teslamate
           user: teslamate
-          password: "teslamate"
           jsonData:
             postgresVersion: 1100
             sslmode: disable
