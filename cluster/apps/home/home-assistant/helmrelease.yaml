@@ -76,16 +76,3 @@ spec:
         volumeMounts:
           - name: config
             mountPath: /config
-    affinity:
-      nodeAffinity:
-        requiredDuringSchedulingIgnoredDuringExecution:
-          nodeSelectorTerms:
-            - matchExpressions:
-                - key: node-role.kubernetes.io/worker
-                  operator: In
-                  values:
-                    - worker
-                - key: kubernetes.io/arch
-                  operator: In
-                  values:
-                    - arm64
