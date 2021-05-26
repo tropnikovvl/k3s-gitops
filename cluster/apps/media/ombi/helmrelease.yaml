@@ -9,7 +9,7 @@ spec:
   chart:
     spec:
       # renovate: registryUrl=https://k8s-at-home.com/charts
-      chart: tautulli
+      chart: ombi
       version: 9.4.0
       sourceRef:
         kind: HelmRepository
