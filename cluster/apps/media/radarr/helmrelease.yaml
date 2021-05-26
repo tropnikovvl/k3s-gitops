@@ -24,9 +24,6 @@ spec:
       TZ: "Europe/Berlin"
     ingress:
       enabled: true
-      annotations:
-        kubernetes.io/ingress.class: "nginx"
-        kubernetes.io/tls-acme: "true"
       hosts:
         - host: radarr.int.casalani.de
           paths:
@@ -35,8 +32,6 @@ spec:
       additionalIngresses:
         - enabled: true
           nameSuffix: "api"
-          annotations:
-            kubernetes.io/ingress.class: "nginx"
           hosts:
             - host: radarr.int.casalani.de
               paths:
