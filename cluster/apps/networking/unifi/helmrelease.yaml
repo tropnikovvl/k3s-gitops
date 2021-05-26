@@ -59,8 +59,12 @@ spec:
 
     ingress:
       enabled: true
+      annotations:
+        kubernetes.io/ingress.class: "nginx"
       hosts:
         - host: "unifi.casalani.de"
+          paths:
+            - path: /
       tls:
         - hosts:
             - "unifi.casalani.de"
