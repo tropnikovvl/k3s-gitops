@@ -61,8 +61,6 @@ spec:
       enabled: true
       hosts:
         - host: "unifi.casalani.de"
-          paths:
-            - path: /
       tls:
         - hosts:
             - "unifi.casalani.de"
