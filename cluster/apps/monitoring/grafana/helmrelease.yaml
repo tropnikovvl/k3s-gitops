@@ -110,12 +110,6 @@ spec:
         node-exporter-full:
           url: https://grafana.com/api/dashboards/1860/revisions/22/download
           datasource: Prometheus
-        flux-cluster:
-          url: https://raw.githubusercontent.com/fluxcd/flux2/v0.7.6/manifests/monitoring/grafana/dashboards/cluster.json
-          datasource: Prometheus
-        flux-control-plane:
-          url: https://raw.githubusercontent.com/fluxcd/flux2/v0.7.6/manifests/monitoring/grafana/dashboards/control-plane.json
-          datasource: Prometheus
       teslamate:
         charge-level:
           url: https://raw.githubusercontent.com/adriankumpf/teslamate/v1.21.6/grafana/dashboards/charge-level.json
@@ -160,11 +154,3 @@ spec:
           url: https://raw.githubusercontent.com/adriankumpf/teslamate/v1.21.6/grafana/dashboards/internal/charge-details.json
         drive-details:
           url: https://raw.githubusercontent.com/adriankumpf/teslamate/v1.21.6/grafana/dashboards/internal/drive-details.json
-    affinity:
-      nodeAffinity:
-        requiredDuringSchedulingIgnoredDuringExecution:
-          nodeSelectorTerms:
-                - key: kubernetes.io/arch
-                  operator: In
-                  values:
-                    - amd64
