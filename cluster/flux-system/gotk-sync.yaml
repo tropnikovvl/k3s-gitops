@@ -10,7 +10,7 @@ spec:
     branch: main
   secretRef:
     name: flux-system
-  url: ssh://git@github.com/cbirkenbeul/k3s-gitops
+  url: https://github.com/cbirkenbeul/k3s-gitops
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
 kind: Kustomization
