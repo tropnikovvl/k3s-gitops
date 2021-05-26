@@ -61,16 +61,3 @@ spec:
         cpu: 500m
       limits:
         memory: 1000Mi
-    affinity:
-      nodeAffinity:
-        requiredDuringSchedulingIgnoredDuringExecution:
-          nodeSelectorTerms:
-            - matchExpressions:
-                - key: node-role.kubernetes.io/worker
-                  operator: In
-                  values:
-                    - worker
-                - key: kubernetes.io/arch
-                  operator: In
-                  values:
-                    - amd64
