@@ -55,5 +55,5 @@ spec:
           periodSeconds: 10
   valuesFrom:
   - kind: Secret
-    name: "teslamate-secrets"
+    name: "teslamate-helm-values"
     optional: false
