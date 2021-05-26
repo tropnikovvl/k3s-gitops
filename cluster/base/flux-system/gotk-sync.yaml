@@ -8,8 +8,6 @@ spec:
   interval: 1m0s
   ref:
     branch: main
-  secretRef:
-    name: flux-system
   url: https://github.com/cbirkenbeul/k3s-gitops
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
@@ -19,7 +17,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 10m0s
-  path: ./cluster
+  path: ./cluster/base
   prune: true
   sourceRef:
     kind: GitRepository
