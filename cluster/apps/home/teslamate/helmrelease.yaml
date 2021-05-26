@@ -24,7 +24,7 @@ spec:
       TZ: "Europe/Berlin"
       DATABASE_USER: "teslamate"
       DATABASE_NAME: "teslamate"
-      DATABASE_HOST: "192.168.10.21"
+      DATABASE_HOST: "192.168.10.21:5433"
       DISABLE_MQTT: "true"
     ingress:
       enabled: true
