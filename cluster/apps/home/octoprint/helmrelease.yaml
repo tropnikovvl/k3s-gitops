@@ -36,7 +36,7 @@ spec:
     persistence:
       data:
         enabled: true
-        existingClaim: octoprint-data
+        existingClaim: octoprint-config
     securityContext:
       privileged: true
     additionalVolumeMounts:
