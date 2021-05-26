@@ -58,6 +58,7 @@ spec:
       externalTrafficPolicy: Local
 
     ingress:
+      enabled: true
       hosts:
         - host: "unifi.casalani.de"
           paths:
