@@ -21,9 +21,9 @@ spec:
     serviceType: LoadBalancer
     prometheus:
       service:
-        enabled: true
+        enabled: false
       monitor:
-        enabled: true
+        enabled: false
     service:
       externalTrafficPolicy: Local
       loadBalancerIP: 192.168.10.50
