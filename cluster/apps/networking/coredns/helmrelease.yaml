@@ -85,3 +85,12 @@ spec:
     #      k3s-rpi4-02.int.casalani.de. IN A 192.168.10.32
     #      k3s-rpi4-03.int.casalani.de. IN A 192.168.10.33
     #      *.int.casalani.de. IN A 192.168.10.51
+    affinity:
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+            - matchExpressions:
+                - key: node-role.kubernetes.io/worker
+                  operator: In
+                  values:
+                    - worker

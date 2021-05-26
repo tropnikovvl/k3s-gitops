@@ -38,6 +38,16 @@ spec:
           cpu: 100m
         limits:
           memory: 500Mi
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: node-role.kubernetes.io/worker
+                    operator: In
+                    values:
+                      - worker
+
     defaultBackend:
       enabled: true
       image:
@@ -49,12 +59,12 @@ spec:
           cpu: 25m
         limits:
           memory: 350Mi
-    affinity:
-      nodeAffinity:
-        requiredDuringSchedulingIgnoredDuringExecution:
-          nodeSelectorTerms:
-            - matchExpressions:
-                - key: node-role.kubernetes.io/worker
-                  operator: In
-                  values:
-                    - worker
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: node-role.kubernetes.io/worker
+                    operator: In
+                    values:
+                      - worker
