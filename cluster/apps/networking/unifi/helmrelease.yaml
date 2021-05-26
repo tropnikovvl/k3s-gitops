@@ -57,6 +57,7 @@ spec:
       loadBalancerIP: 192.168.10.52
       externalTrafficPolicy: Local
 
+    ingress:
       hosts:
         - host: "unifi.casalani.de"
           paths:
