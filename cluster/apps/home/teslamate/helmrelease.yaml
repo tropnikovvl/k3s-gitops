@@ -24,8 +24,7 @@ spec:
       TZ: "Europe/Berlin"
       DATABASE_USER: "teslamate"
       DATABASE_NAME: "teslamate"
-      DATABASE_HOST: "teslamate-postgresql"
-      DATABASE_PASS: "teslamate"
+      DATABASE_HOST: "192.168.10.21"
       DISABLE_MQTT: "true"
     ingress:
       enabled: true
@@ -54,21 +53,7 @@ spec:
           initialDelaySeconds: 15
           failureThreshold: 30
           periodSeconds: 10
-    postgresql:
-      enabled: true
-      image:
-        repository: postgres
-        tag: '13'
-      postgresqlUsername: teslamate
-      postgresqlDatabase: teslamate
-      postgresqlPassword: teslamate
-      postgresqlDataDir: "/data/pgdata"
-      persistence:
-        enabled: true
-        storageClass: "longhorn"
-        size: 8Gi
-        mountPath: "/data/"
-      shmVolume:
-        enabled: false
-      volumePermissions:
-        enabled: false
+  valuesFrom:
+  - kind: Secret
+    name: "teslamate-secret"
+    optional: false
