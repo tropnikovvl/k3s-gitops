@@ -4,5 +4,4 @@ resources:
   - adguard
   - coredns
   - ingress-nginx
-  - unifi
   - wildcard-certificate
