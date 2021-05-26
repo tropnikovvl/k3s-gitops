@@ -1,0 +1,19 @@
+---
+apiVersion: cert-manager.io/v1alpha2
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt-production
+spec:
+  acme:
+    email: christian.birkenbeul@tektoria.de
+    server: https://acme-v02.api.letsencrypt.org/directory
+    privateKeySecretRef:
+      name: letsencrypt-production
+    solvers:
+      - selector: {}
+        dns01:
+          cloudflare:
+            email: christian.birkenbeul@tektoria.de
+            apiTokenSecretRef:
+              name: cloudflare-api-key
+              key: api-key

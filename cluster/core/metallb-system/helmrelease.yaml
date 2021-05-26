@@ -3,7 +3,7 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: metallb
-  namespace: network
+  namespace: metallb-system
 spec:
   chart:
     spec:
@@ -31,5 +31,4 @@ spec:
         - name: default
           protocol: layer2
           addresses:
-            - 192.168.10.30-192.168.10.49
             - 192.168.10.50-192.168.10.99
