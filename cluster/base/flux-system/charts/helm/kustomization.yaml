@@ -1,0 +1,17 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - bitnami-charts.yaml
+  - coredns-charts.yaml
+  - grafana-charts.yaml
+  - grafana-loki-charts.yaml
+  - infracloudio-charts.yaml
+  - ingress-nginx-charts.yaml
+  - jetstack-charts.yaml
+  - k8s-at-home-charts.yaml
+  - kpg-charts.yaml
+  - kubernetes-sigs-descheduler-charts.yaml
+  - longhorn-charts.yaml
+  - nfs-subdir-external-provisioner-charts.yaml
+  - nicolaswilde-charts.yaml
+  - reflector-charts.yaml
