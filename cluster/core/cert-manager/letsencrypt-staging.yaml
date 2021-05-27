@@ -10,8 +10,7 @@ spec:
     privateKeySecretRef:
       name: letsencrypt-staging
     solvers:
-      - selector: {}
-        dns01:
+      - dns01:
           cloudflare:
             email: christian.birkenbeul@tektoria.de
             apiTokenSecretRef:
