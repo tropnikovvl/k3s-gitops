@@ -48,22 +48,36 @@ spec:
               - path: /
                 pathType: Prefix
     service:
-      main:
+      port:
+        port: 3000
+      additionalServices:
+      - enabled: true
+        nameSuffix: dns-tcp
+        type: LoadBalancer
+        externalIPs:
+        - 192.168.10.53
         port:
-          port: 3000
-        additionalServices:
-          - enabled: true
-            type: LoadBalancer
-            externalTrafficPolicy: Local
-            loadBalancerIP: 192.168.10.53
-            nameSuffix: dns-udp
-            annotations:
-              metallb.universe.tf/allow-shared-ip: adguard
-            port:
-              port: 53
-              name: dns-udp
-              protocol: UDP
-              targetPort: 53
+          port: 53
+          name: dns-tcp
+          protocol: TCP
+          targetPort: 53
+        externalTrafficPolicy: Local
+        annotations:
+          metallb.universe.tf/allow-shared-ip: adguard
+      - enabled: true
+        nameSuffix: dns-udp
+        type: LoadBalancer
+        externalIPs:
+        - 192.168.10.53
+        port:
+          port: 53
+          name: dns-udp
+          protocol: UDP
+          targetPort: 53
+        externalTrafficPolicy: Local
+        annotations:
+          metallb.universe.tf/allow-shared-ip: adguard
+
     resources:
       requests:
         memory: 500Mi
