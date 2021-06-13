@@ -167,3 +167,6 @@ spec:
                   operator: In
                   values:
                     - worker
+  valuesFrom:
+  - kind: Secret
+    name: "grafana-helm-values"
