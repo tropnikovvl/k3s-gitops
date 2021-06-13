@@ -28,16 +28,17 @@ spec:
         enabled: true
         existingClaim: freshrss-config
     ingress:
-      enabled: true
-      annotations:
-        kubernetes.io/ingress.class: "nginx"
-      hosts:
-        - host: "freshrss.casalani.de"
-          paths:
-            - path: /
-      tls:
-        - hosts:
-            - "freshrss.casalani.de"
+      main:
+        enabled: true
+        annotations:
+          kubernetes.io/ingress.class: "nginx"
+        hosts:
+          - host: "freshrss.casalani.de"
+            paths:
+              - path: /
+        tls:
+          - hosts:
+              - "freshrss.casalani.de"
     affinity:
       nodeAffinity:
         requiredDuringSchedulingIgnoredDuringExecution:

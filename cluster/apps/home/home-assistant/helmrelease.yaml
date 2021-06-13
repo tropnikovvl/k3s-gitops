@@ -41,16 +41,17 @@ spec:
         enabled: true
         existingClaim: home-assistant-config
     ingress:
-      enabled: true
-      annotations:
-        kubernetes.io/ingress.class: "nginx"
-      hosts:
-        - host: "home.casalani.de"
-          paths:
-            - path: /
-      tls:
-        - hosts:
-            - "home.casalani.de"
+      main:
+        enabled: true
+        annotations:
+          kubernetes.io/ingress.class: "nginx"
+        hosts:
+          - host: "home.casalani.de"
+            paths:
+              - path: /
+        tls:
+          - hosts:
+              - "home.casalani.de"
     addons:
       codeserver:
         enabled: true

@@ -25,14 +25,15 @@ spec:
       TZ: "Europe/Berlin"
       OCTOPRINT_PORT: "5000"
     ingress:
-      enabled: true
-      annotations:
-        kubernetes.io/ingress.class: "nginx"
-        nginx.ingress.kubernetes.io/proxy-body-size: 20m
-      hosts:
-        - host: "octoprint.int.casalani.de"
-          paths:
-            - path: /
+      main:
+        enabled: true
+        annotations:
+          kubernetes.io/ingress.class: "nginx"
+          nginx.ingress.kubernetes.io/proxy-body-size: 20m
+        hosts:
+          - host: "octoprint.int.casalani.de"
+            paths:
+              - path: /
     persistence:
       data:
         enabled: true

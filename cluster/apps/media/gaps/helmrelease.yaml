@@ -25,12 +25,13 @@ spec:
     env:
       TZ: "Europe/Berlin"
     ingress:
-      enabled: true
-      hosts:
-        - host: gaps.int.casalani.de
-          paths:
-            - path: /
-              pathType: Prefix
+      main:
+        enabled: true
+        hosts:
+          - host: gaps.int.casalani.de
+            paths:
+              - path: /
+                pathType: Prefix
     persistence:
       config:
         enabled: true

@@ -23,12 +23,13 @@ spec:
     env:
       TZ: "Europe/Berlin"
     ingress:
-      enabled: true
-      hosts:
-      - host: "prowlarr.int.casalani.de"
-        paths:
-        - path: /
-          pathType: Prefix
+      main:
+        enabled: true
+        hosts:
+        - host: "prowlarr.int.casalani.de"
+          paths:
+          - path: /
+            pathType: Prefix
     podSecurityContext:
       runAsUser: 568
       runAsGroup: 568

@@ -23,20 +23,21 @@ spec:
     env:
       TZ: "Europe/Berlin"
     ingress:
-      enabled: true
-      hosts:
-        - host: radarr.int.casalani.de
-          paths:
-            - path: /
-              pathType: Prefix
-      additionalIngresses:
-        - enabled: true
-          nameSuffix: "api"
-          hosts:
-            - host: radarr.int.casalani.de
-              paths:
-                - path: /api
-                  pathType: Prefix
+      main:
+        enabled: true
+        hosts:
+          - host: radarr.int.casalani.de
+            paths:
+              - path: /
+                pathType: Prefix
+        additionalIngresses:
+          - enabled: true
+            nameSuffix: "api"
+            hosts:
+              - host: radarr.int.casalani.de
+                paths:
+                  - path: /api
+                    pathType: Prefix
     persistence:
       config:
         enabled: true
