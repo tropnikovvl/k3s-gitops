@@ -26,9 +26,10 @@ spec:
     hostNetwork: true
     dnsPolicy: ClusterFirstWithHostNet
     service:
-      type: LoadBalancer
-      loadBalancerIP: 192.168.10.61
-      externalTrafficPolicy: Local
+      main:
+        type: LoadBalancer
+        loadBalancerIP: 192.168.10.61
+        externalTrafficPolicy: Local
     probes:
       liveness:
         enabled: false
