@@ -64,7 +64,8 @@ spec:
             port: 53
             protocol: TCP
             targetPort: 53
-        externalTrafficPolicy: Local
+        annotations:
+          metallb.universe.tf/allow-shared-ip: adguard
       dns-udp:
         enabled: true
         type: LoadBalancer
@@ -76,7 +77,8 @@ spec:
             port: 53
             protocol: UDP
             targetPort: 53
-    externalTrafficPolicy: Local
+        annotations:
+          metallb.universe.tf/allow-shared-ip: adguard
     resources:
       requests:
         memory: 500Mi
