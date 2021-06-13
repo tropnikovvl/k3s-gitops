@@ -24,16 +24,15 @@ spec:
     env:
       TZ: "Europe/Berlin"
     ingress:
-      main:
-        enabled: true
-        hosts:
-          - host: tautulli.casalani.de
-            paths:
-              - path: /
-                pathType: Prefix
-        tls:
-          - hosts:
-              - "tautulli.casalani.de"
+      enabled: true
+      hosts:
+        - host: tautulli.casalani.de
+          paths:
+            - path: /
+              pathType: Prefix
+      tls:
+        - hosts:
+            - "tautulli.casalani.de"
     persistence:
       config:
         enabled: true
