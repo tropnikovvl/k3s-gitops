@@ -5,30 +5,20 @@ metadata:
   name: metallb
   namespace: metallb-system
 spec:
+  interval: 5m
   chart:
     spec:
-      # renovate: registryUrl=https://charts.bitnami.com/bitnami
+      # renovate: registryUrl=https://metallb.github.io/metallb
       chart: metallb
-      version: 2.4.2
+      version: 0.10.1
       sourceRef:
         kind: HelmRepository
-        name: bitnami-charts
+        name: metallb-charts
         namespace: flux-system
-  interval: 10m0s
   values:
-    controller:
-      image:
-        registry: docker.io
-        repository: metallb/controller
-        tag: v0.10.1
-    speaker:
-      image:
-        registry: docker.io
-        repository: metallb/speaker
-        tag: v0.10.1
     configInline:
       address-pools:
-        - name: default
-          protocol: layer2
-          addresses:
-            - 192.168.10.50-192.168.10.99
+      - name: default
+        protocol: layer2
+        addresses:
+          - 192.168.10.50-192.168.10.99

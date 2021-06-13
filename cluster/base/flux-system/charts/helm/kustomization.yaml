@@ -12,6 +12,7 @@ resources:
   - kpg-charts.yaml
   - kubernetes-sigs-descheduler-charts.yaml
   - longhorn-charts.yaml
+  - metallb-charts.yaml
   - nfs-subdir-external-provisioner-charts.yaml
   - nicolaswilde-charts.yaml
   - reflector-charts.yaml
