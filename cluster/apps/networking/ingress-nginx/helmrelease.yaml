@@ -34,7 +34,7 @@ spec:
         serviceMonitor:
           enabled: false
       extraArgs:
-        default-ssl-certificate: "networking/casalani-wildcard"
+        default-ssl-certificate: "networking/casalani-wildcard-tls"
       resources:
         requests:
           memory: 100Mi

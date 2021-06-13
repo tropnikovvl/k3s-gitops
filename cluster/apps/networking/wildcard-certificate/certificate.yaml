@@ -5,7 +5,7 @@ metadata:
   name: casalani-wildcard
   namespace: networking
 spec:
-  secretName: acme-crt-secret
+  secretName: casalani-wildcard-tls
   issuerRef:
     name: letsencrypt-production
     kind: ClusterIssuer
