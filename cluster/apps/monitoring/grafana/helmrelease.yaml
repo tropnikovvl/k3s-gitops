@@ -32,10 +32,10 @@ spec:
         check_for_updates: false
       log:
         mode: console
-    admin:
-      existingSecret: grafana-helm-values
-      userKey: adminUser
-      passwordKey: adminPassword
+    # admin:
+    #   existingSecret: grafana-helm-values
+    #   userKey: user
+    #   passwordKey: password
     ingress:
       enabled: true
       annotations:
@@ -167,6 +167,7 @@ spec:
                   operator: In
                   values:
                     - worker
+
   valuesFrom:
   - kind: Secret
     name: "grafana-helm-values"
