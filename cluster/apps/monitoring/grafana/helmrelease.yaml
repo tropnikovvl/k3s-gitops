@@ -34,8 +34,8 @@ spec:
         mode: console
     admin:
       existingSecret: grafana-helm-values
-      userKey: user
-      passwordKey: password
+      userKey: adminUser
+      passwordKey: adminPassword
     ingress:
       enabled: true
       annotations:
