@@ -1,48 +1,48 @@
----
-apiVersion: helm.toolkit.fluxcd.io/v2beta1
-kind: HelmRelease
-metadata:
-  name: mosquitto
-  namespace: home
-spec:
-  interval: 5m
-  chart:
-    spec:
-      # renovate: registryUrl=https://k8s-at-home.com/charts
-      chart: mosquitto
-      version: 3.0.1
-      sourceRef:
-        kind: HelmRepository
-        name: k8s-at-home-charts
-        namespace: flux-system
-      interval: 5m
-  values:
-    service:
-      main:
-        type: LoadBalancer
-        loadBalancerIP: 192.168.10.62
-        externalTrafficPolicy: Local
-    persistence:
-      data:
-        enabled: true
-        storageClass: "longhorn"
-        accessMode: ReadWriteOnce
-        size: 1Gi
-      configinc:
-        enabled: true
-        storageClass: "longhorn"
-        accessMode: ReadWriteOnce
-        size: 1Gi
-    affinity:
-      nodeAffinity:
-        requiredDuringSchedulingIgnoredDuringExecution:
-          nodeSelectorTerms:
-            - matchExpressions:
-                - key: kubernetes.io/arch
-                  operator: In
-                  values:
-                    - arm64
-                - key: node-role.kubernetes.io/worker
-                  operator: In
-                  values:
-                    - worker
+# ---
+# apiVersion: helm.toolkit.fluxcd.io/v2beta1
+# kind: HelmRelease
+# metadata:
+#   name: mosquitto
+#   namespace: home
+# spec:
+#   interval: 5m
+#   chart:
+#     spec:
+#       # renovate: registryUrl=https://k8s-at-home.com/charts
+#       chart: mosquitto
+#       version: 3.0.1
+#       sourceRef:
+#         kind: HelmRepository
+#         name: k8s-at-home-charts
+#         namespace: flux-system
+#       interval: 5m
+#   values:
+#     service:
+#       main:
+#         type: LoadBalancer
+#         loadBalancerIP: 192.168.10.62
+#         externalTrafficPolicy: Local
+#     persistence:
+#       data:
+#         enabled: true
+#         storageClass: "longhorn"
+#         accessMode: ReadWriteOnce
+#         size: 1Gi
+#       configinc:
+#         enabled: true
+#         storageClass: "longhorn"
+#         accessMode: ReadWriteOnce
+#         size: 1Gi
+#     affinity:
+#       nodeAffinity:
+#         requiredDuringSchedulingIgnoredDuringExecution:
+#           nodeSelectorTerms:
+#             - matchExpressions:
+#                 - key: kubernetes.io/arch
+#                   operator: In
+#                   values:
+#                     - arm64
+#                 - key: node-role.kubernetes.io/worker
+#                   operator: In
+#                   values:
+#                     - worker
