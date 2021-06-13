@@ -34,7 +34,7 @@ spec:
         serviceMonitor:
           enabled: false
       extraArgs:
-        default-ssl-certificate: "cert-manager/acme-crt"
+        default-ssl-certificate: "networking/casalani-wildcard"
       resources:
         requests:
           memory: 100Mi
