@@ -27,12 +27,12 @@ spec:
         enabled: true
         storageClass: "longhorn"
         accessMode: readwriteonce
-        size: "1Gi"
+        size: 1Gi
       configinc:
         enabled: true
         storageClass: "longhorn"
         accessMode: readwriteonce
-        size: "1Gi"
+        size: 1Gi
     affinity:
       nodeAffinity:
         requiredDuringSchedulingIgnoredDuringExecution:
