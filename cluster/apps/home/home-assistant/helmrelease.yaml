@@ -61,14 +61,13 @@ spec:
           tag: 3.10.2
         workingDir: "/config"
         ingress:
-          main:
-            enabled: true
-            annotations:
-              kubernetes.io/ingress.class: "nginx"
-            hosts:
-              - host: "ha-config.int.casalani.de"
-                paths:
-                  - path: /
+          enabled: true
+          annotations:
+            kubernetes.io/ingress.class: "nginx"
+          hosts:
+            - host: "ha-config.int.casalani.de"
+              paths:
+                - path: /
         args:
           - --auth
           - "none"
