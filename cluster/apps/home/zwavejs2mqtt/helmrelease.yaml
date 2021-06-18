@@ -17,9 +17,6 @@ spec:
         namespace: flux-system
       interval: 5m
   values:
-    image:
-      repository: zwavejs/zwavejs2mqtt
-      tag: 5.0.1
     env:
       TZ: "Europe/Berlin"
     securityContext:
