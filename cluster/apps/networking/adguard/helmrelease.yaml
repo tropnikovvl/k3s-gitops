@@ -94,6 +94,11 @@ spec:
                   operator: In
                   values:
                     - worker
+                - key: kubernetes.io/arch
+                  operator: In
+                  values:
+                    - arm64
+
     # ################ Adguard Home Config ###########################################
     config: |
       bind_host: 0.0.0.0
