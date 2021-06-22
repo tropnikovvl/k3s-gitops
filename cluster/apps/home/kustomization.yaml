@@ -4,9 +4,9 @@ resources:
   - freshrss
   - heimdall
   - home-assistant
-  - mosquitto
+#  - mosquitto
   - octoprint
-  - teslamate
-  - whoogle
-  - wikijs
+#  - teslamate
+#  - whoogle
+#  - wikijs
   - zwavejs2mqtt
