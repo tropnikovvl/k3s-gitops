@@ -30,10 +30,12 @@ spec:
         emptyDir:
           enabled: true
         mountPath: /opt/adguardhome/conf
+        storageClass: "rook-ceph-block"
       data:
         enabled: true
         accessMode: ReadWriteOnce
         size: 1Gi
+        storageClass: "rook-ceph-block"
     env:
       TZ: "Europe/Berlin"
     replicas: 1
