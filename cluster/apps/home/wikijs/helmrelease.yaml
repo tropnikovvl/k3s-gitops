@@ -38,13 +38,13 @@ spec:
         enabled: true
         size: "1Gi"
         accessMode: "ReadWriteOnce"
-        storageClass: "longhorn"
+        storageClass: "rook-ceph-block"
       data:
         enabled: true
         size: "5Gi"
         accessMode: "ReadWriteOnce"
         mountPath: /app/wiki/data
-        storageClass: "longhorn"
+        storageClass: "rook-ceph-block"
     resources:
       requests:
         memory: 64Mi
