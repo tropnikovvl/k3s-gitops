@@ -62,5 +62,7 @@ spec:
     nodes:
     - name: "k3s-03"
       devices:
-      - name: "sdb1"
-
+      - name: "sdb"
+    - name: "k3s-03"
+      devices:
+      - name: "sdb"
