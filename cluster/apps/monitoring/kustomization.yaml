@@ -3,6 +3,6 @@ kind: Kustomization
 resources:
   - botkube
   - flux-notification
-#  - grafana
-#  - kube-prometheus-stack
-#  - loki
+  - grafana
+  - kube-prometheus-stack
+  - loki

@@ -43,7 +43,7 @@ spec:
         - "grafana.casalani.de"
     persistence:
       enabled: true
-      storageClassName: "longhorn"
+      storageClassName: "rook-ceph-block"
       size: 5Gi
       accessModes:
         - ReadWriteOnce
