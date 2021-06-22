@@ -37,7 +37,9 @@ spec:
     persistence:
       data:
         enabled: true
-        existingClaim: octoprint-config
+        storageClass: "rook-ceph-block"
+        accessMode: ReadWriteOnce
+        size: 5Gi
     securityContext:
       privileged: true
     # additionalVolumeMounts:

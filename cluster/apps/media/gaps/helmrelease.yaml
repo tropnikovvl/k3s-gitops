@@ -37,6 +37,7 @@ spec:
         enabled: true
         size: "5Gi"
         accessMode: ReadWriteOnce
+        storageClass: "rook-ceph-block"
     resources:
       requests:
         memory: 250Mi
