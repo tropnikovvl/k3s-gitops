@@ -4,7 +4,7 @@ resources:
   - freshrss
   - heimdall
   - home-assistant
-  - mosquitto
+#  - mosquitto
   - octoprint
 #  - teslamate
 #  - whoogle
