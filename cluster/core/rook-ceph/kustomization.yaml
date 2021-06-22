@@ -4,7 +4,7 @@ kind: Kustomization
 resources:
   - rbac.yaml
   - helmrelease.yaml
-  - dashboard
-  - rook-direct-mount
-  - service-monitors
-  - storage
+#  - dashboard
+#  - rook-direct-mount
+#  - service-monitors
+#  - storage
