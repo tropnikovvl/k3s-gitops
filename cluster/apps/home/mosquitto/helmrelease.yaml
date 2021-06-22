@@ -30,7 +30,7 @@ spec:
         size: 1Gi
       configinc:
         enabled: true
-        storageClass: "longhorn"
+        storageClass: "rook-ceph-block"
         accessMode: ReadWriteOnce
         size: 1Gi
     affinity:
