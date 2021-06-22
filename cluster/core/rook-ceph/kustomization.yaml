@@ -7,4 +7,4 @@ resources:
 #  - dashboard
 #  - rook-direct-mount
 #  - service-monitors
-#  - storage
+  - storage
