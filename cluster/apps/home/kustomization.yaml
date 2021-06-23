@@ -5,7 +5,7 @@ resources:
   - heimdall
   - home-assistant
   - mosquitto
-  - octoprint
+#  - octoprint
   - teslamate
   - wikijs
   - zwavejs2mqtt
