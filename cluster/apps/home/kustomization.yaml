@@ -8,4 +8,4 @@ resources:
 #  - octoprint
   - teslamate
   - wikijs
-  - zwavejs2mqtt
+#  - zwavejs2mqtt
