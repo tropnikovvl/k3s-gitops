@@ -39,6 +39,7 @@ spec:
         enabled: false
     persistence:
       config:
+        enabled: true
         storageClass: "rook-ceph-block"
         accessMode: ReadWriteOnce
         size: 5Gi
