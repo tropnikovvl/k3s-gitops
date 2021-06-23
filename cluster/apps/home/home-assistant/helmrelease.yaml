@@ -39,8 +39,9 @@ spec:
         enabled: false
     persistence:
       config:
-        enabled: true
-        existingClaim: home-assistant-config
+        storageClass: "rook-ceph-block"
+        accessMode: ReadWriteOnce
+        size: 5Gi
     ingress:
       main:
         enabled: true
