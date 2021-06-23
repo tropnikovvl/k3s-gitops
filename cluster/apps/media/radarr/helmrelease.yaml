@@ -31,13 +31,13 @@ spec:
               - path: /
                 pathType: Prefix
       api:
-        - enabled: true
-          nameSuffix: "api"
-          hosts:
-            - host: radarr.int.casalani.de
-              paths:
-                - path: /api
-                  pathType: Prefix
+        enabled: true
+        nameSuffix: "api"
+        hosts:
+          - host: radarr.int.casalani.de
+            paths:
+              - path: /api
+                pathType: Prefix
     persistence:
       config:
         enabled: true
