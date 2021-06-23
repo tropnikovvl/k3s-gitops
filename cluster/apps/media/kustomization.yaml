@@ -5,8 +5,8 @@ resources:
 - gaps
 - ombi
 - plex
-#- prowlarr
+- prowlarr
 - radarr
-#- sabnzbd
-#- sonarr
+- sabnzbd
+- sonarr
 - tautulli
