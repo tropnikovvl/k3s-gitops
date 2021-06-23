@@ -41,7 +41,9 @@ spec:
     persistence:
       config:
         enabled: true
-        existingClaim: radarr-config
+        storageClass: "rook-ceph-block"
+        accessMode: ReadWriteOnce
+        size: 10Gi
     additionalVolumeMounts:
       - name: media-nas
         mountPath: "/media"
@@ -68,3 +70,7 @@ spec:
                   operator: In
                   values:
                     - worker
+                - key: kubernetes.io/arch
+                  operator: In
+                  values:
+                    - amd64

@@ -6,7 +6,7 @@ resources:
 - ombi
 - plex
 - prowlarr
-#- radarr
+- radarr
 - sabnzbd
 - sonarr
 - tautulli
