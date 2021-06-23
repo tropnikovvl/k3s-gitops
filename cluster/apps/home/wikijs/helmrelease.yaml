@@ -60,7 +60,3 @@ spec:
                   operator: In
                   values:
                     - worker
-                - key: kubernetes.io/arch
-                  operator: In
-                  values:
-                    - arm64
