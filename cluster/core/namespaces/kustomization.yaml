@@ -6,6 +6,7 @@ resources:
   - metallb-system.yaml
   - networking.yaml
   - longhorn-system.yaml
+  - kasten-io.yaml
   - home.yaml
   - media.yaml
   - monitoring.yaml
