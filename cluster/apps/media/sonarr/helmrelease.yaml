@@ -31,14 +31,14 @@ spec:
             paths:
               - path: /
                 pathType: Prefix
-        additionalIngresses:
-          - enabled: true
-            nameSuffix: "api"
-            hosts:
-              - host: sonarr.int.casalani.de
-                paths:
-                  - path: /api
-                    pathType: Prefix
+      api:
+        enabled: true
+        nameSuffix: "api"
+        hosts:
+          - host: sonarr.int.casalani.de
+            paths:
+              - path: /api
+                pathType: Prefix
     persistence:
       config:
         enabled: true
