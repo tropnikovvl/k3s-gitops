@@ -4,15 +4,17 @@ kind: PersistentVolume
 metadata:
   name: truenas-media
 spec:
-  storageClassName: nfs
   capacity:
     storage: 1Mi
   accessModes:
-  - ReadWriteMany
-  persistentVolumeReclaimPolicy: Retain
+    - ReadWriteMany
+  claimRef:
+    name: truenas-media-pvc
+    namespace: media
+  storageClassName: nfs
   nfs:
     server: 192.168.10.13
-    path: /mnt/tank/media
+    path: "/mnt/tank/media"
   mountOptions:
   - nfsvers=3
   - tcp
