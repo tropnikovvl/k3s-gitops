@@ -44,13 +44,10 @@ spec:
         storageClass: "rook-ceph-block"
         accessMode: ReadWriteOnce
         size: 10Gi
-    additionalVolumeMounts:
-      - name: media-nas
-        mountPath: "/media"
-    additionalVolumes:
-      - name: media-nas
-        persistentVolumeClaim:
-          claimName: truenas-media-pvc
+     media:
+        enabled: true
+        existingClaim: truenas-media-pvc
+        mountPath: /media
     resources:
       requests:
         memory: 250Mi
