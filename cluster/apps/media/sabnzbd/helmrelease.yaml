@@ -1,72 +1,68 @@
-# ---
-# apiVersion: helm.toolkit.fluxcd.io/v2beta1
-# kind: HelmRelease
-# metadata:
-#   name: sabnzbd
-#   namespace: media
-# spec:
-#   interval: 5m
-#   chart:
-#     spec:
-#       # renovate: registryUrl=https://k8s-at-home.com/charts
-#       chart: sabnzbd
-#       version: 8.0.0
-#       sourceRef:
-#         kind: HelmRepository
-#         name: k8s-at-home-charts
-#         namespace: flux-system
-#       interval: 5m
-#   values:
-#     controllerType: deployment
-#     env:
-#       TZ: "Europe/Berlin"
-#     ingress:
-#       main:
-#         enabled: true
-#         annotations:
-#           kubernetes.io/ingress.class: "nginx"
-#         hosts:
-#           - host: sabnzbd.int.casalani.de
-#             paths:
-#               - path: /
-#                 pathType: Prefix
-#       api:
-#         enabled: true
-#         nameSuffix: "api"
-#         hosts:
-#           - host: sabnzbd.int.casalani.de
-#             paths:
-#               - path: /api
-#                 pathType: Prefix
-#     persistence:
-#       config:
-#         enabled: true
-#         storageClass: "rook-ceph-block"
-#         accessMode: ReadWriteOnce
-#         size: 10Gi
-#     additionalVolumeMounts:
-#       - name: media-nas
-#         mountPath: "/media"
-#     additionalVolumes:
-#       - name: media-nas
-#         persistentVolumeClaim:
-#           claimName: truenas-media-pvc
-#     podSecurityContext:
-#       runAsUser: 1001
-#       runAsGroup: 1001
-#       fsGroup: 1001
-#     resources:
-#       requests:
-#         memory: 250Mi
-#         cpu: 500m
-#       limits:
-#         memory: 1000Mi
-#     affinity:
-#       nodeAffinity:
-#         requiredDuringSchedulingIgnoredDuringExecution:
-#           nodeSelectorTerms:
-#             - matchExpressions:
-#                 - key: node-role.kubernetes.io/worker
-#                   operator: In
-#                   values:
-#                     - worker
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: sabnzbd
+  namespace: media
+spec:
+  interval: 5m
+  chart:
+    spec:
+      # renovate: registryUrl=https://k8s-at-home.com/charts
+      chart: sabnzbd
+      version: 8.0.0
+      sourceRef:
+        kind: HelmRepository
+        name: k8s-at-home-charts
+        namespace: flux-system
+      interval: 5m
+  values:
+    controllerType: deployment
+    env:
+      TZ: "Europe/Berlin"
+    ingress:
+      main:
+        enabled: true
+        annotations:
+          kubernetes.io/ingress.class: "nginx"
+        hosts:
+          - host: sabnzbd.int.casalani.de
+            paths:
+              - path: /
+                pathType: Prefix
+      api:
+        enabled: true
+        nameSuffix: "api"
+        hosts:
+          - host: sabnzbd.int.casalani.de
+            paths:
+              - path: /api
+                pathType: Prefix
+    persistence:
+      config:
+        enabled: true
+        storageClass: "rook-ceph-block"
+        accessMode: ReadWriteOnce
+        size: 10Gi
+    additionalVolumeMounts:
+      - name: media-nas
+        mountPath: "/media"
+    additionalVolumes:
+      - name: media-nas
+        persistentVolumeClaim:
+          claimName: truenas-media-pvc
+    resources:
+      requests:
+        memory: 250Mi
+        cpu: 500m
+      limits:
+        memory: 1000Mi
+    affinity:
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+            - matchExpressions:
+                - key: node-role.kubernetes.io/worker
+                  operator: In
+                  values:
+                    - worker
