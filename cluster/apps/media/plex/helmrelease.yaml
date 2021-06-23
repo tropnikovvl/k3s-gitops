@@ -52,7 +52,9 @@ spec:
     persistence:
       config:
         enabled: true
-        existingClaim: plex-config
+        storageClass: "rook-ceph-block"
+        accessMode: ReadWriteOnce
+        size: 30Gi
     additionalVolumeMounts:
       - name: media-nas
         mountPath: "/media"
