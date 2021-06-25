@@ -25,16 +25,15 @@ spec:
     env:
       TZ: "Europe/Berlin"
     ingress:
-      main:
-        enabled: true
-        hosts:
-          - host: ombi.casalani.de
-            paths:
-              - path: /
-                pathType: Prefix
-        tls:
-          - hosts:
-              - "ombi.casalani.de"
+      enabled: true
+      hosts:
+        - host: ombi.casalani.de
+          paths:
+            - path: /
+              pathType: Prefix
+      tls:
+        - hosts:
+            - "ombi.casalani.de"
     persistence:
       config:
         enabled: true
