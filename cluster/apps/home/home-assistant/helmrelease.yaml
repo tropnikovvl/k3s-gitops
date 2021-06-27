@@ -78,6 +78,8 @@ spec:
         volumeMounts:
           - name: config
             mountPath: /config
+        git:
+          deployKeySecret: code-server
     affinity:
       nodeAffinity:
         requiredDuringSchedulingIgnoredDuringExecution:
