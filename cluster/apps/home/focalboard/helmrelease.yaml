@@ -17,6 +17,10 @@ spec:
         namespace: flux-system
       interval: 5m
   values:
+    image:
+      repository: mattermost/focalboard
+      tag: 0.6.7
+      pullPolicy: IfNotPresent
     env:
       TZ: "Europe/Berlin"
     persistence:
