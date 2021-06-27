@@ -18,7 +18,7 @@ spec:
       interval: 5m
   values:
     image:
-      repository: mattermost/focalboard
+      repository: flipenergy/focalboard
       tag: 0.6.7
       pullPolicy: IfNotPresent
     env:
