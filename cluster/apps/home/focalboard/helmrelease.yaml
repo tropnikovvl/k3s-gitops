@@ -21,8 +21,6 @@ spec:
       repository: flipenergy/focalboard
       tag: 0.6.7
       pullPolicy: IfNotPresent
-    env:
-      TZ: "Europe/Berlin"
     persistence:
       config:
         enabled: true
