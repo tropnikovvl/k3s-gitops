@@ -26,12 +26,13 @@ spec:
       DATABASE_NAME: "teslamate"
       DISABLE_MQTT: "true"
     ingress:
-      enabled: true
-      hosts:
-      - host: "teslamate.int.casalani.de"
-        paths:
-        - path: /
-          pathType: Prefix
+      main:
+        enabled: true
+        hosts:
+        - host: "teslamate.int.casalani.de"
+          paths:
+          - path: /
+            pathType: Prefix
     resources:
       requests:
         memory: 250Mi
