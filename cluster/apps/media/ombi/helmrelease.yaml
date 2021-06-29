@@ -21,7 +21,7 @@ spec:
     image:
       repository: linuxserver/ombi
       pullPolicy: IfNotPresent
-      tag: version-v4.0.681
+      tag: version-v4.0.1430
     env:
       TZ: "Europe/Berlin"
     ingress:
