@@ -26,19 +26,20 @@ spec:
     securityContext:
       privileged: true
     service:
-      additionalPorts:
-      - name: websocket
-        port: 3000
+      main:
+        annotations:
+          prometheus.io/probe: "true"
+          prometheus.io/protocol: http
     ingress:
-      enabled: true
-      annotations:
-        kubernetes.io/ingress.class: "nginx"
-      hosts:
-      - host: "zwave.int.casalani.de"
-        paths:
-        - path: /
-          pathType: Prefix
-
+      main:
+        enabled: true
+        annotations:
+          kubernetes.io/ingress.class: "nginx"
+        hosts:
+        - host: "zwave.int.casalani.de"
+          paths:
+          - path: /
+            pathType: Prefix
     persistence:
       config:
         enabled: true
