@@ -10,9 +10,8 @@ timezone: "Europe/Berlin"
 # Set custom ntp servers
 ntp_servers:
   primary:
-  - "gw.dfw.56k.sh"
-  fallback:
   - "0.de.pool.ntp.org"
+  fallback:
   - "1.de.pool.ntp.org"
   - "2.de.pool.ntp.org"
   - "3.de.pool.ntp.org"
