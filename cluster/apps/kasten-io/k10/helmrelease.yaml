@@ -21,7 +21,7 @@ spec:
     eula:
       accept: true
       company: CASALANI
-      email: "christian.birkenbeul@tektoria.de"
+      email: christian.birkenbeul@tektoria.de
     global:
       persistence:
         storageClass: rook-ceph-block
