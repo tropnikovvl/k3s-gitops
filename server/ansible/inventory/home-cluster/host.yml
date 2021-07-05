@@ -1,0 +1,24 @@
+---
+all:
+  children:
+    # Control Plane group, do not change the 'control-plane' name
+    # hosts should match the filenames in 'host_vars'
+    master-nodes:
+      hosts:
+        k3s-01:
+    # Node group, do not change the 'node' name
+    # hosts should match the filenames in 'host_vars'
+    # worker-nodes:
+    #   hosts:
+    #     k3s-03:
+    #     k3s-04:
+    #     k3s-05:
+    #     k3s-06:
+    # gpu-nodes:
+    #   hosts:
+    #     k8s-cuda01:
+    # # Storage group, these are my NAS devices
+    # # hosts should match the filenames in 'host_vars'
+    # storage:
+    #   hosts:
+    #     nas-franxx:
