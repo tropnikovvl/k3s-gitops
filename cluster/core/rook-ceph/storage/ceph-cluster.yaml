@@ -13,7 +13,7 @@ spec:
   continueUpgradeAfterChecksEvenIfNotHealthy: false
   removeOSDsIfOutAndSafeToRemove: false
   mon:
-    count: 4
+    count: 2
     allowMultiplePerNode: false
   monitoring:
     enabled: true
@@ -60,15 +60,15 @@ spec:
       metadataDevice:
       osdsPerDevice: "1"
     nodes:
-    - name: "k3s-02"
-      devices:
-      - name: "sdb"
+    # - name: "k3s-02"
+    #   devices:
+    #   - name: "sdb"
     - name: "k3s-03"
       devices:
       - name: "sdb"
-    - name: "k3s-04"
-      devices:
-      - name: "sdb"
+    # - name: "k3s-04"
+    #   devices:
+    #   - name: "sdb"
     - name: "k3s-05"
       devices:
       - name: "sdb"
