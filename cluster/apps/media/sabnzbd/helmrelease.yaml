@@ -43,7 +43,7 @@ spec:
         enabled: true
         storageClass: "rook-ceph-block"
         accessMode: ReadWriteOnce
-        size: 10Gi
+        size: 50Gi
       media:
         enabled: true
         existingClaim: truenas-media-pvc
