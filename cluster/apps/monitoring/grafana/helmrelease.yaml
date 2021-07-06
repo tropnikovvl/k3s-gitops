@@ -121,6 +121,9 @@ spec:
           revision: 5
           datasource: Prometheus
         # Ref: https://grafana.com/grafana/dashboards/11315
+        blocky:
+          url: https://raw.githubusercontent.com/0xERR0R/blocky/master/docs/blocky-grafana.json
+          datasource: Prometheus
       teslamate:
         charge-level:
           url: https://raw.githubusercontent.com/adriankumpf/teslamate/v1.21.6/grafana/dashboards/charge-level.json
@@ -165,6 +168,7 @@ spec:
           url: https://raw.githubusercontent.com/adriankumpf/teslamate/v1.21.6/grafana/dashboards/internal/charge-details.json
         drive-details:
           url: https://raw.githubusercontent.com/adriankumpf/teslamate/v1.21.6/grafana/dashboards/internal/drive-details.json
+        
     affinity:
       nodeAffinity:
         requiredDuringSchedulingIgnoredDuringExecution:
