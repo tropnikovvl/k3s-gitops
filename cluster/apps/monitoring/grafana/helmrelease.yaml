@@ -16,6 +16,8 @@ spec:
         name: grafana-charts
         namespace: flux-system
   values:
+    deploymentStrategy:
+      type: Recreate
     env:
       GF_EXPLORE_ENABLED: true
       GF_PANELS_DISABLE_SANITIZE_HTML: true
