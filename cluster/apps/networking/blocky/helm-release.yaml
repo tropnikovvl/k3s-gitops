@@ -37,8 +37,8 @@ spec:
       conditional:
         mapping:
           # CoreDNS IP
-          casalani.de: udp:192.168.10.50
-          int.casalani.de: udp:192.168.10.50
+          casalani.de: tcp+udp:${LB_COREDNS}
+          int.casalani.de: tcp+udp:${LB_COREDNS}
 
       blocking:
         blackLists:
