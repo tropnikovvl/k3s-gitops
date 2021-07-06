@@ -48,16 +48,12 @@ spec:
         enabled: true
         existingClaim: truenas-media-pvc
         mountPath: /media
-    podSecurityContext:
-      runAsUser: 1001
-      runAsGroup: 1001
-      fsGroup: 1001
     resources:
       requests:
-        memory: 350Mi
-        cpu: 25m
+        cpu: "0.04"
+        memory: "256M"
       limits:
-        memory: 500Mi
+        memory: "512M"
     affinity:
       nodeAffinity:
         requiredDuringSchedulingIgnoredDuringExecution:
@@ -67,7 +63,3 @@ spec:
                   operator: In
                   values:
                     - worker
-                - key: kubernetes.io/arch
-                  operator: In
-                  values:
-                    - amd64
