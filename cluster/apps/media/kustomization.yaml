@@ -9,5 +9,5 @@ resources:
   - prowlarr
   - radarr
   - sabnzbd
- # - sonarr
+  - sonarr
   - tautulli

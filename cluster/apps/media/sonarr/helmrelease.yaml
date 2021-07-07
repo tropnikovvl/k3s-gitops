@@ -45,19 +45,10 @@ spec:
         storageClass: "rook-ceph-block"
         accessMode: ReadWriteOnce
         size: 10Gi
-      incomplete:
-        enabled: true
-        storageClass: "rook-ceph-block"
-        accessMode: ReadWriteOnce
-        size: 50Gi
       media:
         enabled: true
         existingClaim: truenas-media-pvc
         mountPath: /media
-    podSecurityContext:
-      runAsUser: 1001
-      runAsGroup: 1001
-      fsGroup: 1001
     resources:
       requests:
         memory: 350Mi
