@@ -8,6 +8,6 @@ resources:
   - plex
   - prowlarr
   - radarr
- # - sabnzbd
+  - sabnzbd
  # - sonarr
   - tautulli

@@ -54,10 +54,6 @@ spec:
         cpu: 500m
       limits:
         memory: 1000Mi
-    podSecurityContext:
-      runAsUser: 1001
-      runAsGroup: 1001
-      fsGroup: 1001
     affinity:
       nodeAffinity:
         requiredDuringSchedulingIgnoredDuringExecution:
@@ -67,7 +63,3 @@ spec:
                   operator: In
                   values:
                     - worker
-                - key: kubernetes.io/arch
-                  operator: In
-                  values:
-                    - amd64
