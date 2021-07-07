@@ -60,9 +60,9 @@ spec:
       metadataDevice:
       osdsPerDevice: "1"
     nodes:
-    - name: "k3s-04"
-      devices:
-      - name: "sdb"
+    # - name: "k3s-04"
+    #   devices:
+    #   - name: "sdb"
     - name: "k3s-06"
       devices:
       - name: "sdb"
