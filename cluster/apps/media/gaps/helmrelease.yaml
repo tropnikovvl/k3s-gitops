@@ -38,6 +38,7 @@ spec:
         size: "5Gi"
         accessMode: ReadWriteOnce
         storageClass: "rook-ceph-block"
+        mountPath: /usr/data
     resources:
       requests:
         memory: 250Mi
