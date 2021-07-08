@@ -23,16 +23,17 @@ spec:
       pullPolicy: IfNotPresent
       tag: version-2.5.191
     ingress:
-      enabled: true
-      annotations:
-        kubernetes.io/ingress.class: "nginx"
-      hosts:
-        - host: "wiki.casalani.de"
-          paths:
-            - path: /
-      tls:
-        - hosts:
-            - "wiki.casalani.de"
+      main:
+        enabled: true
+        annotations:
+          kubernetes.io/ingress.class: "nginx"
+        hosts:
+          - host: "wiki.casalani.de"
+            paths:
+              - path: /
+        tls:
+          - hosts:
+              - "wiki.casalani.de"
     persistence:
       config:
         enabled: true
