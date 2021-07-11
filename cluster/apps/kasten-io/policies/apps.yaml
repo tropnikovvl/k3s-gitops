@@ -24,6 +24,9 @@ spec:
             operator: In
             values:
             - "true"
+        excludeResources:
+        - name: truenas-media-pvc
+          resource: persistentvolumeclaims
         profile:
           name: nfs
           namespace: kasten-io
