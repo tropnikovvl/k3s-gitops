@@ -69,3 +69,6 @@ spec:
     - name: "k3s-05"
       devices:
       - name: "sdb"
+    - name: "k3s-07"
+      devices:
+      - name: "sdb"
