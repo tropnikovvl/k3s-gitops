@@ -48,6 +48,14 @@ spec:
         existingClaim: truenas-media-pvc
         mountPath: /media
         readOnly: true
+    resources:
+      requests:
+        cpu: 200m
+        memory: 256Mi
+        gpu.intel.com/i915: 1
+      limits:
+        gpu.intel.com/i915: 1
+        memory: 4Gi
     affinity:
       nodeAffinity:
         requiredDuringSchedulingIgnoredDuringExecution:
