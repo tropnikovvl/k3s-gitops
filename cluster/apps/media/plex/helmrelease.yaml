@@ -27,8 +27,8 @@ spec:
       ADVERTISE_IP: 192.168.10.63
     podSecurityContext:
       supplementalGroups:
-      - 44
-      - 109
+        - 44
+        - 109
       runAsUser: 568
       runAsGroup: 568
       fsGroup: 568
@@ -64,9 +64,9 @@ spec:
       requests:
         cpu: 200m
         memory: 256Mi
-        # gpu.intel.com/i915: 1
+        gpu.intel.com/i915: 1
       limits:
-        # gpu.intel.com/i915: 1
+        gpu.intel.com/i915: 1
         memory: 4Gi
     affinity:
       nodeAffinity:
