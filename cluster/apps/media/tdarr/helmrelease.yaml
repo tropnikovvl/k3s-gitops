@@ -61,6 +61,10 @@ spec:
         requiredDuringSchedulingIgnoredDuringExecution:
           nodeSelectorTerms:
             - matchExpressions:
+                - key: feature.node.kubernetes.io/custom-intel-gpu
+                  operator: In
+                  values:
+                    - "true"
                 - key: node-role.kubernetes.io/worker
                   operator: In
                   values:
