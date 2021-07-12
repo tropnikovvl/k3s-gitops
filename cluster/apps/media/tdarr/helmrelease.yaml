@@ -26,7 +26,7 @@ spec:
       main:
         enabled: true
         hosts:
-          - host: tdarr.int..casalani.de
+          - host: tdarr.int.casalani.de
             paths:
               - path: /
                 pathType: Prefix
