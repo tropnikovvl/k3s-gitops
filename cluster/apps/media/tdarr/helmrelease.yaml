@@ -31,18 +31,12 @@ spec:
               - path: /
                 pathType: Prefix
     persistence:
-      config:
-        enabled: true
-        storageClass: "rook-ceph-block"
-        accessMode: ReadWriteOnce
-        size: 5Gi
-        mountpath: /app/configs
       data:
         enabled: true
         storageClass: "rook-ceph-block"
         accessMode: ReadWriteOnce
         size: 5Gi
-        mountpath: /app/server
+        mountPath: /app/server
       media:
         enabled: true
         existingClaim: truenas-media-pvc
