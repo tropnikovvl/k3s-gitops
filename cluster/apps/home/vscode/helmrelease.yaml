@@ -40,6 +40,9 @@ spec:
       tls:
         - hosts:
             - "code.casalani.de"
+          paths:
+            - path: /
+
     affinity:
       nodeAffinity:
         requiredDuringSchedulingIgnoredDuringExecution:
