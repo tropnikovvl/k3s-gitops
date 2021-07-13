@@ -8,6 +8,6 @@ resources:
   - mosquitto
   - octoprint
   - teslamate
-  - vscode
+  #- vscode
   - wikijs
   - zwavejs2mqtt
