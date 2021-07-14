@@ -41,12 +41,10 @@ spec:
       annotations:
         kubernetes.io/ingress.class: "nginx"
       hosts:
-        - host: "unifi.casalani.de"
-          paths:
-            - path: /
+        - host: "unifi.${SECRET_DOMAIN}"
       tls:
         - hosts:
-            - "unifi.casalani.de"
+            - "unifi.${SECRET_DOMAIN}"
     guiService:
       type: LoadBalancer
       loadBalancerIP: ${LB_UNIFI}
