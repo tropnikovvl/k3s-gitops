@@ -41,7 +41,7 @@ spec:
       annotations:
         kubernetes.io/ingress.class: "nginx"
       hosts:
-        - host: "unifi.${SECRET_DOMAIN}"
+        - "unifi.${SECRET_DOMAIN}"
       tls:
         - hosts:
             - "unifi.${SECRET_DOMAIN}"
