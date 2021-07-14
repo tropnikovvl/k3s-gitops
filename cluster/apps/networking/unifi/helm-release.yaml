@@ -37,17 +37,16 @@ spec:
         loki:
           url: http://loki.monitoring.svc.cluster.local:3100/loki/api/v1/push
     ingress:
-      main:
-        enabled: true
-        annotations:
-          kubernetes.io/ingress.class: "nginx"
-        hosts:
-          - host: "unifi.casalani.de"
-            paths:
-              - path: /
-        tls:
-          - hosts:
-              - "unifi.casalani.de"
+      enabled: true
+      annotations:
+        kubernetes.io/ingress.class: "nginx"
+      hosts:
+        - host: "unifi.casalani.de"
+          paths:
+            - path: /
+      tls:
+        - hosts:
+            - "unifi.casalani.de"
     guiService:
       type: LoadBalancer
       loadBalancerIP: ${LB_UNIFI}
