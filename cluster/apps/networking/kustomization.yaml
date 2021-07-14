@@ -5,4 +5,5 @@ resources:
 #  - cloudflare-ddns
   - coredns
   - ingress-nginx
+  - unifi
   - wildcard-certificate
