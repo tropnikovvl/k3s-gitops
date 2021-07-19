@@ -38,6 +38,9 @@ spec:
         namespace: kasten-io
       exportData:
         enabled: true
+      migrationToken:
+        name: apps-migration-token-j6fq5
+        namespace: kasten-io
   retention:
     daily: 7
     weekly: 2
