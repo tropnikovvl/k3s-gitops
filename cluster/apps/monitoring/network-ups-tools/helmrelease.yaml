@@ -19,6 +19,8 @@ spec:
   values:
     env:
       TZ: "Europe/Berlin"
+    securityContext:
+      privileged: true
     config:
       mode: values
       files:
