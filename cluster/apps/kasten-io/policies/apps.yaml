@@ -6,6 +6,11 @@ metadata:
   namespace: kasten-io
 spec:
   frequency: "@daily"
+  retention:
+    daily: 7
+    weekly: 2
+    monthly: 2
+    yearly: 0
   selector:
     matchExpressions:
     - key: k10.kasten.io/appNamespace
@@ -19,14 +24,9 @@ spec:
       filters:
         includeResources:
         - resource: persistentvolumeclaims
-          matchExpressions:
-          - key: kasten.io/backup-volume
-            operator: In
-            values:
-            - "true"
         excludeResources:
-        - name: truenas-media-pvc
-          resource: persistentvolumeclaims
+        - resource: persistentvolumeclaims
+          name: truenas-media-pvc
         profile:
           name: nfs
           namespace: kasten-io
@@ -41,8 +41,3 @@ spec:
       migrationToken:
         name: apps-migration-token-j6fq5
         namespace: kasten-io
-  retention:
-    daily: 7
-    weekly: 2
-    monthly: 2
-    yearly: 0
