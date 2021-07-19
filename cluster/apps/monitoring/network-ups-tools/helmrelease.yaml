@@ -29,7 +29,7 @@ spec:
         upsd.conf: |
           LISTEN 0.0.0.0
         ups.conf: |
-          [dummy]
+          [APC900VA]
             driver = usbhid-ups
             port = auto
             desc = "APC UPS 900VA"
