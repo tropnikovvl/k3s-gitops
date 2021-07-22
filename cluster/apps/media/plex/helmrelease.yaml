@@ -20,7 +20,7 @@ spec:
     image:
       repository: ghcr.io/k8s-at-home/plex
       pullPolicy: IfNotPresent
-      tag: v1.23.3.4707-ebb5fe9f3
+      tag: v1.23.5.4841-549599676
     env:
       TZ: "Europe/Berlin"
       PLEX_CLAIM: "claim-1pFfLsCmPBomam8bxMC9"
