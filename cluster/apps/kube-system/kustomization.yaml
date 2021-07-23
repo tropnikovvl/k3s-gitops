@@ -3,5 +3,5 @@ kind: Kustomization
 resources:
   - descheduler
   - intel-gpu_plugin
-#  - nfs-client-provisioner
   - node-feature-discovery
+  - reloader
