@@ -20,7 +20,7 @@ spec:
     image:
       repository: octoprint/octoprint
       pullPolicy: IfNotPresent
-      tag: 1.6.1
+      tag: 5512.0.0
     env:
       TZ: "Europe/Berlin"
       OCTOPRINT_PORT: "5000"
