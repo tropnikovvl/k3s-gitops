@@ -56,8 +56,10 @@ extra:
       link: https://discord.gg/sTMX7Vh
     - icon: fontawesome/brands/twitter
       link: https://twitter.com/teqqyde
+    - icon: fontawesome/brands/youtube
+      link: https://youtube.com/teqqyde
 
-copyright: Copyright &copy; 2020 - 2021 Michael Fornaro
+copyright: Copyright &copy; 2020 - 2021 Christian Birkenbeul
 
 extra_css:
   - _static/custom.css
