@@ -36,7 +36,7 @@ theme:
     text: Roboto
     code: Roboto Mono
 
-docs_dir: ./docs
+docs_dir: ../../docs
 
 extra_css:
   - _static/custom.css
