@@ -27,7 +27,7 @@ spec:
       storageClass: rook-ceph-block
     timezone: "Europe/Berlin"
     runAsRoot: false
-    hostNetwork: true
+#    hostNetwork: true
     logging:
       promtail:
         enabled: true
