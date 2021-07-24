@@ -98,16 +98,16 @@ markdown_extensions:
   - pymdownx.tilde
 
 # Page tree
-nav:
-  - Introduction: index.md
-  - Installation:
-      - Preparing Nodes: installation/preparing-nodes.md
-      - Installing Kubernetes: installation/installing-kubernetes.md
-      - Bootstrap Applications: installation/bootstrap-applications.md
-  - Networking:
-      - DNS: networking/dns.md
-  - Storage:
-      - Backing up data manually: storage/manual-data-backup.md
-      - Restoring data manually: storage/manual-data-restore.md
-      - Backing up data using Kasten: storage/kasten-data-backup.md
-      - Restoring data with Kasten: storage/kasten-data-restore.md
+# nav:
+#   - Introduction: index.md
+#   - Installation:
+#       - Preparing Nodes: installation/preparing-nodes.md
+#       - Installing Kubernetes: installation/installing-kubernetes.md
+#       - Bootstrap Applications: installation/bootstrap-applications.md
+#   - Networking:
+#       - DNS: networking/dns.md
+#   - Storage:
+#       - Backing up data manually: storage/manual-data-backup.md
+#       - Restoring data manually: storage/manual-data-restore.md
+#       - Backing up data using Kasten: storage/kasten-data-backup.md
+#       - Restoring data with Kasten: storage/kasten-data-restore.md
