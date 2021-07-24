@@ -98,6 +98,7 @@ markdown_extensions:
 # Page tree
 nav:
   - Introduction: index.md
+  - Restore: restore.md
 #   - Installation:
 #       - Preparing Nodes: installation/preparing-nodes.md
 #       - Installing Kubernetes: installation/installing-kubernetes.md
