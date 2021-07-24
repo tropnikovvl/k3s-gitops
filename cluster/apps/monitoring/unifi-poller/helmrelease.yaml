@@ -23,7 +23,7 @@ spec:
     env:
       TZ: "Europe/Berlin"
       UP_UNIFI_DEFAULT_ROLE: "homelab-controller"
-      UP_UNIFI_DEFAULT_URL: "https://192.168.10.64"
+      UP_UNIFI_DEFAULT_URL: "https://unifi.casalani.de"
       UP_UNIFI_DEFAULT_VERIFY_SSL: false
       UP_UNIFI_DEFAULT_USER: "unifipoller"
       UP_UNIFI_DEFAULT_PASS: "unifipoller"
