@@ -2,10 +2,10 @@
 site_name: cbirkenbeul | Home Cluster
 site_description: My home Kubernetes (k3s) cluster managed by GitOps (Flux2)
 site_author: Christian Birkenbeul
-site_url: https://cbirkenbeul.github.io/home-cluster/
+site_url: https://cbirkenbeul.github.io/k3s-gitops/
 
-repo_name: cbirkenbeul/home-cluster
-repo_url: https://github.com/cbirkenbeul/home-cluster
+repo_name: cbirkenbeul/k3s-gitops
+repo_url: https://github.com/cbirkenbeul/k3s-gitops
 edit_uri: "edit/main/docs/"
 
 theme:
@@ -57,49 +57,45 @@ extra:
     - icon: fontawesome/brands/twitter
       link: https://twitter.com/teqqyde
 
-# Extensions
+copyright: Copyright &copy; 2020 - 2021 Michael Fornaro
+
+extra_css:
+  - _static/custom.css
+
+plugins:
+  # https://squidfunk.github.io/mkdocs-material/setup/setting-up-site-search/#built-in-search
+  - search
+  # https://squidfunk.github.io/mkdocs-material/setup/adding-a-git-repository/#revision-date-localized
+  - git-revision-date-localized
+
+# https://squidfunk.github.io/mkdocs-material/setup/setting-up-site-analytics/#google-analytics
+# google_analytics:
+#   - UA-XXXXXXXX-X
+#   - auto
+
+# https://www.mkdocs.org/user-guide/configuration/#markdown_extensions
 markdown_extensions:
   - admonition
-  - abbr
-  - attr_list
-  - def_list
-  - footnotes
   - meta
-  - md_in_html
+  - codehilite:
+      guess_lang: false
   - toc:
       permalink: true
-  - pymdownx.arithmatex:
-      generic: true
-  - pymdownx.betterem:
-      smart_enable: all
-  - pymdownx.caret
-  - pymdownx.critic
-  - pymdownx.details
+  - pymdownx.superfences:
+      highlight_code: true
+  - pymdownx.tabbed
+  - pymdownx.tilde
+  - pymdownx.progressbar
+  - pymdownx.tasklist
+  - pymdownx.superfences
+  - pymdownx.snippets
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
-  - pymdownx.highlight
-  - pymdownx.inlinehilite
-  - pymdownx.keys
-  - pymdownx.magiclink:
-      repo_url_shorthand: true
-      user: k8s-at-home
-      repo: docs
-  - pymdownx.mark
-  - pymdownx.smartsymbols
-  - pymdownx.superfences:
-      custom_fences:
-        - name: mermaid
-          class: mermaid-experimental
-          format: !!python/name:pymdownx.superfences.fence_code_format
-  - pymdownx.tabbed
-  - pymdownx.tasklist:
-      custom_checkbox: true
-  - pymdownx.tilde
 
 # Page tree
-# nav:
-#   - Introduction: index.md
+nav:
+  - Introduction: index.md
 #   - Installation:
 #       - Preparing Nodes: installation/preparing-nodes.md
 #       - Installing Kubernetes: installation/installing-kubernetes.md
