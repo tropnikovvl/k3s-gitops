@@ -6,20 +6,12 @@ Feel free to open a [Github issue](https://github.com/onedr0p/home-cluster/issue
 
 This repository is built off the [k8s-at-home/template-cluster-k3s](https://github.com/k8s-at-home/template-cluster-k3s) repository.
 
-## Cluster setup
-
-My cluster is [k3s](https://k3s.io/) provisioned overtop Ubuntu 21.04 using the [Ansible](https://www.ansible.com/) galaxy role [ansible-role-k3s](https://github.com/PyratLabs/ansible-role-k3s). This is a semi hyper-converged cluster, workloads and block storage are sharing the same available resources on my nodes.
-
-See my [ansible](./ansible/) directory for my playbooks and roles.
 
 ## Cluster components
 
-- [calico](https://docs.projectcalico.org/about/about-calico): For internal cluster networking using BGP configured on Opnsense.
 - [rook-ceph](https://rook.io/): Provides persistent volumes, allowing any application to consume RBD block storage.
 - [Mozilla SOPS](https://toolkit.fluxcd.io/guides/mozilla-sops/): Encrypts secrets which is safe to store - even to a public repository.
-- [external-dns](https://github.com/kubernetes-sigs/external-dns): Creates DNS entries in a separate [coredns](https://github.com/coredns/coredns) deployment which is backed by my clusters [etcd](https://github.com/etcd-io/etcd) deployment.
 - [cert-manager](https://cert-manager.io/docs/): Configured to create TLS certs for all ingress services automatically using LetsEncrypt.
-- [kube-vip](https://github.com/kube-vip/kube-vip): HA solution for Kubernetes control plane
 - [Kasten](https://www.kasten.io): Data backup and recovery
 
 ## Repository structure
@@ -45,47 +37,11 @@ The Git repository contains the following directories under `cluster` and are or
 - Rancher [System Upgrade Controller](https://github.com/rancher/system-upgrade-controller) to apply updates to k3s
 - [Renovate](https://github.com/renovatebot/renovate) with the help of the [k8s-at-home/renovate-helm-releases](https://github.com/k8s-at-home/renovate-helm-releases) Github action keeps my application charts and container images up-to-date
 
-## Networking
-
-_Currently when using BGP on Opnsense, services do not get properly load balanced. This is due to Opnsense not supporting multipath in the BSD kernel._
-
-In my network Calico is configured with BGP on my [Opnsense](https://opnsense.org/) router. With BGP enabled, I advertise a load balancer using `externalIPs` on my Kubernetes services.
-
-| Name                        | CIDR              |
-|-----------------------------|-------------------|
-| Management                  | `192.168.1.0/24`  |
-| Servers                     | `192.168.42.0/24` |
-| k8s external services (BGP) | `192.168.69.0/24` |
-| k8s pods                    | `10.69.0.0/16`    |
-| k8s services                | `10.96.0.0/16`    |
-
-## DNS
-
-To prefix this, I should mention that I only use one domain name for internal and externally facing applications. Also this is the most complicated thing to explain but I will try to sum it up.
-
-On [Opnsense](https://opnsense.org/) under `Services: Unbound DNS: Overrides` I have a `Domain Override` set to my domain with the address pointing to my _in-cluster-non-cluster service_ CoreDNS load balancer IP. This allows me to use [Split-horizon DNS](https://en.wikipedia.org/wiki/Split-horizon_DNS). [external-dns](https://github.com/kubernetes-sigs/external-dns) reads my clusters `Ingress`'s and inserts DNS records containing the sub-domain and load balancer IP (of traefik) into the _in-cluster-non-cluster service_ CoreDNS service and into Cloudflare depending on if an annotation is present on the ingress. See the diagram below for a visual representation.
-
-<div align="center">
-<img src="https://user-images.githubusercontent.com/213795/116820353-91f6e480-ab42-11eb-9109-95e485df9249.png" align="center" />
-</div>
-
 ## Hardware
 
 | Device                 | Count | OS Disk Size | Data Disk Size       | Ram  | Purpose                     |
 |------------------------|-------|--------------|----------------------|------|-----------------------------|
-| Intel NUC8i3BEK        | 3     | 256GB NVMe   | N/A                  | 16GB | k3s Masters (embedded etcd) |
-| Intel NUC8i5BEH        | 1     | 240GB SSD    | 1TB NVMe (rook-ceph) | 32GB | k3s Workers                 |
-| Intel NUC8i7BEH        | 2     | 240GB SSD    | 1TB NVMe (rook-ceph) | 32GB | k3s Workers                 |
-| TrueNAS SCALE (custom) | 1     | 120GB SSD    | 8x12TB RAIDz2        | 64GB | Shared file storage         |
 
-## Tools
-
-| Tool                                                   | Purpose                                                      |
-|--------------------------------------------------------|--------------------------------------------------------------|
-| [direnv](https://github.com/direnv/direnv)             | Sets environment variable based on present working directory |
-| [go-task](https://github.com/go-task/task)             | Alternative to makefiles, who honestly likes that?           |
-| [pre-commit](https://github.com/pre-commit/pre-commit) | Enforce code consistency and verifies no secrets are pushed  |
-| [stern](https://github.com/stern/stern)                | Tail logs in Kubernetes                                      |
 
 ## Thanks
 
