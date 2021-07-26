@@ -21,6 +21,18 @@ spec:
       TZ: "Europe/Berlin"
     securityContext:
       privileged: true
+    service:
+      main:
+        ports:
+          http:
+            enabled: false
+          server:
+            enabled: true
+            protocol: TCP
+            port: 3493
+            type: LoadBalancer
+            loadBalancerIP: ${LB_NUT}
+            externalTrafficPolicy: Local
     config:
       mode: values
       files:
