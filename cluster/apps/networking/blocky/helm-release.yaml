@@ -98,7 +98,8 @@ spec:
       limits:
         # memory: 2048Mi
         cpu: "0.05"
-
+    podAnnotations:
+      configmap.reloader.stakater.com/reload: "blocky-config"
     affinity:
       nodeAffinity:
         requiredDuringSchedulingIgnoredDuringExecution:
