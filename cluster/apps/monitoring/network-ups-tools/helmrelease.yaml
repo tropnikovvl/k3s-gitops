@@ -44,6 +44,10 @@ spec:
             driver = usbhid-ups
             port = auto
             desc = "APC UPS 900VA"
+        upsd.users: |
+          [upsslave]
+            password = upsslavepw
+            upsmon slave
     affinity:
       nodeAffinity:
         requiredDuringSchedulingIgnoredDuringExecution:
