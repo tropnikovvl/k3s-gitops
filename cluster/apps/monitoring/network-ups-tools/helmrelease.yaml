@@ -23,16 +23,15 @@ spec:
       privileged: true
     service:
       main:
+        enabled: true
+        type: LoadBalancer
+        loadBalancerIP: ${LB_NUT}
+        externalTrafficPolicy: Local
         ports:
           http:
-            enabled: false
-          server:
             enabled: true
-            protocol: TCP
             port: 3493
-            type: LoadBalancer
-            loadBalancerIP: ${LB_NUT}
-            externalTrafficPolicy: Local
+            protocol: TCP
     config:
       mode: values
       files:
