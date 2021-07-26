@@ -48,6 +48,8 @@ spec:
           [upsslave]
             password = upsslavepw
             upsmon slave
+    podAnnotations:
+      configmap.reloader.stakater.com/reload: "blocky-config"
     affinity:
       nodeAffinity:
         requiredDuringSchedulingIgnoredDuringExecution:
