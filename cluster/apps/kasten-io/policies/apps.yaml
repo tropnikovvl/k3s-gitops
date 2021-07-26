@@ -38,6 +38,6 @@ spec:
         namespace: kasten-io
       exportData:
         enabled: true
-      # migrationToken:
-      #   name: apps-migration-token-j6fq5
-      #   namespace: kasten-io
+      migrationToken:
+        name: apps-migration-token-4nfhz
+        namespace: kasten-io
