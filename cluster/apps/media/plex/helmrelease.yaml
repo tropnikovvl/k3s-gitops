@@ -24,6 +24,7 @@ spec:
     env:
       TZ: "Europe/Berlin"
       ADVERTISE_IP: ${LB_PLEX}
+      PLEX_CLAIM: "claim-1pFfLsCmPBomam8bxMC9"
     podSecurityContext:
       supplementalGroups:
         - 44
