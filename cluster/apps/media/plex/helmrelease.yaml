@@ -20,15 +20,14 @@ spec:
     image:
       repository: ghcr.io/k8s-at-home/plex
       pullPolicy: IfNotPresent
-      tag: v1.23.5.4841-549599676
+      tag: v1.23.6.4881-e2e58f321
     env:
       TZ: "Europe/Berlin"
-      PLEX_CLAIM: "claim-1pFfLsCmPBomam8bxMC9"
-      ADVERTISE_IP: 192.168.10.63
     podSecurityContext:
       supplementalGroups:
         - 44
         - 109
+        - 100
       runAsUser: 568
       runAsGroup: 568
       fsGroup: 568
@@ -40,13 +39,13 @@ spec:
           external-dns/is-public: "true"
           external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
         hosts:
-        - host: "plex.${SECRET_DOMAIN}"
-          paths:
-          - path: /
-            pathType: Prefix
+          - host: "plex.${SECRET_DOMAIN}"
+            paths:
+              - path: /
+                pathType: Prefix
         tls:
-        - hosts:
-          - "plex.${SECRET_DOMAIN}"
+          - hosts:
+              - "plex.${SECRET_DOMAIN}"
     service:
       main:
         type: LoadBalancer
@@ -60,6 +59,10 @@ spec:
         storageClass: "rook-ceph-block"
         accessMode: ReadWriteOnce
         size: 30Gi
+      transcode:
+        enabled: true
+        type: emptyDir
+        medium: Memory
       media-rocinante:
         enabled: true
         existingClaim: truenas-media-pvc
