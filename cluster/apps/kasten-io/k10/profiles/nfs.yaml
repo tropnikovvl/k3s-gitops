@@ -8,7 +8,7 @@ spec:
   locationSpec:
     type: FileStore
     fileStore:
-      claimName: nfs-k3s-backup
+      claimName: nfs-kasten
       path: k10/migration
     credential:
       secretType: ""
