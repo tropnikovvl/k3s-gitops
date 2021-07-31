@@ -5,4 +5,4 @@ resources:
   - helmrelease.yaml
   - monitoring
 #  - policies
-#  - profiles
+  - profiles
