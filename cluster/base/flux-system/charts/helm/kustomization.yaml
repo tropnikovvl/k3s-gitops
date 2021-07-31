@@ -19,3 +19,4 @@ resources:
   - reflector-charts.yaml
   - rook-ceph-charts.yaml
   - stakater-charts.yaml
+  - traefik-charts.yaml
