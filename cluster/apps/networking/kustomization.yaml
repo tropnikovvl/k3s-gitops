@@ -7,5 +7,6 @@ resources:
   - coredns
   - external-dns
 #  - ingress-nginx
+  - traefik
   - unifi
   - wildcard-certificate
