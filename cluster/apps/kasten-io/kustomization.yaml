@@ -4,5 +4,3 @@ kind: Kustomization
 resources:
   - _pvs
   - k10
-  - policies
-  - profiles
