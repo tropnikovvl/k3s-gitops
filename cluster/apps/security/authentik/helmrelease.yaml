@@ -33,13 +33,13 @@ spec:
         password: "${SECRET_AUTHENTIK_POSTGRES_PASSWORD}"
       redis:
         host: "authentik-redis-master"
-      # email:
-      #   host: "smtp.sendgrid.net"
-      #   port: 587
-      #   use_tls: true
-      #   username: "apikey"
-      #   password: "${SECRET_SENDGRID_API_KEY}"
-      #   from: "no-reply@${SECRET_DOMAIN}"
+      email:
+        host: "smtp.teqqnet.de"
+        port: 587
+        use_tls: true
+        username: "authentik@${SECRET_DOMAIN}"
+        password: "${SECRET_AUTHENTIK_EMAIL_PASSWORD}"
+        from: "authentik@${SECRET_DOMAIN}"
     ingress:
       enabled: true
       ingressClassName: "traefik"
