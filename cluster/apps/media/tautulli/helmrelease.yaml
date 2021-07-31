@@ -26,6 +26,10 @@ spec:
     ingress:
       main:
         enabled: true
+        ingressClassName: "traefik"
+        annotations:
+          traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+          traefik.ingress.kubernetes.io/router.middlewares: "network-internal-auth@kubernetescrd"
         hosts:
           - host: tautulli.casalani.de
             paths:
