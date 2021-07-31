@@ -23,6 +23,7 @@ spec:
       tag: v1.23.6.4881-e2e58f321
     env:
       TZ: "Europe/Berlin"
+      ADVERTISE_IP: ${LB_PLEX}
     podSecurityContext:
       supplementalGroups:
         - 44
