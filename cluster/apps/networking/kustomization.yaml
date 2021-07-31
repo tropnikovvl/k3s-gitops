@@ -6,6 +6,6 @@ resources:
   - cloudflare-ddns
   - coredns
   - external-dns
-  - ingress-nginx
+#  - ingress-nginx
   - unifi
   - wildcard-certificate
