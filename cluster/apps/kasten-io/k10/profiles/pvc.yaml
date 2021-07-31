@@ -14,9 +14,6 @@ spec:
   nfs:
     server: 192.168.10.13
     path: /mnt/tank/k3s-backup
-  mountOptions:
-  - nfsvers=4.1
-  - hard
 
 ---
 apiVersion: v1
