@@ -52,20 +52,19 @@ spec:
         mountPath: /usr/data
     resources:
       requests:
-        memory: 250Mi
-        cpu: 500m
+        memory: 254Mi
       limits:
-        memory: 500Mi
+        memory: 512Mi
     affinity:
       nodeAffinity:
         requiredDuringSchedulingIgnoredDuringExecution:
           nodeSelectorTerms:
-            - matchExpressions:
-                - key: kubernetes.io/arch
-                  operator: In
-                  values:
-                    - amd64
-                - key: node-role.kubernetes.io/worker
-                  operator: In
-                  values:
-                    - worker
+          - matchExpressions:
+            - key: kubernetes.io/arch
+              operator: In
+              values:
+              - amd64
+            - key: node-role.kubernetes.io/worker
+              operator: In
+              values:
+              - worker

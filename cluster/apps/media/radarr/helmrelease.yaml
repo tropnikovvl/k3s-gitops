@@ -66,16 +66,15 @@ spec:
         mountPath: /media
     resources:
       requests:
-        cpu: "0.04"
-        memory: "256M"
+        memory: 256Mi
       limits:
-        memory: "512M"
+        memory: 512Mi
     affinity:
       nodeAffinity:
         requiredDuringSchedulingIgnoredDuringExecution:
           nodeSelectorTerms:
-            - matchExpressions:
-                - key: node-role.kubernetes.io/worker
-                  operator: In
-                  values:
-                    - worker
+          - matchExpressions:
+            - key: node-role.kubernetes.io/worker
+              operator: In
+              values:
+              - worker

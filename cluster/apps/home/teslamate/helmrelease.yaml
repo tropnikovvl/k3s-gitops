@@ -46,10 +46,10 @@ spec:
           - "teslamate.${SECRET_DOMAIN}"
     resources:
       requests:
-        memory: 250Mi
+        memory: 128Mi
         cpu: 50m
       limits:
-        memory: 500Mi
+        memory: 256Mi
     probes:
       liveness:
         spec:
@@ -68,11 +68,11 @@ spec:
       nodeAffinity:
         requiredDuringSchedulingIgnoredDuringExecution:
           nodeSelectorTerms:
-            - matchExpressions:
-                - key: node-role.kubernetes.io/worker
-                  operator: In
-                  values:
-                    - worker
+          - matchExpressions:
+            - key: node-role.kubernetes.io/worker
+              operator: In
+              values:
+              - worker
 
   valuesFrom:
   - kind: Secret
