@@ -1,0 +1,85 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: mailu
+  namespace: mail
+spec:
+  interval: 5m
+  chart:
+    spec:
+      # renovate: registryUrl=https://toboshii.github.io/helm-charts
+      chart: mailu
+      version: 0.2.3
+      sourceRef:
+        kind: HelmRepository
+        name: toboshii-charts
+        namespace: flux-system
+      interval: 5m
+  values:
+    certmanager:
+      issuerName: letsencrypt-production
+    domain: "${SECRET_DOMAIN}"
+    hostnames:
+      - "dfw2-gtw-ipv4.${SECRET_DOMAIN}"
+      - "smtp.${SECRET_DOMAIN}"
+      - "imap.${SECRET_DOMAIN}"
+      - "mail.${SECRET_DOMAIN}"
+    initialAccount:
+      domain: "${SECRET_DOMAIN}"
+      username: postmaster
+      password: "${SECRET_MAILU_POSTMASTER_PASSWORD}"
+    secretKey: "${SECRET_MAILU_SECRET_KEY}"
+    # subnet: "${NETWORK_K8S_CLUSTER_CIDR}"
+    logLevel: INFO
+    ingress:
+      annotations:
+        traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+        traefik.ingress.kubernetes.io/router.middlewares: "networking-cloudflare-ips@kubernetescrd"
+        external-dns/is-public: "true"
+        external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
+      hosts:
+        - "mail.${SECRET_DOMAIN}"
+      tls:
+        hosts:
+          - "mail.${SECRET_DOMAIN}"
+    persistence:
+      existingClaim: mailu-data-v1
+    roundcube:
+      resources:
+        requests:
+          cpu: 200m
+        limits:
+          cpu: 400m
+    # addons:
+    #   vpn:
+    #     enabled: false
+    #     type: wireguard
+    #     wireguard:
+    #       image:
+    #         repository: ghcr.io/k8s-at-home/wireguard
+    #         tag: v1.0.20210424
+    #     env:
+    #       TZ: "America/Chicago"
+    #       IPTABLES_BACKEND: legacy
+    #       KILLSWITCH: "true"
+    #       KILLSWITCH_EXCLUDEDNETWORKS_IPV4: ${NETWORK_K8S_CLUSTER_CIDR};${NETWORK_K8S_SERVICE_CIDR};${NETWORK_MANAGEMENT_CIDR}
+    #     securityContext:
+    #       capabilities:
+    #         add:
+    #           - NET_ADMIN
+    #           - SYS_MODULE
+    #     configFileSecret: mailu-vpnconfig
+    #     scripts:
+    #       up: |-
+    #         #!/bin/bash
+    #         echo "connected" > /shared/vpnstatus
+    #       down: |-
+    #         #!/bin/bash
+    #         echo "disconnected" > /shared/vpnstatus
+    #     resources:
+    #       requests:
+    #         cpu: "0.001"
+    #         memory: 128Mi
+    #       limits:
+    #         memory: 512Mi
