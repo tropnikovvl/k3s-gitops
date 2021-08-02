@@ -43,6 +43,17 @@ spec:
         storageClass: "rook-ceph-block"
         accessMode: ReadWriteOnce
         size: 5Gi
+    mariadb:
+      existingSecret: home-assistant-mariadb-secret
+      enabled: true
+      architecture: standalone
+      auth:
+        database: home-assistant
+        username: home-assistant
+      primary:
+        persistence:
+          enabled: true
+          storageClass: "rook-ceph"
     ingress:
       main:
         enabled: true
