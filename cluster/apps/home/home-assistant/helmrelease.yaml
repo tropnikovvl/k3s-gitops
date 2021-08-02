@@ -54,8 +54,6 @@ spec:
         persistence:
           enabled: true
           storageClass: "rook-ceph-block"
-          accessMode: ReadWriteOnce
-          size: 5Gi
     ingress:
       main:
         enabled: true
