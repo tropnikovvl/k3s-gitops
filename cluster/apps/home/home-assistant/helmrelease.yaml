@@ -43,17 +43,6 @@ spec:
         storageClass: "rook-ceph-block"
         accessMode: ReadWriteOnce
         size: 5Gi
-    mariadb:
-      existingSecret: home-assistant-mariadb-secret
-      enabled: true
-      architecture: standalone
-      auth:
-        database: home-assistant
-        username: home-assistant
-      primary:
-        persistence:
-          enabled: true
-          storageClass: "rook-ceph-block"
     ingress:
       main:
         enabled: true
@@ -73,6 +62,15 @@ spec:
           - secretName: home-assistant-cert
             hosts:
               - "home.${SECRET_DOMAIN}"
+    influxdb:
+      enabled: false
+      architecture: standalone
+      database: home_assistant
+      authEnabled: false
+      persistence:
+        enabled: false
+        storageClass: "rook-ceph-block"
+        size: 8Gi
     addons:
       codeserver:
         enabled: true
