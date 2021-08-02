@@ -80,10 +80,24 @@ spec:
         workingDir: "/config"
         ingress:
           enabled: true
+          ingressClassName: "traefik"
+          annotations:
+            nginx.ingress.kubernetes.io/proxy-body-size: "0"
+            kubernetes.io/tls-acme: "true"
+            cert-manager.io/cluster-issuer: letsencrypt-production
+            traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+            traefik.ingress.kubernetes.io/router.middlewares: "network-internal-auth@kubernetescrd"
+            external-dns/is-public: "true"
+            external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
           hosts:
-            - host: "ha-config.int.casalani.de"
+            - host: "ha-vscode.${SECRET_DOMAIN}"
               paths:
                 - path: /
+                  pathType: Prefix
+          tls:
+            - secretName: ha-vscode-cert
+              hosts:
+                - "ha-vscode.${SECRET_DOMAIN}"
         args:
           - --auth
           - "none"
