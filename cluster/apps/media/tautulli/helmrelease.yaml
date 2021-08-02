@@ -36,7 +36,8 @@ spec:
               - path: /
                 pathType: Prefix
         tls:
-          - hosts:
+          - secretName: tautulli-cert
+            hosts:
               - "tautulli.casalani.de"
     persistence:
       config:

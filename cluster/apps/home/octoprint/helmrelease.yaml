@@ -41,7 +41,8 @@ spec:
           - path: /
             pathType: Prefix
         tls:
-        - hosts:
+        - secretName: octoprint-cert
+          hosts:
           - "octoprint.${SECRET_DOMAIN}"
     persistence:
       data:
@@ -52,12 +53,12 @@ spec:
     securityContext:
       privileged: true
     additionalVolumeMounts:
-      - name: printer
-        mountPath: /dev/ttyACM0
+    - name: printer
+      mountPath: /dev/ttyACM0
     additionalVolumes:
-      - name: printer
-        hostPath:
-          path: /dev/ttyACM0
+    - name: printer
+      hostPath:
+        path: /dev/ttyACM0
     affinity:
       nodeAffinity:
         requiredDuringSchedulingIgnoredDuringExecution:

@@ -53,7 +53,8 @@ spec:
           - path: /api
             pathType: Prefix
         tls:
-        - hosts:
+        - secretName: sonarr-cert
+          hosts:
           - "sonarr.${SECRET_DOMAIN}"
     persistence:
       config:

@@ -50,7 +50,8 @@ spec:
           - path: /api
             pathType: Prefix
         tls:
-        - hosts:
+        - secretName: sabnzbd-cert
+          hosts:
           - "sabnzbd.${SECRET_DOMAIN}"
     persistence:
       config:

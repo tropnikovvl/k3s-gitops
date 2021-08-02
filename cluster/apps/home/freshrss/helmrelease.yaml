@@ -40,13 +40,14 @@ spec:
           external-dns/is-public: "true"
           external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
         hosts:
-        - host: "freshrss.${SECRET_DOMAIN}"
-          paths:
-          - path: /
-            pathType: Prefix
+          - host: "freshrss.${SECRET_DOMAIN}"
+            paths:
+              - path: /
+                pathType: Prefix
         tls:
-        - hosts:
-          - "freshrss.${SECRET_DOMAIN}"
+          - secretName: freshrss-cert
+            hosts:
+              - "freshrss.${SECRET_DOMAIN}"
     affinity:
       nodeAffinity:
         requiredDuringSchedulingIgnoredDuringExecution:

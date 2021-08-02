@@ -42,7 +42,8 @@ spec:
           - path: /
             pathType: Prefix
         tls:
-        - hosts:
+        - secretName: teslamate-cert
+          hosts:
           - "teslamate.${SECRET_DOMAIN}"
     resources:
       requests:

@@ -54,13 +54,14 @@ spec:
           external-dns/is-public: "true"
           external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
         hosts:
-        - host: "home.${SECRET_DOMAIN}"
-          paths:
-          - path: /
-            pathType: Prefix
+          - host: "home.${SECRET_DOMAIN}"
+            paths:
+              - path: /
+                pathType: Prefix
         tls:
-        - hosts:
-          - "home.${SECRET_DOMAIN}"
+          - secretName: home-assistant-cert
+            hosts:
+              - "home.${SECRET_DOMAIN}"
     addons:
       codeserver:
         enabled: true

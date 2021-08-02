@@ -51,7 +51,8 @@ spec:
           - path: /
             pathType: Prefix
         tls:
-        - hosts:
+        - secretName: zwavejs2mqtt-cert
+          hosts:
           - "zwave.${SECRET_DOMAIN}"
     persistence:
       config:

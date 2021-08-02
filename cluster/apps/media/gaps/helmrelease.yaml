@@ -41,7 +41,8 @@ spec:
           - path: /
             pathType: Prefix
         tls:
-        - hosts:
+        - secretName: gaps-cert
+          hosts:
           - "gaps.${SECRET_DOMAIN}"
     persistence:
       config:

@@ -46,7 +46,8 @@ spec:
               - path: /
                 pathType: Prefix
         tls:
-          - hosts:
+          - secretName: plex-cert
+            hosts:
               - "plex.${SECRET_DOMAIN}"
     service:
       main:
