@@ -63,7 +63,7 @@ spec:
             hosts:
               - "home.${SECRET_DOMAIN}"
     influxdb:
-      enabled: false
+      enabled: true
       architecture: standalone
       database: home_assistant
       authEnabled: false
