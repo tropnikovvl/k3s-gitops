@@ -62,15 +62,6 @@ spec:
           - secretName: home-assistant-cert
             hosts:
               - "home.${SECRET_DOMAIN}"
-    influxdb:
-      enabled: true
-      architecture: standalone
-      database: home_assistant
-      authEnabled: false
-      persistence:
-        enabled: false
-        storageClass: "rook-ceph-block"
-        size: 8Gi
     addons:
       codeserver:
         enabled: true
