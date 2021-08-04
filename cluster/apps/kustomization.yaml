@@ -5,7 +5,7 @@ resources:
   - home
   - kasten-io
   - kube-system
-  - mail
+#  - mail
   - media
   - monitoring
   - networking
