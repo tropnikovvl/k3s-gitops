@@ -4,6 +4,6 @@ kind: Kustomization
 resources:
   - helmrelease.yaml
   - pod-spec-override.yaml
-  - monitoring
+#  - monitoring
   - policies
   - profiles
