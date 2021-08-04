@@ -2,11 +2,11 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - home
+#  - home
   - kasten-io
   - kube-system
 #  - mail
-  - media
+#  - media
   - monitoring
   - networking
   - security
