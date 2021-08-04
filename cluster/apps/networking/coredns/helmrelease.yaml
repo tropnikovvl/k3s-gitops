@@ -26,7 +26,7 @@ spec:
         enabled: false
     service:
       externalTrafficPolicy: Local
-      loadBalancerIP: ${COREDNS}
+      loadBalancerIP: ${LB_COREDNS}
       annotations:
         metallb.universe.tf/allow-shared-ip: coredns
     rbac:
@@ -65,32 +65,17 @@ spec:
       - name: file
         parameters: /etc/coredns/casalani.de
     zoneFiles:
-     - filename: casalani.de
-       domain: casalani.de
-       contents: |
-         casalani.de.   IN SOA etta.ns.cloudflare.com. dns.cloudflare.com. 2020100600 10000 2400 604800 3600
-         *.casalani.de. IN A 192.168.10.51
-    #  - filename: int.casalani.de
-    #    domain: int.casalani.de
-    #    contents: |
-    #      casalani.de.   IN SOA etta.ns.cloudflare.com. dns.cloudflare.com. 2020100600 10000 2400 604800 3600
-    #      pve01.int.caslani.de. IN A 192.168.10.11
-    #      tower.int.casalani.de. IN A 192.168.10.13
-    #      k3s-ma-01.int.casalani.de. IN A 192.168.10.17
-    #      k3s-wo-01.int.casalani.de. IN A 192.168.10.21
-    #      k3s-wo-02.int.casalani.de. IN A 192.168.10.22
-    #      mysql01.int.casalani.de. IN A 192.168.10.23
-    #      unifi01.int.casalani.de. IN A 192.168.10.26
-    #      k3s-rpi4-01.int.casalani.de. IN A 192.168.10.31
-    #      k3s-rpi4-02.int.casalani.de. IN A 192.168.10.32
-    #      k3s-rpi4-03.int.casalani.de. IN A 192.168.10.33
-    #      *.int.casalani.de. IN A 192.168.10.51
+    - filename: casalani.de
+      domain: casalani.de
+      contents: |
+        casalani.de.   IN SOA etta.ns.cloudflare.com. dns.cloudflare.com. 2020100600 10000 2400 604800 3600
+        *.casalani.de. IN A 192.168.10.51
     affinity:
       nodeAffinity:
         requiredDuringSchedulingIgnoredDuringExecution:
           nodeSelectorTerms:
-            - matchExpressions:
-                - key: node-role.kubernetes.io/worker
-                  operator: In
-                  values:
-                    - worker
+          - matchExpressions:
+            - key: node-role.kubernetes.io/worker
+              operator: In
+              values:
+              - worker
