@@ -2,8 +2,7 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - helmrelease.yaml
+#  - helmrelease.yaml
   - letsencrypt-production.yaml
   - letsencrypt-staging.yaml
   - secret.enc.yaml
-
