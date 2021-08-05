@@ -62,13 +62,24 @@ spec:
           - secretName: home-assistant-cert
             hosts:
               - "home.${SECRET_DOMAIN}"
+
+    resources:
+      requests:
+        cpu: 75m
+        memory: 512Mi
+      limits:
+        memory: 2048i
+
     addons:
       codeserver:
         enabled: true
+
         image:
+
           repository: codercom/code-server
           tag: 3.11.0
         workingDir: "/config"
+
         ingress:
           enabled: true
           ingressClassName: "traefik"
@@ -88,6 +99,7 @@ spec:
             - secretName: ha-vscode-cert
               hosts:
                 - "ha-vscode.${SECRET_DOMAIN}"
+
         args:
           - --auth
           - "none"
@@ -95,8 +107,17 @@ spec:
           - "/config/.vscode"
           - --extensions-dir
           - "/config/.vscode"
+
         volumeMounts:
           - name: config
             mountPath: /config
+
         git:
           deployKeySecret: home-assistant-code-server-secret
+
+        resources:
+          requests:
+            cpu: 35m
+            memory: 128Mi
+          limits:
+            memory: 512Mi
