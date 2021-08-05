@@ -4,7 +4,7 @@
   vyos.vyos.vyos_config:
     lines:
       - set service dhcp-server shared-network-name LAN subnet {{ LAN.CIDR }} default-router '{{ LAN.GW }}'
-      - set service dhcp-server shared-network-name LAN subnet {{ LAN.CIDR }} dns-server '{{ LAN.GW }}'
+      - set service dhcp-server shared-network-name LAN subnet {{ LAN.CIDR }} dns-server '{{ LAN.DNS_SERVER }}'
       - set service dhcp-server shared-network-name LAN subnet {{ LAN.CIDR }} domain-name '{{ ZONE }}.casalani.de'
       - set service dhcp-server shared-network-name LAN subnet {{ LAN.CIDR }} lease '86400'
       - set service dhcp-server shared-network-name LAN subnet {{ LAN.CIDR }} range 0 start '{{ LAN.DHCP_RANGE_START }}'
