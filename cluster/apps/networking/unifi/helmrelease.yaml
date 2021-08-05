@@ -38,20 +38,20 @@ spec:
         loki:
           url: http://loki.monitoring.svc.cluster.local:3100/loki/api/v1/push
     ingress:
-      main:
-        enabled: true
-        ingressClassName: "traefik"
-        annotations:
-          kubernetes.io/tls-acme: "true"
-          cert-manager.io/cluster-issuer: letsencrypt-production
-          traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
-          external-dns/is-public: "true"
-          external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
-        hosts:
-          - "unifi.${SECRET_DOMAIN}"
-        tls:
-          - hosts:
-              - "unifi.${SECRET_DOMAIN}"
+      enabled: true
+      ingressClassName: "traefik"
+      annotations:
+        kubernetes.io/tls-acme: "true"
+        cert-manager.io/cluster-issuer: letsencrypt-production
+        traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+        external-dns/is-public: "true"
+        external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
+      hosts:
+        - "unifi.${SECRET_DOMAIN}"
+      tls:
+        - hosts:
+            - "unifi.${SECRET_DOMAIN}"
+          secretName: unifi-cert
     guiService:
       type: LoadBalancer
       loadBalancerIP: ${LB_UNIFI}
