@@ -191,15 +191,6 @@ spec:
           url: https://raw.githubusercontent.com/adriankumpf/teslamate/v1.21.6/grafana/dashboards/internal/charge-details.json
         drive-details:
           url: https://raw.githubusercontent.com/adriankumpf/teslamate/v1.21.6/grafana/dashboards/internal/drive-details.json
-    affinity:
-      nodeAffinity:
-        requiredDuringSchedulingIgnoredDuringExecution:
-          nodeSelectorTerms:
-          - matchExpressions:
-            - key: node-role.kubernetes.io/worker
-              operator: In
-              values:
-              - worker
 
   valuesFrom:
   - kind: Secret
