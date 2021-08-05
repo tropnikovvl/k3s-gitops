@@ -49,7 +49,7 @@ spec:
             password = upsslavepw
             upsmon slave
     podAnnotations:
-      configmap.reloader.stakater.com/reload: "blocky-config"
+      configmap.reloader.stakater.com/reload: "network-ups-tools-config"
     affinity:
       nodeAffinity:
         requiredDuringSchedulingIgnoredDuringExecution:

@@ -5,7 +5,7 @@ resources:
   - blocky
   - cloudflare-ddns
   - coredns
-  - external-dns
+#  - external-dns
   - traefik
   - unifi
   - wildcard-certificate
