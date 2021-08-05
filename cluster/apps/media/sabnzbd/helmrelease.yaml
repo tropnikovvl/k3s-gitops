@@ -56,7 +56,9 @@ spec:
     persistence:
       config:
         enabled: true
-        existingClaim: sabnzbd-pvc
+        storageClass: "rook-ceph-block"
+        accessMode: ReadWriteOnce
+        size: 50Gi
       media:
         enabled: true
         existingClaim: truenas-media-pvc

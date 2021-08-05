@@ -59,7 +59,9 @@ spec:
     persistence:
       config:
         enabled: true
-        existingClaim: plex-pvc
+        storageClass: "rook-ceph-block"
+        accessMode: ReadWriteOnce
+        size: 40Gi
       transcode:
         enabled: true
         type: emptyDir
