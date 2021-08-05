@@ -47,7 +47,9 @@ spec:
     persistence:
       config:
         enabled: true
-        existingClaim: gaps-pvc
+        storageClass: "rook-ceph-block"
+        accessMode: ReadWriteOnce
+        size: 5Gi
     resources:
       requests:
         memory: 254Mi

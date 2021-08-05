@@ -40,8 +40,11 @@ spec:
               - "tdarr.casalani.de"
     persistence:
       data:
+      config:
         enabled: true
-        existingClaim: tdarr-pvc
+        storageClass: "rook-ceph-block"
+        accessMode: ReadWriteOnce
+        size: 5Gi
       media:
         enabled: true
         existingClaim: truenas-media-pvc
