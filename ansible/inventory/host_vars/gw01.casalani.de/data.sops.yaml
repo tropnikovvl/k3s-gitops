@@ -5,7 +5,7 @@ LAN:
     DHCP_RANGE_START: 192.168.10.100
     DHCP_RANGE_END: 192.168.10.255
     GW: 192.168.10.1
-    DNS_SERVER: 192.168.10.53
+    DNS_SERVER: 192.168.10.54
 HOSTNAME: gw01.casalani.de
 SSH_PASSWORD: chris1982
 ZONE: home
@@ -15,8 +15,8 @@ sops:
     azure_kv: []
     hc_vault: []
     age: []
-    lastmodified: "2021-08-05T18:02:16Z"
-    mac: ENC[AES256_GCM,data:l7PKgYuPKQBG18UCxQ4pnQ0yCoLeOmD4SEjHRk1jw21gXV51K9yxQT2IPqOSBlK9bvK2lcnqbIe1RnyovyKpv/LWnbHALmX2qBLZKutxNSb577557hIAvi14ZxJtVEo8kM/4zsoEyXv85wWOs1+0RG8/M7zyz3oe6eh17bcotU0=,iv:jfT5XeHplI7wo64gdE5urOm6wJMOWUgqApCooIBfXPY=,tag:AiJqC8fJbjCe9Ud6tQZTQw==,type:str]
+    lastmodified: "2021-08-05T18:32:14Z"
+    mac: ENC[AES256_GCM,data:q2qqtCdsWNeQxBr3a/srfcqGAwieOIOzrg7vTeMFVE8ga+PlQy5sXOZx0JySEc+zKfDXXAg63SDsJu7vJb3WU/v4GxLkFAXH1TqV0cmQTrGmRUeuJqT2IA9S/YCqTRmWUnrjbsF3KvHKbplVb7jIMLeqF9qXaTWsgLDccSG2T/E=,iv:YaXbTn/Ve6h4BnvnYs0qhYS5j3LKYyW8gMuj/F0SesM=,tag:ouToclgoBOmCyK0tGt4BDw==,type:str]
     pgp:
         - created_at: "2021-08-05T16:34:23Z"
           enc: |
