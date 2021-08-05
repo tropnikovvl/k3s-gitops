@@ -6,5 +6,5 @@ resources:
   - intel-gpu_plugin
   - kube-cleanup-operator
   - node-feature-discovery
-  - node-problem-detector
+#  - node-problem-detector
   - reloader
