@@ -1,0 +1,37 @@
+# yamllint disable
+address_book:
+    - hostname: RPI-BT-001
+      network: LAN
+      ipv4_hostid: 154
+      mac_addr: b8:27:eb:ed:93:5e
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2021-08-05T22:00:58Z"
+    mac: ENC[AES256_GCM,data:TPY4CFpnwUT47mbQeU5QaxXE8K8a06YzdCO7dlfofJdHN9fGsbZp2d9Wb+TbtA6vNqazCH09IgGec/eQVBSzz5eutFogBgNOJloGi2STQtPKAPrQXz3aidAe34FnseRVJN90ryT259NQTKz7mfYazJI/bR3ZDxouJL7DI3918Bo=,iv:Bq8WbCQiyn7hBLSZSPJMDM94hJYvsE6zcqyT2YhEQ98=,tag:95CdliY1/gs6dzydftQX6Q==,type:str]
+    pgp:
+        - created_at: "2021-08-05T20:06:14Z"
+          enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA/oF3k8vCI0xARAAiE8c6eRQFCQ/qm6+HslNolIQovYugGBN6nDAe8OWqUjy
+            zEkUvgTtf4FnkEH0h+HXnQHFmRen8xyG0Mufp/+E5ogjaq5vZns6mo9FzRCpmZH2
+            qWXlYuzdlGsQ/WUnEG1co/fWNYBc8tQoU+ZEXmtde2Nb0nE56cvnTmfZ/xN0eFqI
+            Trix/MoBERU8gqlJwfTKkcSIWa8AtBPhmWP0PyLnmMo6XjyZ1unVLdTzLp6Vdn8/
+            fWmypB/oy2X4MfPY98zo8fBVGnhFOiB5PuSthgsb1h7p6DktASoRYSNqeyeMr8k/
+            JP/LsPWY16g92aAwErFesBbAnQosGjAMIbp7GDzL73BMzxr2VABwBeA7NSTxEncY
+            Jstop5DZywfRQF80/an21Y4rE+bMECh4cMriZUF5jkgUsfeWFDWtFneVhvig2yph
+            v3QAY7h2Lm9/VoK6VSRF24HUTv52fbLjQNKPMcqfRq0anwbbTcxIapkF7/slD3CE
+            w4RdsS9zaxyvEcqfYq/KM8tCF56dV1iFNrK5Oa5yhO20N/orE2DfzH8Yo70FB4T2
+            2Si7s4c1hgXstE5CjkTrFEDpBUw4k0ItyK2fbbhmvneGS0llTa6On9pWRjodBFfx
+            BpHzCfcGf0vS6apXf7Jo+Ylqmiq/NSl8M3X3Mq0ClLI+yPFnFZPHJaAtkkesUg/S
+            XgFfK+MCiUpR82+QkQheoMyrf/AkqMe/FkaH44UHLiQWW1pT9z5ZMK5h6sTzGQiN
+            3O52BOkK6Db3/rci2ztyPXOKmJ10mtej+bi4Ex/LmRsD09762FmXmlwcoUdh/8g=
+            =oV1w
+            -----END PGP MESSAGE-----
+          fp: 48BE131AEF362CC78FC8F53E08ABAA7CA52556EE
+    encrypted_regex: ^(data|stringData)$
+    version: 3.7.1

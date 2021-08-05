@@ -2,21 +2,28 @@
 Kind: Secret
 LAN:
     CIDR: 192.168.10.0/24
-    DHCP_RANGE_START: 192.168.10.100
-    DHCP_RANGE_END: 192.168.10.255
     GW: 192.168.10.1
     DNS_SERVER: 192.168.10.54
 HOSTNAME: gw01.casalani.de
 SSH_PASSWORD: chris1982
 ZONE: home
+RPI-BT-001:
+    MAC: b8:27:eb:ed:93:5e
+    IP: 192.168.10.154
+interfaces:
+    - name: LAN
+      interface: eth1
+      ipv4_addr: 192.168.10.1
+      dhcp:
+        enabled: true
 sops:
     kms: []
     gcp_kms: []
     azure_kv: []
     hc_vault: []
     age: []
-    lastmodified: "2021-08-05T18:32:14Z"
-    mac: ENC[AES256_GCM,data:q2qqtCdsWNeQxBr3a/srfcqGAwieOIOzrg7vTeMFVE8ga+PlQy5sXOZx0JySEc+zKfDXXAg63SDsJu7vJb3WU/v4GxLkFAXH1TqV0cmQTrGmRUeuJqT2IA9S/YCqTRmWUnrjbsF3KvHKbplVb7jIMLeqF9qXaTWsgLDccSG2T/E=,iv:YaXbTn/Ve6h4BnvnYs0qhYS5j3LKYyW8gMuj/F0SesM=,tag:ouToclgoBOmCyK0tGt4BDw==,type:str]
+    lastmodified: "2021-08-05T19:57:14Z"
+    mac: ENC[AES256_GCM,data:QXOg92hKYLtPt5aq8JsOE3P0+e99BHxG+XRuSJYScxsBJIC8BbnIwyNJIK+dFTZBcaQLVj2DiaIZxYvjDffI7CckYaY2J/YwhORNG7pYeS8tw4Xl5Ioxwk+3QBF2erZ8SHUHj1XhgSdx2fpA4R9o9rvBQSsencudGhFVgzG2qWM=,iv:LVNAkzTczqdl6yoCLbW7HSoZlcVvAifUKlne0SDmME4=,tag:eXyePHxIWEoNNbSs+X5tzw==,type:str]
     pgp:
         - created_at: "2021-08-05T16:34:23Z"
           enc: |

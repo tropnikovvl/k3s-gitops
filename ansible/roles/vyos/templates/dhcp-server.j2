@@ -1,0 +1,18 @@
+delete service dhcp-server
+{% for interface in vyos_interfaces | selectattr('dhcp', 'defined') | selectattr('dhcp.enabled') | selectattr('network', 'defined') -%}
+  {% set shared_network_name = interface.desc | default(interface.name | upper) -%}
+  {% set default_router = interface.dhcp.default_router | default(interface.ipv4_addr | ipv4('address')) -%}
+  {% set lease = interface.dhcp.lease | default(86400) -%}
+  {% set start_addr = interface['network']['cidr'] | ipv4(100) | ipv4('address') -%}
+  {% set stop_addr = interface['network']['cidr'] | ipv4(254) | ipv4('address') %}
+set service dhcp-server shared-network-name {{ shared_network_name }} authoritative
+set service dhcp-server shared-network-name {{ shared_network_name }} subnet {{ interface['network']['cidr'] }} default-router {{ default_router }}
+set service dhcp-server shared-network-name {{ shared_network_name }} subnet {{ interface['network']['cidr'] }} lease '{{ lease }}'
+set service dhcp-server shared-network-name {{ shared_network_name }} subnet {{ interface['network']['cidr'] }} range 0 start {{ start_addr }}
+set service dhcp-server shared-network-name {{ shared_network_name }} subnet {{ interface['network']['cidr'] }} range 0 stop {{ stop_addr }}
+  {% for host in (vyos_address_book | selectattr("network", "defined") | selectattr('network', 'eq', interface.network.name) | selectattr('ipv4_addr', 'defined') | selectattr('mac_addr', 'defined' )) -%}
+set service dhcp-server shared-network-name {{ shared_network_name }} subnet {{ interface['network']['cidr'] }} static-mapping {{ host['hostname'] }} mac-address {{ host['mac_addr'] }}
+set service dhcp-server shared-network-name {{ shared_network_name }} subnet {{ interface['network']['cidr'] }} static-mapping {{ host['hostname'] }} ip-address {{ host['ipv4_addr'] }}
+  {% endfor %}
+set service dhcp-server hostfile-update
+{% endfor %}
