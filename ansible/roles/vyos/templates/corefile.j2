@@ -1,0 +1,23 @@
+(common) {
+  errors
+  log
+  reload
+  loadbalance
+  cache
+  local
+  mdns {{ ZONE }}.casalani.de
+  hosts {
+    fallthrough
+    ttl 1
+    reload 300ms
+  }
+  forward . tls://1.1.1.1 tls://1.0.0.1 tls://2606:4700:4700::1111 tls://2606:4700:4700::1001 {
+    tls_servername cloudflare-dns.com
+  }
+}
+
+# Main
+. {
+  bind {{ LAN.GW }} 127.0.0.1 ::1
+  import common
+}

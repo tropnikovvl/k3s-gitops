@@ -1,0 +1,42 @@
+# yamllint disable
+Kind: Secret
+LAN:
+    CIDR: 192.168.10.0/24
+    DHCP_RANGE_START: 192.168.10.100
+    DHCP_RANGE_END: 192.168.10.255
+    GW: 192.168.10.1
+    DNS_SERVER: 192.168.10.53
+HOSTNAME: gw01.casalani.de
+SSH_PASSWORD: chris1982
+ZONE: home
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2021-08-05T18:02:16Z"
+    mac: ENC[AES256_GCM,data:l7PKgYuPKQBG18UCxQ4pnQ0yCoLeOmD4SEjHRk1jw21gXV51K9yxQT2IPqOSBlK9bvK2lcnqbIe1RnyovyKpv/LWnbHALmX2qBLZKutxNSb577557hIAvi14ZxJtVEo8kM/4zsoEyXv85wWOs1+0RG8/M7zyz3oe6eh17bcotU0=,iv:jfT5XeHplI7wo64gdE5urOm6wJMOWUgqApCooIBfXPY=,tag:AiJqC8fJbjCe9Ud6tQZTQw==,type:str]
+    pgp:
+        - created_at: "2021-08-05T16:34:23Z"
+          enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA/oF3k8vCI0xARAAk5rv9N9aOMUCMJYrBsCs3rfw1JMCGYzPsP5gSBLH9D3a
+            gqe5hTLi3vmmIb2Pasm9UxdV4vlqLTkB7KZoCLPQLiiZpswjeMFUCzBSmCL3kbk3
+            4lAbRauWLNIhwCj3XVhvj8QUEEG5rMEamZ38+SyEpccEA45/qrNR5Sul+v91HW5i
+            Zz3kRGdfoH3dRDsMsdezivLNrIpEVdlR8NZlJ6+tbil0fIj/RLHGm/r4XbMBqPkl
+            TqnuXNPOZxxCH2qfTMb2sLXXckDO1JSSo6Ux9JLR7GYodYx3hyd2C2S52YOcm8Gd
+            3olHB5vB0HmsEhSazpnAP6B3CN89rjFX5qmjV9njaD/MEKiS9zfeHrFoROAj310g
+            gDI3QKWImnZlfGH6K9QPxnosSw3dbRIZbQZ5e/Exkie8DMVhmgCiD+8qOeSDr8hC
+            X4VYy9wdYbOYxPXJHjrrHNOUYo95iQS25dC9TRXmxgueS352aIgW+M9SgUaIG86Z
+            qmx5PuLded+GCC4X29PpJLaoAHgIMXTFAS4eL10sVXkTDnMZjhAlD4i4LDmJYKXG
+            aL6fM9xBtI4eIy0IUXQv9bFWeymYCn7BAqiOoyqT4dpCKR1VdXaveNhzkiuCPQtE
+            dHkI6/2ad4Em5w1ggfmalEkXUAVe5jwfJ/J5FSl0nFmHXj7+oEMs9JM7XFSqqj7S
+            XAGcoRxBxiPfOHcvuxbyjrluFgxiHYcSGxIXLcAlMqoI3XMymUjPD3abU5rVU3eM
+            0X/gANu+ssmDlXpPiG2jW10nPVJ2ALvQ/ULauuw033Vhq2Mf3yYaBLESeDXM
+            =TUNs
+            -----END PGP MESSAGE-----
+          fp: 48BE131AEF362CC78FC8F53E08ABAA7CA52556EE
+    encrypted_regex: ^(data|stringData)$
+    version: 3.7.1

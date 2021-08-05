@@ -1,0 +1,22 @@
+---
+- name: configure interfaces
+  vyos.vyos.vyos_interfaces:
+    config:
+      - name: eth0
+        description: "OUTSIDE"
+        enabled: true
+      - name: eth1
+        description: "INSIDE"
+
+- name: configure interface addresses
+  vyos.vyos.vyos_config:
+    lines:
+      - set interfaces ethernet eth0 address 'dhcp'
+      - set interfaces ethernet eth1 address '{{ LAN.GW }}/24'
+
+- name: configure interface NAT
+  vyos.vyos.vyos_config:
+    lines:
+      - set nat source rule 1 outbound-interface 'eth0'
+      - set nat source rule 1 source address '{{ LAN.CIDR }}'
+      - set nat source rule 1 translation address 'masquerade'

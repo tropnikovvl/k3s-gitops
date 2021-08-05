@@ -1,0 +1,9 @@
+---
+ansible_connection: network_cli
+ansible_network_os: vyos
+ansible_user: vyos
+ansible_password: "{{ SSH_PASSWORD }}"
+# log_host: 10.20.10.16
+# tacacs:
+#   ipv4: 192.0.2.1
+#   secret: supersecret
