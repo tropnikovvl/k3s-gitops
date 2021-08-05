@@ -9,7 +9,7 @@ ansible_user: "ubuntu"
 ansible_become_pass: "ubuntu"
 
 # Set enabled to true to mark this host as running a distributed storage rook-ceph
-# rook_ceph:
-#   enabled: false
-#   # devices:
-#   # - /dev/nvme0n1
+rook_ceph:
+  enabled: true
+  devices:
+  - /dev/sdb
