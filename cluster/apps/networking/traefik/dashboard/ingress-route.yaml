@@ -17,4 +17,4 @@ spec:
       middlewares:
         - name: rfc1918
   tls:
-    secretName: "casalani-wildcard-tls"
+    secretName: "${SECRET_DOMAIN/./-}-tls"
