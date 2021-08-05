@@ -48,3 +48,6 @@ spec:
           - secretName: freshrss-cert
             hosts:
               - "freshrss.${SECRET_DOMAIN}"
+
+    nodeSelector:
+      kubernetes.io/arch: arm64

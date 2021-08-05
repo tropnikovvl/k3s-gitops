@@ -210,15 +210,9 @@ spec:
         - create
         - delete
         - error
-    affinity:
-      nodeAffinity:
-        requiredDuringSchedulingIgnoredDuringExecution:
-          nodeSelectorTerms:
-            - matchExpressions:
-                - key: node-role.kubernetes.io/worker
-                  operator: In
-                  values:
-                    - worker
+
+    nodeSelector:
+      kubernetes.io/arch: arm64
 
   valuesFrom:
   - kind: Secret

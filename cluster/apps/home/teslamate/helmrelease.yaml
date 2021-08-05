@@ -66,6 +66,9 @@ spec:
           failureThreshold: 30
           periodSeconds: 10
 
+    nodeSelector:
+      kubernetes.io/arch: arm64
+
   valuesFrom:
   - kind: Secret
     name: "teslamate-helm-values"

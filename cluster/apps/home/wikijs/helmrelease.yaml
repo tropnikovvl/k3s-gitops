@@ -42,6 +42,7 @@ spec:
           - secretName: wikijs-cert
             hosts:
               - "wiki.${SECRET_DOMAIN}"
+
     persistence:
       config:
         enabled: true
@@ -54,9 +55,13 @@ spec:
         accessMode: "ReadWriteOnce"
         mountPath: /app/wiki/data
         storageClass: "rook-ceph-block"
+
     resources:
       requests:
         memory: 64Mi
         cpu: 25m
       limits:
         memory: 128Mi
+
+    nodeSelector:
+      kubernetes.io/arch: arm64
