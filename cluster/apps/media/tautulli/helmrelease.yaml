@@ -54,12 +54,3 @@ spec:
       runAsUser: 568
       runAsGroup: 568
       fsGroup: 568
-    affinity:
-      nodeAffinity:
-        requiredDuringSchedulingIgnoredDuringExecution:
-          nodeSelectorTerms:
-            - matchExpressions:
-                - key: node-role.kubernetes.io/worker
-                  operator: In
-                  values:
-                    - worker
