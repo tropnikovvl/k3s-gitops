@@ -48,12 +48,3 @@ spec:
           - secretName: freshrss-cert
             hosts:
               - "freshrss.${SECRET_DOMAIN}"
-    affinity:
-      nodeAffinity:
-        requiredDuringSchedulingIgnoredDuringExecution:
-          nodeSelectorTerms:
-            - matchExpressions:
-                - key: node-role.kubernetes.io/worker
-                  operator: In
-                  values:
-                    - worker

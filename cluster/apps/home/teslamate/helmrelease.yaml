@@ -65,15 +65,6 @@ spec:
           initialDelaySeconds: 15
           failureThreshold: 30
           periodSeconds: 10
-    affinity:
-      nodeAffinity:
-        requiredDuringSchedulingIgnoredDuringExecution:
-          nodeSelectorTerms:
-          - matchExpressions:
-            - key: node-role.kubernetes.io/worker
-              operator: In
-              values:
-              - worker
 
   valuesFrom:
   - kind: Secret
