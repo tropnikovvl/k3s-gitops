@@ -42,9 +42,7 @@ spec:
     persistence:
       config:
         enabled: true
-        storageClass: "rook-ceph-block"
-        accessMode: ReadWriteOnce
-        size: 5Gi
+        existingClaim: tautulli-pvc
     resources:
       requests:
         memory: 128Mi

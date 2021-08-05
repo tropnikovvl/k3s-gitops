@@ -58,9 +58,7 @@ spec:
     persistence:
       config:
         enabled: true
-        storageClass: "rook-ceph-block"
-        accessMode: ReadWriteOnce
-        size: 10Gi
+        existingClaim: radarr-pvc
       media:
         enabled: true
         existingClaim: truenas-media-pvc

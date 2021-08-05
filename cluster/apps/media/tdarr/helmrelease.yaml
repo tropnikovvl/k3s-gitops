@@ -41,10 +41,7 @@ spec:
     persistence:
       data:
         enabled: true
-        storageClass: "rook-ceph-block"
-        accessMode: ReadWriteOnce
-        size: 5Gi
-        mountPath: /app/server
+        existingClaim: tdarr-pvc
       media:
         enabled: true
         existingClaim: truenas-media-pvc
