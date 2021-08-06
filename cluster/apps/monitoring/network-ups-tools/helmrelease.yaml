@@ -28,7 +28,7 @@ spec:
         loadBalancerIP: ${LB_NUT}
         externalTrafficPolicy: Local
         ports:
-          http:
+          server:
             enabled: true
             port: 3493
             protocol: TCP
