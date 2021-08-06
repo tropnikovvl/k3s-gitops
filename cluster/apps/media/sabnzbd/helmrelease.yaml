@@ -20,6 +20,7 @@ spec:
     controllerType: deployment
     env:
       TZ: "Europe/Berlin"
+      HOST_WHITELIST_ENTRIES: "sabnzbd.${SECRET_DOMAIN}"
     ingress:
       main:
         enabled: true
