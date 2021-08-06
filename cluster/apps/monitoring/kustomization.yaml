@@ -9,4 +9,4 @@ resources:
   - loki
   - network-ups-tools
   - prometheus-nut-exporter
-  - unifi-poller
+#  - unifi-poller
