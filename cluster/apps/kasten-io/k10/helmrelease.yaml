@@ -40,13 +40,17 @@ spec:
       tls:
         enabled: true
         secretName: "${SECRET_DOMAIN/./-}-tls"
+
+    nodeSelector:
+      kubernetes.io/arch: amd64
+
   postRenderers:
-  - kustomize:
-      patchesJson6902:
-      - target:
-          kind: Ingress
-          name: k10-ingress
-        patch:
-        - op: add
-          path: /spec/ingressClassName
-          value: traefik
+    - kustomize:
+        patchesJson6902:
+          - target:
+              kind: Ingress
+              name: k10-ingress
+            patch:
+              - op: add
+                path: /spec/ingressClassName
+                value: traefik
