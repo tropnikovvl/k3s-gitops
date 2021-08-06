@@ -27,3 +27,5 @@ spec:
             port: 3493
             interval: 30s
             scrapeTimeout: 10s
+    nodeSelector:
+      kubernetes.io/arch: amd64
