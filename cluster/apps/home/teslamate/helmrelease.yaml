@@ -66,8 +66,11 @@ spec:
           failureThreshold: 30
           periodSeconds: 10
 
-    nodeSelector:
-      kubernetes.io/arch: arm64
+    tolerations:
+    - key: kubernetes.io/arch
+      operator: Equal
+      value: arm64
+      effect: NoSchedule
 
   valuesFrom:
   - kind: Secret
