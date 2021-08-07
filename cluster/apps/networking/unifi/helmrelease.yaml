@@ -25,6 +25,11 @@ spec:
     env:
       TZ: Europe/Berlin
 
+    persistence:
+      enabled: true
+      size: 20Gi
+      storageClass: rook-ceph-block
+
     service:
       main:
         type: LoadBalancer
