@@ -104,3 +104,16 @@ spec:
         cpu: "0.05"
     podAnnotations:
       configmap.reloader.stakater.com/reload: "blocky-config"
+
+    affinity:
+      podAntiAffinity:
+        preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100
+            podAffinityTerm:
+              labelSelector:
+                matchExpressions:
+                  - key: app.kubernetes.io/name
+                    operator: In
+                    values:
+                      - blocky
+              topologyKey: kubernetes.io/hostname
