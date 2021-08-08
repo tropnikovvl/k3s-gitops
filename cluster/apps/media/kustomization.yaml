@@ -4,11 +4,11 @@ kind: Kustomization
 resources:
   - _pvs
   - bazarr
-  - gaps
+#  - gaps
   - ombi
   - plex
   - prowlarr
-  - radarr
+#  - radarr
   - sabnzbd
   - sonarr
   - tautulli
