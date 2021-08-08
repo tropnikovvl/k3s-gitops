@@ -18,7 +18,7 @@ k3s_become_for_all: true
 k3s_debug: false
 
 # Enabled embedded etcd
-k3s_etcd_datastore: true
+k3s_etcd_datastore: false
 
 # Control Plane registration address
 # ...this is set to my kube-vip address
@@ -37,15 +37,10 @@ k3s_server_manifests_templates:
   # - "calico/calico-installation.yaml.j2"
   # - "calico/calico-bgpconfiguration.yaml.j2"
   # - "calico/calico-bgppeer.yaml.j2"
-  - "kube-vip/kube-vip-rbac.yaml.j2"
-  - "kube-vip/kube-vip-daemonset.yaml.j2"
+  # - "kube-vip/kube-vip-rbac.yaml.j2"
+  # - "kube-vip/kube-vip-daemonset.yaml.j2"
 
 # Custom manifest URLs
 # k3s_server_manifests_urls:
 #   - url: https://docs.projectcalico.org/archive/v3.19/manifests/tigera-operator.yaml
 #     filename: tigera-operator.yaml
----
-#
-# Below vars are for the xanmanning.k3s role
-# ...see https://github.com/PyratLabs/ansible-role-k3s#globalcluster-variables
-#

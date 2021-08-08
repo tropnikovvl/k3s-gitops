@@ -1,5 +1,5 @@
 ---
 # The interface on the host kube-vip should attach to
-kubevip_interface: ens18
+kubevip_interface: eno1
 
 kubevip_address: 192.168.10.30

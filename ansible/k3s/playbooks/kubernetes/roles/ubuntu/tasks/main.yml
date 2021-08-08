@@ -30,3 +30,7 @@
 - include: user.yml
   tags:
     - user
+
+- include: dns.yml
+  tags:
+    - dns
