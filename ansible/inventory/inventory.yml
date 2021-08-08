@@ -7,7 +7,7 @@ kubernets:
           ansible_host: 192.168.10.31
         k3s-ma-02:
           ansible_host: 192.168.10.32
-        k3s-ma-02:
+        k3s-ma-03:
           ansible_host: 192.168.10.32
       vars:
         ansible_user: ubuntu
