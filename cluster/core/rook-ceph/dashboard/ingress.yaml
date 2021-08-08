@@ -22,5 +22,6 @@ spec:
             port:
               name: http-dashboard
   tls:
-  - hosts:
+  - secretName: rook-ceph-dashboard-secret
+    hosts:
     - "rook.${SECRET_DOMAIN}"
