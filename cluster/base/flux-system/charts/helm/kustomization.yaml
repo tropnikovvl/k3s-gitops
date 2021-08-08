@@ -8,7 +8,6 @@ resources:
   - grafana-charts.yaml
   - grafana-loki-charts.yaml
   - infracloudio-charts.yaml
-  - ingress-nginx-charts.yaml
   - jetstack-charts.yaml
   - k8s-at-home-charts.yaml
   - kasten-charts.yaml
