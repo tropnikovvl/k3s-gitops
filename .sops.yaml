@@ -5,5 +5,6 @@ creation_rules:
     # Personal
     pgp: 48BE131AEF362CC78FC8F53E08ABAA7CA52556EE
 
-  - encrypted_regex: ^(data|stringData)$
+  - path_regex: cluster/.*\.ya?ml
+    encrypted_regex: "^(data|stringData)$"
     pgp: 48BE131AEF362CC78FC8F53E08ABAA7CA52556EE
