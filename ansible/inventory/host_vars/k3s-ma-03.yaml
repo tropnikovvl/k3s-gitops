@@ -1,1 +1,33 @@
+# yamllint disable
 ansible_become_pass: ubuntu
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2021-08-08T12:05:57Z"
+    mac: ENC[AES256_GCM,data:AnMWgOdwrqAnQo/sk3VVEA6nSLxnru18ZQkSCz0lzk4zeZWM09NDQJmtPkeIce6V1CR4cIWOs5CHTSHhXLNbTcJiK9nTwZAm8jL9pSxxxpvCszFQPfKncshMfiZRCtWQCliBbpTzlTK1zTGo94m+YWQp5R0uqTIpX5Qmqu5LOZY=,iv:BwOjP6EsQd+tOXJ6U+SPMx320imY5PxFUtIKjrLiN0s=,tag:YPU6MxPSldvEKQLz6McfUQ==,type:str]
+    pgp:
+        - created_at: "2021-08-08T12:04:32Z"
+          enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA/oF3k8vCI0xAQ//RJo0ry6nOT3wPaDwND6H8Q3VYTQc9DUHPuHgZNRGEG9F
+            wl1gHz6mltQ89dZ2w9DWISz82ZijacHt0QLxQ1jLVXzYBfmyJDHXddilIr6SgRVP
+            WpIvLbwLjTwmqeK0pBUy+IA2z8KcmHoiqzJd+HK2oDPO72hIScl9nATdz66NvcsI
+            yCr0LCYCxLaSrwsXJpmstFNaPRpG+eR27hcx7NwF8D8mW5idXSAEJOEZrqilt7cJ
+            wPM1zNJhYuMAM+D58YilnXjtv4+hfKwaWGkrEWusREyFomWp7TFItdXaylpSQR6o
+            j4IBNMAjsHE1L7BgkdOwFgN8J0z5m5tmHNbdjrHJSuL2zkBY1Xt3l7AiOvD5fkC8
+            GTl8NOh5mOazrn/DU912fjx/iT92UCTyABCF/Ffm29QHJBj5Cbm5zsV8akmReQPs
+            pSJVml9r8yv8rdd6gsxTcSBsPE596fj0RPMbMJvDPM2C6xnPGWoJQF/wgGh6D6Su
+            PodrTyk0o6pWoPPmRSlE7CIg3JGTHMHfW0ZGyBmH8ZLh2YXlr5QabxEVo/D4KQXu
+            GcCZ516zC1HIVfRp5gXtTFq07lvgdxHmEc+gtW4KqYWew9jA4K0axb28/3N5axyS
+            9KqU9ywnDuRIwe2FLNMhigaZADyuAJw4A2X4leFW2cau0Px4H8FscdOAe9nx3xfS
+            XgGJiWR0vBRj4iYtd7E+7JixgbahaIc+M0Bpb6DeYx+shKTxZex6odaS7JNHx70Q
+            dypwvJyQOBbMrscOFXVrjkZOWxr6g+Cf88o/iaihjxeYVLNEvPLo3UPxRzOrBu4=
+            =5Nsd
+            -----END PGP MESSAGE-----
+          fp: 48BE131AEF362CC78FC8F53E08ABAA7CA52556EE
+    encrypted_regex: ^(data|stringData)$
+    version: 3.7.1
