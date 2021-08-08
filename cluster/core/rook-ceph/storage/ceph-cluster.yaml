@@ -63,9 +63,9 @@ spec:
     - name: "k3s-ma-01"
       devices:
       - name: "sdb"
-    - name: "k3s-ma-02"
-      devices:
-      - name: "sdb"
+    # - name: "k3s-ma-02"
+    #   devices:
+    #   - name: "sdb"
     - name: "k3s-ma-03"
       devices:
       - name: "sdb"
