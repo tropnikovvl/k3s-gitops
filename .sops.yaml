@@ -1,8 +1,8 @@
 ---
+creation_rules:
   - path_regex: ansible/.*\.sops\.ya?ml
     # Personal
     pgp: 48BE131AEF362CC78FC8F53E08ABAA7CA52556EE
 
-creation_rules:
   - encrypted_regex: ^(data|stringData)$
     pgp: 48BE131AEF362CC78FC8F53E08ABAA7CA52556EE
