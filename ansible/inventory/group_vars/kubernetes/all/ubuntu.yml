@@ -1,0 +1,8 @@
+---
+# Timezone for the servers
+timezone: "Europe/Berlin"
+
+# Additional ssh public keys to add to the nodes
+ssh_authorized_keys:
+  # MacBook
+  - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDc6Uod2bZ1SmpTZiYPoQ+V+N0Oz9IepDa5ipsV2hchdssPI8YLT5Lw/E1GdvadrpPfPhnL3daIkpScdFFs+yPJ/UEyZxS4TkRp0Y/4o+F8EeHSahV56h/ij+H68iheB7R+u7O6w+l5Qk+78w3JkV1zbaNAvsAQ54oB2a2XBHf5zDj1YW5//kAg/b4JBpVc9o+8dro0ifQznF9dBov+WAqO+fUOWOnW9bKGy8N9aa6K1NFATYHsjLY/mmmCQyYREmN4eocj/XbA1N6WwT1vxXlgOEnE7U5XMdOA0npVBieMGWAnLQdG9kDl5h+bc66TKiLHPtAQ/Yed7GrMB0AR+qjIq/DlgYDA9sj6rsurh2cB3UgDKShR+91jvzz3gQmA6oFmFqx7+UCwMbnTo701ga7dYfg4zYaMZU3OgoaHJb+/5mvNS2sLjs6gkQDYTDWYxxWlwamZjvS7HlQdhpgAD1vSh8pau2VbgPInSF/sxNjgYTy324zlyhD/yvv5OePOD1YDsiMBLD+cXzKWk+oLQ88NEJmPnT56+1pEIWWG5ylKKXFL5bC402KnYYoJBn6SS9Kvt5veetxaWk0hQapI4cjcjBwxocPyOG52Et2Hy48Hq/1oK5156zptvaZlEulUbKxr67Hs6XUyHjW0Fqe0UjNlzEw1ckOINca3HkNY9qt0EQ== christian.birkenbeul@tektoria.de"

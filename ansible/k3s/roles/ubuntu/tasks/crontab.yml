@@ -1,7 +1,0 @@
----
-- name: crontab | Delete unused container images
-  ansible.builtin.cron:
-    name: k3s-unused-container
-    minute: 5
-    hour: 7
-    job: "sudo k3s crictl rmi --prune"

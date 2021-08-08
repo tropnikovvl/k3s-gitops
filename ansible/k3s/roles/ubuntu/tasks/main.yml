@@ -1,5 +1,0 @@
----
-- include: locale.yml
-- include: packages.yml
-- include: crontab.yml
-- include: unattended-upgrades.yml
