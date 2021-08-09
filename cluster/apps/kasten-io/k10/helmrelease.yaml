@@ -22,13 +22,17 @@ spec:
       accept: true
       company: CASALANI
       email: christian.birkenbeul@tektoria.de
+
     global:
       persistence:
         storageClass: rook-ceph-block
+
     auth:
       tokenAuth:
         enabled: true
+
     clusterName: k8s
+
     ingress:
       create: true
       host: "k10.${SECRET_DOMAIN}"

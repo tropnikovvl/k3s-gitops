@@ -6,7 +6,6 @@ resources:
   - flux-notification
   - grafana
   - kube-prometheus-stack
-  - loki
   - network-ups-tools
   - prometheus-nut-exporter
   - unifi-poller

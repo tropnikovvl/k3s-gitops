@@ -17,13 +17,15 @@ spec:
         namespace: flux-system
       interval: 5m
   values:
-    controllerType: deployment
+
     image:
       repository: housewrecker/gaps
       pullPolicy: IfNotPresent
       tag: latest
+
     env:
       TZ: "Europe/Berlin"
+
     ingress:
       main:
         enabled: true
@@ -44,12 +46,14 @@ spec:
         - secretName: gaps-cert
           hosts:
           - "gaps.${SECRET_DOMAIN}"
+
     persistence:
       config:
         enabled: true
         storageClass: "rook-ceph-block"
         accessMode: ReadWriteOnce
         size: 5Gi
+
     resources:
       requests:
         memory: 254Mi

@@ -21,10 +21,12 @@ spec:
       repository: ghcr.io/k8s-at-home/plex
       pullPolicy: IfNotPresent
       tag: v1.23.6.4881-e2e58f321
+
     env:
       TZ: "Europe/Berlin"
       ADVERTISE_IP: ${LB_PLEX}
       PLEX_CLAIM: "claim-1pFfLsCmPBomam8bxMC9"
+
     podSecurityContext:
       supplementalGroups:
         - 44
@@ -33,6 +35,7 @@ spec:
       runAsUser: 568
       runAsGroup: 568
       fsGroup: 568
+
     ingress:
       main:
         enabled: true
@@ -49,6 +52,7 @@ spec:
           - secretName: plex-cert
             hosts:
               - "plex.${SECRET_DOMAIN}"
+
     service:
       main:
         type: LoadBalancer
@@ -56,6 +60,7 @@ spec:
         externalTrafficPolicy: Local
         port:
           port: 32400
+
     persistence:
       config:
         enabled: true
@@ -71,6 +76,7 @@ spec:
         existingClaim: truenas-media-pvc
         mountPath: /media
         readOnly: true
+
     resources:
       requests:
         cpu: 200m
@@ -79,6 +85,7 @@ spec:
       limits:
         gpu.intel.com/i915: 1
         memory: 4Gi
+
     affinity:
       nodeAffinity:
         requiredDuringSchedulingIgnoredDuringExecution:
@@ -92,6 +99,7 @@ spec:
                   operator: In
                   values:
                     - amd64
+
     podAnnotations:
       configmap.reloader.stakater.com/reload: "plex-promtail"
     addons:
@@ -100,7 +108,7 @@ spec:
         image:
           repository: grafana/promtail
           tag: 2.3.0
-        loki: http://loki.monitoring.svc.cluster.local:3100/loki/api/v1/push
+        loki: http://loki.logs.svc.cluster.local:3100/loki/api/v1/push
         logs:
           - name: promtail/plex
             path: "/config/Library/Application Support/Plex Media Server/Logs/*.log"

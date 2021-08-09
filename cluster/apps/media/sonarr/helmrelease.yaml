@@ -17,12 +17,13 @@ spec:
         namespace: flux-system
       interval: 5m
   values:
-    controllerType: deployment
     image:
       repository: ghcr.io/k8s-at-home/sonarr
       tag: v3.0.6.1265
+
     env:
       TZ: "Europe/Berlin"
+
     ingress:
       main:
         enabled: true
@@ -35,27 +36,29 @@ spec:
           external-dns/is-public: "true"
           external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
         hosts:
-        - host: "sonarr.${SECRET_DOMAIN}"
-          paths:
-          - path: /
-            pathType: Prefix
+          - host: "sonarr.${SECRET_DOMAIN}"
+            paths:
+              - path: /
+                pathType: Prefix
         tls:
-        - hosts:
-          - "sonarr.${SECRET_DOMAIN}"
+          - secretName: tls.sonarr
+            hosts:
+              - sonarr.${SECRET_DOMAIN}
       api:
         enabled: true
         ingressClassName: "traefik"
         annotations:
           traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
         hosts:
-        - host: "sonarr.${SECRET_DOMAIN}"
-          paths:
-          - path: /api
-            pathType: Prefix
+          - host: "sonarr.${SECRET_DOMAIN}"
+            paths:
+              - path: /api
+                pathType: Prefix
         tls:
-        - secretName: sonarr-cert
-          hosts:
-          - "sonarr.${SECRET_DOMAIN}"
+          - secretName: tls.sonarr
+            hosts:
+              - sonarr.${SECRET_DOMAIN}
+
     persistence:
       config:
         enabled: true
@@ -66,8 +69,10 @@ spec:
         enabled: true
         existingClaim: truenas-media-pvc
         mountPath: /media
+
     resources:
       requests:
-        memory: 256Mi
+        cpu: "0.04"
+        memory: "256M"
       limits:
-        memory: 512Mi
+        memory: "512M"

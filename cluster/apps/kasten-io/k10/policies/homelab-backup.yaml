@@ -6,11 +6,12 @@ metadata:
   namespace: kasten-io
 spec:
   frequency: "@daily"
+
   retention:
-    daily: 7
-    weekly: 2
-    monthly: 2
-    yearly: 0
+    daily: 14
+    weekly: 4
+    monthly: 6
+
   selector:
     matchExpressions:
     - key: k10.kasten.io/appNamespace
@@ -19,12 +20,18 @@ spec:
       - home
       - mail
       - media
+
   actions:
   - action: backup
     backupParameters:
       filters:
         includeResources:
         - resource: persistentvolumeclaims
+          matchExpressions:
+          - key: kasten.io/backup-volume
+            operator: In
+            values:
+            - "true"
         excludeResources:
         - resource: persistentvolumeclaims
           name: truenas-media-pvc
@@ -39,6 +46,6 @@ spec:
         namespace: kasten-io
       exportData:
         enabled: true
-      migrationToken:
-        name: homelab-backup-migration-token-7lrc2
-        namespace: kasten-io
+      # migrationToken:
+      #   name: homelab-backup-migration-token-7lrc2
+      #   namespace: kasten-io

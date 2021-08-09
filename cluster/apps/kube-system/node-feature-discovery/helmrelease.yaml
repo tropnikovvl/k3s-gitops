@@ -74,27 +74,21 @@ spec:
               - usbId:
                   vendor: ["1eaf"]
                   device: ["0004"]
+
     podAnnotations:
       configmap.reloader.stakater.com/reload: "node-feature-discovery"
+
     master:
+      replicaCount: 1
       tolerations:
-        - key: "node-role.kubernetes.io/master"
-          operator: "Equal"
-          value: ""
-          effect: "NoSchedule"
-      affinity:
-        nodeAffinity:
-          preferredDuringSchedulingIgnoredDuringExecution:
-            - weight: 1
-              preference:
-                matchExpressions:
-                  - key: "node-role.kubernetes.io/master"
-                    operator: In
-                    values: [""]
+      - key: "node-role.kubernetes.io/master"
+        operator: "Equal"
+        value: ""
+        effect: "NoSchedule"
+      - key: arm
+        operator: Exists
+
     worker:
       tolerations:
-        - effect: "NoExecute"
-          operator: "Exists"
-        - effect: "NoSchedule"
-          operator: "Exists"
-      affinity: {}
+      - key: arm
+        operator: Exists

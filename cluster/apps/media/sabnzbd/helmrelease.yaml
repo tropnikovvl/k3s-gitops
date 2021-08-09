@@ -17,10 +17,14 @@ spec:
         namespace: flux-system
       interval: 5m
   values:
-    controllerType: deployment
+    image:
+      repository: ghcr.io/k8s-at-home/sabnzbd
+      tag: v3.3.1
+
     env:
       TZ: "Europe/Berlin"
       HOST_WHITELIST_ENTRIES: "sabnzbd.${SECRET_DOMAIN}"
+
     ingress:
       main:
         enabled: true
@@ -38,7 +42,8 @@ spec:
           - path: /
             pathType: Prefix
         tls:
-        - hosts:
+        - secretName: sabnzbd-cert
+          hosts:
           - "sabnzbd.${SECRET_DOMAIN}"
       api:
         enabled: true
@@ -54,6 +59,7 @@ spec:
         - secretName: sabnzbd-cert
           hosts:
           - "sabnzbd.${SECRET_DOMAIN}"
+
     persistence:
       config:
         enabled: true
@@ -64,9 +70,10 @@ spec:
         enabled: true
         existingClaim: truenas-media-pvc
         mountPath: /media
+
     resources:
       requests:
-        memory: 128Mi
-      limits:
-        memory: 512Mi
+        memory: 250Mi
         cpu: 500m
+      limits:
+        memory: 2048Mi

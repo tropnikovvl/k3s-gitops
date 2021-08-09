@@ -21,15 +21,20 @@ spec:
       repository: homeassistant/home-assistant
       pullPolicy: IfNotPresent
       tag: 2021.8.4
+
     env:
       TZ: "Europe/Berlin"
+
     hostNetwork: true
+
     dnsPolicy: ClusterFirstWithHostNet
+
     service:
       main:
         type: LoadBalancer
         loadBalancerIP: ${LB_HOMEASSISTANT}
         externalTrafficPolicy: Local
+
     probes:
       liveness:
         enabled: false
@@ -37,12 +42,14 @@ spec:
         enabled: false
       startup:
         enabled: false
+
     persistence:
       config:
         enabled: true
         storageClass: "rook-ceph-block"
         accessMode: ReadWriteOnce
         size: 5Gi
+
     ingress:
       main:
         enabled: true

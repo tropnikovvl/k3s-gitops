@@ -20,6 +20,7 @@ spec:
     rbac:
       create: true
       global: true
+
     args:
     - --delete-failed-after=60m
     - --delete-successful-after=0
