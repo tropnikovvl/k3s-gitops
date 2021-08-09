@@ -1,5 +1,5 @@
 ---
 # Encapsulation type
-calico_encapsulation: "None"
+calico_encapsulation: "VXLANCrossSubnet"
 # CIDR of the host node interface Calico should use
 calico_node_cidr: 192.168.10.0/24
