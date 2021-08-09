@@ -15,8 +15,8 @@ spec:
 
   continueUpgradeAfterChecksEvenIfNotHealthy: false
 
-  removeOSDsIfOutAndSafeToRemove: fals
-  
+  removeOSDsIfOutAndSafeToRemove: false
+
   mon:
     count: 3
     allowMultiplePerNode: false
@@ -35,12 +35,12 @@ spec:
     sanitizeDisks:
       method: quick
       dataSource: zero
-      iteration: 
+      iteration: 1
 
   mgr:
     modules:
-    - name: pg_autoscaler
-      enabled: true
+      - name: pg_autoscaler
+        enabled: true
 
   dashboard:
     enabled: true
@@ -74,12 +74,12 @@ spec:
       metadataDevice:
       osdsPerDevice: "1"
     nodes:
-    - name: "k3s-wo-01"
-      devices:
-      - name: "sdb"
-    - name: "k3s-wo-02"
-      devices:
-      - name: "sdb"
-    - name: "k3s-wo-03"
-      devices:
-      - name: "sdb"
+      - name: "k3s-ma-01"
+        devices:
+          - name: "sdb"
+      - name: "k3s-ma-02"
+        devices:
+          - name: "sdb"
+      - name: "k3s-ma-03"
+        devices:
+          - name: "sdb"
