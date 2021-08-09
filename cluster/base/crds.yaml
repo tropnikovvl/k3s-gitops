@@ -1,4 +1,3 @@
-  
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
 kind: Kustomization
@@ -6,22 +5,9 @@ metadata:
   name: crds
   namespace: flux-system
 spec:
-  dependsOn:
-  - name: flux-system-helm-repositories
   interval: 10m0s
   path: ./cluster/crds
-  prune: true
+  prune: false
   sourceRef:
     kind: GitRepository
     name: flux-system
-  decryption:
-    provider: sops
-    secretRef:
-      name: sops-gpg
-  postBuild:
-    substitute: {}
-    substituteFrom:
-    - kind: ConfigMap
-      name: cluster-settings
-    - kind: Secret
-      name: cluster-secrets
