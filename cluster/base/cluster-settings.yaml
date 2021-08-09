@@ -5,6 +5,10 @@ metadata:
   name: cluster-settings
   namespace: flux-system
 data:
+  # Cluster configuration
+  METALLB_ARP_RANGE: 192.168.10.50-192.168.10.99
+
+  # MetalLB Load Balancer IPs
   LB_COREDNS: 192.168.10.50
   LB_INGRESS: 192.168.10.51
   LB_NUT: 192.168.10.52

@@ -18,11 +18,16 @@ spec:
   values:
     crds:
       enabled: false
+
     csi:
       kubeletDirPath: /var/lib/kubelet
+      enableCSIHostNetwork: true
       pluginTolerations:
-        - key: "node-role.kubernetes.io/master"
-          operator: "Exists"
+      - effect: "NoExecute"
+        operator: "Exists"
+      - effect: "NoSchedule"
+        operator: "Exists"
+
     resources:
       requests:
         cpu: 100m

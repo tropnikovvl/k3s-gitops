@@ -35,7 +35,7 @@ spec:
           value: "false"
         - name: vip_address
           value: 192.168.10.30
-        image: plndr/kube-vip:v0.3.5
+        image: ghcr.io/kube-vip/kube-vip:v0.3.7
         imagePullPolicy: Always
         name: kube-vip
         resources: {}

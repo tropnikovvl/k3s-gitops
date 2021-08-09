@@ -18,11 +18,11 @@ k3s_become_for_all: true
 k3s_debug: false
 
 # Enabled embedded etcd
-k3s_etcd_datastore: false
+k3s_etcd_datastore: true
 
 # Control Plane registration address
 # ...this is set to my kube-vip address
-# k3s_registration_address: 192.168.10.30
+k3s_registration_address: 192.168.10.30
 
 #
 # Uncomment the config below on new installations
@@ -32,15 +32,13 @@ k3s_etcd_datastore: false
 #
 
 # Custom manifest files
-# k3s_server_manifests_templates:
+k3s_server_manifests_templates:
   # - "home-dns/home-dns-rbac.yaml.j2"
-  # - "calico/calico-installation.yaml.j2"
-  # - "calico/calico-bgpconfiguration.yaml.j2"
-  # - "calico/calico-bgppeer.yaml.j2"
-  # - "kube-vip/kube-vip-rbac.yaml.j2"
-  # - "kube-vip/kube-vip-daemonset.yaml.j2"
+  - "calico/calico-installation.yaml.j2"
+  - "kube-vip/kube-vip-rbac.yaml.j2"
+  - "kube-vip/kube-vip-daemonset.yaml.j2"
 
 # Custom manifest URLs
-# k3s_server_manifests_urls:
-#   - url: https://docs.projectcalico.org/archive/v3.19/manifests/tigera-operator.yaml
-#     filename: tigera-operator.yaml
+k3s_server_manifests_urls:
+  - url: https://docs.projectcalico.org/archive/v3.19/manifests/tigera-operator.yaml
+    filename: tigera-operator.yaml
