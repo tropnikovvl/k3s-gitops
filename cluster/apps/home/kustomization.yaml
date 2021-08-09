@@ -4,7 +4,7 @@ kind: Kustomization
 resources:
   - freshrss
   - heimdall
-#  - home-assistant
+  - home-assistant
   - mosquitto
 #  - octoprint
   - teslamate
