@@ -29,6 +29,9 @@ spec:
 
     dnsPolicy: ClusterFirstWithHostNet
 
+    podAnnotations:
+      secret.reloader.stakater.com/reload: home-assistant-secrets
+
     service:
       main:
         type: LoadBalancer
@@ -47,8 +50,8 @@ spec:
       config:
         enabled: true
         storageClass: "rook-ceph-block"
-        accessMode: ReadWriteOnce
-        size: 5Gi
+        accessMode: ReadWriteMany
+        size: 10Gi
 
     ingress:
       main:
