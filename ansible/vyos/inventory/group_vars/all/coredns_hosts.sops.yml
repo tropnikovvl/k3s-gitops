@@ -1,0 +1,4 @@
+
+dns_fixed_hosts:
+    - name: gw.casalani.de
+      address: 192.168.10.1

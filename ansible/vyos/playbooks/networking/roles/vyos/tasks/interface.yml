@@ -1,22 +1,46 @@
 ---
-- name: configure interfaces
+- name: interfaces | configure status and description
+  loop: "{{ vyos_interfaces }}"
   vyos.vyos.vyos_interfaces:
     config:
-      - name: eth0
-        description: "OUTSIDE"
-        enabled: true
-      - name: eth1
-        description: "INSIDE"
+    - name: "{{ item['interface'] }}"
+      description: "{{ item['desc'] | default(item['name'] | upper) }}"
+      enabled: "{{ item['enabled'] | default(true) }}"
+  when:
+    - item['vlan_id'] is not defined 
 
-- name: configure interface addresses
-  vyos.vyos.vyos_config:
-    lines:
-      - set interfaces ethernet eth0 address 'dhcp'
-      - set interfaces ethernet eth1 address '{{ LAN.GW }}/24'
+- name: interfaces | configure status and description | VIF
+  loop: "{{ vyos_interfaces }}"
+  vyos.vyos.vyos_interfaces:
+    config:
+    - name: "{{ item['interface'] }}"
+      vifs:
+      - description: "{{ item['desc'] | default(item['name'] | upper) }}"
+        enabled: "{{ item['enabled'] | default(true) }}"
+        vlan_id: "{{ item['vlan_id'] }}"
+  when:
+    - item['vlan_id'] is defined
 
-- name: configure interface NAT
-  vyos.vyos.vyos_config:
-    lines:
-      - set nat source rule 1 outbound-interface 'eth0'
-      - set nat source rule 1 source address '{{ LAN.CIDR }}'
-      - set nat source rule 1 translation address 'masquerade'
+- name: interfaces | configure L3 IPv4
+  loop: "{{ vyos_interfaces }}"
+  vyos_l3_interfaces:
+    config:
+      - name: "{{ item['interface'] }}"
+        ipv4:
+        - address: "{{ item['ipv4_addr'] }}"
+  when: 
+    - item['ipv4_addr'] is defined
+    - item['vlan_id'] is not defined
+
+- name: interfaces | configure L3 IPv4 | VIF
+  loop: "{{ vyos_interfaces }}"
+  vyos_l3_interfaces:
+    config:
+      - name: "{{ item['interface'] }}"
+        vifs:
+        - vlan_id: "{{ item['vlan_id'] }}"
+          ipv4:
+          - address: "{{ item['ipv4_addr'] }}"
+  when: 
+    - item['ipv4_addr'] is defined
+    - item['vlan_id'] is defined
