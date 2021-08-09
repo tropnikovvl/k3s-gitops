@@ -123,7 +123,7 @@ spec:
             mountPath: /config
 
         git:
-          deployKeySecret: home-assistant-code-server-secret
+          deployKeySecret: vscode-secrets
 
         resources:
           requests:
