@@ -64,6 +64,20 @@ spec:
       - name: loadbalance
       - name: file
         parameters: /etc/coredns/casalani.de
+
+    affinity:
+      podAntiAffinity:
+        preferredDuringSchedulingIgnoredDuringExecution:
+        - weight: 100
+          podAffinityTerm:
+            labelSelector:
+              matchExpressions:
+              - key: app.kubernetes.io/name
+                operator: In
+                values:
+                - coredns
+            topologyKey: kubernetes.io/hostname
+
     zoneFiles:
     - filename: casalani.de
       domain: casalani.de
