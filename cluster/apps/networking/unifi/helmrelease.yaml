@@ -24,9 +24,11 @@ spec:
       pullPolicy: IfNotPresent
 
     persistence:
-      enabled: true
-      size: 20Gi
-      storageClass: rook-ceph-block
+      data:
+        enabled: true
+        size: 20Gi
+        storageClass: rook-ceph-block
+        accessMode: ReadWriteOnce
 
     env:
       timezone: "Europe/Berlin"
