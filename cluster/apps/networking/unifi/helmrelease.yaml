@@ -10,7 +10,7 @@ spec:
     spec:
       # renovate: registryUrl=https://k8s-at-home.com/charts
       chart: unifi
-      version: 2.0.4
+      version: 3.1.0
       sourceRef:
         kind: HelmRepository
         name: k8s-at-home-charts
@@ -22,13 +22,94 @@ spec:
       repository: jacobalberty/unifi
       tag: v6.2.26
       pullPolicy: IfNotPresent
+
     persistence:
       enabled: true
       size: 20Gi
       storageClass: rook-ceph-block
-    timezone: "Europe/Berlin"
-    runAsRoot: false
-    hostNetwork: true
+
+    env:
+      timezone: "Europe/Berlin"
+
+    ingress:
+      main:
+        enabled: true
+        ingressClassName: "traefik"
+        annotations:
+          kubernetes.io/tls-acme: "true"
+          cert-manager.io/cluster-issuer: letsencrypt-production
+          traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+          external-dns/is-public: "true"
+          external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
+        hosts:
+          - "unifi.${SECRET_DOMAIN}"
+        tls:
+          - hosts:
+              - "unifi.${SECRET_DOMAIN}"
+            secretName: unifi-cert
+
+    service:
+      main:
+        ports:
+          http:
+            port: 8443
+          controller:
+            enabled: true
+            port: 8080
+            protocol: TCP
+            loadBalancerIP: ${LB_UNIFI}
+            annotations:
+              metallb.universe.tf/allow-shared-ip: unifi
+          portal-http:
+            enabled: false
+            port: 8880
+            protocol: HTTP
+            loadBalancerIP: ${LB_UNIFI}
+            annotations:
+              metallb.universe.tf/allow-shared-ip: unifi
+          portal-https:
+            enabled: false
+            port: 8843
+            protocol: HTTPS
+            loadBalancerIP: ${LB_UNIFI}
+            annotations:
+              metallb.universe.tf/allow-shared-ip: unifi
+          speedtest:
+            enabled: true
+            port: 6789
+            protocol: TCP
+            loadBalancerIP: ${LB_UNIFI}
+            annotations:
+              metallb.universe.tf/allow-shared-ip: unifi
+          stun:
+            enabled: true
+            port: 3478
+            protocol: UDP
+            loadBalancerIP: ${LB_UNIFI}
+            annotations:
+              metallb.universe.tf/allow-shared-ip: unifi
+          syslog:
+            enabled: true
+            port: 5514
+            protocol: UDP
+            loadBalancerIP: ${LB_UNIFI}
+            annotations:
+              metallb.universe.tf/allow-shared-ip: unifi
+          discovery:
+            enabled: true
+            port: 10001
+            protocol: UDP
+            loadBalancerIP: ${LB_UNIFI}
+            annotations:
+              metallb.universe.tf/allow-shared-ip: unifi
+
+    resources:
+      requests:
+        memory: 500Mi
+        cpu: 15m
+      limits:
+        memory: 750Mi
+
     logging:
       promtail:
         enabled: true
@@ -38,44 +119,3 @@ spec:
           pullPolicy: IfNotPresent
         loki:
           url: http://loki.monitoring.svc.cluster.local:3100/loki/api/v1/push
-    ingress:
-      enabled: true
-      ingressClassName: "traefik"
-      annotations:
-        kubernetes.io/tls-acme: "true"
-        cert-manager.io/cluster-issuer: letsencrypt-production
-        traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
-        external-dns/is-public: "true"
-        external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
-      hosts:
-        - "unifi.${SECRET_DOMAIN}"
-      tls:
-        - hosts:
-            - "unifi.${SECRET_DOMAIN}"
-          secretName: unifi-cert
-    guiService:
-      type: LoadBalancer
-      loadBalancerIP: ${LB_UNIFI}
-      annotations:
-        metallb.universe.tf/allow-shared-ip: unifi
-    controllerService:
-      type: LoadBalancer
-      loadBalancerIP: ${LB_UNIFI}
-      annotations:
-        metallb.universe.tf/allow-shared-ip: unifi
-    stunService:
-      type: LoadBalancer
-      loadBalancerIP: ${LB_UNIFI}
-      annotations:
-        metallb.universe.tf/allow-shared-ip: unifi
-    discoveryService:
-      type: LoadBalancer
-      loadBalancerIP: ${LB_UNIFI}
-      annotations:
-        metallb.universe.tf/allow-shared-ip: unifi
-    resources:
-      requests:
-        memory: 500Mi
-        cpu: 15m
-      limits:
-        memory: 750Mi

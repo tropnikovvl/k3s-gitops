@@ -7,5 +7,5 @@ resources:
   - coredns
   - external-dns
   - traefik
-#  - unifi
+  - unifi
   - wildcard-certificate
