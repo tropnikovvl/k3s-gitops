@@ -1,7 +1,0 @@
-delete nat
-{% for interface in vyos_interfaces | selectattr('nat', 'defined') | selectattr('nat', 'eq', 'outside') -%}
-    {% set rule = loop.index * 10 -%}
-set nat source rule {{ rule }} source address '0.0.0.0/0'
-set nat source rule {{ rule }} outbound-interface '{{ interface['interface'] }}'
-set nat source rule {{ rule }} translation address 'masquerade'
-{% endfor %}

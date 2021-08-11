@@ -1,5 +1,0 @@
----
-- name: configure dhcp leases
-  vyos.vyos.vyos_config:
-    match: none
-    src: dhcp-server.j2
