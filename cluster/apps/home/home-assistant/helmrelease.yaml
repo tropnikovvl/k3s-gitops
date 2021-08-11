@@ -89,9 +89,9 @@ spec:
         enabled: true
 
         image:
-
           repository: codercom/code-server
           tag: 3.11.1
+
         workingDir: "/config"
 
         ingress:
@@ -126,8 +126,8 @@ spec:
           - name: config
             mountPath: /config
 
-        git:
-          deployKeySecret: vscode-secrets
+        # git:
+        #   deployKeySecret: vscode-secrets
 
         resources:
           requests:
