@@ -48,13 +48,6 @@ spec:
           hosts:
           - "teslamate.${SECRET_DOMAIN}"
 
-    resources:
-      requests:
-        memory: 128Mi
-        cpu: 50m
-      limits:
-        memory: 256Mi
-
     probes:
       liveness:
         spec:
@@ -70,11 +63,18 @@ spec:
           failureThreshold: 30
           periodSeconds: 10
 
-    tolerations:
-    - key: kubernetes.io/arch
-      operator: Equal
-      value: arm64
-      effect: NoSchedule
+    # tolerations:
+    # - key: kubernetes.io/arch
+    #   operator: Equal
+    #   value: arm64
+    #   effect: NoSchedule
+
+    resources:
+      requests:
+        memory: 128Mi
+        cpu: 50m
+      limits:
+        memory: 256Mi
 
   valuesFrom:
   - kind: Secret
