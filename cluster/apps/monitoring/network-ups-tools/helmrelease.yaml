@@ -20,19 +20,36 @@ spec:
   values:
     env:
       TZ: "Europe/Berlin"
+
     securityContext:
       privileged: true
+
+    # service:
+    #   main:
+    #     enabled: true
+    #     type: LoadBalancer
+    #     loadBalancerIP: ${LB_NUT}
+    #     externalTrafficPolicy: Local
+    #     ports:
+    #       http:
+    #         enabled: true
+    #         port: 3493
+    #         protocol: TCP
+
     service:
       main:
-        enabled: true
         type: LoadBalancer
         loadBalancerIP: ${LB_NUT}
         externalTrafficPolicy: Local
         ports:
           http:
+            enabled: false
+          server:
             enabled: true
-            port: 3493
             protocol: TCP
+            port: 3493
+
+
     config:
       mode: values
       files:
@@ -49,6 +66,7 @@ spec:
           [upsslave]
             password = upsslavepw
             upsmon slave
+
     podAnnotations:
       configmap.reloader.stakater.com/reload: "network-ups-tools-config"
     affinity:
