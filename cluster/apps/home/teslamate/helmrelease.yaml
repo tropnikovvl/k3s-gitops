@@ -20,11 +20,13 @@ spec:
     image:
       repository: teslamate/teslamate
       tag: 1.23.7
+
     env:
       TZ: "Europe/Berlin"
       DATABASE_USER: "postgres"
       DATABASE_NAME: "teslamate"
       DISABLE_MQTT: "true"
+
     ingress:
       main:
         enabled: true
@@ -45,12 +47,14 @@ spec:
         - secretName: teslamate-cert
           hosts:
           - "teslamate.${SECRET_DOMAIN}"
+
     resources:
       requests:
         memory: 128Mi
         cpu: 50m
       limits:
         memory: 256Mi
+
     probes:
       liveness:
         spec:
