@@ -17,9 +17,9 @@ spec:
         namespace: flux-system
       interval: 5m
   values:
-    image:
-      repository: ghcr.io/k8s-at-home/coredns
-      tag: v1.8.4
+    # image:
+    #   repository: ghcr.io/k8s-at-home/coredns
+    #   tag: v1.8.4
 
     replicaCount: 3
 
