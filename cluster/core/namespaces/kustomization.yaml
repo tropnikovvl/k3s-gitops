@@ -6,6 +6,7 @@ resources:
   - metallb-system.yaml
   - networking.yaml
   - kasten-io.yaml
+  - logs.yaml
   - home.yaml
   - mail.yaml
   - media.yaml
