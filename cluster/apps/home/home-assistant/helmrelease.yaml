@@ -89,8 +89,8 @@ spec:
         enabled: true
 
         image:
-          repository: codercom/code-server
-          tag: 3.11.1
+          repository: ghcr.io/k8s-at-home/code-server
+          tag: v3.11.1
 
         workingDir: "/config"
 

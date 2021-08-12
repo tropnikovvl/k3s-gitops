@@ -16,12 +16,18 @@ spec:
         name: grafana-charts
         namespace: flux-system
   values:
+    image:
+      repository: ghcr.io/k8s-at-home/grafana
+      tag: v8.1.1
+
     deploymentStrategy:
       type: Recreate
+
     env:
       GF_EXPLORE_ENABLED: true
       GF_PANELS_DISABLE_SANITIZE_HTML: true
       GF_LOG_FILTERS: rendering:debug
+
     grafana.ini:
       server:
         root_url: "https://grafana.casalani.de"
@@ -34,6 +40,7 @@ spec:
         check_for_updates: false
       log:
         mode: console
+
     ingress:
       enabled: true
       annotations:
@@ -45,12 +52,14 @@ spec:
       tls:
       - hosts:
         - "grafana.${SECRET_DOMAIN}"
+
     persistence:
       enabled: true
       storageClassName: "rook-ceph-block"
       size: 5Gi
       accessModes:
       - ReadWriteOnce
+
     plugins:
     - natel-discrete-panel
     - pr0ps-trackmap-panel
