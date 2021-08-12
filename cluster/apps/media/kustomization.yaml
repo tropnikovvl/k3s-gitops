@@ -5,7 +5,7 @@ resources:
   - _pvs
   - bazarr
 #  - gaps
-  - ombi
+  - overseerr
   - plex
   - prowlarr
   - radarr
