@@ -5,6 +5,7 @@ resources:
   - namespaces
   - metallb-system
   - cert-manager
+  - logs
   - system-upgrade
   - rook-ceph
   - kube-system
