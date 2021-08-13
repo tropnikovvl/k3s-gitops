@@ -67,6 +67,14 @@ spec:
       limits:
         memory: 4096Mi
 
+  placement:
+    all:
+      tolerations:
+        - effect: "NoExecute"
+          operator: "Exists"
+        - effect: "NoSchedule"
+          operator: "Exists"
+
   storage:
     useAllNodes: false
     useAllDevices: false
