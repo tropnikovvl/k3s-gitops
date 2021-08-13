@@ -63,11 +63,11 @@ spec:
           failureThreshold: 30
           periodSeconds: 10
 
-    # tolerations:
-    # - key: kubernetes.io/arch
-    #   operator: Equal
-    #   value: arm64
-    #   effect: NoSchedule
+    tolerations:
+    - key: kubernetes.io/arch
+      operator: Equal
+      value: arm64
+      effect: NoSchedule
 
     resources:
       requests:

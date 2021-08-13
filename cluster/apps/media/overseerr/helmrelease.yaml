@@ -54,3 +54,9 @@ spec:
         cpu: 500m
       limits:
         memory: 750Mi
+
+    tolerations:
+      - key: kubernetes.io/arch
+        operator: Equal
+        value: arm64
+        effect: NoSchedule

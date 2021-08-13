@@ -23,3 +23,9 @@ spec:
     extraArgs:
       kubelet-insecure-tls: true
       kubelet-preferred-address-types: InternalIP,ExternalIP,Hostname
+
+    tolerations:
+    - key: kubernetes.io/arch
+      operator: Equal
+      value: arm64
+      effect: NoSchedule
