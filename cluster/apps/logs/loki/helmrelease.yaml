@@ -3,7 +3,7 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: loki
-  namespace: monitoring
+  namespace: logs
 spec:
   interval: 5m
   chart:
@@ -45,10 +45,10 @@ spec:
     affinity:
       podAntiAffinity:
         requiredDuringSchedulingIgnoredDuringExecution:
-        - labelSelector:
-            matchExpressions:
-            - key: app
-              operator: In
-              values:
-              - loki
-          topologyKey: "kubernetes.io/hostname"
+          - labelSelector:
+              matchExpressions:
+                - key: app
+                  operator: In
+                  values:
+                    - loki
+        topologyKey: "kubernetes.io/hostname"
