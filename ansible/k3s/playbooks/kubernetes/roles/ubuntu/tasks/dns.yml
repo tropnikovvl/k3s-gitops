@@ -16,5 +16,5 @@
     mode: 0644
     create: true
     block: |
-      nameserver 1.1.1.1
-      nameserver 8.8.8.8
+      nameserver 192.168.10.1
+      search .
