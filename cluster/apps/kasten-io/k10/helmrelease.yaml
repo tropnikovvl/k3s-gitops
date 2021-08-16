@@ -46,7 +46,7 @@ spec:
         secretName: "${SECRET_DOMAIN/./-}-tls"
 
     nodeSelector:
-      kubernetes.io/arch: amd64
+      node-role.kubernetes.io/worker: worker
 
   postRenderers:
     - kustomize:
