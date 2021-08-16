@@ -23,7 +23,6 @@ spec:
 
     env:
       TZ: "Europe/Berlin"
-      LOG_LEVEL: "info"
 
     ingress:
       main:
@@ -41,6 +40,7 @@ spec:
         tls:
           - hosts:
               - "requests.${SECRET_DOMAIN}"
+
     persistence:
       config:
         enabled: true
