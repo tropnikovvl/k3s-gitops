@@ -1,6 +1,7 @@
 # Folders
 ignore/
 testing/
+temp/
 
 # Trash
 .DS_Store
