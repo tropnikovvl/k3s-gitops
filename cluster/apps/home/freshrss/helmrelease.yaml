@@ -19,16 +19,19 @@ spec:
   values:
     image:
       repository: linuxserver/freshrss
-      tag: version-1.17.0
+      tag: version-1.18.1
       pullPolicy: IfNotPresent
+
     env:
       TZ: "Europe/Berlin"
+
     persistence:
       config:
         enabled: true
         storageClass: "rook-ceph-block"
         accessMode: ReadWriteOnce
         size: 5Gi
+
     ingress:
       main:
         enabled: true
