@@ -11,6 +11,7 @@ k3s_server:
   tls-san:
     - "{{ k3s_registration_address }}"
   docker: false
+  flannel-backend: "none" # This needs to be in quotes
   disable:
     - flannel
     - traefik
