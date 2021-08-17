@@ -26,11 +26,11 @@ all:
           ansible_host: 192.168.10.43
           rook_devices:
             - /dev/sdb
-        k3s-rpi-01:
-          ansible_host: 192.168.10.47
-        k3s-rpi-02:
-          ansible_host: 192.168.10.48
-        k3s-rpi-03:
-          ansible_host: 192.168.10.49
+        # k3s-rpi-01:
+        #   ansible_host: 192.168.10.47
+        # k3s-rpi-02:
+        #   ansible_host: 192.168.10.48
+        # k3s-rpi-03:
+        #   ansible_host: 192.168.10.49
       vars:
         ansible_user: ubuntu
