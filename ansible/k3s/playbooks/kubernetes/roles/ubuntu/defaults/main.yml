@@ -18,9 +18,11 @@ apt_install_packages:
   - nvme-cli
   - open-iscsi
   - psmisc
+  - qemu-guest-agent
   - smartmontools
   - socat
   - software-properties-common
+  - sysstat
   - unattended-upgrades
   - unzip
 

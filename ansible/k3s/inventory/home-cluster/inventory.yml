@@ -17,3 +17,18 @@ all:
             - /dev/sdb
       vars:
         ansible_user: ubuntu
+
+    worker:
+      hosts:
+        k3s-rpi-01:
+          ansible_host: 192.168.10.41
+        k3s-rpi-02:
+          ansible_host: 192.168.10.42
+        k3s-rpi-03:
+          ansible_host: 192.168.10.43
+        k3s-wo-08:
+          ansible_host: 192.168.10.48
+        k3s-wo-09:
+          ansible_host: 192.168.10.49
+      vars:
+        ansible_user: ubuntu
