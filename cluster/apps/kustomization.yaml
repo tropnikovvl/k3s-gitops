@@ -5,8 +5,8 @@ resources:
 #  - home
 #  - kasten-io
   - kube-system
-#  - logs
+  - logs
 #  - media
 #  - monitoring
   - networking
-#  - system-upgrade
+  - system-upgrade
