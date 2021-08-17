@@ -6,7 +6,7 @@ resources:
   - kasten-io
   - kube-system
   - logs
-  # - media
+  - media
   - monitoring
   - networking
   - system-upgrade
