@@ -82,12 +82,12 @@ spec:
       metadataDevice:
       osdsPerDevice: "1"
     nodes:
-      - name: "k3s-ma-01"
+      - name: "k3s-wo-01"
         devices:
           - name: "sdb"
-      - name: "k3s-ma-02"
+      - name: "k3s-wo-02"
         devices:
           - name: "sdb"
-      - name: "k3s-ma-03"
+      - name: "k3s-wo-03"
         devices:
           - name: "sdb"
