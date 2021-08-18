@@ -46,6 +46,6 @@ spec:
         namespace: kasten-io
       exportData:
         enabled: true
-      # migrationToken:
-      #   name: homelab-backup-migration-token-72cz7
-      #   namespace: kasten-io
+      migrationToken:
+        name: homelab-backup-migration-token-7jh7s
+        namespace: kasten-io
