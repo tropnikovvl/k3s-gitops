@@ -45,16 +45,6 @@ spec:
         enabled: true
         secretName: "${SECRET_DOMAIN/./-}-tls"
 
-    affinity:
-      nodeAffinity:
-        requiredDuringSchedulingIgnoredDuringExecution:
-          nodeSelectorTerms:
-            - matchExpressions:
-                - key: node-role.kubernetes.io/worker
-                  operator: In
-                  values:
-                    - worker
-
   postRenderers:
     - kustomize:
         patchesJson6902:

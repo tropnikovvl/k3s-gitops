@@ -6,3 +6,4 @@ resources:
   - monitoring
   - policies
   - profiles
+  - pod-spec-override.yaml
