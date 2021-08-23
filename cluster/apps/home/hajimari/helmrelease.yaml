@@ -104,19 +104,14 @@ spec:
         enabled: true
         ingressClassName: "traefik"
         annotations:
-          kubernetes.io/tls-acme: "true"
-          cert-manager.io/cluster-issuer: letsencrypt-production
           traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
-          external-dns/is-public: "true"
-          external-dns.alpha.kubernetes.io/target: "private.${SECRET_DOMAIN}"
         hosts:
         - host: "start.${SECRET_DOMAIN}"
           paths:
           - path: /
             pathType: Prefix
         tls:
-        - secretName: hajimari-cert
-          hosts:
+        - hosts:
           - "start.${SECRET_DOMAIN}"
 
     persistence:
