@@ -146,7 +146,7 @@ spec:
               operator: In
               values:
               - worker
-            - key: node-role.kubernetes.io/arch
+            - key: beta.kubernetes.io/arch
               operator: In
               values:
               - arm64
