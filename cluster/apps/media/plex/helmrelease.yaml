@@ -95,11 +95,6 @@ spec:
                   operator: In
                   values:
                     - "true"
-                - key: node-role.kubernetes.io/worker
-                  operator: In
-                  values:
-                    - worker
-
 
     podAnnotations:
       configmap.reloader.stakater.com/reload: "plex-promtail"
