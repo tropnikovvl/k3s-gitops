@@ -18,7 +18,7 @@ spec:
       interval: 5m
   values:
     image:
-      repository: linuxserver/freshrss
+      repository: ghcr.io/linuxserver/freshrss
       tag: version-1.18.1
       pullPolicy: IfNotPresent
 
