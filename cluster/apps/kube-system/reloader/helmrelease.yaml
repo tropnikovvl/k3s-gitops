@@ -22,3 +22,27 @@ spec:
       repository: ghcr.io/k8s-at-home/reloader
       tag: v0.0.99
       pullPolicy: IfNotPresent
+
+    tolerations:
+    - key: kubernetes.io/arch
+      operator: Equal
+      value: arm64
+      effect: NoSchedule
+
+    affinity:
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+          - matchExpressions:
+            - key: node-role.kubernetes.io/worker
+              operator: In
+              values:
+              - worker
+
+        preferredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+          - matchExpressions:
+            - key: node-role.kubernetes.io/arch
+              operator: In
+              values:
+              - arm64

@@ -217,6 +217,24 @@ spec:
       value: arm64
       effect: NoSchedule
 
+    affinity:
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+          - matchExpressions:
+            - key: node-role.kubernetes.io/worker
+              operator: In
+              values:
+              - worker
+
+        preferredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+          - matchExpressions:
+            - key: node-role.kubernetes.io/arch
+              operator: In
+              values:
+              - arm64
+
   valuesFrom:
   - kind: Secret
     name: "botkube-helm-values"
