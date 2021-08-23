@@ -50,6 +50,8 @@ spec:
         ingressClassName: "traefik"
         annotations:
           traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+          hajimari.io/enable: "true"
+          hajimari.io/icon: "download-box"
         hosts:
         - host: "sabnzbd.${SECRET_DOMAIN}"
           paths:
