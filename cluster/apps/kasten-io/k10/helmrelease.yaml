@@ -38,6 +38,8 @@ spec:
       host: "k10.${SECRET_DOMAIN}"
       annotations:
         traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+        hajimari.io/enable: "true"
+        hajimari.io/icon: "backup-restore"
       urlPath: k10
       hosts:
         - "k10.${SECRET_DOMAIN}"
