@@ -86,10 +86,6 @@ spec:
               operator: In
               values:
               - worker
-            - key: node-role.kubernetes.io/arch
-              operator: In
-              values:
-              - arm64
 
   valuesFrom:
   - kind: Secret
