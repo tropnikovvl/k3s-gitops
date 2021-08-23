@@ -106,13 +106,13 @@ spec:
         annotations:
           traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
         hosts:
-        - host: "start.${SECRET_DOMAIN}"
+        - host: "hajimari.${SECRET_DOMAIN}"
           paths:
           - path: /
             pathType: Prefix
         tls:
         - hosts:
-          - "start.${SECRET_DOMAIN}"
+          - "hajimari.${SECRET_DOMAIN}"
 
     persistence:
       data:
