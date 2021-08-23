@@ -78,10 +78,6 @@ spec:
               operator: In
               values:
               - worker
-
-        preferredDuringSchedulingIgnoredDuringExecution:
-          nodeSelectorTerms:
-          - matchExpressions:
             - key: node-role.kubernetes.io/arch
               operator: In
               values:
