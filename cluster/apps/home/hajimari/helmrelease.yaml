@@ -27,9 +27,9 @@ spec:
     hajimari:
       namespaceSelector:
         matchNames:
-        - apps
+        - home
         - media
-        - monitoring
+        # - monitoring
       # customApps:
       # - name: Mail
       #   url: "https://mail.${SECRET_DOMAIN}"
