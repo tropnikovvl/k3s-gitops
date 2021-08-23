@@ -28,8 +28,9 @@ spec:
       namespaceSelector:
         matchNames:
         - home
+        - kasten-io
         - media
-        # - monitoring
+        - monitoring
       # customApps:
       # - name: Mail
       #   url: "https://mail.${SECRET_DOMAIN}"
@@ -43,14 +44,6 @@ spec:
           url: 'https://gmail.com'
         - name: Slack
           url: 'https://slack.com/signin'
-      # - name: Cloud
-      #   links:
-      #   - name: Box
-      #     url: 'https://box.com'
-      #   - name: Dropbox
-      #     url: 'https://dropbox.com'
-      #   - name: Drive
-      #     url: 'https://drive.google.com'
       - name: Design
         links:
         - name: Awwwards
