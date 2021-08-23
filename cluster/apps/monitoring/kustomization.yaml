@@ -5,7 +5,7 @@ resources:
   - botkube
   - flux-notification
   - grafana
-  - kube-prometheus-stack
+#  - kube-prometheus-stack
   - network-ups-tools
-  - prometheus-nut-exporter
+#  - prometheus-nut-exporter
 #  - unifi-poller
