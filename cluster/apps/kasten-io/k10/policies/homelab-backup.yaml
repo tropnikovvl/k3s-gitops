@@ -18,7 +18,6 @@ spec:
       operator: In
       values:
       - home
-      - mail
       - media
 
   actions:
