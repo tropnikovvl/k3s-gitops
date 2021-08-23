@@ -8,7 +8,6 @@ resources:
   - kasten-io.yaml
   - logs.yaml
   - home.yaml
-  - mail.yaml
   - media.yaml
   - monitoring.yaml
   - rook-ceph.yaml
