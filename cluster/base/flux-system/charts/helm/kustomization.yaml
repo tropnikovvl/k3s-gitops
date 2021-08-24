@@ -16,6 +16,7 @@ resources:
   - kubernetes-sigs-descheduler-charts.yaml
   - lwolf-charts.yaml
   - metallb-charts.yaml
+  - nextcloud-charts.yaml
   - nicolaswilde-charts.yaml
   - reflector-charts.yaml
   - rook-ceph-charts.yaml
