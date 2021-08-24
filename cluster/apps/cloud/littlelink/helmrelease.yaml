@@ -34,8 +34,10 @@ spec:
       NAME: Christian Birkenbeul
       BIO: Hey! Feel free to reach out to me on any of the below.
       GITHUB: https://github.com/cbirkenbeul
+      INSTAGRAM: https://instagram.com/teqqy.de
       LINKED_IN: https://linkedin.com/in/cbirkenbeul
       TWITTER: https://twitter.com/teqqyde
+      YOUTUBE: https://youtube.com/teqqyde
       EMAIL: christian.birkenbeul@tektoria.de
     ingress:
       main:
