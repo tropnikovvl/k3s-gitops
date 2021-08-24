@@ -17,37 +17,7 @@ spec:
         namespace: flux-system
 
   values:
-    fullnameOverride: prom
-    defaultRules:
-      # for initial deployment, disabling the creation of default rules
-      create: true
-      # fine grained rule control
-      rules:
-        alertmanager: true
-        etcd: true
-        general: false
-        k8s: true
-        kubeApiserver: false
-        kubeApiserverAvailability: false
-        kubeApiserverError: false
-        kubeApiserverSlos: false
-        kubelet: false
-        kubePrometheusGeneral: false
-        kubePrometheusNodeAlerting: false
-        kubePrometheusNodeRecording: false
-        kubernetesAbsent: false
-        kubernetesApps: false
-        kubernetesResources: false
-        kubernetesStorage: false
-        kubernetesSystem: false
-        kubeScheduler: false
-        kubeStateMetrics: false
-        network: false
-        node: true
-        prometheus: false
-        prometheusOperator: false
-        time: false
-
+    fullnameOverride: prometheus
 
     prometheusOperator:
       createCustomResource: false
