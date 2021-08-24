@@ -4,6 +4,7 @@ kind: Kustomization
 resources:
   - cert-manager.yaml
   - cloud.yaml
+  - home-automation.yaml
   - metallb-system.yaml
   - networking.yaml
   - kasten-io.yaml

@@ -6,7 +6,6 @@ resources:
   - hajimari
   - home-assistant
   - mosquitto
-#  - octoprint
   - teslamate
   - wikijs
   - zwavejs2mqtt
