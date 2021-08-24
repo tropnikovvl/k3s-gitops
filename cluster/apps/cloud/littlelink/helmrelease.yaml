@@ -46,13 +46,13 @@ spec:
           cert-manager.io/cluster-issuer: letsencrypt-production
           traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
           external-dns/is-public: "true"
-          external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
+          external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN_2}"
         hosts:
-        - host: "me.${SECRET_SHORT_DOMAIN}"
+        - host: "me.${SECRET_SHORT_DOMAIN_2}"
           paths:
           - path: /
             pathType: Prefix
         tls:
         - hosts:
-          - "me.${SECRET_SHORT_DOMAIN}"
+          - "me.${SECRET_SHORT_DOMAIN_2}"
           secretName: littlelink-cert
