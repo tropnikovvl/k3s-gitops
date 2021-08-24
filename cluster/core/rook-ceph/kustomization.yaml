@@ -5,8 +5,6 @@ resources:
   - rbac.yaml
   - helmrelease.yaml
   - dashboard
-#  - rook-direct-mount
   - service-monitors
   - snapshot-controller
   - storage
-  - toolbox
