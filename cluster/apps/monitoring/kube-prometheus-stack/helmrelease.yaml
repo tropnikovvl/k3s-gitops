@@ -19,9 +19,6 @@ spec:
   values:
     fullnameOverride: prometheus
 
-    prometheusOperator:
-      createCustomResource: false
-
     alertmanager:
       config:
         global:
