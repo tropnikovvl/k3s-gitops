@@ -23,7 +23,7 @@ spec:
       create: true
       # fine grained rule control
       rules:
-        alertmanager: false
+        alertmanager: true
         etcd: true
         general: false
         k8s: true
@@ -104,10 +104,10 @@ spec:
         pathType: Prefix
         ingressClassName: "nginx"
         hosts:
-        - "alert-manager.int.casalani.de"
+        - "alert.${SECRET_DOMAIN}"
         tls:
         - hosts:
-          - "alert-manager.int.casalani.de"
+          - "alert.${SECRET_DOMAIN}"
 
       alertmanagerSpec:
         storage:
