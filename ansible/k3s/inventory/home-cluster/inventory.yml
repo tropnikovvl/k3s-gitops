@@ -32,3 +32,9 @@ all:
             - /dev/sdb
       vars:
         ansible_user: ubuntu
+
+    nodes:
+      hosts:
+        k3s-ma-[01:03]:
+        k3s-wo-[01:03]:
+        k3s-wo-05:

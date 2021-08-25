@@ -16,4 +16,4 @@
     mode: 0644
     create: true
     block: |
-      nameserver "{{ dns_server }}"
+      nameserver 192.168.10.1
