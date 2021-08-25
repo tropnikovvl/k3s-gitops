@@ -1,3 +1,0 @@
----
-ansible_become_pass: ubuntu
-k3s_become_for_all: true

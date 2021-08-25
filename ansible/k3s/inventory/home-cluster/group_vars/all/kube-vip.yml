@@ -1,8 +1,5 @@
 ---
 # The interface on the host kube-vip should attach to
-kubevip_interface: eno1
+kubevip_interface: eth0
 
 kubevip_address: 192.168.10.30
-kubevip_bgp_peer_ip: 192.168.10.1
-kubevip_bgp_as_number: 64512
-kubevip_bgp_peer_as_number: 64512

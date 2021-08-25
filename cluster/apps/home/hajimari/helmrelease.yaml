@@ -129,5 +129,5 @@ spec:
       value: arm64
       effect: NoSchedule
 
-    nodeSelector:
-      kubernetes.io/arch: arm64
+    # nodeSelector:
+    #   kubernetes.io/arch: arm64
