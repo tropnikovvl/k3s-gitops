@@ -1,4 +1,5 @@
 # yamllint disable
+kind: Secret
 ansible_become_pass: ENC[AES256_GCM,data:RehF0+8b,iv:xwyWYnNx8uarqIMML65662sTqBePFBkCtREzXS/1Yto=,tag:m7eFBj9qm9wbwmFIRBvYLg==,type:str]
 k3s_become_for_all: ENC[AES256_GCM,data:uTwrMg==,iv:eS4Y7HHnPlr2i5KcAqrY1Bfv9Hrh+SQCapuJW4XLdkA=,tag:vIVLAT/jvvE6JvQHNCUOfg==,type:bool]
 sops:
@@ -7,8 +8,8 @@ sops:
     azure_kv: []
     hc_vault: []
     age: []
-    lastmodified: "2021-08-25T17:21:38Z"
-    mac: ENC[AES256_GCM,data:thvF9xQNDIsxbvgkkXYkFGa+k8fmgvlCRNyaYCQt1uZ7IN3UAAue9F/qr4PiIoTGaqkPA38mKKsueVFOYU1glqC1B7HjXJDfjgo/kMLTR0wrC1+JFj00C7psFCsztFVaahbn837FdwZlaf5Goni3ndd2I33UNxNVlrhMePfYcmI=,iv:/ZXFtWEyBzBnGYPxX/KFLX0kHqNLcGRJ87ie2V1kdcM=,tag:A5iNIwgCyHSIgOcY7O00lw==,type:str]
+    lastmodified: "2021-08-25T18:03:26Z"
+    mac: ENC[AES256_GCM,data:u+FCI661wW56P9xyyy/LOdC48e2efw5Dd/kxnigTwi7lmHE+i6sRo8ms0R/oZ4contLnidTniT0DFrJd2t6uuQz5WgpNOTjQDrDBMucw91jVVqbwE7sVdWfIkI4GDZZYvg+yfrC6svdbbhkjVZQqE/b/rkL2711Fr0q4oQWNgts=,iv:gKE2mpqEm1epf+5tMRyoKY9FG48t99MpAK3uzmEJ+3c=,tag:b/TlzUu5Nema7IA6E6ewiA==,type:str]
     pgp:
         - created_at: "2021-08-25T17:11:59Z"
           enc: |

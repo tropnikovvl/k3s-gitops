@@ -24,8 +24,8 @@ all:
             - /dev/sdb
         k3s-wo-03:
           ansible_host: 192.168.10.43
-        k3s-wo-04:
-          ansible_host: 192.168.10.44
+        # k3s-wo-04:
+        #   ansible_host: 192.168.10.44
         k3s-wo-05:
           ansible_host: 192.168.10.45
           rook_devices:
