@@ -1,5 +1,4 @@
 # yamllint disable
-kind: Secret
 ansible_become_pass: ENC[AES256_GCM,data:RehF0+8b,iv:xwyWYnNx8uarqIMML65662sTqBePFBkCtREzXS/1Yto=,tag:m7eFBj9qm9wbwmFIRBvYLg==,type:str]
 k3s_become_for_all: ENC[AES256_GCM,data:uTwrMg==,iv:eS4Y7HHnPlr2i5KcAqrY1Bfv9Hrh+SQCapuJW4XLdkA=,tag:vIVLAT/jvvE6JvQHNCUOfg==,type:bool]
 sops:
