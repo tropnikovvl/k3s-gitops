@@ -81,10 +81,6 @@ spec:
               resources:
                 requests:
                   storage: 1Gi
-    grafana:
-      enabled: false
-    kubeStateMetrics:
-      enabled: false
     nodeExporter:
       serviceMonitor:
         relabelings:
@@ -98,6 +94,16 @@ spec:
       fullnameOverride: kube-state-metrics
     prometheus-node-exporter:
       fullnameOverride: node-exporter
+    grafana:
+      enabled: false
+    kubelet:
+      enabled: true
+      serviceMonitor:
+        metricRelabelings:
+        - action: replace
+          sourceLabels:
+          - node
+          targetLabel: instance
     kubeApiServer:
       enabled: false
     kubeControllerManager:
