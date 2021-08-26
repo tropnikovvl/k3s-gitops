@@ -4,7 +4,7 @@ kind: Kustomization
 resources:
 #  - cloud
 #  - home
-#  - home-automation
+  - home-automation
 #  - kasten-io
   - kube-system
   - logs
