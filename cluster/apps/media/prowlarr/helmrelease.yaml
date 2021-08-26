@@ -56,12 +56,3 @@ spec:
         cpu: 100m
       limits:
         memory: 256Mi
-
-    tolerations:
-    - key: kubernetes.io/arch
-      operator: Equal
-      value: arm64
-      effect: NoSchedule
-
-    nodeSelector:
-      kubernetes.io/arch: arm64
