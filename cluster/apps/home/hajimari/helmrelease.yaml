@@ -122,12 +122,3 @@
 #       requests:
 #         cpu: 100m
 #         memory: 128M
-
-#     tolerations:
-#     - key: kubernetes.io/arch
-#       operator: Equal
-#       value: arm64
-#       effect: NoSchedule
-
-#     # nodeSelector:
-#     #   kubernetes.io/arch: arm64

@@ -38,19 +38,3 @@
 #         storageClass: "rook-ceph-block"
 #         accessMode: ReadWriteOnce
 #         size: 1Gi
-
-#     tolerations:
-#     - key: kubernetes.io/arch
-#       operator: Equal
-#       value: arm64
-#       effect: NoSchedule
-
-#     affinity:
-#       nodeAffinity:
-#         requiredDuringSchedulingIgnoredDuringExecution:
-#           nodeSelectorTerms:
-#           - matchExpressions:
-#             - key: node-role.kubernetes.io/worker
-#               operator: In
-#               values:
-#               - worker
