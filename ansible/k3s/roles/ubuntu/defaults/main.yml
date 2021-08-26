@@ -27,7 +27,6 @@ apt_install_packages:
   - unzip
 
 apt_remove_packages:
-  - apparmor
   - apport
   - bcache-tools
   - btrfs-progs

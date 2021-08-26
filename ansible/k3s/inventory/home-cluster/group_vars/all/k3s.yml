@@ -33,14 +33,7 @@ k3s_registration_address: 192.168.10.30
 
 # Custom manifest files
 k3s_server_manifests_templates:
-  # - "calico/calico-installation.yaml.j2"
   - "kube-vip/kube-vip-rbac.yaml.j2"
-  # - "kube-vip/kube-vip-daemonset.yaml.j2"
-
-# Custom manifest URLs
-# k3s_server_manifests_urls:
-#   - url: https://docs.projectcalico.org/archive/v3.20/manifests/tigera-operator.yaml
-#     filename: tigera-operator.yaml
 
 k3s_server_pod_manifests_templates:
   - "kube-vip/kube-vip-pod.yaml.j2"
