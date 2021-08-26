@@ -7,7 +7,6 @@ resources:
   - home-automation.yaml
   - metallb-system.yaml
   - networking.yaml
-  - kasten-io.yaml
   - logs.yaml
   - home.yaml
   - media.yaml
