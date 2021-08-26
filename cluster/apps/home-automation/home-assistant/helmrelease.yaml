@@ -79,6 +79,15 @@ spec:
             hosts:
               - "home.${SECRET_DOMAIN}"
 
+    postgresql:
+      existingSecret: home-assistant-postgresql-secret
+      enabled: true
+      persistence:
+        enabled: true
+        storageClass: "rook-ceph-block"
+        accessMode: ReadWriteOnce
+        size: 10Gi
+
     resources:
       requests:
         cpu: 75m
