@@ -4,5 +4,5 @@ kind: Kustomization
 resources:
   - helmrelease.yaml
   - home-assistant-secrets.yaml
-  - home-assistant-postges-secret.yaml
+  - home-assistant-postgres-secret.yaml
 #  - vscode-secrets.yaml
