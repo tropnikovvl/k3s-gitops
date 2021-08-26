@@ -3,6 +3,6 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
   - home-assistant
-  - mosquitto
-  - octoprint
-  - zwavejs2mqtt
+  # - mosquitto
+  # - octoprint
+  # - zwavejs2mqtt
