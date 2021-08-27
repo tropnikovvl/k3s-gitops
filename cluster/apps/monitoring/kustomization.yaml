@@ -8,4 +8,4 @@ resources:
   - kube-prometheus-stack
   - network-ups-tools
   - prometheus-nut-exporter
-#  - unifi-poller
+  - unifi-poller
