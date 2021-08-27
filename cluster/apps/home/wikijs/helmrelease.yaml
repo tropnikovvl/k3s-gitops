@@ -21,7 +21,7 @@ spec:
     image:
       repository: ghcr.io/linuxserver/wikijs
       pullPolicy: IfNotPresent
-      tag: version-2.5.191
+      tag: version-2.5.201
     ingress:
       main:
         enabled: true
