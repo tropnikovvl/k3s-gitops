@@ -92,7 +92,7 @@ spec:
     externalDatabase:
       enabled: true
       type: postgresql
-      host: nextcloud-postgresql.collab
+      host: nextcloud-postgresql.cloud
       user: nextcloud
       password: ${SECRET_NEXTCLOUD_POSTGRES_PASSWORD}
       database: nextcloud
