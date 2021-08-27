@@ -36,4 +36,6 @@ spec:
           params:
             nodeResourceUtilizationThresholds:
               thresholds:
-                "memory": 60
+                "memory": 40
+              tragetThresholds:
+                "memory": 80
