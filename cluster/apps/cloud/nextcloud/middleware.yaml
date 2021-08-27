@@ -3,7 +3,7 @@ apiVersion: traefik.containo.us/v1alpha1
 kind: Middleware
 metadata:
   name: nextcloud-dav-redirect
-  namespace: collab
+  namespace: cloud
   annotations:
     kustomize.toolkit.fluxcd.io/substitute: disabled
 spec:
@@ -15,7 +15,7 @@ apiVersion: traefik.containo.us/v1alpha1
 kind: Middleware
 metadata:
   name: hsts
-  namespace: collab
+  namespace: cloud
 spec:
   headers:
     forceSTSHeader: true
