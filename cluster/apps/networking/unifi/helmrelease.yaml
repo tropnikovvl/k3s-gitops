@@ -62,61 +62,6 @@ spec:
         loadBalancerIP: ${LB_UNIFI}
         externalTrafficPolicy: Local
 
-    # service:
-    #   main:
-    #     ports:
-    #       http:
-    #         port: 8443
-    #       controller:
-    #         enabled: true
-    #         port: 8080
-    #         protocol: TCP
-    #         loadBalancerIP: ${LB_UNIFI}
-    #         annotations:
-    #           metallb.universe.tf/allow-shared-ip: unifi
-    #       portal-http:
-    #         enabled: false
-    #         port: 8880
-    #         protocol: HTTP
-    #         loadBalancerIP: ${LB_UNIFI}
-    #         annotations:
-    #           metallb.universe.tf/allow-shared-ip: unifi
-    #       portal-https:
-    #         enabled: false
-    #         port: 8843
-    #         protocol: HTTPS
-    #         loadBalancerIP: ${LB_UNIFI}
-    #         annotations:
-    #           metallb.universe.tf/allow-shared-ip: unifi
-    #       speedtest:
-    #         enabled: true
-    #         port: 6789
-    #         protocol: TCP
-    #         loadBalancerIP: ${LB_UNIFI}
-    #         annotations:
-    #           metallb.universe.tf/allow-shared-ip: unifi
-    #       stun:
-    #         enabled: true
-    #         port: 3478
-    #         protocol: UDP
-    #         loadBalancerIP: ${LB_UNIFI}
-    #         annotations:
-    #           metallb.universe.tf/allow-shared-ip: unifi
-    #       syslog:
-    #         enabled: true
-    #         port: 5514
-    #         protocol: UDP
-    #         loadBalancerIP: ${LB_UNIFI}
-    #         annotations:
-    #           metallb.universe.tf/allow-shared-ip: unifi
-    #       discovery:
-    #         enabled: true
-    #         port: 10001
-    #         protocol: UDP
-    #         loadBalancerIP: ${LB_UNIFI}
-    #         annotations:
-    #           metallb.universe.tf/allow-shared-ip: unifi
-
     resources:
       requests:
         memory: 500Mi

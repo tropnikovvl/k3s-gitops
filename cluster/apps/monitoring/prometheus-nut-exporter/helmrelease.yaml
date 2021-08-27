@@ -19,6 +19,7 @@ spec:
   values:
     env:
       TZ: "Europe/Berlin"
+
     prometheus:
       serviceMonitor:
         enabled: true
@@ -27,5 +28,10 @@ spec:
             port: 3493
             interval: 30s
             scrapeTimeout: 10s
-    nodeSelector:
-      kubernetes.io/arch: amd64
+
+    resources:
+      requests:
+        cpu: 75m
+        memory: 64Mi
+      limits:
+        memory: 128Mi

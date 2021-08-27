@@ -38,3 +38,10 @@ spec:
         storageClass: "rook-ceph-block"
         accessMode: ReadWriteOnce
         size: 1Gi
+
+    resources:
+      requests:
+        cpu: 75m
+        memory: 64Mi
+      limits:
+        memory: 128Mi

@@ -30,14 +30,18 @@ spec:
         enabled: false
       monitor:
         enabled: false
+
     service:
       externalTrafficPolicy: Local
       loadBalancerIP: ${LB_COREDNS}
       annotations:
         metallb.universe.tf/allow-shared-ip: coredns
+
     rbac:
       create: true
+
     isClusterService: false
+
     servers:
     - zones:
       - zone: casalani.de.

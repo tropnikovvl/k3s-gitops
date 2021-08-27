@@ -69,6 +69,7 @@ spec:
     - grafana-clock-panel
     - vonage-status-panel
     - https://github.com/panodata/grafana-map-panel/releases/download/0.15.0/grafana-map-panel-0.15.0.zip;grafana-worldmap-panel-ng
+
     dashboardProviders:
       dashboardproviders.yaml:
         apiVersion: 1
@@ -90,6 +91,7 @@ spec:
           allowUiUpdates: true
           options:
             path: /var/lib/grafana/dashboards/teslamate
+
     datasources:
       datasources.yaml:
         apiVersion: 1
@@ -113,6 +115,7 @@ spec:
           jsonData:
             postgresVersion: 1100
             sslmode: disable
+
     dashboards:
       default:
         node-exporter-full:
@@ -199,6 +202,16 @@ spec:
           url: https://raw.githubusercontent.com/adriankumpf/teslamate/v1.21.6/grafana/dashboards/internal/charge-details.json
         drive-details:
           url: https://raw.githubusercontent.com/adriankumpf/teslamate/v1.21.6/grafana/dashboards/internal/drive-details.json
+
+    podAnnotations:
+      configmap.reloader.stakater.com/reload: "grafana"
+
+    resources:
+      requests:
+        cpu: 75m
+        memory: 128Mi
+      limits:
+        memory: 512Mi
 
   valuesFrom:
   - kind: Secret
