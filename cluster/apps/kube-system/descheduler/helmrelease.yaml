@@ -36,6 +36,10 @@ spec:
           params:
             nodeResourceUtilizationThresholds:
               thresholds:
+                "cpu:": 20
                 "memory": 40
+                "pods": 60
               tragetThresholds:
+                "cpu": 80
                 "memory": 80
+                "pods": 80
