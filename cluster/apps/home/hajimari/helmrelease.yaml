@@ -28,7 +28,7 @@ spec:
       namespaceSelector:
         matchNames:
         - home
-        - kasten-io
+        - home-automation
         - media
         - monitoring
       # customApps:
@@ -76,14 +76,14 @@ spec:
           url: 'http://trakt.tv'
         - name: YouTube
           url: 'https://youtube.com/feed/subscriptions'
-      - name: Reading
+      - name: Homelab
         links:
-        - name: Instapaper
-          url: 'https://www.instapaper.com/u'
-        - name: Medium
-          url: 'http://medium.com'
-        - name: Reddit
-          url: 'http://reddit.com'
+        - name: Proxmox
+          url: 'https://192.168.10.11:8006'
+        - name: opnSense
+          url: 'https://192.168.10.1'
+        - name: TrueNAS
+          url: 'http://192.168.10.13'
       - name: Tech
         links:
         - name: Hacker News
