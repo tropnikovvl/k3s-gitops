@@ -37,9 +37,9 @@ spec:
             nodeResourceUtilizationThresholds:
               thresholds:
                 "cpu:": 20
-                "memory": 40
-                "pods": 60
+                "memory": 20
+                "pods": 20
               tragetThresholds:
-                "cpu": 80
-                "memory": 80
-                "pods": 80
+                "cpu": 70
+                "memory": 70
+                "pods": 70
