@@ -32,4 +32,8 @@ spec:
         RemovePodsViolatingInterPodAntiAffinity:
           enabled: false
         LowNodeUtilization:
-          enabled: false
+          enabled: true
+          params:
+            nodeResourceUtilizationThresholds:
+              thresholds:
+                "memory": 60
