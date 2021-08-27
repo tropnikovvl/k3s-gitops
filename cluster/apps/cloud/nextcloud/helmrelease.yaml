@@ -26,8 +26,11 @@ spec:
       NEXTCLOUD_DOMAIN_NAME: cloud.${SECRET_DOMAIN}
 
     persistence:
-      enabled: true
-      existingClaim: nextcloud-data-pvc
+      config:
+        enabled: true
+        storageClass: "rook-ceph-block"
+        accessMode: ReadWriteOnce
+        size: 20Gi
 
     ingress:
       enabled: true
@@ -108,5 +111,8 @@ spec:
       postgresqlDatabase: nextcloud
 
       persistence:
-        enabled: true
-        existingClaim: nextcloud-postgresql-pvc
+        data:
+          enabled: true
+          storageClass: "rook-ceph-block"
+          accessMode: ReadWriteOnce
+          size: 10Gi
