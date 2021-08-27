@@ -38,4 +38,4 @@ spec:
               thresholds:
                 "memory": 40
               targetThresholds:
-                "memory": 60
+                "memory": 50
