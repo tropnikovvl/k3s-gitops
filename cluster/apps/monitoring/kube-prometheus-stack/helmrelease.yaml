@@ -81,6 +81,10 @@ spec:
               resources:
                 requests:
                   storage: 1Gi
+    grafana:
+      enabled: false
+      forceDeployDashboards: true
+
     nodeExporter:
       serviceMonitor:
         relabelings:
@@ -90,12 +94,7 @@ spec:
           sourceLabels:
           - __meta_kubernetes_pod_node_name
           targetLabel: kubernetes_node
-    kube-state-metrics:
-      fullnameOverride: kube-state-metrics
-    prometheus-node-exporter:
-      fullnameOverride: node-exporter
-    grafana:
-      enabled: false
+
     kubelet:
       enabled: true
       serviceMonitor:
@@ -104,16 +103,28 @@ spec:
           sourceLabels:
           - node
           targetLabel: instance
+
     kubeApiServer:
-      enabled: false
-    kubeControllerManager:
-      enabled: false
-    kubeScheduler:
-      enabled: false
-    kubeProxy:
-      enabled: false
+      enabled: true
+
     kubeEtcd:
       enabled: false
+
+    kubeControllerManager:
+      enabled: false
+
+    kubeScheduler:
+      enabled: false
+
+    kubeProxy:
+      enabled: false
+
+    prometheus-node-exporter:
+      tolerations:
+      - effect: "NoExecute"
+        operator: "Exists"
+      - effect: "NoSchedule"
+        operator: "Exists"
 
     prometheus:
       ingress:
