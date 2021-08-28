@@ -98,7 +98,7 @@ spec:
       database: nextcloud
 
     cronjob:
-      enabled: true
+      enabled: false
 
     redis:
       enabled: true
