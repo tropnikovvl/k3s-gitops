@@ -26,7 +26,7 @@ spec:
       DATABASE_USER: "postgres"
       DATABASE_NAME: "teslamate"
       DISABLE_MQTT: "false"
-      MQTT_HOST: "mosquitto"
+      MQTT_HOST: "mosquitto.home-automation.svc.cluster.local"
 
     ingress:
       main:
