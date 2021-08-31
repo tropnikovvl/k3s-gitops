@@ -4,4 +4,4 @@ kind: Kustomization
 resources:
   - benji-secrets.yaml
   - config-map.yaml
-#  - helmrelease.yaml
+  - helmrelease.yaml
