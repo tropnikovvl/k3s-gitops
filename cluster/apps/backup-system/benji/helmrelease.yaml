@@ -104,8 +104,8 @@ spec:
           mountPath: /etc/ceph/keyring
           subPath: keyring
           readOnly: true
-        - name: backup-franxx
-          mountPath: /backup-franxx
+        - name: truenas-k3s-backup
+          mountPath: /truenas-k3s-backup
     fsfreeze:
       enabled: true
     postgresql:
