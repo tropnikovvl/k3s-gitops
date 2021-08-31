@@ -5,4 +5,4 @@ resources:
   - benji-secrets.yaml
   - config-map.yaml
   - helmrelease.yaml
-#  - service-monitor.yaml
+  - service-monitor.yaml
