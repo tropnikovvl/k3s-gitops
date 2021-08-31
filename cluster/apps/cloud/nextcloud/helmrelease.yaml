@@ -42,6 +42,8 @@ spec:
         external-dns.alpha.kubernetes.io/cloudflare-proxied: "true"
         traefik.ingress.kubernetes.io/router.entrypoints: websecure
         traefik.ingress.kubernetes.io/router.middlewares: cloud-nextcloud-dav-redirect@kubernetescrd,cloud-hsts@kubernetescrd
+        hajimari.io/enable: "true"
+        hajimari.io/icon: "cloud"
       tls:
         - secretName: tls.nextcloud
           hosts:
