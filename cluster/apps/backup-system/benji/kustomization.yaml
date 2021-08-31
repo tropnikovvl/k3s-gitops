@@ -4,6 +4,5 @@ kind: Kustomization
 resources:
   - benji-secrets.yaml
   - config-map.yaml
-  - generate-ceph.sh
   - helmrelease.yaml
   - service-monitor.yaml
