@@ -23,8 +23,9 @@ spec:
 
     env:
       TZ: "Europe/Berlin"
-      DATABASE_USER: "postgres"
+      DATABASE_USER: "teslamate"
       DATABASE_NAME: "teslamate"
+      DATABASE_HOST: teslamate-postgresql
       DISABLE_MQTT: "false"
       MQTT_HOST: "mosquitto.home-automation.svc.cluster.local"
 
