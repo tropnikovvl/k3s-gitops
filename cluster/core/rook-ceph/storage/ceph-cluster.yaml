@@ -88,6 +88,6 @@ spec:
       - name: "k3s-wo-02"
         devices:
           - name: "sdb"
-      - name: "k3s-wo-05"
-        devices:
-          - name: "sdb"
+      # - name: "k3s-wo-05"
+      #   devices:
+      #     - name: "sdb"
