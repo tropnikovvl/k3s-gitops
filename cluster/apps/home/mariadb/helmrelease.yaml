@@ -5,10 +5,7 @@ metadata:
   name: mariadb
   namespace: home
 spec:
-  maxHistory: 3
   interval: 10m0s
-  suspend: false
-  releaseName: mariadb
   chart:
     spec:
       # renovate: registryUrl=https://charts.bitnami.com/bitnami
@@ -22,8 +19,7 @@ spec:
     image:
       registry: docker.io
       repository: bitnami/mariadb
-      tag: 10.5.12
-    clusterDomain: cluster.local
+      tag: 10.5.12-debian-10-r32
     service:
       type: LoadBalancer
       loadBalancerIP: ${LB_MARIADB}
@@ -50,7 +46,6 @@ spec:
       enabled: false
     tls:
       enabled: false
-    podAntiAffinityPreset: hard
 
   valuesFrom:
   - kind: Secret
