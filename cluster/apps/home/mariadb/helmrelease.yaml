@@ -24,7 +24,6 @@ spec:
       type: LoadBalancer
       loadBalancerIP: ${LB_MARIADB}
       externalTrafficPolicy: Local
-      port: 3306
     serviceAccount:
       create: false
     extraEnvVars:
@@ -42,10 +41,6 @@ spec:
       enabled: true
       fsGroup: 1001
       runAsUser: 1001
-    ldap:
-      enabled: false
-    tls:
-      enabled: false
 
   valuesFrom:
   - kind: Secret
