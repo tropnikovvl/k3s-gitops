@@ -24,10 +24,6 @@ spec:
       repository: bitnami/mariadb
       tag: 10.5.12
     clusterDomain: cluster.local
-    podManagementPolicy: OrderedReady
-    updateStrategy:
-      type: RollingUpdate
-    replicaCount: 3
     service:
       type: LoadBalancer
       loadBalancerIP: ${LB_MARIADB}
