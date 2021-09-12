@@ -31,19 +31,36 @@ spec:
         - home-automation
         - media
         - monitoring
+        - rook-ceph
       # customApps:
       # - name: Mail
       #   url: "https://mail.${SECRET_DOMAIN}"
       #   icon: email
       groups:
-      - name: Communicate
+      - name: Home Automation
         links:
-        - name: Discord
-          url: 'https://discord.com'
-        - name: Gmail
-          url: 'https://gmail.com'
-        - name: Slack
-          url: 'https://slack.com/signin'
+        - name: Home Assistant VSCode
+          url: 'https://ha-vscode.casalani.de'
+        - name: ZigBee Controller
+          url: 'http://192.168.10.156:8080'
+      - name: Homelab
+        links:
+        - name: Proxmox
+          url: 'https://192.168.10.11:8006'
+        - name: opnSense
+          url: 'https://192.168.10.1'
+        - name: unRaid
+          url: 'http://192.168.10.15'
+      - name: Social Media
+        links:
+        - name: Instagram
+          url: 'https://instagram.com'
+      - name: Tesla
+        links:
+        - name: Tronity
+          url: 'https://app.tronity.io/dashboard'
+        - name: TFF-Forum
+          url: 'https://tff-forum.de'
       - name: Design
         links:
         - name: Awwwards
@@ -68,22 +85,6 @@ spec:
           url: 'https://www.dwell.com/'
         - name: Freshome
           url: 'https://www.mymove.com/freshome/'
-      - name: Media
-        links:
-        - name: Spotify
-          url: 'http://browse.spotify.com'
-        - name: Trakt
-          url: 'http://trakt.tv'
-        - name: YouTube
-          url: 'https://youtube.com/feed/subscriptions'
-      - name: Homelab
-        links:
-        - name: Proxmox
-          url: 'https://192.168.10.11:8006'
-        - name: opnSense
-          url: 'https://192.168.10.1'
-        - name: TrueNAS
-          url: 'http://192.168.10.13'
       - name: Tech
         links:
         - name: Hacker News
