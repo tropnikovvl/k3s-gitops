@@ -53,7 +53,7 @@ spec:
         size: 2Gi
       media:
         enabled: true
-        existingClaim: truenas-media-pvc
+        existingClaim: unraid-media-pvc
         mountPath: /media
         readOnly: true
 
