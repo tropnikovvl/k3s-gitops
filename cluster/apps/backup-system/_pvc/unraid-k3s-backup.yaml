@@ -1,0 +1,37 @@
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: unraid-k3s-backup
+spec:
+  capacity:
+    storage: 1Mi
+  accessModes:
+    - ReadWriteMany
+  claimRef:
+    name: unraid-k3s-backup-pvc
+    namespace: backup-system
+  storageClassName: nfs
+  nfs:
+    server: 192.168.10.15
+    path: "/mnt/user/k3s-backup"
+  mountOptions:
+    - nfsvers=3
+    - tcp
+    - intr
+    - hard
+    - noatime
+    - nodiratime
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: unraid-k3s-backup-pvc
+  namespace: backup-system
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: nfs
+  resources:
+    requests:
+      storage: 1Mi
