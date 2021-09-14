@@ -75,7 +75,7 @@ spec:
         medium: Memory
       media-rocinante:
         enabled: true
-        existingClaim: truenas-media-pvc
+        existingClaim: unraid-media-pvc
         mountPath: /media
         readOnly: true
 

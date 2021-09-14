@@ -92,7 +92,7 @@ spec:
       volumes:
         - name: backup-nas
           persistentVolumeClaim:
-            claimName: truenas-k3s-backup-pvc
+            claimName: unraid-k3s-backup-pvc
         - name: mon-endpoint-volume
           configMap:
             name: rook-ceph-mon-endpoints

@@ -70,7 +70,7 @@ spec:
         size: 50Gi
       media:
         enabled: true
-        existingClaim: truenas-media-pvc
+        existingClaim: unraid-media-pvc
         mountPath: /media
 
     resources:
