@@ -58,7 +58,7 @@ spec:
           command:
             - benji-backup-pvc
             - --namespace
-            - security
+            - cloud
         - name: backup-media
           schedule: "00 03 * * *"
           command:
@@ -70,7 +70,7 @@ spec:
           command:
             - benji-backup-pvc
             - --namespace
-            - collab
+            - home-automation
         - name: backup-home
           schedule: "00 05 * * *"
           command:
