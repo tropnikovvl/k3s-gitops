@@ -65,24 +65,3 @@ spec:
         access_key: "${SECRET_MINIO_ACCESS_KEY}"
         secret_key: "${SECRET_MINIO_SECRET_KEY}"
         insecure: false
-  valuesFrom:
-    - kind: ConfigMap
-      name: thanos-ceph-bucket
-      valuesKey: BUCKET_NAME
-      targetPath: objstore.config.bucket
-    - kind: ConfigMap
-      name: thanos-ceph-bucket
-      valuesKey: BUCKET_HOST
-      targetPath: objstore.config.endpoint
-    - kind: ConfigMap
-      name: thanos-ceph-bucket
-      valuesKey: BUCKET_REGION
-      targetPath: objstore.config.region
-    - kind: Secret
-      name: thanos-ceph-bucket
-      valuesKey: AWS_ACCESS_KEY_ID
-      targetPath: objstore.config.access_key
-    - kind: Secret
-      name: thanos-ceph-bucket
-      valuesKey: AWS_SECRET_ACCESS_KEY
-      targetPath: objstore.config.secret_key
