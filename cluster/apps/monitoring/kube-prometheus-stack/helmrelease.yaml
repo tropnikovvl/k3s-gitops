@@ -145,6 +145,10 @@ spec:
         limits:
           memory: 2048Mi
           cpu: 500m
+
+      thanosService:
+        enabled: true
+
       prometheusSpec:
         replicas: 1
         replicaExternalLabelName: "replica"
@@ -162,3 +166,10 @@ spec:
               resources:
                 requests:
                   storage: 10Gi
+
+        thanos:
+          image: quay.io/thanos/thanos:v0.22.0
+          version: v0.21.1
+          objectStorageConfig:
+            name: thanos
+            key: object-store.yaml
