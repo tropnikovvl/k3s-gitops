@@ -3,9 +3,9 @@
   tags:
     - locale
 
-- include: hosts.yml
-  tags:
-    - hosts
+# - include: hosts.yml
+#   tags:
+#     - hosts
 
 - include: timesyncd.yml
   tags:

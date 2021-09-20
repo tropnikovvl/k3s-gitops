@@ -30,6 +30,10 @@ all:
           ansible_host: 192.168.10.45
           rook_devices:
             - /dev/sdb
+        k3s-wo-06:
+          ansible_host: 192.168.10.46
+          rook_devices:
+            - /dev/sdb
       vars:
         ansible_user: ubuntu
 
