@@ -32,11 +32,9 @@ spec:
           hosts:
             - "thanos.${SECRET_DOMAIN}"
           annotations:
-            kubernetes.io/ingress.class: traefik
-            traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
-            traefik.ingress.kubernetes.io/router.middlewares: "network-internal-auth@kubernetescrd"
             kubernetes.io/tls-acme: "true"
             cert-manager.io/cluster-issuer: letsencrypt-production
+            traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
           tls:
             - hosts:
                 - "thanos.${SECRET_DOMAIN}"
