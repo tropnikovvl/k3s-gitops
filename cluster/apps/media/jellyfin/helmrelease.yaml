@@ -43,6 +43,8 @@ spec:
         ingressClassName: "traefik"
         annotations:
           traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+          hajimari.io/enable: "true"
+          hajimari.io/icon: "movie-play"
         hosts:
           - host: "jellyfin.${SECRET_DOMAIN}"
             paths:
