@@ -5,6 +5,7 @@ resources:
   - _pvs
   - bazarr
   - gaps
+  - jellyfin
   - overseerr
   - plex
   - prowlarr
