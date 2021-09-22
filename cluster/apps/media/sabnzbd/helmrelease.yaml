@@ -62,6 +62,10 @@ spec:
           hosts:
           - "sabnzbd.${SECRET_DOMAIN}"
 
+    podSecurityContext:
+      supplementalGroups:
+      - 100
+
     persistence:
       config:
         enabled: true
