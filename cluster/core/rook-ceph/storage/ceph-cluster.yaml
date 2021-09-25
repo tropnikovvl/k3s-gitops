@@ -93,4 +93,4 @@ spec:
       #     - name: "sdb"
       - name: "k3s-wo-06"
         devices:
-          - name: "vdb"
+          - name: "sdb"
