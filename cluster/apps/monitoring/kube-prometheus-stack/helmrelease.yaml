@@ -97,13 +97,13 @@ spec:
           targetLabel: kubernetes_node
 
     kubelet:
-      enabled: true
-      serviceMonitor:
-        metricRelabelings:
-        - action: replace
-          sourceLabels:
-          - node
-          targetLabel: instance
+      enabled: false
+      # serviceMonitor:
+      #   metricRelabelings:
+      #   - action: replace
+      #     sourceLabels:
+      #     - node
+      #     targetLabel: instance
 
     kubeApiServer:
       enabled: true
