@@ -9,4 +9,4 @@ resources:
   - radarr
   - sabnzbd
   - sonarr
-  #  - tdarr
+  - tdarr
