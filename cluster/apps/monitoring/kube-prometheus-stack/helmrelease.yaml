@@ -1,176 +1,186 @@
-# ---
-# apiVersion: helm.toolkit.fluxcd.io/v2beta1
-# kind: HelmRelease
-# metadata:
-#   name: kube-prometheus-stack
-#   namespace: monitoring
-# spec:
-#   interval: 5m
-#   chart:
-#     spec:
-#       # renovate: registryUrl=https://prometheus-community.github.io/helm-charts
-#       chart: kube-prometheus-stack
-#       version: 18.1.1
-#       sourceRef:
-#         kind: HelmRepository
-#         name: prometheus-community-charts
-#         namespace: flux-system
-#       interval: 5m
-#   timeout: 20m
-#   values:
-#     fullnameOverride: prometheus
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: kube-prometheus-stack
+  namespace: monitoring
+spec:
+  interval: 5m
+  chart:
+    spec:
+      # renovate: registryUrl=https://prometheus-community.github.io/helm-charts
+      chart: kube-prometheus-stack
+      version: 18.1.1
+      sourceRef:
+        kind: HelmRepository
+        name: prometheus-community-charts
+        namespace: flux-system
+      interval: 5m
+  timeout: 20m
+  values:
+    fullnameOverride: prometheus
 
-#     alertmanager:
-#       config:
-#         global:
-#           slack_api_url: "${SECRET_ALERT_MANAGER_DISCORD_WEBHOOK}"
-#           resolve_timeout: 5m
-#         receivers:
-#         - name: 'null'
-#         - name: 'discord'
-#           slack_configs:
-#           - channel: '#prometheus'
-#             icon_url: https://avatars3.githubusercontent.com/u/3380462
-#             username: 'Prometheus'
-#             send_resolved: true
-#             title: |-
-#               [{{ .Status | toUpper }}{{ if eq .Status "firing" }}:{{ .Alerts.Firing | len }}{{ end }}] {{ if ne .CommonAnnotations.summary ""}}{{ .CommonAnnotations.summary }}{{ else }}{{ .CommonLabels.alertname }}{{ end }}
-#             text: >-
-#               {{ range .Alerts -}}
-#                 **Alert:** {{ .Annotations.title }}{{ if .Labels.severity }} - `{{ .Labels.severity }}`{{ end }}
-#               **Description:** {{ if ne .Annotations.description ""}}{{ .Annotations.description }}{{else}}N/A{{ end }}
-#               **Details:**
-#                 {{ range .Labels.SortedPairs }} • *{{ .Name }}:* `{{ .Value }}`
-#                 {{ end }}
-#               {{ end }}
-#         route:
-#           group_by: ['alertname', 'job']
-#           group_wait: 30s
-#           group_interval: 5m
-#           repeat_interval: 6h
-#           receiver: 'null'
-#           routes:
-#           - receiver: 'null'
-#             match:
-#               alertname: Watchdog
-#           - receiver: 'discord'
-#             match_re:
-#               severity: critical|warning|error
-#             continue: true
-#         inhibit_rules:
-#         - source_match:
-#             severity: 'critical'
-#           target_match:
-#             severity: 'warning'
-#           equal: ['alertname', 'namespace']
-#       ingress:
-#         enabled: true
-#         pathType: Prefix
-#         ingressClassName: "traefik"
-#         annotations:
-#           traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
-#         hosts:
-#         - "alert-manager.${SECRET_DOMAIN}"
-#         tls:
-#         - hosts:
-#           - "alert-manager.${SECRET_DOMAIN}"
-#       alertmanagerSpec:
-#         storage:
-#           volumeClaimTemplate:
-#             spec:
-#               storageClassName: "rook-ceph-block"
-#               resources:
-#                 requests:
-#                   storage: 1Gi
-#     grafana:
-#       enabled: false
-#       forceDeployDashboards: true
+    alertmanager:
+      config:
+        global:
+          slack_api_url: "${SECRET_ALERT_MANAGER_DISCORD_WEBHOOK}"
+          resolve_timeout: 5m
+        receivers:
+        - name: 'null'
+        - name: 'discord'
+          slack_configs:
+          - channel: '#prometheus'
+            icon_url: https://avatars3.githubusercontent.com/u/3380462
+            username: 'Prometheus'
+            send_resolved: true
+            title: |-
+              [{{ .Status | toUpper }}{{ if eq .Status "firing" }}:{{ .Alerts.Firing | len }}{{ end }}] {{ if ne .CommonAnnotations.summary ""}}{{ .CommonAnnotations.summary }}{{ else }}{{ .CommonLabels.alertname }}{{ end }}
+            text: >-
+              {{ range .Alerts -}}
+                **Alert:** {{ .Annotations.title }}{{ if .Labels.severity }} - `{{ .Labels.severity }}`{{ end }}
+              **Description:** {{ if ne .Annotations.description ""}}{{ .Annotations.description }}{{else}}N/A{{ end }}
+              **Details:**
+                {{ range .Labels.SortedPairs }} • *{{ .Name }}:* `{{ .Value }}`
+                {{ end }}
+              {{ end }}
+        route:
+          group_by: ['alertname', 'job']
+          group_wait: 30s
+          group_interval: 5m
+          repeat_interval: 6h
+          receiver: 'discord'
+          routes:
+          - receiver: 'null'
+            match:
+              alertname: Watchdog
+          - receiver: 'discord'
+            match_re:
+              severity: critical|warning|error
+            continue: true
+        inhibit_rules:
+        - source_match:
+            severity: 'critical'
+          target_match:
+            severity: 'warning'
+          equal: ['alertname', 'namespace']
+      ingress:
+        enabled: true
+        pathType: Prefix
+        ingressClassName: "traefik"
+        annotations:
+          traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+        hosts:
+        - "alert-manager.${SECRET_DOMAIN}"
+        tls:
+        - hosts:
+          - "alert-manager.${SECRET_DOMAIN}"
+      alertmanagerSpec:
+        storage:
+          volumeClaimTemplate:
+            spec:
+              storageClassName: "rook-ceph-block"
+              resources:
+                requests:
+                  storage: 1Gi
 
-#     # nodeExporter:
-#     #   serviceMonitor:
-#     #     relabelings:
-#     #     - action: replace
-#     #       regex: (.*)
-#     #       replacement: $1
-#     #       sourceLabels:
-#     #       - __meta_kubernetes_pod_node_name
-#     #       targetLabel: kubernetes_node
+    nodeExporter:
+      serviceMonitor:
+        relabelings:
+        - action: replace
+          regex: (.*)
+          replacement: $1
+          sourceLabels:
+          - __meta_kubernetes_pod_node_name
+          targetLabel: kubernetes_node
 
-#     kubelet:
-#       enabled: false
-#       # serviceMonitor:
-#       #   metricRelabelings:
-#       #   - action: replace
-#       #     sourceLabels:
-#       #     - node
-#       #     targetLabel: instance
+    kube-state-metrics:
+      fullnameOverride: kube-state-metrics
 
-#     kubeApiServer:
-#       enabled: true
+    grafana:
+      enabled: false
+      forceDeployDashboards: true
+      sidecar:
+        dashboards:
+          multicluster:
+            etcd:
+              enabled: true
 
-#     kubeEtcd:
-#       enabled: false
+    kubelet:
+      enabled: true
+      serviceMonitor:
+        metricRelabelings:
+        - action: replace
+          sourceLabels:
+          - node
+          targetLabel: instance
 
-#     kubeControllerManager:
-#       enabled: false
+    kubeApiServer:
+      enabled: true
 
-#     kubeScheduler:
-#       enabled: false
+    kubeEtcd:
+      enabled: false
 
-#     kubeProxy:
-#       enabled: false
+    kubeControllerManager:
+      enabled: false
 
-#     prometheus-node-exporter:
-#       tolerations:
-#       - effect: "NoExecute"
-#         operator: "Exists"
-#       - effect: "NoSchedule"
-#         operator: "Exists"
+    kubeScheduler:
+      enabled: false
 
-#     prometheus:
-#       ingress:
-#         enabled: true
-#         pathType: Prefix
-#         ingressClassName: "traefik"
-#         annotations:
-#           traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
-#         hosts:
-#         - "prometheus.${SECRET_DOMAIN}"
-#         tls:
-#         - hosts:
-#           - "prometheus.${SECRET_DOMAIN}"
-#       resources:
-#         requests:
-#           memory: 512Mi
-#           cpu: 250m
-#         limits:
-#           memory: 2048Mi
-#           cpu: 500m
+    kubeProxy:
+      enabled: false
 
-#       thanosService:
-#         enabled: true
+    prometheus-node-exporter:
+      fullnameOverride: node-exporter
+      tolerations:
+      - effect: "NoExecute"
+        operator: "Exists"
+      - effect: "NoSchedule"
+        operator: "Exists"
 
-#       prometheusSpec:
-#         replicas: 1
-#         replicaExternalLabelName: "replica"
-#         ruleSelectorNilUsesHelmValues: false
-#         serviceMonitorSelectorNilUsesHelmValues: false
-#         podMonitorSelectorNilUsesHelmValues: false
-#         probeSelectorNilUsesHelmValues: false
-#         retention: 6h
-#         enableAdminAPI: true
-#         walCompression: true
-#         storageSpec:
-#           volumeClaimTemplate:
-#             spec:
-#               storageClassName: "rook-ceph-block"
-#               resources:
-#                 requests:
-#                   storage: 10Gi
+    prometheus:
+      ingress:
+        enabled: true
+        pathType: Prefix
+        ingressClassName: "traefik"
+        annotations:
+          traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+        hosts:
+        - "prometheus.${SECRET_DOMAIN}"
+        tls:
+        - hosts:
+          - "prometheus.${SECRET_DOMAIN}"
+      resources:
+        requests:
+          memory: 512Mi
+          cpu: 250m
+        limits:
+          memory: 2048Mi
+          cpu: 500m
 
-#         thanos:
-#           image: quay.io/thanos/thanos:v0.23.0
-#           version: v0.21.1
-#           objectStorageConfig:
-#             name: thanos
-#             key: object-store.yaml
+      thanosService:
+        enabled: true
+
+      prometheusSpec:
+        replicas: 1
+        replicaExternalLabelName: "replica"
+        ruleSelectorNilUsesHelmValues: false
+        serviceMonitorSelectorNilUsesHelmValues: false
+        podMonitorSelectorNilUsesHelmValues: false
+        probeSelectorNilUsesHelmValues: false
+        retention: 6h
+        enableAdminAPI: true
+        walCompression: true
+        storageSpec:
+          volumeClaimTemplate:
+            spec:
+              storageClassName: "rook-ceph-block"
+              resources:
+                requests:
+                  storage: 10Gi
+
+        thanos:
+          image: quay.io/thanos/thanos:v0.23.0
+          version: v0.21.1
+          objectStorageConfig:
+            name: thanos
+            key: object-store.yaml
