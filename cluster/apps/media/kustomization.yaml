@@ -6,11 +6,11 @@ resources:
   - bazarr
   - gaps
   - jellyfin
-  - overseerr
-  - plex
+#  - overseerr
+#  - plex
   - prowlarr
   - radarr
   - sabnzbd
   - sonarr
-  - tautulli
+#  - tautulli
 #  - tdarr
