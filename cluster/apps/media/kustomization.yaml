@@ -4,13 +4,9 @@ kind: Kustomization
 resources:
   - _pvs
   - bazarr
-  - gaps
   - jellyfin
-#  - overseerr
-#  - plex
   - prowlarr
   - radarr
   - sabnzbd
   - sonarr
-#  - tautulli
-#  - tdarr
+  #  - tdarr
