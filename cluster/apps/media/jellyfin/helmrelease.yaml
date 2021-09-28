@@ -26,15 +26,15 @@ spec:
 
     podSecurityContext:
       supplementalGroups:
-        - 44
-        - 109
-        - 100
+      - 44
+      - 109
+      - 100
 
     service:
       main:
         type: LoadBalancer
         externalIPs:
-          - "${LB_JELLYFIN}"
+        - "${LB_JELLYFIN}"
         externalTrafficPolicy: Local
 
     ingress:
@@ -43,16 +43,19 @@ spec:
         ingressClassName: "traefik"
         annotations:
           traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+          external-dns/is-public: "true"
           hajimari.io/enable: "true"
           hajimari.io/icon: "movie-play"
         hosts:
-          - host: "jellyfin.${SECRET_DOMAIN}"
-            paths:
-              - path: /
-                pathType: Prefix
+        - host: "jellyfin.${SECRET_DOMAIN}"
+          paths:
+          - path: /
+            pathType: Prefix
         tls:
-          - hosts:
-              - "jellyfin.${SECRET_DOMAIN}"
+        - hosts:
+          - "jellyfin.${SECRET_DOMAIN}"
+          secretName: jellyfin-cert
+
 
     persistence:
       config:
@@ -82,8 +85,8 @@ spec:
         name: fsfreeze
         image: ghcr.io/k8s-at-home/fsfreeze:v2.37-r0
         volumeMounts:
-          - name: config
-            mountPath: /config
+        - name: config
+          mountPath: /config
         securityContext:
           privileged: true
 
@@ -91,8 +94,8 @@ spec:
       nodeAffinity:
         requiredDuringSchedulingIgnoredDuringExecution:
           nodeSelectorTerms:
-            - matchExpressions:
-                - key: feature.node.kubernetes.io/custom-intel-gpu
-                  operator: In
-                  values:
-                    - "true"
+          - matchExpressions:
+            - key: feature.node.kubernetes.io/custom-intel-gpu
+              operator: In
+              values:
+              - "true"
