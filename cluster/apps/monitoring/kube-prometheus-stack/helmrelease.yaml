@@ -74,6 +74,7 @@ spec:
         tls:
         - hosts:
           - "alert-manager.${SECRET_DOMAIN}"
+          secretName: alert-manager-cert
       alertmanagerSpec:
         storage:
           volumeClaimTemplate:
@@ -149,6 +150,7 @@ spec:
         tls:
         - hosts:
           - "prometheus.${SECRET_DOMAIN}"
+          secretName: prom-server-cert
       resources:
         requests:
           memory: 512Mi
