@@ -6,5 +6,6 @@ resources:
   - hajimari
   - mariadb
   - monica
+  - paperless
   - teslamate
   - wikijs
