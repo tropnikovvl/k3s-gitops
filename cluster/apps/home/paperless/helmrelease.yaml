@@ -46,7 +46,7 @@ spec:
         volumeSpec:
           nfs:
             server: "${NFS_SERVER}"
-            path: "${NFS_DOWNLOADS}/scans"
+            path: "${NFS_KUBERNETES}/paperless/scans"
       export:
         enabled: true
         mountPath: /usr/src/paperless/export
