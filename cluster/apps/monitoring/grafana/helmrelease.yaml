@@ -202,6 +202,14 @@ spec:
     podAnnotations:
       configmap.reloader.stakater.com/reload: "grafana"
 
+    sidecar:
+      dashboards:
+        enabled: true
+        searchNamespace: ALL
+      datasources:
+        enabled: true
+        searchNamespace: ALL
+
     resources:
       requests:
         cpu: 75m
