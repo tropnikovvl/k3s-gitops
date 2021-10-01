@@ -48,15 +48,10 @@ spec:
     persistence:
       config:
         enabled: true
-        size: "1Gi"
-        accessMode: "ReadWriteOnce"
-        storageClass: "rook-ceph-block"
+        existingClaim: wikijs-config-v1
       data:
         enabled: true
-        size: "5Gi"
-        accessMode: "ReadWriteOnce"
-        mountPath: /app/wiki/data
-        storageClass: "rook-ceph-block"
+        existingClaim: wikijs-data-v1
 
     resources:
       requests:
