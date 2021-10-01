@@ -1,218 +1,217 @@
----
-apiVersion: helm.toolkit.fluxcd.io/v2beta1
-kind: HelmRelease
-metadata:
-  name: grafana
-  namespace: monitoring
-spec:
-  interval: 1h
-  chart:
-    spec:
-      # renovate: registryUrl=https://grafana.github.io/helm-charts
-      chart: grafana
-      version: 6.16.10
-      sourceRef:
-        kind: HelmRepository
-        name: grafana-charts
-        namespace: flux-system
-  values:
-    # image:
-    #   repository: ghcr.io/k8s-at-home/grafana
-    #   tag: v8.1.1
+# ---
+# apiVersion: helm.toolkit.fluxcd.io/v2beta1
+# kind: HelmRelease
+# metadata:
+#   name: grafana
+#   namespace: monitoring
+# spec:
+#   interval: 1h
+#   chart:
+#     spec:
+#       # renovate: registryUrl=https://grafana.github.io/helm-charts
+#       chart: grafana
+#       version: 6.16.10
+#       sourceRef:
+#         kind: HelmRepository
+#         name: grafana-charts
+#         namespace: flux-system
+#   values:
+#     image:
+#       repository: ghcr.io/k8s-at-home/grafana
 
-    deploymentStrategy:
-      type: Recreate
+#     deploymentStrategy:
+#       type: Recreate
 
-    env:
-      GF_EXPLORE_ENABLED: true
-      GF_PANELS_DISABLE_SANITIZE_HTML: true
-      GF_LOG_FILTERS: rendering:debug
+#     env:
+#       GF_EXPLORE_ENABLED: true
+#       GF_PANELS_DISABLE_SANITIZE_HTML: true
+#       GF_LOG_FILTERS: rendering:debug
 
-    grafana.ini:
-      server:
-        root_url: "https://grafana.casalani.de"
-      paths:
-        data: /var/lib/grafana/data
-        logs: /var/log/grafana
-        plugins: /var/lib/grafana/plugins
-        provisioning: /etc/grafana/provisioning
-      analytics:
-        check_for_updates: false
-      log:
-        mode: console
+#     grafana.ini:
+#       server:
+#         root_url: "https://grafana.casalani.de"
+#       paths:
+#         data: /var/lib/grafana/data
+#         logs: /var/log/grafana
+#         plugins: /var/lib/grafana/plugins
+#         provisioning: /etc/grafana/provisioning
+#       analytics:
+#         check_for_updates: false
+#       log:
+#         mode: console
 
-    ingress:
-      enabled: true
-      annotations:
-        kubernetes.io/ingress.class: "traefik"
-        external-dns/is-public: "true"
-        external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
-        hajimari.io/enable: "true"
-        hajimari.io/icon: "chart-areaspline"
-      hosts:
-      - "grafana.${SECRET_DOMAIN}"
-      tls:
-      - hosts:
-        - "grafana.${SECRET_DOMAIN}"
+#     ingress:
+#       enabled: true
+#       annotations:
+#         kubernetes.io/ingress.class: "traefik"
+#         external-dns/is-public: "true"
+#         external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
+#         hajimari.io/enable: "true"
+#         hajimari.io/icon: "chart-areaspline"
+#       hosts:
+#       - "grafana.${SECRET_DOMAIN}"
+#       tls:
+#       - hosts:
+#         - "grafana.${SECRET_DOMAIN}"
 
-    persistence:
-      enabled: true
-      storageClassName: "rook-ceph-block"
-      size: 5Gi
-      accessModes:
-      - ReadWriteOnce
+#     persistence:
+#       enabled: true
+#       storageClassName: "rook-ceph-block"
+#       size: 5Gi
+#       accessModes:
+#       - ReadWriteOnce
 
-    plugins:
-    - natel-discrete-panel
-    - pr0ps-trackmap-panel
-    - grafana-piechart-panel
-    - grafana-clock-panel
-    - vonage-status-panel
-    - https://github.com/panodata/grafana-map-panel/releases/download/0.15.0/grafana-map-panel-0.15.0.zip;grafana-worldmap-panel-ng
+#     plugins:
+#     - natel-discrete-panel
+#     - pr0ps-trackmap-panel
+#     - grafana-piechart-panel
+#     - grafana-clock-panel
+#     - vonage-status-panel
+#     - https://github.com/panodata/grafana-map-panel/releases/download/0.15.0/grafana-map-panel-0.15.0.zip;grafana-worldmap-panel-ng
 
-    dashboardProviders:
-      dashboardproviders.yaml:
-        apiVersion: 1
-        providers:
-        - name: 'default'
-          orgId: 1
-          folder: ''
-          type: file
-          disableDeletion: false
-          editable: true
-          options:
-            path: /var/lib/grafana/dashboards/default
-        - name: 'teslamate'
-          orgId: 1
-          folder: Teslamate
-          type: file
-          disableDeletion: false
-          # updateIntervalSeconds: -1
-          allowUiUpdates: true
-          options:
-            path: /var/lib/grafana/dashboards/teslamate
+#     dashboardProviders:
+#       dashboardproviders.yaml:
+#         apiVersion: 1
+#         providers:
+#         - name: 'default'
+#           orgId: 1
+#           folder: ''
+#           type: file
+#           disableDeletion: false
+#           editable: true
+#           options:
+#             path: /var/lib/grafana/dashboards/default
+#         - name: 'teslamate'
+#           orgId: 1
+#           folder: Teslamate
+#           type: file
+#           disableDeletion: false
+#           # updateIntervalSeconds: -1
+#           allowUiUpdates: true
+#           options:
+#             path: /var/lib/grafana/dashboards/teslamate
 
-    datasources:
-      datasources.yaml:
-        apiVersion: 1
-        datasources:
-        - name: Prometheus
-          type: prometheus
-          access: proxy
-          url: http://thanos-query-http:10902/
-          isDefault: true
-        - name: Loki
-          type: loki
-          access: proxy
-          url: http://loki.logs.svc.cluster.local:3100
-        - name: TeslaMate
-          type: postgres
-          access: proxy
-          url: teslamate-postgresql.home.svc.cluster.local:5432
-          database: teslamate
-          user: teslamate
-          password: "$TESLAMATE_DB_PASSWORD"
-          jsonData:
-            postgresVersion: 1100
-            sslmode: disable
+#     datasources:
+#       datasources.yaml:
+#         apiVersion: 1
+#         datasources:
+#         - name: Prometheus
+#           type: prometheus
+#           access: proxy
+#           url: http://thanos-query-http:10902/
+#           isDefault: true
+#         - name: Loki
+#           type: loki
+#           access: proxy
+#           url: http://loki.logs.svc.cluster.local:3100
+#         - name: TeslaMate
+#           type: postgres
+#           access: proxy
+#           url: teslamate-postgresql.home.svc.cluster.local:5432
+#           database: teslamate
+#           user: teslamate
+#           password: "$TESLAMATE_DB_PASSWORD"
+#           jsonData:
+#             postgresVersion: 1100
+#             sslmode: disable
 
-    dashboards:
-      default:
-        node-exporter-full:
-          url: https://grafana.com/api/dashboards/1860/revisions/22/download
-          datasource: Prometheus
-        ceph-cluster:
-          gnetId: 2842
-          revision: 14
-          datasource: Prometheus
-        # Ref: https://grafana.com/grafana/dashboards/5336
-        ceph-osd:
-          gnetId: 5336
-          revision: 5
-          datasource: Prometheus
-        # Ref: https://grafana.com/grafana/dashboards/5342
-        ceph-pools:
-          gnetId: 5342
-          revision: 5
-          datasource: Prometheus
-        # Ref: https://grafana.com/grafana/dashboards/11315
-        apc-ups:
-          gnetId: 14371
-          revision: 1
-          datasource: Prometheus
-        # Ref: https://grafana.com/grafana/dashboards/14371
-        blocky:
-          url: https://raw.githubusercontent.com/0xERR0R/blocky/master/docs/blocky-grafana.json
-          datasource: Prometheus
-        unifi-client-insights:
-          gnetId: 11315
-          revision: 8
-          datasource: Prometheus
-        # Ref: https://grafana.com/grafana/dashboards/11311
-        unifi-network-sites:
-          gnetId: 11311
-          revision: 4
-          datasource: Prometheus
-        # Ref: https://grafana.com/grafana/dashboards/11314
-        unifi-uap-insights:
-          gnetId: 11314
-          revision: 9
-          datasource: Prometheus
-      teslamate:
-        charge-level:
-          url: https://raw.githubusercontent.com/adriankumpf/teslamate/v1.21.6/grafana/dashboards/charge-level.json
-          # datasource: TeslaMate
-        charges:
-          url: https://raw.githubusercontent.com/adriankumpf/teslamate/v1.21.6/grafana/dashboards/charges.json
-          # datasource: TeslaMate
-        charging-stats:
-          url: https://raw.githubusercontent.com/adriankumpf/teslamate/v1.21.6/grafana/dashboards/charging-stats.json
-          # datasource: TeslaMate
-        drive-stats:
-          url: https://raw.githubusercontent.com/adriankumpf/teslamate/v1.21.6/grafana/dashboards/drive-stats.json
-          # datasource: TeslaMate
-        drives:
-          url: https://raw.githubusercontent.com/adriankumpf/teslamate/v1.21.6/grafana/dashboards/drives.json
-          # datasource: TeslaMate
-        efficiency:
-          url: https://raw.githubusercontent.com/adriankumpf/teslamate/v1.21.6/grafana/dashboards/efficiency.json
-          # datasource: TeslaMate
-        overview:
-          url: https://raw.githubusercontent.com/adriankumpf/teslamate/v1.21.6/grafana/dashboards/overview.json
-          # datasource: TeslaMate
-        projected-range:
-          url: https://raw.githubusercontent.com/adriankumpf/teslamate/v1.21.6/grafana/dashboards/projected-range.json
-          # datasource: TeslaMate
-        states:
-          url: https://raw.githubusercontent.com/adriankumpf/teslamate/v1.21.6/grafana/dashboards/states.json
-          # datasource: TeslaMate
-        statistics:
-          url: https://raw.githubusercontent.com/adriankumpf/teslamate/v1.21.6/grafana/dashboards/statistics.json
-          # datasource: TeslaMate
-        trip:
-          url: https://raw.githubusercontent.com/adriankumpf/teslamate/v1.21.6/grafana/dashboards/trip.json
-          # datasource: TeslaMate
-        updates:
-          url: https://raw.githubusercontent.com/adriankumpf/teslamate/v1.21.6/grafana/dashboards/updates.json
-          # datasource: TeslaMate
-        visited:
-          url: https://raw.githubusercontent.com/adriankumpf/teslamate/v1.21.6/grafana/dashboards/visited.json
-          # datasource: TeslaMate
-        charge-details:
-          url: https://raw.githubusercontent.com/adriankumpf/teslamate/v1.21.6/grafana/dashboards/internal/charge-details.json
-        drive-details:
-          url: https://raw.githubusercontent.com/adriankumpf/teslamate/v1.21.6/grafana/dashboards/internal/drive-details.json
+#     dashboards:
+#       default:
+#         node-exporter-full:
+#           url: https://grafana.com/api/dashboards/1860/revisions/22/download
+#           datasource: Prometheus
+#         ceph-cluster:
+#           gnetId: 2842
+#           revision: 14
+#           datasource: Prometheus
+#         # Ref: https://grafana.com/grafana/dashboards/5336
+#         ceph-osd:
+#           gnetId: 5336
+#           revision: 5
+#           datasource: Prometheus
+#         # Ref: https://grafana.com/grafana/dashboards/5342
+#         ceph-pools:
+#           gnetId: 5342
+#           revision: 5
+#           datasource: Prometheus
+#         # Ref: https://grafana.com/grafana/dashboards/11315
+#         apc-ups:
+#           gnetId: 14371
+#           revision: 1
+#           datasource: Prometheus
+#         # Ref: https://grafana.com/grafana/dashboards/14371
+#         blocky:
+#           url: https://raw.githubusercontent.com/0xERR0R/blocky/master/docs/blocky-grafana.json
+#           datasource: Prometheus
+#         unifi-client-insights:
+#           gnetId: 11315
+#           revision: 8
+#           datasource: Prometheus
+#         # Ref: https://grafana.com/grafana/dashboards/11311
+#         unifi-network-sites:
+#           gnetId: 11311
+#           revision: 4
+#           datasource: Prometheus
+#         # Ref: https://grafana.com/grafana/dashboards/11314
+#         unifi-uap-insights:
+#           gnetId: 11314
+#           revision: 9
+#           datasource: Prometheus
+#       teslamate:
+#         charge-level:
+#           url: https://raw.githubusercontent.com/adriankumpf/teslamate/v1.21.6/grafana/dashboards/charge-level.json
+#           # datasource: TeslaMate
+#         charges:
+#           url: https://raw.githubusercontent.com/adriankumpf/teslamate/v1.21.6/grafana/dashboards/charges.json
+#           # datasource: TeslaMate
+#         charging-stats:
+#           url: https://raw.githubusercontent.com/adriankumpf/teslamate/v1.21.6/grafana/dashboards/charging-stats.json
+#           # datasource: TeslaMate
+#         drive-stats:
+#           url: https://raw.githubusercontent.com/adriankumpf/teslamate/v1.21.6/grafana/dashboards/drive-stats.json
+#           # datasource: TeslaMate
+#         drives:
+#           url: https://raw.githubusercontent.com/adriankumpf/teslamate/v1.21.6/grafana/dashboards/drives.json
+#           # datasource: TeslaMate
+#         efficiency:
+#           url: https://raw.githubusercontent.com/adriankumpf/teslamate/v1.21.6/grafana/dashboards/efficiency.json
+#           # datasource: TeslaMate
+#         overview:
+#           url: https://raw.githubusercontent.com/adriankumpf/teslamate/v1.21.6/grafana/dashboards/overview.json
+#           # datasource: TeslaMate
+#         projected-range:
+#           url: https://raw.githubusercontent.com/adriankumpf/teslamate/v1.21.6/grafana/dashboards/projected-range.json
+#           # datasource: TeslaMate
+#         states:
+#           url: https://raw.githubusercontent.com/adriankumpf/teslamate/v1.21.6/grafana/dashboards/states.json
+#           # datasource: TeslaMate
+#         statistics:
+#           url: https://raw.githubusercontent.com/adriankumpf/teslamate/v1.21.6/grafana/dashboards/statistics.json
+#           # datasource: TeslaMate
+#         trip:
+#           url: https://raw.githubusercontent.com/adriankumpf/teslamate/v1.21.6/grafana/dashboards/trip.json
+#           # datasource: TeslaMate
+#         updates:
+#           url: https://raw.githubusercontent.com/adriankumpf/teslamate/v1.21.6/grafana/dashboards/updates.json
+#           # datasource: TeslaMate
+#         visited:
+#           url: https://raw.githubusercontent.com/adriankumpf/teslamate/v1.21.6/grafana/dashboards/visited.json
+#           # datasource: TeslaMate
+#         charge-details:
+#           url: https://raw.githubusercontent.com/adriankumpf/teslamate/v1.21.6/grafana/dashboards/internal/charge-details.json
+#         drive-details:
+#           url: https://raw.githubusercontent.com/adriankumpf/teslamate/v1.21.6/grafana/dashboards/internal/drive-details.json
 
-    podAnnotations:
-      configmap.reloader.stakater.com/reload: "grafana"
+#     podAnnotations:
+#       configmap.reloader.stakater.com/reload: "grafana"
 
-    resources:
-      requests:
-        cpu: 75m
-        memory: 128Mi
-      limits:
-        memory: 512Mi
+#     resources:
+#       requests:
+#         cpu: 75m
+#         memory: 128Mi
+#       limits:
+#         memory: 512Mi
 
-  valuesFrom:
-  - kind: Secret
-    name: "grafana-helm-values"
+#   valuesFrom:
+#   - kind: Secret
+#     name: "grafana-helm-values"
