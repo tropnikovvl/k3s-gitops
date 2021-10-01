@@ -113,9 +113,7 @@ spec:
     persistence:
       data:
         enabled: true
-        storageClass: "rook-ceph-block"
-        accessMode: ReadWriteOnce
-        size: 10Gi
+        existingClaim: hajimari-data-v1
 
     resources:
       requests:
