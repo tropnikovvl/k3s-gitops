@@ -1,0 +1,87 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: vaultwarden
+  namespace: security
+spec:
+  releaseName: vaultwarden
+  interval: 5m
+  chart:
+    spec:
+      # renovate: registryUrl=https://k8s-at-home.com/charts/
+      chart: vaultwarden
+      version: 3.1.1
+      sourceRef:
+        kind: HelmRepository
+        name: k8s-at-home-charts
+        namespace: flux-system
+      interval: 5m
+  values:
+    nameOverride: vaultwarden
+
+    fullnameOverride: vaultwarden
+
+    image:
+      repository: vaultwarden/server
+      tag: 1.22.2-alpine
+
+    env:
+      DATA_FOLDER: "config"
+      SIGNUPS_ALLOWED: true
+      WEBSOCKET_ENABLED: true
+      WEBSOCKET_ADDRESS: 0.0.0.0
+      WEBSOCKET_PORT: 3012
+      DOMAIN: https://pass.${SECRET_DOMAIN}
+      ADMIN_TOKEN: ${SECRET_VAULTWARDEN_ADMIN_TOKEN}
+      SMTP_HOST: "${SECRET_MAIL_HOST}"
+      SMTP_FROM: "${SECRET_MAIL_USER}"
+      SMTP_FROM_NAME: "Vaultwarden"
+      SMTP_SSL: true
+      SMTP_PORT: 587
+      SMTP_USERNAME: "${SECRET_MAIL_USER}"
+      SMTP_PASSWORD: "${SECRET_MAIL_PASSWORD}"
+
+    ingress:
+      main:
+        enabled: true
+        ingressClassName: "traefik"
+        annotations:
+          external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
+          external-dns/is-public: "true"
+          hajimari.io/enable: "true"
+          hajimari.io/icon: "shield-key"
+          traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+        hosts:
+          - host: pass.${SECRET_DOMAIN}
+            paths:
+              - path: /
+                pathType: Prefix
+              - path: /notifications/hub
+                pathType: Prefix
+                service:
+                  port: 3012
+              - path: /notifications/hub/negotiate
+                pathType: Prefix
+        tls:
+          - hosts:
+              - pass.${SECRET_DOMAIN}
+      admin:
+        enabled: true
+        ingressClassName: "traefik"
+        annotations:
+          traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+          traefik.ingress.kubernetes.io/router.middlewares: "networking-rfc1918@kubernetescrd"
+        hosts:
+          - host: "vaultwarden.${SECRET_DOMAIN}"
+            paths:
+              - path: /admin
+                pathType: Prefix
+        tls:
+          - hosts:
+              - "pass.${SECRET_DOMAIN}"
+
+    persistence:
+      config:
+        enabled: true
+        existingClaim: vaultwarden-config-v1
