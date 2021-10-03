@@ -18,7 +18,7 @@ spec:
       interval: 5m
   values:
     image:
-      repository: zwavejs/zwavejs2mqtt
+      repository: ghcr.io/zwave-js/zwavejs2mqtt
       tag: 5.7.2
       pullPolicy: IfNotPresent
 
@@ -75,7 +75,6 @@ spec:
         memory: 64Mi
       limits:
         memory: 256Mi
-
 
     affinity:
       nodeAffinity:
