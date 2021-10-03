@@ -20,44 +20,49 @@ spec:
     image:
       repository: raspbernetes/node-feature-discovery
       tag: "v0.9.0"
-    sources:
-      - custom
-      - pci
-      - usb
-    config: |
-      sources:
-        usb:
-          deviceClassWhitelist:
+
+    master:
+      tolerations:
+      - key: "node-role.kubernetes.io/master"
+        operator: "Equal"
+        value: "true"
+        effect: "NoSchedule"
+      affinity:
+        nodeAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 1
+            preference:
+              matchExpressions:
+              - key: "node-role.kubernetes.io/master"
+                operator: In
+                values: [""]
+
+    worker:
+      config: |-
+        core:
+          sources:
+          - custom
+          - pci
+          - usb
+        sources:
+          usb:
+            deviceClassWhitelist:
             - "02"
             - "03"
-            - "0a"
+            - "0e"
             - "ef"
             - "fe"
             - "ff"
-          deviceLabelFields:
+            deviceLabelFields:
             - "class"
             - "vendor"
             - "device"
-        custom:
+          custom:
           - name: "intel-gpu"
             matchOn:
               - pciId:
                   class: ["0300"]
                   vendor: ["8086"]
-          # - name: "coral-tpu"
-          #   matchOn:
-          #     - usbId:
-          #         vendor: ["1a6e", "18d1"]
-          # - name: "p1reader"
-          #   matchOn:
-          #     - usbId:
-          #         vendor: ["0403",]
-          #         device: ["6001"]
-          # - name: "conbee-ii"
-          #   matchOn:
-          #     - usbId:
-          #         vendor: ["1cf1",]
-          #         device: ["0030"]
           - name: "ups-apc"
             matchOn:
               - usbId:
@@ -78,17 +83,8 @@ spec:
     podAnnotations:
       configmap.reloader.stakater.com/reload: "node-feature-discovery"
 
-    master:
-      replicaCount: 1
-      tolerations:
-      - key: "node-role.kubernetes.io/master"
-        operator: "Equal"
-        value: ""
-        effect: "NoSchedule"
-      - key: arm
-        operator: Exists
-
-    worker:
-      tolerations:
-      - key: arm
-        operator: Exists
+    tolerations:
+      - effect: "NoExecute"
+        operator: "Exists"
+      - effect: "NoSchedule"
+        operator: "Exists"
