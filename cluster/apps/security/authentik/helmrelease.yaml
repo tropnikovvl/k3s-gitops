@@ -72,6 +72,8 @@ spec:
         - "id.${SECRET_DOMAIN}"
     postgresql:
       enabled: true
+      postgresqlUsername: authentik
+      postgresqlDatabase: authentik
       postgresqlPassword: "${SECRET_AUTHENTIK_POSTGRES_PASSWORD}"
     redis:
       enabled: true
