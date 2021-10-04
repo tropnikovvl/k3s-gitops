@@ -21,70 +21,55 @@ spec:
       repository: raspbernetes/node-feature-discovery
       tag: "v0.9.0"
 
-    master:
-      tolerations:
-      - key: "node-role.kubernetes.io/master"
-        operator: "Equal"
-        value: "true"
-        effect: "NoSchedule"
-      affinity:
-        nodeAffinity:
-          preferredDuringSchedulingIgnoredDuringExecution:
-          - weight: 1
-            preference:
-              matchExpressions:
-              - key: "node-role.kubernetes.io/master"
-                operator: In
-                values: [""]
+    sources:
+      - custom
+      - pci
+      - usb
 
-    worker:
-      config: |-
-        core:
-          sources:
-          - custom
-          - pci
-          - usb
-        sources:
-          usb:
-            deviceClassWhitelist:
+    config: |
+      sources:
+        usb:
+          deviceClassWhitelist:
             - "02"
-            - "03"
             - "0e"
             - "ef"
             - "fe"
             - "ff"
-            deviceLabelFields:
+          deviceLabelFields:
             - "class"
             - "vendor"
             - "device"
-          custom:
-          - name: "intel-gpu"
-            matchOn:
-              - pciId:
-                  class: ["0300"]
-                  vendor: ["8086"]
-          - name: "ups-apc"
-            matchOn:
-              - usbId:
-                  vendor: ["051d",]
-                  device: ["0002"]
 
-          - name: "zwave"
-            matchOn:
-              - usbId:
-                  vendor: ["0658"]
-                  device: ["0200"]
-          - name: "ender3"
-            matchOn:
-              - usbId:
-                  vendor: ["1eaf"]
-                  device: ["0004"]
+        custom:
+        - name: "intel-gpu"
+          matchOn:
+            - pciId:
+                class: ["0300"]
+                vendor: ["8086"]
+        - name: "ups-apc"
+          matchOn:
+            - usbId:
+                vendor: ["051d",]
+                device: ["0002"]
+
+        - name: "zwave"
+          matchOn:
+            - usbId:
+                vendor: ["0658"]
+                device: ["0200"]
+        - name: "ender3"
+          matchOn:
+            - usbId:
+                vendor: ["1eaf"]
+                device: ["0004"]
 
     podAnnotations:
       configmap.reloader.stakater.com/reload: "node-feature-discovery"
 
-    tolerations:
-      - effect: "NoExecute"
-        operator: "Exists"
-      - effect: "NoSchedule"
-        operator: "Exists"
+    master:
+      replicaCount: 1
+      tolerations:
+        - key: "node-role.kubernetes.io/master"
+          operator: "Equal"
+          value: ""
+          effect: "NoSchedule"
