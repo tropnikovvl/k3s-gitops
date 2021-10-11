@@ -91,8 +91,12 @@ spec:
             protocol: UDP
             targetPort: 53
 
-    prometheus:
+    metrics:
+      enabled: true
       serviceMonitor:
+        interval: 30s
+        scrapeTimeout: 10s
+      prometheusRule:
         enabled: true
 
     resources:
