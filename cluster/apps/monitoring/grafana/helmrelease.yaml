@@ -40,6 +40,9 @@ spec:
       log:
         mode: console
 
+    adminUser: admin
+    adminPassword: "${SECRET_GRAFANA_ADMIN_PASSWORD}"
+
     ingress:
       enabled: true
       annotations:
