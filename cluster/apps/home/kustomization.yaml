@@ -4,9 +4,7 @@ kind: Kustomization
 resources:
   - freshrss
   - hajimari
-  # - littlelink
   - mariadb
   - monica
   - paperless
   - teslamate
-  # - wikijs
