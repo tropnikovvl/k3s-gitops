@@ -107,7 +107,7 @@ spec:
           url: teslamate-postgresql.home.svc.cluster.local:5432
           database: teslamate
           user: teslamate
-          password: "$TESLAMATE_DB_PASSWORD"
+          password: "${SECRET_TESLAMATE_DB_PASSWORD}"
           jsonData:
             postgresVersion: 1100
             sslmode: disable
