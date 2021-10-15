@@ -24,6 +24,10 @@ spec:
     env:
       TZ: "Europe/Berlin"
 
+    podSecurityContext:
+      supplementalGroups:
+      - 100
+
     ingress:
       main:
         enabled: true
@@ -53,9 +57,12 @@ spec:
         size: 2Gi
       media:
         enabled: true
-        existingClaim: unraid-media-pvc
+        type: custom
+        volumeSpec:
+          nfs:
+            server: "${NFS_SERVER}"
+            path: /mnt/user/media
         mountPath: /media
-        readOnly: true
 
     resources:
       requests:
