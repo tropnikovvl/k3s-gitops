@@ -30,5 +30,3 @@
         path: "{{ item.path }}"
         state: absent
       loop: "{{ files_to_delete.files }}"
-    - name: Reboot system
-      reboot:
