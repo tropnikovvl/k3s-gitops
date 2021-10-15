@@ -27,8 +27,8 @@ spec:
       EMQX_AUTH__USER__1__PASSWORD: "${EMQX_USER_PASSWORD}"
     service:
       type: LoadBalancer
-      externalIPs:
-        - ${LB_EMQX}
+      loadBalancerIP: ${LB_EMQX}
+      externalTrafficPolicy: Local
     emqxLoadedPlugins: >
       {emqx_management, true}.
       {emqx_recon, true}.
