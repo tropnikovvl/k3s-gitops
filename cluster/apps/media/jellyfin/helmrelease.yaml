@@ -63,9 +63,12 @@ spec:
         existingClaim: jellyfin-config-v1
       media:
         enabled: true
-        existingClaim: unraid-media-pvc
+        type: custom
+        volumeSpec:
+          nfs:
+            server: "${NFS_SERVER}"
+            path: /mnt/user/media
         mountPath: /media
-        readOnly: true
       transcode:
         enabled: true
         type: emptyDir
