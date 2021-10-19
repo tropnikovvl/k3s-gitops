@@ -60,7 +60,7 @@ spec:
             - --namespace
             - media
         - name: backup-home-automation
-          schedule: "00 04 * * *"
+          schedule: "35 21 * * *"
           command:
             - benji-backup-pvc
             - --namespace
