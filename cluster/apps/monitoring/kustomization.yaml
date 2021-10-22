@@ -9,4 +9,4 @@ resources:
   # - network-ups-tools
   # - prometheus-nut-exporter
   # - thanos
-  # - unifi-poller
+  - unifi-poller
