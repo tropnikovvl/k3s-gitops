@@ -64,7 +64,7 @@ spec:
     persistence:
       config:
         enabled: true
-        existingClaim: radarr-config-v1
+        existingClaim: sonarr-config-v1
       media:
         enabled: true
         type: custom
