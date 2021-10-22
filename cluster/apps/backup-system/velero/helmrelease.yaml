@@ -34,8 +34,8 @@ spec:
         config:
           region: eu-germany-1
           s3ForcePathStyle: true
-          s3Url: https://${S3_BACKUP}:9000
-          publicUrl: https://${S3_BACKUP}:9000
+          s3Url: http://${S3_BACKUP}:9768
+          publicUrl: http://${S3_BACKUP}:9768
       volumeSnapshotLocation:
         name: aws
         config:
