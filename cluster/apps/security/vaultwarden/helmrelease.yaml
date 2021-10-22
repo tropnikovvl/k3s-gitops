@@ -24,7 +24,7 @@ spec:
 
     image:
       repository: vaultwarden/server
-      tag: 1.22.2-alpine
+      tag: 1.23.0-alpine
 
     env:
       DATA_FOLDER: "config"
