@@ -26,9 +26,7 @@ spec:
     persistence:
       data:
         enabled: true
-        size: 20Gi
-        storageClass: rook-ceph-block
-        accessMode: ReadWriteOnce
+        existingClaim: unifi-data-v1
 
     env:
       timezone: "Europe/Berlin"
