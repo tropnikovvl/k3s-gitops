@@ -5,7 +5,7 @@ resources:
   - backup-system
   - flux-system
   - home
-  # - home-automation
+  - home-automation
   - kube-system
   - logs
   # - media
