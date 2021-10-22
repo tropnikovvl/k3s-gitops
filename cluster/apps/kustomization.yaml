@@ -8,7 +8,7 @@ resources:
   - home-automation
   - kube-system
   - logs
-  # - media
+  - media
   - monitoring
   - networking
   - rook-ceph
