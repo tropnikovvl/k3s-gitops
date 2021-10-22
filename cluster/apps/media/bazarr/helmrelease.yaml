@@ -52,9 +52,7 @@ spec:
     persistence:
       config:
         enabled: true
-        storageClass: "rook-ceph-block"
-        accessMode: ReadWriteOnce
-        size: 2Gi
+        existingClaim: bazarr-config-v1
       media:
         enabled: true
         type: custom
