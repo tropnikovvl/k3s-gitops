@@ -83,6 +83,13 @@ spec:
         gpu.intel.com/i915: 1
         memory: 4000Mi
 
+    podAnnotations:
+      backup.velero.io/backup-volumes: config
+      pre.hook.backup.velero.io/container: fsfreeze
+      pre.hook.backup.velero.io/command: '["/sbin/fsfreeze", "--freeze", "/config"]'
+      post.hook.backup.velero.io/container: fsfreeze
+      post.hook.backup.velero.io/command: '["/sbin/fsfreeze", "--unfreeze", "/config"]'
+
     additionalContainers:
       fsfreeze:
         name: fsfreeze
