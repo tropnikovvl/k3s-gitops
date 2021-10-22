@@ -11,4 +11,4 @@ resources:
   - ceph-object-bucket.yaml
   - ceph-object-store.yaml
   - ceph-volume-snapshot-class.yaml
-  # - thanos-ceph-object-bucket.yaml
+  - thanos-ceph-object-bucket.yaml
