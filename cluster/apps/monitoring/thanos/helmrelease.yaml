@@ -17,75 +17,48 @@ spec:
         namespace: flux-system
       interval: 5m
   values:
-    sidecar:
-      metrics:
-        serviceMonitor:
-          enabled: true
+    image:
+      registry: public.ecr.aws
+      repository: bitnami/thanos
+
     query:
       enabled: true
-      replicaCount: 2
       replicaLabels:
         - replica
-      http:
-        ingress:
-          enabled: true
-          hosts:
-            - "thanos.${SECRET_DOMAIN}"
-          annotations:
-            kubernetes.io/tls-acme: "true"
-            cert-manager.io/cluster-issuer: letsencrypt-production
-            traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
-          tls:
-            - hosts:
-                - "thanos.${SECRET_DOMAIN}"
-              secretName: thanos-cert
+      dnsDiscovery:
+        sidecarsService: prometheus-thanos-discovery
+        sidecarsNamespace: monitoring
+      ingress:
+        enabled: true
+        hostname: "thanos.${SECRET_DOMAIN}"
+        ingressClassName: "traefik"
+        annotations:
+          traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+        tls: true
+
+    existingObjstoreSecret: thanos-objstore
+
     queryFrontend:
       enabled: false
-    bucket:
+
+    bucketweb:
       enabled: true
-    compact:
+
+    compactor:
       enabled: true
-    store:
+      persistence:
+        enabled: false
+
+    storegateway:
       enabled: true
-      persistenceVolumeClaim:
-        spec:
-          storageClassName: rook-ceph-block
-          resources:
-            requests:
-              storage: 20Gi
-    rule:
+      persistence:
+        enabled: true
+        size: 5Gi
+
+    ruler:
       enabled: false
-    objstore:
-      type: S3
-      config:
-        insecure: true
-        signature_version2: false
-        put_user_metadata: {}
-        http_config:
-          idle_conn_timeout: 0s
-          response_header_timeout: 0s
-          insecure_skip_verify: false
-        trace:
-          enable: false
-        part_size: 0
-  valuesFrom:
-    - kind: ConfigMap
-      name: thanos-ceph-bucket
-      valuesKey: BUCKET_NAME
-      targetPath: objstore.config.bucket
-    - kind: ConfigMap
-      name: thanos-ceph-bucket
-      valuesKey: BUCKET_HOST
-      targetPath: objstore.config.endpoint
-    - kind: ConfigMap
-      name: thanos-ceph-bucket
-      valuesKey: BUCKET_REGION
-      targetPath: objstore.config.region
-    - kind: Secret
-      name: thanos-ceph-bucket
-      valuesKey: AWS_ACCESS_KEY_ID
-      targetPath: objstore.config.access_key
-    - kind: Secret
-      name: thanos-ceph-bucket
-      valuesKey: AWS_SECRET_ACCESS_KEY
-      targetPath: objstore.config.secret_key
+
+    metrics:
+      enabled: true
+      serviceMonitor:
+        enabled: true
