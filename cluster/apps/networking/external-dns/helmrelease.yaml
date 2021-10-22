@@ -37,11 +37,9 @@ spec:
       kind: DNSEndpoint
     annotationFilter: "external-dns/is-public in (true)"
 
-    nodeSelector:
-      kubernetes.io/arch: amd64
-
     resources:
       requests:
-        memory: "32M"
+        memory: 100Mi
+        cpu: 25m
       limits:
-        memory: "64M"
+        memory: 250Mi
