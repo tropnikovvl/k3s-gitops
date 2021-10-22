@@ -28,7 +28,7 @@ spec:
     persistence:
       config:
         enabled: true
-        existingClaim: freshrss-data-v1
+        existingClaim: freshrss-config-v1
 
     ingress:
       main:
