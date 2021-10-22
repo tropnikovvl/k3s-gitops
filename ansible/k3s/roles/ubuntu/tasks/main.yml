@@ -3,14 +3,6 @@
   tags:
     - locale
 
-# - include: hosts.yml
-#   tags:
-#     - hosts
-
-- include: timesyncd.yml
-  tags:
-    - timesyncd
-
 - include: packages.yml
   tags:
     - packages
@@ -26,14 +18,6 @@
 - include: filesystem.yml
   tags:
     - filesystem
-
-- include: security.yml
-  tags:
-    - security
-
-- include: unattended-upgrades.yml
-  tags:
-    - unattended-upgrades
 
 - include: user.yml
   tags:
