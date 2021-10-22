@@ -2,15 +2,15 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - backup-system
+  # - backup-system
   - flux-system
-  - home
-  - home-automation
+  # - home
+  # - home-automation
   - kube-system
-  - logs
-  - media
-  - monitoring
+  # - logs
+  # - media
+  # - monitoring
   - networking
   - rook-ceph
-  - security
+  # - security
   - system-upgrade
