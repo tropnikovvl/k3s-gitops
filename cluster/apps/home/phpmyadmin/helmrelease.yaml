@@ -31,15 +31,8 @@ spec:
         hajimari.io/enable: "true"
         hajimari.io/icon: database-cog
         hajimari.io/appName: phpMyAdmin
-      hosts:
-        - host: "phpmyadmin.${SECRET_DOMAIN}"
-          paths:
-            - path: /
-              pathType: Prefix
-      tls:
-        - secretName: paperless-cert
-          hosts:
-            - "phpmyadmin.${SECRET_DOMAIN}"
+      hostname: phpmyadmin.${SECRET_DOMAIN}
+      tls: true
     metrics:
       enabled: true
       serviceMonitor:
