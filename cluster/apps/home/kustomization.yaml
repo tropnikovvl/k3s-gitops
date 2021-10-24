@@ -4,6 +4,6 @@ kind: Kustomization
 resources:
   - freshrss
   - hajimari
-  - mariadb
+  # - mariadb
   - paperless
   # - teslamate
