@@ -6,4 +6,5 @@ resources:
   - hajimari
   - mariadb
   - paperless
+  - phpmyadmin
   - teslamate
