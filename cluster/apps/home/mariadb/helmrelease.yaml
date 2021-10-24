@@ -39,6 +39,14 @@ spec:
       rbac:
         create: false
 
+    resources:
+      requests:
+        cpu: 3000m
+        memory: 128Mi
+      limits:
+        memory: 1G
+
+
   valuesFrom:
   - kind: Secret
     name: mariadb-helm-values
