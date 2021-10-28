@@ -7,7 +7,6 @@ resources:
   - home
   - home-automation
   - kube-system
-  - logs
   - media
   - monitoring
   - networking
