@@ -8,12 +8,12 @@ spec:
   interval: 5m
   chart:
     spec:
-      # renovate: registryUrl=https://kubernetes-charts.banzaicloud.com
+      # renovate: registryUrl=https://charts.bitnami.com/bitnami
       chart: thanos
-      version: 0.4.6
+      version: 7.0.1
       sourceRef:
         kind: HelmRepository
-        name: banzaicloud-charts
+        name: bitnami-charts
         namespace: flux-system
       interval: 5m
   values:
