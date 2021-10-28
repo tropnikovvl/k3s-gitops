@@ -1,4 +1,3 @@
-#yamlignore
 ---
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
@@ -32,7 +31,8 @@ spec:
     service:
       main:
         type: LoadBalancer
-        loadBalancerIP: ${LB_NUT}
+        externalIPs:
+        - "${LB_NUT}"
         externalTrafficPolicy: Local
         ports:
           http:
@@ -41,7 +41,6 @@ spec:
             enabled: true
             protocol: TCP
             port: 3493
-
 
     config:
       mode: values
