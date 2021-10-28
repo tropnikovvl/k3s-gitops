@@ -4,7 +4,7 @@ kind: Kustomization
 resources:
   - botkube
   - flux-notification
-  - grafana
+  # - grafana
   - kube-prometheus-stack
   # - network-ups-tools
   # - prometheus-nut-exporter
