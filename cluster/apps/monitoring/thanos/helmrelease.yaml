@@ -36,7 +36,7 @@ spec:
           traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
         tls: true
 
-    objstoreConfig: |
+    objstore:
       type: S3
       config:
         bucket: thanos
