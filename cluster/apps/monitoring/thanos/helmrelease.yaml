@@ -18,8 +18,9 @@ spec:
       interval: 5m
   values:
     image:
-      registry: public.ecr.aws
+      registry: docker.io
       repository: bitnami/thanos
+      tag: 0.23.1-scratch-r1
 
     query:
       enabled: true
