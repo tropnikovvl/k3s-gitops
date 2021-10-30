@@ -5,6 +5,7 @@ resources:
   - descheduler
   - intel-gpu_plugin
   - kube-cleanup-operator
+  - kured
   - metrics-server
   - node-feature-discovery
   - reloader
