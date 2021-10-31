@@ -28,7 +28,7 @@ spec:
         value: Europe/Berlin
       persistence:
         enabled: true
-        existingClaim: mariadb
+        existingClaim: mariadb-data-v1
       podAnnotations:
         backup.velero.io/backup-volumes: data
       service:
