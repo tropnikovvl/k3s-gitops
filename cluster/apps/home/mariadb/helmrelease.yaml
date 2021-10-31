@@ -41,10 +41,10 @@ spec:
 
     resources:
       requests:
-        cpu: 3000m
+        cpu: 300m
         memory: 128Mi
       limits:
-        memory: 1G
+        memory: 512Mi
 
 
   valuesFrom:
