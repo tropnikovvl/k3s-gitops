@@ -34,8 +34,8 @@ spec:
         config:
           region: eu-germany-1
           s3ForcePathStyle: true
-          s3Url: http://${SECRET_MINIO_SERVER}:9001
-          publicUrl: http://${SECRET_MINIO_SERVER}:9001
+          s3Url: http://${SECRET_MINIO_SERVER}:9000
+          publicUrl: http://${SECRET_MINIO_SERVER}:9000
       volumeSnapshotLocation:
         name: aws
         config:
