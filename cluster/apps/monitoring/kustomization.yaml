@@ -4,6 +4,7 @@ kind: Kustomization
 resources:
   - botkube
   - flux-notification
+  - goldilocks
   - grafana
   - kube-prometheus-stack
   - loki
