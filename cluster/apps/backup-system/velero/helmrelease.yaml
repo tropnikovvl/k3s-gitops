@@ -24,8 +24,8 @@ spec:
       secretContents:
         cloud: |
           [default]
-          aws_access_key_id = ${SECRET_MINIO_ACCESS_KEY}
-          aws_secret_access_key = ${SECRET_MINIO_SECRET_KEY}
+          aws_access_key_id = ${SECRET_MINIO_VELERO_ACCESS_KEY}
+          aws_secret_access_key = ${SECRET_MINIO_VELERO_SECRET_KEY}
     configuration:
       provider: aws
       backupStorageLocation:
@@ -34,8 +34,8 @@ spec:
         config:
           region: eu-germany-1
           s3ForcePathStyle: true
-          s3Url: http://${S3_BACKUP}:9768
-          publicUrl: http://${S3_BACKUP}:9768
+          s3Url: http://${SECRET_MINIO_SERVER}:9001
+          publicUrl: http://${SECRET_MINIO_SERVER}:9001
       volumeSnapshotLocation:
         name: aws
         config:
