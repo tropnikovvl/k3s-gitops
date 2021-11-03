@@ -34,13 +34,6 @@ spec:
         externalIPs:
         - "${LB_NUT}"
         externalTrafficPolicy: Local
-        ports:
-          http:
-            enabled: false
-          server:
-            enabled: true
-            protocol: TCP
-            port: 3493
 
     config:
       mode: values
@@ -55,12 +48,16 @@ spec:
             port = auto
             desc = "APC UPS 900VA"
         upsd.users: |
+          [monuser]
+            password = secret
+            upsmon slave
           [upsslave]
             password = upsslavepw
             upsmon slave
 
     podAnnotations:
       configmap.reloader.stakater.com/reload: "network-ups-tools-config"
+
     affinity:
       nodeAffinity:
         requiredDuringSchedulingIgnoredDuringExecution:
