@@ -21,3 +21,11 @@ spec:
     env:
       TZ: Europe/Berlin
       DISCORD_TOKEN: ${SECRET_DISCORD_TOKEN}
+
+    metrics:
+      enabled: true
+      serviceMonitor:
+        interval: 1m
+        scrapeTimeout: 30s
+      prometheusRule:
+        enabled: true
