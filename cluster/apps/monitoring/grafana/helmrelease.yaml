@@ -195,6 +195,9 @@ spec:
         velero:
           url: https://gist.githubusercontent.com/HaveFun83/57b41e85fde4249daab74a9850885f6a/raw/25a4c908357fc5ef0dc057c7493df50996e746d7/Kubernetes_Addons_Velero_Stats.json
           datasource: Prometheus
+        promcord:
+          url: https://raw.githubusercontent.com/nimarion/promcord/master/grafana.json
+          datasource: Prometheus
       teslamate:
         charge-level:
           url: https://raw.githubusercontent.com/adriankumpf/teslamate/v1.24.2/grafana/dashboards/charge-level.json
