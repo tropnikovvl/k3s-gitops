@@ -5,5 +5,5 @@ resources:
   - consume-pvc.yaml
   - data-pvc.yaml
   - export-pvc.yaml
-  # - helmrelease.yaml
+  - helmrelease.yaml
   - media-pvc.yaml

@@ -20,11 +20,12 @@ spec:
     image:
       repository: jonaswinkler/paperless-ng
       tag: 1.5.0
-    
+
     env:
       PAPERLESS_OCR_LANGUAGE: deu
       PAPERLESS_TIME_ZONE: "Europe/Berlin"
       PAPERLESS_CONSUMER_POLLING: "60"
+      PAPERLESS_REDIS: redis://localhost:6379
       #PAPERLESS_CONSUMER_RECURSIVE: "true"
       #PAPERLESS_CONSUMER_SUBDIRS_AS_TAGS: "true"
     persistence:
@@ -63,3 +64,8 @@ spec:
           - secretName: paperless-cert
             hosts:
               - "dms.${SECRET_DOMAIN}"
+
+    redis:
+      enabled: true
+      auth:
+        enabled: false
