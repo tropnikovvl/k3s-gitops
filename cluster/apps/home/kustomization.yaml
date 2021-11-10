@@ -5,5 +5,5 @@ resources:
   - freshrss
   - hajimari
   - mariadb
-  # - paperless
+  - paperless
   - teslamate
