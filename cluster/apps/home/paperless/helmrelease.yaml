@@ -65,7 +65,7 @@ spec:
             hosts:
               - "dms.${SECRET_DOMAIN}"
 
-    redis:
-      enabled: true
-      auth:
-        enabled: false
+    additionalContainers:
+      - name: broker
+        image: redis:6.2
+        imagePullPolicy: IfNotPresent
