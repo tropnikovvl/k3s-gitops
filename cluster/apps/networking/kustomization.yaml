@@ -6,6 +6,7 @@ resources:
   - cloudflare-ddns
   - coredns
   - external-dns
+  - home-dns
   - traefik
   - unifi
   - wildcard-certificate
