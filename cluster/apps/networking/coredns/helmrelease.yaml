@@ -94,3 +94,4 @@ spec:
       contents: |
         casalani.de.   IN SOA etta.ns.cloudflare.com. dns.cloudflare.com. 2020100600 10000 2400 604800 3600
         *.casalani.de. IN A 192.168.10.51
+        pve.casalani.de IN A 192.168.10.11
