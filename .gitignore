@@ -9,6 +9,7 @@ Thumbs.db
 
 # Ansible
 ansible/k3s/roles/xanmanning.k3s
+ansible/k3s/roles/mrlesmithjr.zfs
 
 # Flux update
 bin/flux
