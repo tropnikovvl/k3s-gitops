@@ -6,4 +6,4 @@ resources:
   - data-pvc.yaml
   - logs-pvc.yaml
   - work-pvc.yaml
-  - helm-release.yaml
+  - helmrelease.yaml
