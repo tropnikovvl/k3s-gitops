@@ -67,40 +67,15 @@ spec:
           url: 'https://simpleicons.org/'
         - name: Material Design Icons
           url: 'https://materialdesignicons.com/'
-      # - name: Dev
-      #   links:
-      #   - name: Codepen
-      #     url: 'https://codepen.io/'
-      #   - name: Devdocs
-      #     url: 'https://devdocs.io'
-      #   - name: Devhints
-      #     url: 'https://devhints.io'
-      # - name: Lifestyle
-      #   links:
-      #   - name: Design Milk
-      #     url: 'https://design-milk.com/category/interior-design/'
-      #   - name: Dwell
-      #     url: 'https://www.dwell.com/'
-      #   - name: Freshome
-      #     url: 'https://www.mymove.com/freshome/'
-      # - name: Tech
-      #   links:
-      #   - name: Hacker News
-      #     url: 'https://news.ycombinator.com/'
-      #   - name: The Verge
-      #     url: 'https://theverge.com/'
-      #   - name: MIT Technology Review
-      #     url: 'https://www.technologyreview.com/'
+
     ingress:
       main:
         enabled: true
         ingressClassName: "traefik"
         annotations:
-          kubernetes.io/tls-acme: "true"
-          cert-manager.io/cluster-issuer: letsencrypt-production
           traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
           external-dns/is-public: "true"
-          external-dns.alpha.kubernetes.io/target: "private.${SECRET_DOMAIN}"
+          external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
         hosts:
         - host: "hajimari.${SECRET_DOMAIN}"
           paths:
