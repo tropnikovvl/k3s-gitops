@@ -11,11 +11,11 @@
     reload 5s
     fallthrough
   }
-  prometheus 192.168.1.1:9153
+  prometheus 192.168.10.1:9153
 }
 
 . {
-  bind 192.168.1.1 127.0.0.1 ::1
+  bind 192.168.10.1 127.0.0.1 ::1
   import common
   k8s_gateway {{ SECRET_DOMAIN }} {
     resources Ingress
@@ -29,7 +29,7 @@
 }
 
 turbo.ac {
-  bind 192.168.1.1 127.0.0.1 ::1
+  bind 192.168.10.1 127.0.0.1 ::1
   import common
   k8s_gateway . {
     resources Ingress

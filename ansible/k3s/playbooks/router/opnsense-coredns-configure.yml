@@ -57,7 +57,7 @@
             src: "/tmp/kubeconfig-homedns"
             dest: "/tmp/kubeconfig-homedns"
             flat: true
-      when: "'k8s-ma-01' in inventory_hostname"
+      when: "'k3s-ma-01' in inventory_hostname"
 
     - name: Configure and start CoreDNS on Opnsense
       block:
