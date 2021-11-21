@@ -36,6 +36,7 @@ spec:
       backupStorageLocation:
         name: default
         bucket: velero
+        default: true
         config:
           region: eu-germany-1
           s3ForcePathStyle: true
