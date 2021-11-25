@@ -10,7 +10,7 @@ spec:
     spec:
       # renovate: registryUrl=https://helm.runix.net
       chart: pgadmin4
-      version: 1.7.6
+      version: 1.8.1
       sourceRef:
         kind: HelmRepository
         name: runix
@@ -18,7 +18,7 @@ spec:
   values:
     image:
       repository: dpage/pgadmin4
-      tag: 6.1
+      tag: 6.2
     strategy:
       type: Recreate
     env:

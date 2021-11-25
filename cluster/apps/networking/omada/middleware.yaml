@@ -1,0 +1,24 @@
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: omada-redirect
+  namespace: networking
+  annotations:
+    kustomize.toolkit.fluxcd.io/substitute: disabled
+spec:
+  redirectRegex:
+    regex: "https://([^/]+)/?$"
+    replacement: "https://$1/login"
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: omada-headers
+  namespace: networking
+spec:
+  headers:
+    customRequestHeaders:
+      Host: "omada.${SECRET_DOMAIN}:8043"
+    customResponseHeaders:
+      Host: "omada.${SECRET_DOMAIN}"

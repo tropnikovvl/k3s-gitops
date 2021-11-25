@@ -10,7 +10,7 @@ spec:
     spec:
       # renovate: registryUrl=https://vmware-tanzu.github.io/helm-charts
       chart: velero
-      version: 2.26.4
+      version: 2.26.5
       sourceRef:
         kind: HelmRepository
         name: vmware-tanzu-charts
@@ -18,60 +18,79 @@ spec:
       interval: 5m
   values:
     image:
-      repository: velero/velero
-      tag: v1.7.0
+      repository: ghcr.io/k8s-at-home/velero
+
     credentials:
       secretContents:
         cloud: |
           [default]
           aws_access_key_id = ${SECRET_MINIO_VELERO_ACCESS_KEY}
           aws_secret_access_key = ${SECRET_MINIO_VELERO_SECRET_KEY}
+
     configuration:
+      extraEnvVars:
+        TZ: "Europe/Amsterdam"
+
       provider: aws
+
       backupStorageLocation:
         name: default
         bucket: velero
+        default: true
         config:
           region: eu-germany-1
           s3ForcePathStyle: true
           s3Url: http://${SECRET_MINIO_SERVER}:9000
           publicUrl: http://${SECRET_MINIO_SERVER}:9000
-      volumeSnapshotLocation:
-        name: aws
-        config:
-          region: eu-germany-1
+
       resticTimeout: 6h
+
     initContainers:
       - name: velero-plugin-for-aws
-        image: velero/velero-plugin-for-aws:v1.3.0
+        image: ghcr.io/k8s-at-home/velero-plugin-for-aws:v1.3.0
         imagePullPolicy: IfNotPresent
         volumeMounts:
           - mountPath: /target
             name: plugins
-    resources:
-      requests:
-        memory: 300Mi
-        cpu: 25m
-      limits:
-        memory: 1500Mi
+
+    schedules:
+      daily-backup:
+        schedule: "0 6 * * *"
+        template:
+          ttl: "168h"
+
     metrics:
       enabled: true
       serviceMonitor:
         enabled: true
-    snapshotsEnabled: true
-    deployRestic: true
+    backupsEnabled: true
+    snapshotsEnabled: false
     upgradeCRDs: false
+    cleanUpCRDs: false
+
+    kubectl:
+      image:
+        repository: ghcr.io/k8s-at-home/kubectl
+        tag: v1.22.4
+
+    deployRestic: true
+
     restic:
       podVolumePath: /var/lib/kubelet/pods
       privileged: false
+      tolerations:
+        - key: "node-role.kubernetes.io/master"
+          operator: "Exists"
       resources:
         requests:
           memory: 200Mi
           cpu: 15m
         limits:
           memory: 3000Mi
-    schedules:
-      daily-backup:
-        schedule: "0 1 * * *"
-        template:
-          ttl: "120h"
+
+    resources:
+      requests:
+        memory: 300Mi
+        cpu: 25m
+      limits:
+        memory: 1500Mi

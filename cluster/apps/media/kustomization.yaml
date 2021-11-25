@@ -4,6 +4,7 @@ kind: Kustomization
 resources:
   - bazarr
   - jellyfin
+  - ombi
   - prowlarr
   - radarr
   - radarr-4k
