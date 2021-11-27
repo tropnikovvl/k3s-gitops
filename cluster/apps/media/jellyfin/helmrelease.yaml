@@ -40,7 +40,6 @@ spec:
     ingress:
       main:
         enabled: true
-        ingressClassName: "traefik"
         annotations:
           kubernetes.io/ingress.class: "traefik"
           external-dns/is-public: "true"
