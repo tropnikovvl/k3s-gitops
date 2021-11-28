@@ -21,7 +21,6 @@ data:
   LB_UNIFI: 192.168.10.64
   LB_MARIADB: 192.168.10.65
   LB_JELLYFIN: 192.168.10.66
-  LB_MARIADB2: 192.168.10.67
 
   # NAS Shares
   NFS_KUBERNETES: /mnt/user/kubernetes

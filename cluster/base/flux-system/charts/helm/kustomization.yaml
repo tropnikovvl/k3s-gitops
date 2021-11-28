@@ -3,11 +3,9 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
   - authentik-charts.yaml
-  - banzaicloud-charts.yaml
   - bitnami-charts.yaml
   - coredns-charts.yaml
   - deliveryhero-charts.yaml
-  - fairwinds-charts.yaml
   - grafana-charts.yaml
   - grafana-loki-charts.yaml
   - hajimari-charts.yaml
@@ -18,8 +16,6 @@ resources:
   - kubernetes-sigs-descheduler-charts.yaml
   - lwolf-charts.yaml
   - metallb-charts.yaml
-  - nextcloud-charts.yaml
-  - nicolaswilde-charts.yaml
   - reflector-charts.yaml
   - rook-ceph-charts.yaml
   - stakater-charts.yaml

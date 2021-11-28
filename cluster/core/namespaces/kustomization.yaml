@@ -4,7 +4,6 @@ kind: Kustomization
 resources:
   - backup-system.yaml
   - cert-manager.yaml
-  - database.yaml
   - home-automation.yaml
   - metallb-system.yaml
   - networking.yaml
