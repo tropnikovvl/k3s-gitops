@@ -34,4 +34,16 @@ spec:
     - kind: HelmRelease
       namespace: "network"
       name: "*"
+    - kind: HelmRelease
+      namespace: "home"
+      name: "*"
+    - kind: HelmRelease
+      namespace: "home-automation"
+      name: "*"
+    - kind: HelmRelease
+      namespace: "monitoring"
+      name: "*"
+    - kind: HelmRelease
+      namespace: "media"
+      name: "*"
   suspend: false
