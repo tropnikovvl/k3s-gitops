@@ -8,8 +8,6 @@ resources:
   - kube-prometheus-stack
   - loki
   - network-ups-tools
-  - promcord
   - prometheus-nut-exporter
   - promtail
   - thanos
-  - unifi-poller
