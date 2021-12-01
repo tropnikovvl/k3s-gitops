@@ -15,23 +15,3 @@ spec:
                     apiTokenSecretRef:
                         name: cloudflare-api-key
                         key: api-key
-sops:
-    kms: []
-    gcp_kms: []
-    azure_kv: []
-    hc_vault: []
-    age:
-        - recipient: age1kmnhp30e40u4q54znn8ysz3atvee5k4q9r585y8mzxz9xuuxm37spk5w4w
-          enc: |
-            -----BEGIN AGE ENCRYPTED FILE-----
-            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBpTUFoeVIyWkx0TU15RkZr
-            ZWJ3dGhNWHd4a1VhaVhWS1hCbjdwaFhTbkJVCkUyUXBibDlNWDIwR3BtWXF4a29o
-            MWxYWjd0Rnk3VGdrcEJ1ZENVbGd3VDQKLS0tIFV4TUF1L0hVdG5KT3V1cFlkdXA5
-            aFNCZTBKZ0VwOUxnZGRMc05Ib2RIK2MKetT6zseGt9jbhbNil8WRhDZLzreT/0nd
-            Ql2ZxvKS2C2HVFbTSyXiWlEHpNDRfqR8/l/FqnhEBo4i0gano5JHjw==
-            -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2021-12-01T13:24:03Z"
-    mac: ENC[AES256_GCM,data:gO1BJkrN6XeejQIdLcXFkzMLlrCP7JIuCJ9Li1vGpvoGaeMHFs3IXUXP8EZJvq+/7pMPUF1oa9KysXiA01ULPLE49SKMD4kTYfVP89no3XCb7CamNDg3I6cwrOLfQfPSBvgOiPl5tkty1PUU6yX73AyF7c9LS7Km6v94y52DCzo=,iv:6xD0lqi0hc8vbv7q5I5Zqv/nnLZcvsmfe127afXq9ww=,tag:CxUo0a9zOrmHtLCzLhNl0Q==,type:str]
-    pgp: []
-    encrypted_regex: ^(data|stringData)$
-    version: 3.7.1
