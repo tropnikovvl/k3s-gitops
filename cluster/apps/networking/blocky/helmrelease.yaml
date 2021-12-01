@@ -35,14 +35,11 @@ spec:
       logLevel: info
 
       upstream:
-        externalResolvers:
-        - 1.1.1.1
-
+        default:
+          - tcp+udp:${GATEWAY_ADDR}
       conditional:
         mapping:
-          # CoreDNS IP
-          casalani.de: tcp+udp:${LB_COREDNS}
-          int.casalani.de: tcp+udp:${LB_COREDNS}
+          ${SECRET_DOMAIN}: tcp+udp:${GATEWAY_ADDR}
 
       blocking:
         blackLists:
