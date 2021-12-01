@@ -4,35 +4,24 @@ metadata:
     name: slack-url
     namespace: flux-system
 stringData:
-    address: ENC[AES256_GCM,data:k6SONkS0Ih2u/FDqToNCwzTIpkHR5oAuFtaRirce71prwsQEugtUXPWImzSpR+lhbTK59JIRBIXewK9lCtWXFQf2EQVNPfMQGul8ZK732pLOzmrNiWIMb3YvOV1bdOvYChRyvcxGHZ1q5TDJdvyxLGHx4wMBT+4X7BDEvyx5,iv:hAN6HZOq1m6cH8Ka+fYE+WGfO+e33vCFMSXPXrjmnVw=,tag:mHBdiH8z3eC+XsHo6jCZvQ==,type:str]
+    address: ENC[AES256_GCM,data:HBcmlrirRlCXIGO7wRM3sf5Ut67mgzq5z2GvqmN7E6AQCm+1c+JbYS7LEZ5h23Qqa21J+EqMPoNqtyJ77WX2DDEKiWzXAiJXQ017VQVOrfXL2b9QMyl6rRKhYHedhwD52WcTELJ74oivOmJdUcseBlvtqVas+VQtDy1qfwvL,iv:2uch7kAyQ0F/lEgNbGjk4D4qFsqko9FqRErN/nZZwWo=,tag:ihEOwRv/ElAzsnVEP6RfKg==,type:str]
 sops:
     kms: []
     gcp_kms: []
     azure_kv: []
     hc_vault: []
-    age: []
-    lastmodified: "2021-04-18T18:43:14Z"
-    mac: ENC[AES256_GCM,data:mUjf7oHUW9sdDQglj/60v3FXcGr2NMp5IhXMKkmatIvK2Gco/7lSK8bli2onOlx9VhsCA1dcZTPF3I4PPA+64VUYLepZzYerVYDwLl5uPmyI3TkUMxRI4ZBD75H7PwqQINah5wkWlnJzIrfVoNDYhMdUgZrVLLTcYoR1HN2EfFI=,iv:43JCd10NnPv6hKoUtC2q/7g9JWZ5bmtLTpIYFd+y9Xw=,tag:gMujQI5Qg/CBkkU7GwrdZA==,type:str]
-    pgp:
-        - created_at: "2021-04-18T14:20:46Z"
+    age:
+        - recipient: age1kmnhp30e40u4q54znn8ysz3atvee5k4q9r585y8mzxz9xuuxm37spk5w4w
           enc: |
-            -----BEGIN PGP MESSAGE-----
-
-            hQIMA/oF3k8vCI0xAQ//b1Kcl50ngbyR9fz9qhwMrhcmlo2u7E1hiCr8Cmig5AhP
-            W6Sloe9UfpNwhqFpbrJuDR/kN+/cEx5u8ellZWE0dfSPYFEW/eEFGyLf0zJ0GR3x
-            1rj+2KDWFHFzzi5IcQbHOP6YRcY+JhCRDqz+kSQwi6+1OcY4nLa4bBsb+tTZRzkC
-            LUXUkxQr2I/dsDf6gXVH7aVVWhY/j8MP0msEKTNFfiJGUY6PwviYwxjp19ZZRhSb
-            9i23di/ZKLP6kWSUkT9nJsKUC417xynmoNHYLHEWkRRwkw7rUJDtnOYM7lkd2p69
-            71boPp86gsZX4O66j3UoSmhrKVmpxBGs4o3RGz9RDq33O2qHbkbZKR8QLm/8JsFX
-            /NpO/1S4M14nYUr1NAsCR6cFKRPu+5G/DFJzzl6KknCt/7egcYg1rNopNakPBlXn
-            PJvaaoEH3fMS0vrRCOgoYQzV/SutlrB5E+MSaCq8+4fEy/wfmQdldx1F3ghRjoly
-            4pmHvq5jtM3fVshw0PPNFguqorvVtA29FOlIjkROFMA5TYqWuBRweDM85Njlc54F
-            Gxe+5SeOv02WUQshkYrUFoqV+g/iPM/6qmYwysdqdCivvMAZA9krh1TLyJvAPFMH
-            ObN8DtF/7vtgcOBIh6pAp6xGEkLm7G+cdyMAiZfTDkFjGhdB4wMX9pumfHVPawfS
-            XAFRRgTA5SleR3oiYEBzcJPg2bQfmLdJ09Iq4j9QKzThcpuhRae6uEX3+BenfjwM
-            P2s0OjxXyVXMDbkdAxnndzysZrX7cm3LQtu1sCImujlOV9vo9/dcdfMEPSav
-            =F18a
-            -----END PGP MESSAGE-----
-          fp: 48BE131AEF362CC78FC8F53E08ABAA7CA52556EE
-    encrypted_regex: ((?i)(pass|secret($|[^N])|key|token|^data$|^stringData))
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSB0RXc3TzV5WTZHRGdiUzZQ
+            bThBTnY5WFVLeklYZmE2bzl1b3dYSVZ2eG5FCkJOeCtLK0lmLzRkVUV4T2x2TTFM
+            MGd2Z1dQSzEzbU41VzJYVnd5Z1J4ZG8KLS0tIHJBdlZDWWdybXgwbll5NzFjVDc2
+            TTdveitnVWtJMjRvd2Z3V0xXWUxHL2MKjNpdHMQghXnxfVVzid/ReTb/RJluolEf
+            DvSrHfHp0ikmSdIie0bXHi463M1zVlQF2GkdzkrVpUR0UnFLELRCKQ==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2021-12-01T13:24:03Z"
+    mac: ENC[AES256_GCM,data:La1viEzcWHd5lyae7wbPiDBTlEglM/aleJUvmIlaDAn0fdiz3vFdsN2H2awY9wyWSjoj9skPOih2vcb6x1tUF1WqJcUjY9876zBYWW38BS1ZikZb684G13wJgxeI3GALJAyexBeHDUXTPgc5+SyYN7548K947+EGyIQTmOxUSPQ=,iv:KdEGvwj8jKGlQHL1RUDyCVXLzwYgSfzcqfqb/1d+thA=,tag:/Uv+83wWy7qBFo/uEaLMOA==,type:str]
+    pgp: []
+    encrypted_regex: ^(data|stringData)$
     version: 3.7.1

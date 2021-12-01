@@ -7,4 +7,5 @@ creation_rules:
 
   - path_regex: cluster/.*\.ya?ml
     encrypted_regex: "^(data|stringData)$"
-    pgp: 48BE131AEF362CC78FC8F53E08ABAA7CA52556EE
+    age: >-
+      age1kmnhp30e40u4q54znn8ysz3atvee5k4q9r585y8mzxz9xuuxm37spk5w4w
