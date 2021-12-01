@@ -45,7 +45,7 @@ spec:
         tls:
           - secretName: radarr-4k-cert
             hosts:
-              - "radarr.${SECRET_DOMAIN}"
+              - "radarr-4k.${SECRET_DOMAIN}"
       api:
         enabled: true
         ingressClassName: "traefik"
@@ -59,7 +59,7 @@ spec:
         tls:
           - secretName: radarr-4k-cert
             hosts:
-              - "radarr.${SECRET_DOMAIN}"
+              - "radarr-4k.${SECRET_DOMAIN}"
 
     persistence:
       config:
