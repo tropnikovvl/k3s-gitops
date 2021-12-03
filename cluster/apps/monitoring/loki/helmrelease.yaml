@@ -25,9 +25,6 @@ spec:
         aws:
           s3: s3://${SECRET_MINIO_LOKI_ACCESS_KEY}:${SECRET_MINIO_LOKI_SECRET_KEY}@eu-germany-1/loki
           endpoint: 192.168.10.21:9000
-          # bucketnames: loki
-          # access_key_id: ${SECRET_MINIO_LOKI_ACCESS_KEY}
-          # secret_access_key: ${SECRET_MINIO_LOKI_SECRET_KEY}
           s3forcepathstyle: true
           insecure: true
         boltdb_shipper:
