@@ -22,10 +22,7 @@ spec:
       tag: v0.17
 
     controller:
-      enabled: true
-      type: deployment
-      strategy: RollingUpdate
-      replicas: 4
+      replicas: 2
 
     env:
       TZ: "Europe/Berlin"
@@ -33,10 +30,16 @@ spec:
     config: |
       upstream:
         default:
-          - tcp+udp:${GATEWAY_ADDR}
+          - tcp-tls:1dot1dot1dot1.cloudflare-dns.com
+          - tcp-tls:dns.google
+          - tcp-tls:dns10.quad9.net
       conditional:
         mapping:
-          ${SECRET_DOMAIN}: tcp+udp:${GATEWAY_ADDR}
+          ${DOMAIN}: tcp+udp:${GATEWAY_ADDR}}
+          ${CLUSTER_DOMAIN}: tcp+udp:${GATEWAY_ADDR}}
+      clientLookup:
+        upstream: tcp+udp:${GATEWAY_ADDR}}
+
       blocking:
         blackLists:
           ads:
@@ -56,12 +59,26 @@ spec:
               /^mads\./
               /^pixels?[-.]/
               /^stat(s|istics)?[0-9]*[_.-]/
+          tvs:
+            # Wassname
+            # https://gist.github.com/wassname/b594c63222f9e4c83ea23c818440901b
+            - https://gist.githubusercontent.com/wassname/b594c63222f9e4c83ea23c818440901b/raw/1b0afd2aecf3a099f1681b1cf18fc0e6e2fa116a/Samsung%2520Smart-TV%2520Blocklist%2520Adlist%2520(for%2520PiHole)
+            # https://gist.github.com/wassname/78eeaaad299dc4cddd04e372f20a9aa7
+            - https://gist.githubusercontent.com/wassname/78eeaaad299dc4cddd04e372f20a9aa7/raw/d7863a978993e99d9c77c9001008ce670a3b4c29/LG%2520Smart-TV%2520Blocklist%2520Adlist%2520(for%2520PiHole)
+            # Perflyst
+            # https://github.com/Perflyst/PiHoleBlocklist/blob/master/SmartTV.txt
+            - https://raw.githubusercontent.com/Perflyst/PiHoleBlocklist/master/SmartTV.txt
+            # hkamran80
+            # https://gist.github.com/hkamran80/779019103fcd306979411d44c8d38459
+            - https://gist.githubusercontent.com/hkamran80/779019103fcd306979411d44c8d38459/raw/e0f084b396bb8ffcb390c8e7272ae96a6c292d10/SmartTV2.txt
+
         whiteLists:
           ads:
             - https://raw.githubusercontent.com/anudeepND/whitelist/master/domains/whitelist.txt
         clientGroupsBlock:
           default:
             - ads
+            - tvs
       clientLookup:
         upstream: tcp+udp:${GATEWAY_ADDR}
       prometheus:
@@ -83,18 +100,13 @@ spec:
         loadBalancerIP: ${LB_BLOCKY}
         annotations:
           metallb.universe.tf/allow-shared-ip: blocky
+        externalTrafficPolicy: Local
         ports:
-          tcp:
-            enabled: true
-            port: 53
-            protocol: TCP
-            targetPort: 53
-          udp:
+          dns-udp:
             enabled: true
             port: 53
             protocol: UDP
             targetPort: 53
-        externalTrafficPolicy: Local
 
     metrics:
       enabled: true
@@ -106,11 +118,11 @@ spec:
 
     resources:
       requests:
-        memory: 275Mi
-        cpu: "0.01"
+        cpu: 200m
+        memory: 500Mi
       limits:
-        # memory: 2048Mi
-        cpu: "0.05"
+        cpu: 1
+        memory: 500Mi
 
     podAnnotations:
       configmap.reloader.stakater.com/reload: "blocky-config"
