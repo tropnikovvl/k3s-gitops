@@ -29,7 +29,7 @@ spec:
     service:
       enabled: true
       type: LoadBalancer
-      loadBalancerIP: ${LB_INGRESS}
+      loadBalancerIP: "${LB_INGRESS}"
       externalTrafficPolicy: Local
       annotations:
         external-dns.alpha.kubernetes.io/hostname: "ipv4.${SECRET_DOMAIN}"
