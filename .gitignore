@@ -1,7 +1,6 @@
 # Folders
 ignore/
 testing/
-rook-ceph/
 
 # Trash
 .DS_Store
