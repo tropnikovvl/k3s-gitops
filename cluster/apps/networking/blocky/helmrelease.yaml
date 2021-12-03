@@ -35,9 +35,9 @@ spec:
           - tcp-tls:dns10.quad9.net
       conditional:
         mapping:
-          ${CLUSTER_DOMAIN}: tcp+udp:${GATEWAY_ADDR}}
+          ${CLUSTER_DOMAIN}: tcp+udp:${GATEWAY_ADDR}
       clientLookup:
-        upstream: tcp+udp:${GATEWAY_ADDR}}
+        upstream: tcp+udp:${GATEWAY_ADDR}
 
       blocking:
         blackLists:
