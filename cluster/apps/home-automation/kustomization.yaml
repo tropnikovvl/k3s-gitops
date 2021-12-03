@@ -5,4 +5,4 @@ resources:
   # - home-assistant
   - mosquitto
   # - octoprint
-  # - zwavejs2mqtt
+  - zwavejs2mqtt
