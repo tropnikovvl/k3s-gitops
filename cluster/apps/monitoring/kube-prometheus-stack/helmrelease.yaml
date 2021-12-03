@@ -79,6 +79,7 @@ spec:
         storage:
           volumeClaimTemplate:
             spec:
+              storageClassName: "ceph-block"
               resources:
                 requests:
                   storage: 1Gi
@@ -174,9 +175,11 @@ spec:
         storageSpec:
           volumeClaimTemplate:
             spec:
+              storageClassName: "ceph-block"
               resources:
                 requests:
                   storage: 10Gi
+
 
         thanos:
           image: quay.io/thanos/thanos:v0.23.1
