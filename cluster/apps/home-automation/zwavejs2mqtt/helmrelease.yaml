@@ -58,7 +58,7 @@ spec:
         enabled: true
         accessMode: ReadWriteOnce
         size: 2Gi
-        storageClassName: ceph-block
+        storageClassName: "ceph-block"
       usb:
         enabled: true
         hostPath: /dev/serial/by-id/usb-0658_0200-if00

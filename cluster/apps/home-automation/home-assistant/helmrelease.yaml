@@ -87,7 +87,7 @@ spec:
         enabled: true
         accessMode: ReadWriteOnce
         size: 10Gi
-        storageClassName: ceph-block
+        storageClassName: "ceph-block"
 
     resources:
       requests:
