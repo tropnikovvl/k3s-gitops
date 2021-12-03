@@ -22,8 +22,6 @@ spec:
     csi:
       kubeletDirPath: /var/lib/kubelet
       enableCSIHostNetwork: true
-      enableCephfsDriver: false
-      enableCephfsSnapshotter: false
       pluginTolerations:
       - effect: "NoExecute"
         operator: "Exists"
