@@ -33,8 +33,7 @@ spec:
     service:
       main:
         type: LoadBalancer
-        externalIPs:
-        - "${LB_JELLYFIN}"
+        LoadBalancerIP: ${LB_JELLYFIN}
         externalTrafficPolicy: Local
 
     ingress:
