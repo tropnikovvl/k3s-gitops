@@ -6,7 +6,7 @@ resources:
   - home
   - home-automation
   - kube-system
-  # - media
+  - media
   - monitoring
   - networking
   - rook-ceph
