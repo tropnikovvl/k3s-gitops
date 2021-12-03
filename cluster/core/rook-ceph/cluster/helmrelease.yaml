@@ -46,7 +46,7 @@ spec:
           - name: "k3s-wo-02"
             devices:
               - name: "sdb"
-          - name: "k3s-wo-05"
+          - name: "k3s-wo-03"
             devices:
               - name: "sdb"
     cephBlockPools:
