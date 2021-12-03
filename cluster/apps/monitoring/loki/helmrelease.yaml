@@ -19,51 +19,20 @@ spec:
   values:
     image:
       repository: ghcr.io/k8s-at-home/loki
-      tag: v2.4.1
+
+    config:
+      storage_config:
+        aws:
+          endpoint: 192.168.10.21:9000
+          bucketnames: loki
+          access_key_id: ${SECRET_MINIO_LOKI_ACCESS_KEY}
+          secret_access_key: ${SECRET_MINIO_LOKI_SECRET_KEY}
+          s3forcepathstyle: true
+          insecure: true
+        boltdb_shipper:
+          active_index_directory: /data/index
+          cache_location: /data/boltdb-cache
+          shared_store: s3
 
     serviceMonitor:
       enabled: true
-
-    alerting_groups:
-      #
-      # zwavejs2mqtt
-      #
-      - name: zwavejs2mqtt
-        rules:
-          - alert: ZwaveUnableToReachMQTT
-            expr: |
-              sum(count_over_time({app="zwavejs2mqtt"} |~ "(?i)error while connecting mqtt"[2m])) > 0
-            for: 10s
-            labels:
-              severity: critical
-              category: logs
-            annotations:
-              summary: "Zwavejs2mqtt is unable to reach MQTT"
-      #
-      # *arr applications
-      #
-      - name: arr
-        rules:
-          - alert: ArrDatabaseIsLocked
-            expr: |
-              sum by (app) (count_over_time({app=~".*arr"} |~ "(?i)database is locked"[2m])) > 0
-            for: 10s
-            labels:
-              severity: critical
-              category: logs
-            annotations:
-              summary: "{{$app}} is experiencing locked database issues"
-      #
-      # home-assistant
-      #
-      - name: home-assistant
-        rules:
-          - alert: HomeAssistantUnableToReachPostgresql
-            expr: |
-              sum by (app) (count_over_time({app=~"home-assistant"} |~ "(?i)error in database connectivity during commit"[2m])) > 0
-            for: 10s
-            labels:
-              severity: critical
-              category: logs
-            annotations:
-              summary: "Home Assistant is unable to connect to postgresql"
