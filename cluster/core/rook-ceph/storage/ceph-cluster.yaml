@@ -80,8 +80,6 @@ spec:
   storage:
     useAllNodes: false
     useAllDevices: false
-    config:
-      osdsPerDevice: "1"
     nodes:
       - name: "k3s-wo-01"
         devices:
