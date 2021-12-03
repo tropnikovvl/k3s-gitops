@@ -33,7 +33,7 @@ spec:
     service:
       main:
         type: LoadBalancer
-        LoadBalancerIP: ${LB_JELLYFIN}
+        LoadBalancerIP: "${LB_JELLYFIN}"
         externalTrafficPolicy: Local
 
     ingress:
@@ -81,23 +81,6 @@ spec:
       limits:
         memory: 4Gi
         gpu.intel.com/i915: 1
-
-    podAnnotations:
-      backup.velero.io/backup-volumes: config
-      pre.hook.backup.velero.io/container: fsfreeze
-      pre.hook.backup.velero.io/command: '["/sbin/fsfreeze", "--freeze", "/config"]'
-      post.hook.backup.velero.io/container: fsfreeze
-      post.hook.backup.velero.io/command: '["/sbin/fsfreeze", "--unfreeze", "/config"]'
-
-    additionalContainers:
-      fsfreeze:
-        name: fsfreeze
-        image: ghcr.io/k8s-at-home/fsfreeze:v2.37-r0
-        volumeMounts:
-        - name: config
-          mountPath: /config
-        securityContext:
-          privileged: true
 
     affinity:
       nodeAffinity:
