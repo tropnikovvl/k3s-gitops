@@ -38,6 +38,7 @@ spec:
       iteration: 1
 
   mgr:
+    count: 1
     modules:
       - name: pg_autoscaler
         enabled: true
@@ -48,8 +49,9 @@ spec:
     ssl: false
 
   disruptionManagement:
-    managePodBudgets: false
+    managePodBudgets: true
     osdMaintenanceTimeout: 30
+    pgHealthCheckTimeout: 0
     manageMachineDisruptionBudgets: false
     machineDisruptionBudgetNamespace: openshift-machine-api
 
