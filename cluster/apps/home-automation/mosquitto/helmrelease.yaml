@@ -30,12 +30,10 @@ spec:
     persistence:
       data:
         enabled: true
-        storageClass: "rook-ceph-block"
         accessMode: ReadWriteOnce
         size: 1Gi
       configinc:
         enabled: true
-        storageClass: "rook-ceph-block"
         accessMode: ReadWriteOnce
         size: 1Gi
 
