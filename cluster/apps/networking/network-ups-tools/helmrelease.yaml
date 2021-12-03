@@ -31,8 +31,7 @@ spec:
     service:
       main:
         type: LoadBalancer
-        externalIPs:
-        - "${LB_NUT}"
+        loadBalancerIP: ${LB_NUT}
         externalTrafficPolicy: Local
 
     config:
