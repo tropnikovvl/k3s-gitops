@@ -58,8 +58,7 @@ spec:
     persistence:
       config:
         enabled: true
-        accessMode: ReadWriteOnce
-        size: 10Gi
+        existingClaim: home-assistant-config-v1
 
     ingress:
       main:

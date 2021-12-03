@@ -32,10 +32,12 @@ spec:
         enabled: true
         accessMode: ReadWriteOnce
         size: 1Gi
+        storageClassName: ceph-block
       configinc:
         enabled: true
         accessMode: ReadWriteOnce
         size: 1Gi
+        storageClassName: ceph-block
 
     resources:
       requests:

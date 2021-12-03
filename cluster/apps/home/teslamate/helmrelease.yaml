@@ -81,6 +81,7 @@ spec:
         enabled: true
         size: 8Gi
         mountPath: "/data/"
+        storageClassName: ceph-block
       shmVolume:
         enabled: false
       volumePermissions:
