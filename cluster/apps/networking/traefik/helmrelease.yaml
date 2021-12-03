@@ -25,7 +25,6 @@ spec:
     deployment:
       enabled: true
       kind: DaemonSet
-      replicas: 3
 
     service:
       enabled: true
