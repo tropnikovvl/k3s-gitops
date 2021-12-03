@@ -39,13 +39,6 @@ spec:
         username: "${SECRET_MAIL_USER}"
         password: "${SECRET_MAIL_PASSWORD}"
         from: "no-reply@${SECRET_DOMAIN}"
-    volumeMounts:
-    - name: media
-      mountPath: /media
-    volumes:
-    - name: media
-      persistentVolumeClaim:
-        claimName: authentik-media-v1
 
     ingress:
       enabled: true
