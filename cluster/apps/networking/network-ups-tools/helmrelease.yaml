@@ -3,7 +3,7 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: network-ups-tools
-  namespace: monitoring
+  namespace: networking
 spec:
   interval: 5m
   chart:
@@ -38,10 +38,6 @@ spec:
     config:
       mode: values
       files:
-        nut.conf: |
-          MODE=netserver
-        upsd.conf: |
-          LISTEN 0.0.0.0
         ups.conf: |
           [APC900VA]
             driver = usbhid-ups
@@ -55,6 +51,15 @@ spec:
             password = upsslavepw
             upsmon slave
 
+    metrics:
+      enabled: true
+      prometheusRule:
+        enabled: true
+      exporter:
+        image:
+          repository: hon95/prometheus-nut-exporter
+          tag: 1.1.1
+
     podAnnotations:
       configmap.reloader.stakater.com/reload: "network-ups-tools-config"
 
@@ -67,3 +72,11 @@ spec:
               operator: In
               values:
               - "true"
+
+    resources:
+      requests:
+        cpu: 25m
+        memory: 64Mi
+      limits:
+        cpu: 50m
+        memory: 128Mi
