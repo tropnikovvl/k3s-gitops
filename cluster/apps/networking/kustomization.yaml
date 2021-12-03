@@ -9,6 +9,6 @@ resources:
   - home-dns
   - network-ups-tools
   - omada
-  - traefik
+  #- traefik
   - unifi
   - wildcard-certificate
