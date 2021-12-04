@@ -8,7 +8,7 @@ resources:
   - coredns
   - external-dns
   - home-dns
-  # - network-ups-tools
+  - network-ups-tools
   - omada
   - traefik
   - unifi
