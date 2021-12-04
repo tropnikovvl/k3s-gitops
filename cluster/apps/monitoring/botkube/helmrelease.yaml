@@ -35,7 +35,7 @@ spec:
           - kube-system
           - media
           - monitoring
-          - networking
+          - network
         events:
         - create
         - delete
@@ -48,7 +48,7 @@ spec:
           - kube-system
           - media
           - monitoring
-          - networking
+          - network
         events:
         - create
         - update
@@ -62,13 +62,13 @@ spec:
           - kube-system
           - media
           - monitoring
-          - networking
+          - network
         events:
         - create
         - update
         - delete
         - error
-      - name: networking.k8s.io/v1beta1/ingresses
+      - name: network.k8s.io/v1beta1/ingresses
         namespaces:
           include:
           - default
@@ -76,7 +76,7 @@ spec:
           - kube-system
           - media
           - monitoring
-          - networking
+          - network
         events:
         - create
         - delete
@@ -89,7 +89,7 @@ spec:
           - kube-system
           - media
           - monitoring
-          - networking
+          - network
         events:
         - create
         - delete
@@ -102,7 +102,7 @@ spec:
           - kube-system
           - media
           - monitoring
-          - networking
+          - network
         events:
         - create
         - delete
@@ -115,7 +115,7 @@ spec:
           - kube-system
           - media
           - monitoring
-          - networking
+          - network
         events:
         - create
         - delete
@@ -128,7 +128,7 @@ spec:
           - kube-system
           - media
           - monitoring
-          - networking
+          - network
         events:
         - create
         - delete
@@ -141,7 +141,7 @@ spec:
           - kube-system
           - media
           - monitoring
-          - networking
+          - network
         events:
         - create
         - delete
@@ -154,7 +154,7 @@ spec:
           - kube-system
           - media
           - monitoring
-          - networking
+          - network
         events:
         - create
         - delete
@@ -167,7 +167,7 @@ spec:
           - kube-system
           - media
           - monitoring
-          - networking
+          - network
         events:
         - update
         - error
@@ -179,7 +179,7 @@ spec:
           - kube-system
           - media
           - monitoring
-          - networking
+          - network
         events:
         - create
         - delete
@@ -192,7 +192,7 @@ spec:
           - kube-system
           - media
           - monitoring
-          - networking
+          - network
         events:
         - create
         - delete
@@ -205,7 +205,7 @@ spec:
           - kube-system
           - media
           - monitoring
-          - networking
+          - network
         events:
         - create
         - delete
