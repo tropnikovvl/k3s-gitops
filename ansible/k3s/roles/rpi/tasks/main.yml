@@ -1,8 +1,8 @@
 ---
-- include: packages.yml
+- include: apparmor.yml
   tags:
-    - packages
+    - apparmor
 
-- include: cmdlineyml
+- include: cmdline.yml
   tags:
     - cmdline

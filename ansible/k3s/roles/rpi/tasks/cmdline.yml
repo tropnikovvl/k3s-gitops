@@ -1,7 +1,7 @@
 ---
 - name: Enable container features
   replace:
-    path: cmdline.txt
+    path: /boot/firmware/cmdline.txt
     regexp: '^([\w](?!.*\b{{ item }}\b).*)$'
     replace: '\1 {{ item }}'
   with_items:
