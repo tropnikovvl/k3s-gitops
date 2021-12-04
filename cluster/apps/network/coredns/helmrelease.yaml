@@ -47,9 +47,6 @@ spec:
       - zone: casalani.de.
         scheme: dns://
         use_tcp: false
-      - zone: int.casalani.de.
-        scheme: dns://
-        use_tcp: false
       port: 53
       plugins:
       - name: errors
