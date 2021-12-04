@@ -48,6 +48,8 @@ spec:
         traefik.ingress.kubernetes.io/router.middlewares: "network-cloudflare-ips@kubernetescrd"
         external-dns/is-public: "true"
         external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
+        hajimari.io/enable: "true"
+        hajimari.io/icon: "passport"
       hosts:
       - host: "id.${SECRET_DOMAIN}"
         paths:
