@@ -4,6 +4,7 @@ kind: HelmRelease
 metadata:
   name: blocky
   namespace: network
+spec:
   interval: 5m
   chart:
     spec:
