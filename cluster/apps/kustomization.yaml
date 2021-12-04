@@ -2,6 +2,8 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
+  - calico-system
+  - cert-manager
   - flux-system
   - home
   - home-automation
@@ -10,5 +12,4 @@ resources:
   - monitoring
   - network
   - rook-ceph
-  - security
   - system-upgrade
