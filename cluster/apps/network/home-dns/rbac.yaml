@@ -4,7 +4,6 @@ kind: ServiceAccount
 metadata:
   name: home-dns
   namespace: kube-system
-
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
@@ -21,13 +20,12 @@ rules:
       - watch
   - apiGroups:
       - extensions
-      - network.k8s.io
+      - networking.k8s.io
     resources:
       - ingresses
     verbs:
       - list
       - watch
-
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
