@@ -86,8 +86,7 @@ spec:
         - "grafana.${SECRET_DOMAIN}"
 
     persistence:
-      enabled: true
-      existingClaim: grafana-config-v1
+      enabled: false
 
     plugins:
     - natel-discrete-panel
@@ -126,7 +125,6 @@ spec:
         - name: Prometheus
           type: prometheus
           access: proxy
-          # url: http://prometheus-operated:9090
           url: http://thanos-query:9090
           isDefault: true
         - name: Loki
@@ -146,8 +144,10 @@ spec:
 
     dashboards:
       default:
-        node-exporter-full:
-          url: https://grafana.com/api/dashboards/1860/revisions/22/download
+        # Ref: https://grafana.com/grafana/dashboards/12175
+        calico-felix:
+          gnetId: 12175
+          revision: 5
           datasource: Prometheus
         ceph-cluster:
           gnetId: 2842
@@ -172,20 +172,6 @@ spec:
         blocky:
           url: https://raw.githubusercontent.com/0xERR0R/blocky/master/docs/blocky-grafana.json
           datasource: Prometheus
-        # unifi-client-insights:
-        #   gnetId: 11315
-        #   revision: 8
-        #   datasource: Prometheus
-        # # Ref: https://grafana.com/grafana/dashboards/11311
-        # unifi-network-sites:
-        #   gnetId: 11311
-        #   revision: 4
-        #   datasource: Prometheus
-        # # Ref: https://grafana.com/grafana/dashboards/11314
-        # unifi-uap-insights:
-        #   gnetId: 11314
-        #   revision: 9
-        #   datasource: Prometheus
         flux-cluster:
           url: https://raw.githubusercontent.com/fluxcd/flux2/main/manifests/monitoring/grafana/dashboards/cluster.json
           datasource: Prometheus
@@ -194,9 +180,6 @@ spec:
           datasource: Prometheus
         velero:
           url: https://gist.githubusercontent.com/HaveFun83/57b41e85fde4249daab74a9850885f6a/raw/25a4c908357fc5ef0dc057c7493df50996e746d7/Kubernetes_Addons_Velero_Stats.json
-          datasource: Prometheus
-        promcord:
-          url: https://raw.githubusercontent.com/nimarion/promcord/master/grafana.json
           datasource: Prometheus
       teslamate:
         charge-level:
