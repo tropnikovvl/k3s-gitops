@@ -13,7 +13,6 @@ resources:
   - jetstack-charts.yaml
   - k8s-at-home-charts.yaml
   - kpg-charts.yaml
-  - kubernetes-dashboard-chart.yaml
   - kubernetes-sigs-descheduler-charts.yaml
   - lwolf-charts.yaml
   - metallb-charts.yaml
