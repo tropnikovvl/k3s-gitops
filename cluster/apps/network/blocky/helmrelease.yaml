@@ -70,13 +70,15 @@ spec:
             # hkamran80
             # https://gist.github.com/hkamran80/779019103fcd306979411d44c8d38459
             - https://gist.githubusercontent.com/hkamran80/779019103fcd306979411d44c8d38459/raw/e0f084b396bb8ffcb390c8e7272ae96a6c292d10/SmartTV2.txt
-
+          fakenews:
+            - https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews/hosts
         whiteLists:
           ads:
             - https://raw.githubusercontent.com/anudeepND/whitelist/master/domains/whitelist.txt
         clientGroupsBlock:
           default:
             - ads
+            - fakenews
             - tvs
       prometheus:
         enable: true
