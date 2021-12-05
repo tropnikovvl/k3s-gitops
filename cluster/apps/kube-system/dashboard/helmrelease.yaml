@@ -31,24 +31,23 @@ spec:
       disableAccessDeniedNotifications: false
 
     ingress:
-      main:
-        enabled: true
-        ingressClassName: "traefik"
-        annotations:
-          traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
-          external-dns/is-public: "true"
-          external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
-          # hajimari.io/enable: "true"
-          # hajimari.io/icon: "home-assistant"
-        hosts:
-          - host: "k8s.${SECRET_DOMAIN}"
-            paths:
-              - path: /
-                pathType: Prefix
-        tls:
-          - secretName: k8s-cert
-            hosts:
-              - "k8s.${SECRET_DOMAIN}"
+      enabled: true
+      ingressClassName: "traefik"
+      annotations:
+        traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+        external-dns/is-public: "true"
+        external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
+        # hajimari.io/enable: "true"
+        # hajimari.io/icon: "home-assistant"
+      hosts:
+        - host: "k8s.${SECRET_DOMAIN}"
+          paths:
+            - path: /
+              pathType: Prefix
+      tls:
+        - secretName: k8s-cert
+          hosts:
+            - "k8s.${SECRET_DOMAIN}"
 
     pinnedCRDs: []
 
