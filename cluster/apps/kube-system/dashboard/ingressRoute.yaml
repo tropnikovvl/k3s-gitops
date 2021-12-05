@@ -14,7 +14,7 @@ spec:
           port: https
           scheme: https
       middlewares:
-        - name: traefik-forward-auth
-          namespace: networking
+        - name: rfc1918
+          namespace: network
   tls:
     secretName: "k8s-${SECRET_DOMAIN/./-}-tls"
