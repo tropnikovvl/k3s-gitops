@@ -17,9 +17,7 @@ spec:
         namespace: flux-system
       interval: 5m
   values:
-    podAnnotations:
-      botkube.io/disable: "true"
-
+    kind: Deployment
     deschedulerPolicy:
       strategies:
         RemoveDuplicates:
@@ -28,7 +26,7 @@ spec:
           enabled: true
           params:
             nodeAffinityType:
-            - requiredDuringSchedulingIgnoredDuringExecution
+              - requiredDuringSchedulingIgnoredDuringExecution
         RemovePodsViolatingInterPodAntiAffinity:
           enabled: false
         LowNodeUtilization:
