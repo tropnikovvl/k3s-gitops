@@ -89,6 +89,15 @@ spec:
         size: 10Gi
         storageClassName: "ceph-block"
 
+    influxdb:
+      enabled: true
+      architecture: standalone
+      database: home_assistant
+      authEnabled: false
+      persistence:
+        enabled: true
+        existingClaim: home-assistant-influxdb-v1
+
     resources:
       requests:
         cpu: 75m
