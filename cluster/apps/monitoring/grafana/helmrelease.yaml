@@ -131,6 +131,10 @@ spec:
           type: loki
           access: proxy
           url: http://loki:3100
+        - name: HomeAssistant
+          type: influxdb
+          access: proxy
+          url: http://home-assistant-influxdb.home-automation.svc.cluster.local
         - name: TeslaMate
           type: postgres
           access: proxy
@@ -181,6 +185,10 @@ spec:
         velero:
           url: https://gist.githubusercontent.com/HaveFun83/57b41e85fde4249daab74a9850885f6a/raw/25a4c908357fc5ef0dc057c7493df50996e746d7/Kubernetes_Addons_Velero_Stats.json
           datasource: Prometheus
+      home-assistant:
+        pv-dashboard:
+          url: https://raw.githubusercontent.com/netzkind/telegraf-kostal-modbus/master/grafana/dashboards/kostal-dashboard.json
+          datasource: HomeAssistant
       teslamate:
         charge-level:
           url: https://raw.githubusercontent.com/adriankumpf/teslamate/v1.24.2/grafana/dashboards/charge-level.json
