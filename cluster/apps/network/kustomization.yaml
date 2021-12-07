@@ -9,7 +9,6 @@ resources:
   - external-dns
   - home-dns
   - network-ups-tools
-  - omada
   - traefik
   - unifi
   - wildcard-certificate
