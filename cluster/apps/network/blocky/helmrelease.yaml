@@ -22,6 +22,9 @@ spec:
       tag: v0.17
 
     controller:
+      enabled: true
+      type: deployment
+      strategy: RollingUpdate
       replicas: 2
 
     env:
@@ -30,9 +33,7 @@ spec:
     config: |
       upstream:
         default:
-          - tcp-tls:1dot1dot1dot1.cloudflare-dns.com
-          - tcp-tls:dns.google
-          - tcp-tls:dns10.quad9.net
+          - tcp+udp:${GATEWAY_ADDR}
       conditional:
         mapping:
           ${SECRET_DOMAIN}: tcp+udp:${GATEWAY_ADDR}
