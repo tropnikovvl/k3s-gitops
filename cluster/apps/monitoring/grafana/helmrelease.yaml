@@ -134,7 +134,7 @@ spec:
         - name: HomeAssistant
           type: influxdb
           access: proxy
-          url: http://home-assistant-influxdb.home-automation.svc.cluster.local
+          url: http://home-assistant-influxdb.home-automation:8086
         - name: TeslaMate
           type: postgres
           access: proxy
