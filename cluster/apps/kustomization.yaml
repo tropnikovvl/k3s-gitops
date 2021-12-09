@@ -5,7 +5,7 @@ resources:
   - calico-system
   - cert-manager
   - databases
-  - flux-system
+  # - flux-system
   - home
   - home-automation
   - kube-system
