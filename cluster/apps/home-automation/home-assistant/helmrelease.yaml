@@ -80,14 +80,18 @@ spec:
             hosts:
               - "home.${SECRET_DOMAIN}"
 
-    # postgresql:
-    #   existingSecret: home-assistant-postgresql-secret
-    #   enabled: true
-    #   persistence:
-    #     enabled: true
-    #     accessMode: ReadWriteOnce
-    #     size: 10Gi
-    #     storageClassName: "ceph-block"
+    postgresql:
+      image:
+        registry: docker.io
+        repository: bitnami/postgresql
+        tag: 14
+      existingSecret: home-assistant-postgresql-secret
+      enabled: true
+      persistence:
+        enabled: true
+        accessMode: ReadWriteOnce
+        size: 10Gi
+        storageClassName: "ceph-block"
 
     resources:
       requests:
