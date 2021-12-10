@@ -137,9 +137,6 @@ spec:
           - name: config
             mountPath: /config
 
-        # git:
-        #   deployKeySecret: vscode-secrets
-
         resources:
           requests:
             cpu: 35m
