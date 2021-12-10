@@ -80,23 +80,14 @@ spec:
             hosts:
               - "home.${SECRET_DOMAIN}"
 
-    postgresql:
-      existingSecret: home-assistant-postgresql-secret
-      enabled: true
-      persistence:
-        enabled: true
-        accessMode: ReadWriteOnce
-        size: 10Gi
-        storageClassName: "ceph-block"
-
-    influxdb:
-      enabled: true
-      architecture: standalone
-      database: home_assistant
-      authEnabled: false
-      persistence:
-        enabled: true
-        existingClaim: home-assistant-influxdb-v1
+    # postgresql:
+    #   existingSecret: home-assistant-postgresql-secret
+    #   enabled: true
+    #   persistence:
+    #     enabled: true
+    #     accessMode: ReadWriteOnce
+    #     size: 10Gi
+    #     storageClassName: "ceph-block"
 
     resources:
       requests:
