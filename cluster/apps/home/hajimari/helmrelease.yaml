@@ -27,6 +27,7 @@ spec:
     hajimari:
       namespaceSelector:
         matchNames:
+        - databases
         - home
         - home-automation
         - media
