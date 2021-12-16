@@ -74,7 +74,7 @@ spec:
         volumeSpec:
           nfs:
             server: "${NFS_SERVER}"
-            path: /mnt/user/k3s-backup
+            path: /mnt/user/k3s-backup/sonarr
         mountPath: /config/Backups
         readOnly: false
 
