@@ -68,6 +68,15 @@ spec:
             server: "${NFS_SERVER}"
             path: /mnt/user/media
         mountPath: /media
+      backup:
+        enabled: true
+        type: custom
+        volumeSpec:
+          nfs:
+            server: "${NFS_SERVER}"
+            path: /mnt/user/k3s-backup/radarr
+        mountPath: /config/Backups
+        readOnly: false
 
     resources:
       requests:

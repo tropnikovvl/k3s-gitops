@@ -42,6 +42,15 @@ spec:
       config:
         enabled: true
         existingClaim: prowlarr-config-v1
+      backup:
+        enabled: true
+        type: custom
+        volumeSpec:
+          nfs:
+            server: "${NFS_SERVER}"
+            path: /mnt/user/k3s-backup/prowlarr
+        mountPath: /config/Backups
+        readOnly: false
 
     resources:
       requests:
