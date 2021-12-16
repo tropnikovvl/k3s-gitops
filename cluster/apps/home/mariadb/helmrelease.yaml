@@ -19,7 +19,7 @@ spec:
     image:
       registry: docker.io
       repository: bitnami/mariadb
-      tag: 10.6.4-debian-10-r32
+      tag: 10.6.5-debian-10-r32
     primary:
       service:
         type: LoadBalancer
