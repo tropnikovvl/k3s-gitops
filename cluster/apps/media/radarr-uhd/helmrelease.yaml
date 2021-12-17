@@ -1,0 +1,86 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: radarr-uhd
+  namespace: media
+spec:
+  interval: 5m
+  chart:
+    spec:
+      # renovate: registryUrl=https://k8s-at-home.com/charts
+      chart: radarr
+      version: 15.1.1
+      sourceRef:
+        kind: HelmRepository
+        name: k8s-at-home-charts
+        namespace: flux-system
+      interval: 5m
+  values:
+    image:
+      repository: ghcr.io/k8s-at-home/radarr
+      tag: v3.2.2.5080
+
+    env:
+      TZ: "Europe/Berlin"
+
+    ingress:
+      main:
+        enabled: true
+        ingressClassName: "traefik"
+        annotations:
+          traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+          hajimari.io/enable: "true"
+          hajimari.io/icon: "filmstrip"
+        hosts:
+          - host: "radarr-uhd.${SECRET_DOMAIN}"
+            paths:
+              - path: /
+                pathType: Prefix
+        tls:
+          - secretName: radarr-cert
+            hosts:
+              - "radarr-uhd.${SECRET_DOMAIN}"
+      api:
+        enabled: true
+        ingressClassName: "traefik"
+        annotations:
+          traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+        hosts:
+          - host: "radarr-uhd.${SECRET_DOMAIN}"
+            paths:
+              - path: /api
+                pathType: Prefix
+        tls:
+          - secretName: radarr-cert
+            hosts:
+              - "radarr-uhd.${SECRET_DOMAIN}"
+
+    persistence:
+      config:
+        enabled: true
+        existingClaim: radarr-uhd-config-v1
+      media:
+        enabled: true
+        type: custom
+        volumeSpec:
+          nfs:
+            server: "${NFS_SERVER}"
+            path: /mnt/user/media
+        mountPath: /media
+      backup:
+        enabled: true
+        type: custom
+        volumeSpec:
+          nfs:
+            server: "${NFS_SERVER}"
+            path: /mnt/user/k3s-backup/radarr-uhd
+        mountPath: /config/Backups
+        readOnly: false
+
+    resources:
+      requests:
+        cpu: "0.04"
+        memory: "256M"
+      limits:
+        memory: "512M"

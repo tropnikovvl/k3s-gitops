@@ -6,5 +6,6 @@ resources:
   - ombi
   - prowlarr
   - radarr
+  - radarr-uhd
   - sabnzbd
   - sonarr
