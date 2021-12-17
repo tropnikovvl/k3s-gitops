@@ -38,7 +38,7 @@ spec:
               - path: /
                 pathType: Prefix
         tls:
-          - secretName: radarr-cert
+          - secretName: radarr-uhd-cert
             hosts:
               - "radarr-uhd.${SECRET_DOMAIN}"
       api:
@@ -52,7 +52,7 @@ spec:
               - path: /api
                 pathType: Prefix
         tls:
-          - secretName: radarr-cert
+          - secretName: radarr-uhd-cert
             hosts:
               - "radarr-uhd.${SECRET_DOMAIN}"
 
