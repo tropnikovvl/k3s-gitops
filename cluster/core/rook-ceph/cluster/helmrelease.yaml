@@ -33,8 +33,10 @@ spec:
           - hosts:
               - "rook.${SECRET_DOMAIN}"
     cephClusterSpec:
+      crashCollector:
+        disable: false
       mgr:
-        count: 1
+        count: 2
       dashboard:
         enabled: true
         urlPrefix: /
