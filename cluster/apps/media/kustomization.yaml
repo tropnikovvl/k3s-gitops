@@ -4,6 +4,7 @@ kind: Kustomization
 resources:
   - jellyfin
   - ombi
+  - plex
   - prowlarr
   - radarr
   - radarr-uhd

@@ -25,6 +25,7 @@ data:
   LB_MARIADB: 192.168.10.65
   LB_JELLYFIN: 192.168.10.66
   LB_SYSLOG: 192.168.10.67
+  LB_PLEX: 192.168.10.68
 
   # NAS Shares
   NFS_KUBERNETES: /mnt/user/kubernetes
