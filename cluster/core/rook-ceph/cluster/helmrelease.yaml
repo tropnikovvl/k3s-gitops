@@ -20,6 +20,10 @@ spec:
   values:
     monitoring:
       enabled: true
+
+    toolbox:
+      enabled: true
+
     ingress:
       dashboard:
         annotations:
