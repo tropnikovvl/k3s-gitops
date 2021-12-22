@@ -12,5 +12,5 @@ resources:
   - media
   - monitoring
   - network
-  # - rook-ceph
+  - rook-ceph
   - system-upgrade
