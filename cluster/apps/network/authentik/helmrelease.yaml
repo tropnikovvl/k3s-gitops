@@ -30,6 +30,14 @@ spec:
         name: "authentik"
         user: "authentik"
         password: "${SECRET_AUTHENTIK_POSTGRES_PASSWORD}"
+        s3_backup:
+          access_key: "{$SECRET_MINIO_AUTHENTIK_ACCESS_KEY}"
+          secret_key: "{$SECRET_MINIO_AUTHENTIK_SECRET_KEY}"
+          bucket: authentik
+          host: "{$SECRET_MINIO_SERVER}"
+          insecure_skip_verify: true
+          region: "{$SECRET_MINIO_REGION}"
+
       redis:
         host: "authentik-redis-master"
       email:
@@ -39,6 +47,7 @@ spec:
         username: "${SECRET_MAIL_USER}"
         password: "${SECRET_MAIL_PASSWORD}"
         from: "no-reply@${SECRET_DOMAIN}"
+        
 
     ingress:
       enabled: true
