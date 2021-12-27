@@ -19,7 +19,8 @@ spec:
     image:
       repository: nodered/node-red
       tag: 2.1.4
-    env:
+
+‚    env:
       NODE_RED_ENABLE_PROJECTS: "true"
 
     ingress:
@@ -42,11 +43,11 @@ spec:
             hosts:
               - "nodered.${SECRET_DOMAIN}"
 
-
     persistence:
       data:
         enabled: true
         existingClaim: node-red-config-v1
+
     resources:
       requests:
         cpu: 200m
