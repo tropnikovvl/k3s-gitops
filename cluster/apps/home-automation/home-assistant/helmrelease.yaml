@@ -33,14 +33,6 @@ spec:
       - secretRef:
           name: home-assistant-secrets
 
-    podAnnotations:
-      secret.reloader.stakater.com/reload: home-assistant-secrets
-      backup.velero.io/backup-volumes: config
-      pre.hook.backup.velero.io/container: fsfreeze
-      pre.hook.backup.velero.io/command: '["/sbin/fsfreeze", "--freeze", "/config"]'
-      post.hook.backup.velero.io/container: fsfreeze
-      post.hook.backup.velero.io/command: '["/sbin/fsfreeze", "--unfreeze", "/config"]'
-
     service:
       main:
         type: LoadBalancer

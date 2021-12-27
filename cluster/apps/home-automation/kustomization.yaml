@@ -4,5 +4,6 @@ kind: Kustomization
 resources:
   - home-assistant
   - mosquitto
+  - node-red
   # - octoprint
   - zwavejs2mqtt
