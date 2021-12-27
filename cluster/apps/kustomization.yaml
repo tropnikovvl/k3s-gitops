@@ -4,7 +4,6 @@ kind: Kustomization
 resources:
   - calico-system
   - cert-manager
-  # - databases
   - flux-system
   - home
   - home-automation
@@ -12,5 +11,4 @@ resources:
   - media
   - monitoring
   - network
-  # - rook-ceph
   - system-upgrade
