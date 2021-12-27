@@ -9,11 +9,16 @@
   hosts {
     192.168.10.11 pve01.{{ SECRET_DOMAIN }}
     192.168.10.15 tower.{{ SECRET_DOMAIN }}
-    192.168.10.21 minio.{{ SECRET_DOMAIN }}
     192.168.10.31 k3s-ma-01.{{ SECRET_DOMAIN }}
     192.168.10.32 k3s-ma-02.{{ SECRET_DOMAIN }}
     192.168.10.33 k3s-ma-03.{{ SECRET_DOMAIN }}
     192.168.10.41 k3s-wo-01.{{ SECRET_DOMAIN }}
+    192.168.10.42 k3s-wo-02.{{ SECRET_DOMAIN }}
+    192.168.10.43 k3s-wo-03.{{ SECRET_DOMAIN }}
+    192.168.10.80 ansible.{{ SECRET_DOMAIN }}
+    192.168.10.81 mysql.{{ SECRET_DOMAIN }}
+    192.168.10.82 prostresql.{{ SECRET_DOMAIN }}
+    192.168.10.83 minio.{{ SECRET_DOMAIN }}
     ttl 600
     reload 5s
     fallthrough
