@@ -41,7 +41,7 @@ spec:
           nfs:
             server: "${NAS02}"
             path: /mnt/user/dms-import
-        mountPath: ./consume
+        mountPath: /usr/src/paperless/consume
       export:
         enabled: true
         type: custom
@@ -49,7 +49,7 @@ spec:
           nfs:
             server: "${NAS02}"
             path: /mnt/user/dms-export
-        mountPath: ./export
+        mountPath: /usr/src/paperless/export
 
     ingress:
       main:
