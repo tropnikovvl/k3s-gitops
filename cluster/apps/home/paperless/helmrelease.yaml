@@ -36,7 +36,12 @@ spec:
         existingClaim: paperless-media-v1
       consume:
         enabled: true
-        existingClaim: paperless-consume-v1
+        type: custom
+        volumeSpec:
+          nfs:
+            server: "${NAS02}"
+            path: /mnt/user/dms-import
+        mountPath: ./consume
       export:
         enabled: true
         existingClaim: paperless-export-v1
