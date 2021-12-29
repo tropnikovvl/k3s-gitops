@@ -1,0 +1,28 @@
+---
+- name: Install filesystem tools
+  ansible.builtin.apt:
+    name: "{{ item }}"
+    update_cache: true
+  loop:
+    - dmraid
+    - gdisk
+    - hdparm
+    - lvm2
+    - nfs-common
+    - nfs-kernel-server
+    - samba
+    - smartmontools
+    - socat
+
+- name: Disable swap at runtime
+  ansible.builtin.command: swapoff -a
+  when: ansible_swaptotal_mb > 0
+
+- name: Disable swap on boot
+  ansible.posix.mount:
+    name: "{{ item }}"
+    fstype: swap
+    state: absent
+  loop:
+    - swap
+    - none

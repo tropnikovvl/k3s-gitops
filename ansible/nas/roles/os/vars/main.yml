@@ -1,0 +1,34 @@
+---
+os_timezone: "Europe/Berlin"
+os_packages_install:
+  - apt-transport-https
+  - ca-certificates
+  - containernetworking-plugins
+  - curl
+  - fzf
+  - gettext
+  - git
+  - htop
+  - lolcat
+  - ntpdate
+  - psmisc
+  - rclone
+  - software-properties-common
+  - tmux
+  - tree
+  - uidmap
+  - unzip
+os_packages_remove:
+  - apparmor
+  - apport
+  - byobu
+  - friendly-recovery
+  - landscape-common
+  - lxd-agent-loader
+  - plymouth
+  - plymouth-theme-ubuntu-text
+  - popularity-contest
+  - snapd
+  - sosreport
+  - ubuntu-advantage-tools
+  - ufw

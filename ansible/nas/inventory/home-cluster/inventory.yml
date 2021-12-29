@@ -1,0 +1,6 @@
+---
+storage:
+  hosts:
+    nas02:
+      ansible_host: 192.168.10.201
+      ansible_user: teqqy
