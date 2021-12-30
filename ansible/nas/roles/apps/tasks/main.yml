@@ -48,6 +48,10 @@
   tags:
     - postgresql
 
+- import_tasks: mariadb.yml
+  tags:
+    - mariadb
+
 # - import_tasks: nexus.yml
 #   tags:
 #     - nexus

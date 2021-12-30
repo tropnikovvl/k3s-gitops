@@ -9,6 +9,7 @@ SECRET_POSTGRESQL_USERNAME: ENC[AES256_GCM,data:IKSdU+k=,iv:6B9ivuaPSjBE+t2lgQnT
 SECRET_POSTGRESQL_PASSWORD: ENC[AES256_GCM,data:OaGlS5mJutxT,iv:udLvO4LB9p7pYHuM67jdalu+aKm3fiUSmg908zUUzEo=,tag:jO9ewEntyFFjgpj1nKP/Sg==,type:str]
 SECRET_PGADMIN_USERNAME: ENC[AES256_GCM,data:eUtBnpuyP7t0owBlLA==,iv:JOHNMFRkvGGUVUkWHQ+JhKJddqo/zj8dNjdNEcx96Kk=,tag:MwCUznziPte0rmm/IhGkBg==,type:str]
 SECRET_PGADMIN_PASSWORD: ENC[AES256_GCM,data:hTvtY0kQR72B,iv:f8attwgvrKxNmP0bpDHlw/PKzUFvIZh9L0QulTCd1VI=,tag:gwUpbIVzndu561PZLhnyzw==,type:str]
+SECRET_MARIADB_PASSWORD: ENC[AES256_GCM,data:Engm2kkQ2U70,iv:fEowoh00eVArah6mGmVdTuT1xVrOQmrHOZfZGAfwu0c=,tag:QFk0+AanBoN1cI1Tc7CNsg==,type:str]
 sops:
     kms: []
     gcp_kms: []
@@ -24,8 +25,8 @@ sops:
             d0JqcmJGMWpsRmF6NkNyQ3pMU3hmVncK5xuG7zPNxHvCDGAwOBdMOyW0hxZsiPMe
             f8qsIfbVOLowoJ9ODO+FMkXS6ZJ5EhKYMlZ7fUXePCJ4gGYKGrN4sw==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2021-12-30T15:34:12Z"
-    mac: ENC[AES256_GCM,data:ABt69jdB303wec4j4q9tg+08JoZ2kzFTx2IkYxIM2ZXyGdO5ocM/jDVdBczPCRD8gcSdLXaS+OjA3n7xyvYT+kYgZAwdUi36vHi+eBfOZOsKmA/KiIRuwqlEj5X9qUdUL33MKuAm6IOBmQLX5v+uaH/8ECJ40QYJ06w42mhxi1o=,iv:Gs5Et4qEDdeU5vMH/l1EPsY//rhRe4x18g09x58cbwY=,tag:ECM1hrnd9Kmta15zvpdp+w==,type:str]
+    lastmodified: "2021-12-30T16:05:20Z"
+    mac: ENC[AES256_GCM,data:kewCmMnYgUnWtXDZsZczUDG/U7u6HU1Abp4vg+yNUlm2eBHGamL3n/7MU1rU6m5jf853YNHj7aLWuWYFVvR+a1n0scCRsizraM2ceGHR+4gIdsTS98VTvDJMAEVXPdx+5bz1T3GFmnKCEAoTmn8NI9GEiwglt7Wvs+eZeITz524=,iv:x40wobEHChDPNxGXvW+UyYOCL4GGqIgapkpVA5wQIR8=,tag:7Q1VAALKcefHQIx52UJsOQ==,type:str]
     pgp: []
     unencrypted_regex: ^(kind)$
     version: 3.7.1
