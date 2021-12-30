@@ -15,6 +15,10 @@
   tags:
     - filesystem
 
-# - import_tasks: security.yml
-#   tags:
-#     - security
+- import_tasks: nfs-shares.yml
+  tags:
+    - nfs-shares
+
+- import_tasks: smb-shares.yml
+  tags:
+    - smb-shares
