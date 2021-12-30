@@ -1,0 +1,24 @@
+---
+- name: Create postgresql directories
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+  loop:
+    - "{{ containers_base_dir }}/apps/postgresql"
+    - "{{ containers_base_dir }}/data/postgresql"
+    - "{{ containers_base_dir }}/data/postgresql/data"
+    - "{{ containers_base_dir }}/data/postgresql/pgadmin"
+    - "{{ containers_base_dir }}/data/postgresql/pgbackups"
+
+- block:
+    - name: Create postgresql docker compose file
+      ansible.builtin.template:
+        src: postgresql/docker-compose.yml.j2
+        dest: "{{ containers_base_dir }}/apps/postgresql/docker-compose.yml"
+        mode: 0755
+    - name: Create postgresql systemd service file
+      ansible.builtin.template:
+        src: "docker-compose@.service.j2"
+        dest: "/etc/systemd/system/docker-compose@postgresql.service"
+        mode: 0644
+  notify: Restart postgresql

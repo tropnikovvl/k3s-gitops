@@ -21,9 +21,9 @@
 #   tags:
 #     - cadvisor
 
-# - import_tasks: node-exporter.yml
-#   tags:
-#     - node-exporter
+- import_tasks: node-exporter.yml
+  tags:
+    - node-exporter
 
 - import_tasks: minio.yml
   tags:
@@ -44,9 +44,9 @@
 #   tags:
 #     - traefik
 
-# - import_tasks: postgresql.yml
-#   tags:
-#     - postgresql
+- import_tasks: postgresql.yml
+  tags:
+    - postgresql
 
 # - import_tasks: nexus.yml
 #   tags:
