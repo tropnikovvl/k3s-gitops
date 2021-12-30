@@ -40,9 +40,9 @@
 #   tags:
 #     - promtail
 
-# - import_tasks: traefik.yml
-#   tags:
-#     - traefik
+- import_tasks: traefik.yml
+  tags:
+    - traefik
 
 - import_tasks: postgresql.yml
   tags:
