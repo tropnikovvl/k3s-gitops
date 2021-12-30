@@ -26,7 +26,6 @@ spec:
           s3: s3://${SECRET_MINIO_LOKI_ACCESS_KEY}:${SECRET_MINIO_LOKI_SECRET_KEY}@${SECRET_MINIO_REGION}/loki
           endpoint: ${SECRET_MINIO_SERVER}
           s3forcepathstyle: true
-          insecure: true
         boltdb_shipper:
           active_index_directory: /data/index
           cache_location: /data/boltdb-cache
