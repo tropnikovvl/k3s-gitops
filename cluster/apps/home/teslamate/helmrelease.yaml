@@ -1,0 +1,50 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: teslamate
+  namespace: home
+spec:
+  interval: 5m
+  chart:
+    spec:
+      # renovate: registryUrl=https://k8s-at-home.com/charts
+      chart: teslamate
+      version: 6.3.1
+      sourceRef:
+        kind: HelmRepository
+        name: k8s-at-home-charts
+        namespace: flux-system
+      interval: 5m
+  # See https://github.com/k8s-at-home/charts/blob/master/charts/teslamate/values.yaml
+  values:
+    image:
+      repository: teslamate/teslamate
+      tag: 1.23.4
+      pullPolicy: IfNotPresent
+
+    env:
+      TZ: Europe/Berlin
+      DATABASE_HOST: "${SECRET_POSTGRES_HOST}"
+      DATABASE_USER: "${SECRET_TESLAMATE_USER}"
+      DATABASE_PASS: "${SECRET_TESLAMATE_PASSWORD}"
+      DATABASE_NAME: "teslmate"
+      DISABLE_MQTT: "true"
+
+    ingress:
+      main:
+        enabled: true
+        ingressClassName: "traefik"
+        annotations:
+          traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+          hajimari.io/enable: "true"
+          hajimari.io/icon: "car"
+        hosts:
+          - host: "teslamate.${SECRET_DOMAIN}"
+            paths:
+              - path: /
+                pathType: Prefix
+        tls:
+          - secretName: teslamate-cert
+            hosts:
+              - "teslamate.${SECRET_DOMAIN}"
