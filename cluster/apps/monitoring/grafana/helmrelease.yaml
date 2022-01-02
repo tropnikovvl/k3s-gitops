@@ -137,9 +137,10 @@ spec:
           url: ${SECRET_TESLAMATE_POSTGRES_HOST}
           database: teslamate
           user: ${SECRET_TESLAMATE_POSTGRES_USER}
-          password: "${SECRET_TESLAMATE_POSTGRES_PASSWORD}"
+          secureJsonData:
+            password: "${SECRET_TESLAMATE_POSTGRES_PASSWORD}"
           jsonData:
-            postgresVersion: 1400
+            postgresVersion: 1000
             sslmode: disable
 
     dashboards:
