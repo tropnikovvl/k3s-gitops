@@ -201,6 +201,12 @@ spec:
         efficiency:
           url: https://raw.githubusercontent.com/adriankumpf/teslamate/v1.25.0/grafana/dashboards/efficiency.json
           datasource: TeslaMate
+        locations:
+          url: https://raw.githubusercontent.com/adriankumpf/teslamate/v1.25.0/grafana/dashboards/locations.json
+          datasource: TeslaMate
+        mileage:
+          url: https://raw.githubusercontent.com/adriankumpf/teslamate/v1.25.0/grafana/dashboards/mileage.json
+          datasource: TeslaMate
         overview:
           url: https://raw.githubusercontent.com/adriankumpf/teslamate/v1.25.0/grafana/dashboards/overview.json
           datasource: TeslaMate
@@ -218,6 +224,9 @@ spec:
           datasource: TeslaMate
         updates:
           url: https://raw.githubusercontent.com/adriankumpf/teslamate/v1.25.0/grafana/dashboards/updates.json
+          datasource: TeslaMate
+        vampire-drain:
+          url: https://raw.githubusercontent.com/adriankumpf/teslamate/v1.25.0/grafana/dashboards/vampire-drain.json
           datasource: TeslaMate
         visited:
           url: https://raw.githubusercontent.com/adriankumpf/teslamate/v1.25.0/grafana/dashboards/visited.json
