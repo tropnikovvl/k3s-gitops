@@ -38,6 +38,7 @@ spec:
               - "rook.${SECRET_DOMAIN}"
     cephClusterSpec:
       mon:
+        count: 2
         tolerations:
           - effect: NoSchedule
             operator: Exists
