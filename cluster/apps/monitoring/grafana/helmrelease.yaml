@@ -190,7 +190,7 @@ spec:
           url: https://raw.githubusercontent.com/adriankumpf/teslamate/v1.25.0/grafana/dashboards/charges.json
           datasource: TeslaMate
         charging-stats:
-          url: https://raw.githubusercontent.com/adriankumpf/teslamate/v1.25.0/grafana/dashboards/charging-stats.json
+          url: https://raw.githubusercontent.com/cbirkenbeul/k3s-gitops/main/cluster/apps/home/teslamate/dashboards/charging-stats.json
           datasource: TeslaMate
         drive-stats:
           url: https://raw.githubusercontent.com/adriankumpf/teslamate/v1.25.0/grafana/dashboards/drive-stats.json
@@ -220,7 +220,7 @@ spec:
           url: https://raw.githubusercontent.com/adriankumpf/teslamate/v1.25.0/grafana/dashboards/statistics.json
           datasource: TeslaMate
         trip:
-          url: https://raw.githubusercontent.com/adriankumpf/teslamate/v1.25.0/grafana/dashboards/trip.json
+          url: https://raw.githubusercontent.com/cbirkenbeul/k3s-gitops/main/cluster/apps/home/teslamate/dashboards/trip.json
           datasource: TeslaMate
         updates:
           url: https://raw.githubusercontent.com/adriankumpf/teslamate/v1.25.0/grafana/dashboards/updates.json
