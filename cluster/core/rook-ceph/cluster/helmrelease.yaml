@@ -40,12 +40,12 @@ spec:
       mon:
         count: 2
         tolerations:
-          - effect: NoSchedule
-            operator: Exists
-          - key: "node-role.kubernetes.io/master"
-            operator: "Equal"
-            value: ""
-            effect: "NoSchedule"
+        - effect: NoExecute
+          operator: Exists 
+        - effect: NoSchedule
+          operator: Exists 
+        - effect: PreferNoSchedule
+          operator: Exists
       crashCollector:
         disable: false
       mgr:
