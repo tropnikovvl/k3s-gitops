@@ -73,6 +73,7 @@ spec:
         spec:
           failureDomain: host
           replicated:
+            requireSafeReplicaSize: false
             size: 2
         storageClass:
           enabled: true

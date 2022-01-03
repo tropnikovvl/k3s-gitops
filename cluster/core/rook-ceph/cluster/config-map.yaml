@@ -6,5 +6,5 @@ metadata:
 data:
   config: |
     [global]
-    osd_crush_update_on_start = false
-    osd_pool_default_size = 2
+    osd crush update on start = false
+    osd pool default size = 2
