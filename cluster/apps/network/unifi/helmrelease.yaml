@@ -17,6 +17,10 @@ spec:
         namespace: flux-system
       interval: 5m
 
+  dependsOn:
+    - name: traefik
+      namespace: network
+
   values:
     image:
       repository: jacobalberty/unifi
