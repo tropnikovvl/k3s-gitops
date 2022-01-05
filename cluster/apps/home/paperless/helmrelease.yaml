@@ -44,7 +44,7 @@ spec:
         volumeSpec:
           nfs:
             server: "${NAS02}"
-            path: /mnt/user/dms-import
+            path: /nas02/shares/dms-import
         mountPath: /usr/src/paperless/consume
       export:
         enabled: true
@@ -52,7 +52,7 @@ spec:
         volumeSpec:
           nfs:
             server: "${NAS02}"
-            path: /mnt/user/dms-export
+            path: /nas02/shares/dms-export
         mountPath: /usr/src/paperless/export
 
     ingress:
