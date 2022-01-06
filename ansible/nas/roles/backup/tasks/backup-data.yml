@@ -13,7 +13,7 @@
     mode: 0755
   vars:
     container_name: backup-data
-    source: /nas02/shares/Dateien
+    source: /shares/Dateien
     destination: b2:teqqy-nas02-backup/
 
 - name: Create backup-data systemd service file
@@ -21,8 +21,8 @@
     src: docker-compose@backup.service.j2
     dest: /etc/systemd/system/docker-compose@backup-data.service
     mode: 0644
-  vars:
-    heartbeat_url: "{{ SECRET_UPTIMEROBOT_HEARTBEAT_DATA_B2 }}"
+  # vars:
+  #   heartbeat_url: "{{ SECRET_UPTIMEROBOT_HEARTBEAT_DATA_B2 }}"
 
 - name: Create backup-data systemd timer file
   ansible.builtin.copy:

@@ -24,5 +24,4 @@ services:
       - "{{ destination }}"
     volumes:
       - "{{ containers_base_dir }}/apps/rclone/rclone.conf:/config/rclone.conf:ro"
-      - /tycho/Data:/data:ro
-      - /tycho/Media:/media:ro
+      - /nas02/shares:/shares:ro
