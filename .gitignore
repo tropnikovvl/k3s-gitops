@@ -10,6 +10,9 @@ Thumbs.db
 ansible/k3s/roles/xanmanning.k3s
 ansible/k3s/roles/mrlesmithjr.zfs
 
+# Terraform
+terraform/
+
 # Flux update
 bin/flux
 
