@@ -39,6 +39,3 @@
   tags:
     - unattended-upgrades
 
-- import_tasks: terminfo.yml
-  tags:
-    - terminfo

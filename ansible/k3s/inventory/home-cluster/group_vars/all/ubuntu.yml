@@ -1,7 +1,7 @@
 ---
 # Timezone for the servers
 timezone: "Europe/Berlin"
-
+dns_server: 192.168.10.1
 # Additional ssh public keys to add to the nodes
 ssh_authorized_keys:
   # MacBook
