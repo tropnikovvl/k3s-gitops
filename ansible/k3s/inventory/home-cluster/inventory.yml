@@ -7,9 +7,11 @@ all:
           ansible_host: 192.168.10.31
         k3s-02:
           ansible_host: 192.168.10.32
+          rook_ceph_devices:
+            - /dev/sdb
         k3s-03:
           ansible_host: 192.168.10.33
-          rook_devices:
+          rook_ceph_devices:
             - /dev/sdb
       vars:
         ansible_user: ubuntu
@@ -18,7 +20,7 @@ all:
       hosts:
         k3s-04:
           ansible_host: 192.168.10.34
-          rook_devices:
+          rook_ceph_devices:
             - /dev/sdb
       vars:
         ansible_user: ubuntu
