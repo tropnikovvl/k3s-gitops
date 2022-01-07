@@ -37,8 +37,6 @@ spec:
           - hosts:
               - "rook.${SECRET_DOMAIN}"
     cephClusterSpec:
-      mon:
-        count: 3
       crashCollector:
         disable: false
       mgr:
@@ -52,13 +50,13 @@ spec:
         config:
           osdsPerDevice: "1"
         nodes:
-          - name: "k3s-wo-01"
+          - name: "k3s-02"
             devices:
               - name: "sdb"
-          - name: "k3s-wo-02"
+          - name: "k3s-03"
             devices:
               - name: "sdb"
-          - name: "k3s-wo-03"
+          - name: "k3s-04"
             devices:
               - name: "sdb"
     cephBlockPools:
