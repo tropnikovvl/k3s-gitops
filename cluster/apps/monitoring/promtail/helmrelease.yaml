@@ -41,9 +41,8 @@ spec:
         containerPort: 1514
         service:
           type: LoadBalancer
-          loadBalancerIP: ${LB_SYSLOG}
-          externalTrafficPolicy: Local
-
+          externalIPs:
+            - ${LB_SYSLOG}
 
     serviceMonitor:
       enabled: true
