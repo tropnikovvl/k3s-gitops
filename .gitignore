@@ -23,4 +23,4 @@ bin/flux
 .decrypted~*
 
 # Other files
-kubeconfig
+kubeconfig*

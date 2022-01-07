@@ -10,7 +10,7 @@
 
 - name: Copy kubeconfig to Opnsense
   ansible.builtin.copy:
-    src: /tmp/kubeconfig-homedns
+    src: /Users/teqqy/devops/k3s-gitops/cluster/kubeconfig-homedns
     dest: /usr/local/etc/coredns/kubeconfig
     mode: 0755
   register: kubernetes_kubeconfig
@@ -75,11 +75,11 @@
       ansible.builtin.shell: |
         /usr/local/etc/rc.d/coredns stop
 
-    - name: Copy CoreDNS
-      ansible.builtin.copy:
-        src: /tmp/coredns/bin/coredns
-        dest: /usr/local/sbin/coredns
-        mode: 0755
+    # - name: Copy CoreDNS
+    #   ansible.builtin.copy:
+    #     src: /tmp/coredns/bin/coredns
+    #     dest: /usr/local/sbin/coredns
+    #     mode: 0755
 
     - name: Run CoreDNS
       ansible.builtin.shell: |

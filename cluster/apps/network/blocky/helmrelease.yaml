@@ -100,11 +100,14 @@ spec:
         type: LoadBalancer
         externalIPs: 
           - ${LB_BLOCKY}
-        annotations:
-          metallb.universe.tf/allow-shared-ip: blocky
         externalTrafficPolicy: Local
         ports:
-          dns-udp:
+          tcp:
+            enabled: true
+            port: 53
+            protocol: TCP
+            targetPort: 53
+          udp:
             enabled: true
             port: 53
             protocol: UDP
