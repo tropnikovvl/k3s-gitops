@@ -98,7 +98,8 @@ spec:
       dns:
         enabled: true
         type: LoadBalancer
-        loadBalancerIP: ${LB_BLOCKY}
+        externalIPs: 
+          - ${LB_BLOCKY}
         annotations:
           metallb.universe.tf/allow-shared-ip: blocky
         externalTrafficPolicy: Local

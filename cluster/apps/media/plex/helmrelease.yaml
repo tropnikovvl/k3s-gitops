@@ -38,7 +38,8 @@ spec:
     service:
       main:
         type: LoadBalancer
-        LoadBalancerIP: "${LB_PLEX}"
+        externalIPs: 
+          - "${LB_PLEX}"
         externalTrafficPolicy: Local
 
     ingress:

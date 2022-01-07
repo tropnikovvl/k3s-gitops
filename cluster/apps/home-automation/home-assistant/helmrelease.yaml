@@ -41,7 +41,8 @@ spec:
     service:
       main:
         type: LoadBalancer
-        loadBalancerIP: ${LB_HOMEASSISTANT}
+        externalIPs:
+          - ${LB_HOMEASSISTANT}
         externalTrafficPolicy: Local
 
     probes:
