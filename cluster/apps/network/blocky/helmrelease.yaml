@@ -91,23 +91,14 @@ spec:
       logLevel: info
 
     service:
-      main:
-        ports:
-          http:
-            port: 4000
-      dns:
+      dns-udp:
         enabled: true
         type: LoadBalancer
-        externalIPs: 
+        externalIPs:
           - ${LB_BLOCKY}
         externalTrafficPolicy: Local
         ports:
-          tcp:
-            enabled: true
-            port: 53
-            protocol: TCP
-            targetPort: 53
-          udp:
+          dns-udp:
             enabled: true
             port: 53
             protocol: UDP
