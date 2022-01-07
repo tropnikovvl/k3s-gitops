@@ -1,8 +1,0 @@
----
-- include: apparmor.yml
-  tags:
-    - apparmor
-
-- include: cmdline.yml
-  tags:
-    - cmdline

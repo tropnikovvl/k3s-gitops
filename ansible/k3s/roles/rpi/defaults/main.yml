@@ -1,4 +1,0 @@
----
-apt_install_packages:
-  - apparmor
-  - apparmor-utils
