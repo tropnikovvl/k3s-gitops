@@ -100,6 +100,8 @@ spec:
           ingressClassName: "traefik"
           annotations:
             traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+            hajimari.io/enable: "true"
+            hajimari.io/icon: "microsoft-visual-studio-code"
           hosts:
             - host: "ha-vscode.${SECRET_DOMAIN}"
               paths:

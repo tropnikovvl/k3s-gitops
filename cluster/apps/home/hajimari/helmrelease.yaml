@@ -48,14 +48,14 @@ spec:
           icon: router
         - name: vzlogger
           url: "http://vzlogger.${SECRET_DOMAIN}"
-          icon: solar-power
+          icon: home-lightning-bolt-outline
+        - name: Zigbee2mqtt
+          url: "http://zigbee.${SECRET_DOMAIN}"
+          icon: zigbee
+        - name: PGAdmin
+          url: "http://pgadmin.${SECRET_DOMAIN}"
+          icon: database-cog       
       groups:
-      - name: Home Automation
-        links:
-        - name: Home Assistant VSCode
-          url: 'https://ha-vscode.casalani.de'
-        - name: ZigBee Controller
-          url: 'http://192.168.10.156:8080'
       - name: Social Media
         links:
         - name: Instagram
