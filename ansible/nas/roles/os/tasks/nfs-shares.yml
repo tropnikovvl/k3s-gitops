@@ -17,6 +17,12 @@
     state: directory 
     mode: 0777
 
+- name: Ensure dms-import inside volumes directory exists 
+  file:
+    path: /nas02/shares/nzb-import
+    state: directory 
+    mode: 0777
+
 - name: Ensure required entries are made to hosts file. # Notes 1232
   lineinfile:
     path: /etc/exports
@@ -25,6 +31,7 @@
   with_items:
     - '/nas02/shares/dms-import  *(rw,no_root_squash,no_subtree_check,insecure)' 
     - '/nas02/shares/dms-export *(rw,no_root_squash,no_subtree_check,insecure)' 
+    - '/nas02/shares/nzb-import *(rw,no_root_squash,no_subtree_check,insecure)' 
 
 - name: Restart nfs-kernel-server.service 
   ansible.builtin.systemd:
