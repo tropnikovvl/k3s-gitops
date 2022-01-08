@@ -39,10 +39,16 @@ spec:
         - monitoring
         - network
         - rook-ceph
-      # customApps:
-      # - name: Mail
-      #   url: "https://mail.${SECRET_DOMAIN}"
-      #   icon: email
+      customApps:
+        - name: UnRaid
+          url: "https://tower.${SECRET_DOMAIN}"
+          icon: nas
+        - name: opnSense
+          url: "https://gw01.${SECRET_DOMAIN}"
+          icon: router
+        - name: vzlogger
+          url: "http://vzlogger.${SECRET_DOMAIN}"
+          icon: solar
       groups:
       - name: Home Automation
         links:
@@ -50,24 +56,22 @@ spec:
           url: 'https://ha-vscode.casalani.de'
         - name: ZigBee Controller
           url: 'http://192.168.10.156:8080'
-      - name: Homelab
-        links:
-        - name: Proxmox
-          url: 'https://192.168.10.11:8006'
-        - name: opnSense
-          url: 'https://192.168.10.1'
-        - name: unRaid
-          url: 'http://192.168.10.15'
       - name: Social Media
         links:
         - name: Instagram
           url: 'https://instagram.com'
+        - name: Tweetdeck
+          url: 'https://tweetdeck.twitter.com/'
       - name: Tesla
         links:
         - name: Tronity
           url: 'https://app.tronity.io/dashboard'
         - name: TFF-Forum
           url: 'https://tff-forum.de'
+      - name: Photovoltaik
+        links:
+        - name: Kostal Portal
+          url: 'https://www.kostal-solar-portal.com/#/site/206273/dashboard/'
       - name: Design
         links:
         - name: SimpleIcons

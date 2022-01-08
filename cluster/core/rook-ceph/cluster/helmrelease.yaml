@@ -30,6 +30,7 @@ spec:
           kubernetes.io/ingress.class: "traefik"
           hajimari.io/enable: "true"
           hajimari.io/icon: "harddisk"
+          hajimari.io/appName: "rook-ceph"
         host:
           name: "rook.${SECRET_DOMAIN}"
           path: "/"
