@@ -41,14 +41,14 @@ spec:
         - rook-ceph
       customApps:
         - name: UnRaid
-          url: "https://tower.${SECRET_DOMAIN}"
+          url: "http://tower.${SECRET_DOMAIN}"
           icon: nas
         - name: opnSense
           url: "https://gw01.${SECRET_DOMAIN}"
           icon: router
         - name: vzlogger
           url: "http://vzlogger.${SECRET_DOMAIN}"
-          icon: solar
+          icon: solar-power
       groups:
       - name: Home Automation
         links:
