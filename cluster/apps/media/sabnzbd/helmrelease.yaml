@@ -78,6 +78,14 @@ spec:
             server: "${NFS_SERVER}"
             path: /mnt/user/media
         mountPath: /media
+      import:
+        enabled: true
+        type: custom
+        volumeSpec:
+          nfs:
+            server: "${NAS02}"
+            path: /nas02/shares/nzb-import
+        mountPath: /media/import
 
     resources:
       requests:
