@@ -34,7 +34,7 @@ spec:
       DATABASE_USER: "${SECRET_TESLAMATE_POSTGRES_USER}"
       DATABASE_PASS: "${SECRET_TESLAMATE_POSTGRES_PASSWORD}"
       DATABASE_NAME: "teslamate"
-      DISABLE_MQTT: "true"
+      MQTT_HOST: "mosquitto.home-automation.svc.cluster.local"
 
     ingress:
       main:
