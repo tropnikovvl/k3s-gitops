@@ -65,7 +65,8 @@ spec:
     service:
       main:
         type: LoadBalancer
-        loadBalancerIP: ${LB_UNIFI}
+        loadBalancerIP: 
+          - externalIPs: ${LB_UNIFI}
         externalTrafficPolicy: Local
 
     resources:
