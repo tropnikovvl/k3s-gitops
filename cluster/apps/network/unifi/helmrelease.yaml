@@ -65,8 +65,8 @@ spec:
     service:
       main:
         type: LoadBalancer
-        annotations:
-          coredns.io/hostname: unifi
+        # annotations:
+        #   coredns.io/hostname: unifi
           # traefik.ingress.kubernetes.io/service.serversscheme: https
         externalIPs:
           - ${LB_UNIFI}
