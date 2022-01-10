@@ -63,6 +63,12 @@ spec:
               - "unifi.${SECRET_DOMAIN}"
 
     service:
+      main:
+        enabled: true
+        type: LoadBalancer
+        externalIPs:
+          - ${LB_UNIFI}
+        externalTrafficPolicy: Local
       udp:
         enabled: true
         type: LoadBalancer
