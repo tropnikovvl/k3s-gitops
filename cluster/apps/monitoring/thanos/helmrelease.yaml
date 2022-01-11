@@ -25,7 +25,7 @@ spec:
     image:
       registry: docker.io
       repository: bitnami/thanos
-      tag: 0.23.1-scratch-r1
+      tag: 0.24.0-scratch-r1
 
     query:
       enabled: true
