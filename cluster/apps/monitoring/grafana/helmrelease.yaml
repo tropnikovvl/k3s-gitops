@@ -226,6 +226,9 @@ spec:
         statistics:
           url: https://raw.githubusercontent.com/adriankumpf/teslamate/v1.25.0/grafana/dashboards/statistics.json
           datasource: TeslaMate
+        timeline:
+          url: https://raw.githubusercontent.com/adriankumpf/teslamate/master/grafana/dashboards/timeline.json
+          datasource: TeslaMate
         trip:
           url: https://raw.githubusercontent.com/cbirkenbeul/k3s-gitops/main/cluster/apps/home/teslamate/dashboards/trip.json
           datasource: TeslaMate
