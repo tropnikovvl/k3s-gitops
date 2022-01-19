@@ -1,10 +1,28 @@
 {
-  "enabled": true,
-  "semanticCommits": "enabled",
-  "dependencyDashboard": true,
-  "dependencyDashboardTitle": "Renovate Dashboard",
-  "suppressNotifications": ["prIgnoreNotification"],
-  "rebaseWhen": "conflicted",
+  "extends": [
+    ":enableRenovate",
+    "config:base",
+    ":disableRateLimiting",
+    ":dependencyDashboard",
+    ":semanticCommits",
+    ":separatePatchReleases",
+    "docker:enableMajor",
+    ":enablePreCommit",
+    "github>cbirkenbeul/k3s-gitops//.github/renovate/autoMerge",
+    "github>cbirkenbeul/k3s-gitops//.github/renovate/labels",
+    "github>cbirkenbeul/k3s-gitops//.github/renovate/semanticCommits"
+  ],
+  "platform": "github",
+  "username": "rosey-bot[bot]",
+  "repositories": ["cbirkenbeul/k3s-gitops"],
+  "onboarding": false,
+  "requireConfig": false,
+  "gitAuthor": "Renovate Bot <bot@renovateapp.com>",
+  "timezone": "Europe/Berlin",
+  "dependencyDashboardTitle": "Renovate Dashboard 🤖",
+  "suppressNotifications": [
+    "prIgnoreNotification"
+  ],
   "helm-values": {
     "fileMatch": [
       "cluster/.+/helmrelease\\.yaml$"
@@ -147,7 +165,7 @@
       "matchPackageNames": [
         "ghcr.io/k8s-at-home/prowlarr",
         "ghcr.io/k8s-at-home/radarr",
-        "ghcr.io/k8s-at-home/sonarr",
+        "ghcr.io/k8s-at-home/sonarr"
       ]
     },
     {
@@ -158,7 +176,7 @@
       "matchUpdateTypes": ["minor", "patch"],
       "matchPackageNames": [
         "kube-prometheus-stack",
-        "grafana",
+        "grafana"
       ]
     }
   ]
