@@ -16,8 +16,10 @@ spec:
         name: rook-ceph-charts
         namespace: flux-system
   values:
-    crds:
-      enabled: false
+    install:
+      crds: CreateReplace
+    upgrade:
+      crds: CreateReplace
     csi:
       enableCephfsDriver: false
       enableCephfsSnapshotter: false
