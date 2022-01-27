@@ -124,7 +124,8 @@
     {
       "matchDatasources": ["helm"],
       "matchUpdateTypes": ["major"],
-      "labels": ["renovate/helm", "dep/major"]
+      "labels": ["renovate/helm", "dep/major"],
+      "stabilityDays": 3
     },
     {
       "matchDatasources": ["helm"],
@@ -142,9 +143,24 @@
       "matchDatasources": ["docker"],
       "versioning": "loose",
       "matchPackageNames": [
-        "ghcr.io/linuxserver/freshrss",
-        "ghcr.io/linuxserver/wikijs"
+        "ghcr.io/linuxserver/freshrss"
       ]
+    },
+    {
+      "matchManagers": ["pip_requirements"],
+      "addLabels": ["renovate/python"]
+    },
+    {
+      "matchManagers": ["ansible"],
+      "addLabels": ["renovate/ansible"]
+    },
+    {
+      "matchManagers": ["ansible-galaxy"],
+      "addLabels": ["renovate/ansible-galaxy"]
+    },
+    {
+      "matchManagers": ["pre-commit"],
+      "addLabels": ["renovate/pre-commit"]
     },
     {
       "matchDatasources": ["docker"],
