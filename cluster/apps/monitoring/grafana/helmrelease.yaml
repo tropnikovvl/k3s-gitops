@@ -76,8 +76,8 @@ spec:
 
     ingress:
       enabled: true
+      ingressClassName: "traefik"
       annotations:
-        kubernetes.io/ingress.class: "traefik"
         hajimari.io/enable: "true"
         hajimari.io/icon: "chart-areaspline"
       hosts:
