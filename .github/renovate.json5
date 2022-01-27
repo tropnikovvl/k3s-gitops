@@ -34,7 +34,7 @@
     ],
     "ignorePaths": [
       "cluster/base/"
-    ],
+    ]
   },
   "regexManagers": [
     // regexManager to read and process HelmRelease files
@@ -78,16 +78,6 @@
       ],
       "datasourceTemplate": "helm"
     },
-    // regexManager to read and process Rook-Ceph CRD's
-    {
-      "fileMatch": [
-        "cluster/crds/rook-ceph/.+\\.yaml$"
-      ],
-      "matchStrings": [
-        "registryUrl=(?<registryUrl>.*?) chart=(?<depName>.*?)\n *tag: (?<currentValue>.*)\n"
-      ],
-      "datasourceTemplate": "helm"
-    },
     // regexManager to read and process External Snapshotter and External DNS CRD's
     {
       "fileMatch": [
@@ -113,7 +103,7 @@
       "enabled": true,
       "commitMessageTopic": "container image {{depName}}",
       "commitMessageExtra": "to {{#if isSingleVersion}}v{{{newVersion}}}{{else}}{{{newValue}}}{{/if}}",
-      "matchUpdateTypes": ["major", "minor", "patch"],
+      "matchUpdateTypes": ["major", "minor", "patch"]
     },
     // add labels according to package and update types
     {
@@ -162,6 +152,7 @@
       "automergeType": "branch",
       "requiredStatusChecks": null,
       "matchUpdateTypes": ["minor", "patch"],
+      "schedule": "after 3am and before 6am",
       "matchPackageNames": [
         "ghcr.io/k8s-at-home/prowlarr",
         "ghcr.io/k8s-at-home/radarr",
@@ -178,6 +169,13 @@
         "kube-prometheus-stack",
         "grafana"
       ]
+    },
+    // group rook-ceph
+    {
+      "matchDatasources": ["helm", "docker"],
+      "matchPackagePatterns": ["^rook.ceph"],
+      "groupName": "rook-ceph",
+      "additionalBranchPrefix": ""
     }
   ]
 }
