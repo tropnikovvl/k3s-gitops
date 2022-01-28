@@ -10,4 +10,4 @@ resources:
   - network-ups-tools
   - traefik
   - unifi
-  # - wildcard-certificate
+  - wildcard-certificate
