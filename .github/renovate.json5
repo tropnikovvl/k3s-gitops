@@ -36,6 +36,11 @@
       "cluster/base/"
     ]
   },
+  "flux": {
+    "fileMatch": [
+      "cluster/.+\\.ya?ml$"
+    ]
+  },
   "regexManagers": [
     // regexManager to read and process HelmRelease files
     {
