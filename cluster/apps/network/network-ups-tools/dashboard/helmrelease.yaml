@@ -166,6 +166,11 @@ spec:
           revision: 5
           datasource: Prometheus
         # Ref: https://grafana.com/grafana/dashboards/11315
+        apc-ups:
+          gnetId: 14371
+          revision: 1
+          datasource: Prometheus
+        # Ref: https://grafana.com/grafana/dashboards/14371
         blocky:
           url: https://raw.githubusercontent.com/0xERR0R/blocky/master/docs/blocky-grafana.json
           datasource: Prometheus
@@ -174,6 +179,9 @@ spec:
           datasource: Prometheus
         flux-control-plane:
           url: https://raw.githubusercontent.com/fluxcd/flux2/main/manifests/monitoring/grafana/dashboards/control-plane.json
+          datasource: Prometheus
+        velero:
+          url: https://gist.githubusercontent.com/HaveFun83/57b41e85fde4249daab74a9850885f6a/raw/25a4c908357fc5ef0dc057c7493df50996e746d7/Kubernetes_Addons_Velero_Stats.json
           datasource: Prometheus
       teslamate:
         charge-level:
