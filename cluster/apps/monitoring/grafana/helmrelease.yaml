@@ -22,6 +22,15 @@ spec:
     - name: kube-prometheus-stack
       namespace: monitoring
 
+  install:
+    createNamespace: true
+    remediation:
+      retries: 3
+  
+  upgrade:
+    remediation:
+      retries: 3
+
   values:
     image:
       repository: ghcr.io/k8s-at-home/grafana
