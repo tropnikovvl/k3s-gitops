@@ -9,6 +9,7 @@ resources:
   - plex
   - prowlarr
   - radarr
+  - radarr-kids
   - radarr-uhd
   - sabnzbd
   - sonarr
