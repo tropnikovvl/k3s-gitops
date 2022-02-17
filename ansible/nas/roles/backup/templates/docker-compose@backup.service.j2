@@ -2,7 +2,6 @@
 Description=%i backup service with docker compose
 Requires=docker.service
 After=docker.service
-ConditionPathIsMountPoint={{ system_base_dir }}
 
 [Service]
 WorkingDirectory={{ containers_base_dir }}/apps/rclone/%i
