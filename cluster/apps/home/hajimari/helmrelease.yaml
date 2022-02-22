@@ -54,7 +54,10 @@ spec:
           icon: zigbee
         - name: PGAdmin
           url: "http://pgadmin.${SECRET_DOMAIN}"
-          icon: database-cog       
+          icon: database-cog  
+        - name: Jellyfin
+          url: "http://192.168.10.15:8096/web/index.html#!/home.html"
+          icon: movie     
       groups:
       - name: Social Media
         links:
