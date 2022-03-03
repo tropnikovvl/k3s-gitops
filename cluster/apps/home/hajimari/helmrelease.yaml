@@ -56,7 +56,7 @@ spec:
           url: "http://pgadmin.${SECRET_DOMAIN}"
           icon: database-cog  
         - name: Jellyfin
-          url: "http://192.168.10.15:8096/web/"
+          url: "http://192.168.10.15:8096"
           icon: movie     
       groups:
       - name: Social Media
