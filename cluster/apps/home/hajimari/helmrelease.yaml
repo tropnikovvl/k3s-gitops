@@ -46,6 +46,9 @@ spec:
         - name: opnSense
           url: "https://gw01.${SECRET_DOMAIN}"
           icon: router
+        - name: AdGuardHome
+          url: "http://gw01.${SECRET_DOMAIN}:3010"
+          icon: shield-home
         - name: vzlogger
           url: "http://vzlogger.${SECRET_DOMAIN}"
           icon: home-lightning-bolt-outline
