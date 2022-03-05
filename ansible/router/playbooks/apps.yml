@@ -5,7 +5,7 @@
   gather_facts: false
   any_errors_fatal: true
   roles:
-    - role: adguardhome.router
+    - role: adguardhome
       tags: adguardhome
-    - role: coredns.router
+    - role: coredns
       tags: coredns
