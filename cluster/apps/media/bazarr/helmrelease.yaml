@@ -2,15 +2,15 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: lidarr
+  name: bazarr
   namespace: media
 spec:
   interval: 5m
   chart:
     spec:
       # renovate: registryUrl=https://k8s-at-home.com/charts
-      chart: lidarr
-      version: 14.0.1
+      chart: bazarr
+      version: 10.3.0
       sourceRef:
         kind: HelmRepository
         name: k8s-at-home-charts
@@ -23,9 +23,8 @@ spec:
 
   values:
     image:
-      repository: ghcr.io/k8s-at-home/lidarr
-      tag: v1.0.0.2471
-      pullPolicy: IfNotPresent
+      repository: ghcr.io/k8s-at-home/bazarr
+      tag: v0.9.9
 
     env:
       TZ: "Europe/Berlin"
@@ -37,35 +36,21 @@ spec:
         annotations:
           traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
           hajimari.io/enable: "true"
-          hajimari.io/icon: "music-note-plus"
+          hajimari.io/icon: "filmstrip"
         hosts:
-          - host: "lidarr.${SECRET_DOMAIN}"
+          - host: "bazarr.${SECRET_DOMAIN}"
             paths:
               - path: /
                 pathType: Prefix
         tls:
-          - secretName: lidarr-cert
+          - secretName: bazarr-cert
             hosts:
-              - "lidarr.${SECRET_DOMAIN}"
-      api:
-        enabled: true
-        ingressClassName: "traefik"
-        annotations:
-          traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
-        hosts:
-          - host: "lidarr.${SECRET_DOMAIN}"
-            paths:
-              - path: /api
-                pathType: Prefix
-        tls:
-          - secretName: lidarr-cert
-            hosts:
-              - "lidarr.${SECRET_DOMAIN}"
+              - "bazarr.${SECRET_DOMAIN}"
 
     persistence:
       config:
         enabled: true
-        existingClaim: lidarr-config-v1
+        existingClaim: bazarr-config-v1
       media:
         enabled: true
         type: custom
@@ -80,7 +65,7 @@ spec:
         volumeSpec:
           nfs:
             server: "${NFS_SERVER}"
-            path: /mnt/user/k3s-backup/lidarr
+            path: /mnt/user/k3s-backup/bazarr
         mountPath: /config/Backups
         readOnly: false
 
