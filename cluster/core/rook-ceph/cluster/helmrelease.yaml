@@ -17,9 +17,20 @@ spec:
         namespace: flux-system
   dependsOn:
     - name: rook-ceph
+
+  install:
+    createNamespace: true
+    remediation:
+      retries: 5
+
+  upgrade:
+    remediation:
+      retries: 5
+  
   values:
     monitoring:
       enabled: true
+      createPrometheusRules: true
 
     toolbox:
       enabled: true
@@ -44,6 +55,7 @@ spec:
       dashboard:
         enabled: true
         urlPrefix: /
+        ssl: false
       storage:
         useAllNodes: false
         useAllDevices: false
