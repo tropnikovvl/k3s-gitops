@@ -163,7 +163,6 @@ spec:
             cpu: 100m
             memory: 50Mi
           limits:
-            cpu: 200m
             memory: 100Mi
 
     prometheus-node-exporter:
@@ -198,7 +197,6 @@ spec:
           cpu: 250m
         limits:
           memory: 2048Mi
-          cpu: 500m
 
       thanosService:
         enabled: true
