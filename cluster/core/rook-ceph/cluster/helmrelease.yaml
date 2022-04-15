@@ -75,24 +75,24 @@ spec:
       resources:
         mgr:
           limits:
-            cpu: "500m"
+            cpu: "200m"
             memory: "1Gi"
           requests:
-            cpu: "250m"
+            cpu: "150m"
             memory: "512Mi"
         mon:
           limits:
-            cpu: "1000m"
+            cpu: "500m"
             memory: "2Gi"
           requests:
-            cpu: "500m"
+            cpu: "250m"
             memory: "1Gi"
         osd:
           limits:
-            cpu: "1000m"
+            cpu: "500m"
             memory: "4Gi"
           requests:
-            cpu: "500m"
+            cpu: "250m"
             memory: "4Gi"
         prepareosd:
           limits:
@@ -115,13 +115,6 @@ spec:
           requests:
             cpu: "100m"
             memory: "60Mi"
-        logcollector:
-          limits:
-            cpu: "250m"
-            memory: "1Gi"
-          requests:
-            cpu: "100m"
-            memory: "100Mi"
         cleanup:
           limits:
             cpu: "250m"
@@ -129,6 +122,13 @@ spec:
           requests:
             cpu: "250m"
             memory: "100Mi"            
+        rdbplugin-provisioner:
+          limits:
+            cpu: "250m"
+            memory: "1Gi"
+          requests:
+            cpu: "250m"
+            memory: "100Mi"  
 
     cephBlockPools:
       - name: ceph-blockpool
