@@ -5,6 +5,6 @@ resources:
   - botkube
   - grafana
   - kube-prometheus-stack
-  - loki
-  - promtail
+  # - loki
+  # - promtail
   - thanos
