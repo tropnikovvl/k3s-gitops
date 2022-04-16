@@ -30,7 +30,6 @@ spec:
   values:
     monitoring:
       enabled: true
-      createPrometheusRules: true
 
     toolbox:
       enabled: true
