@@ -13,7 +13,6 @@ spec:
           resources:
             limits:
               memory: 2Gi
-              cpu: 250m
 ---
 # Delete the allow-egress NetworkPolicy
 $patch: delete
