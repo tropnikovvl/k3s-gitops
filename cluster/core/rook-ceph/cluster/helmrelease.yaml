@@ -106,7 +106,7 @@ spec:
         crashcollector:
           requests:
             cpu: 50m
-            memory: 200Mi 
+            memory: 100Mi 
 
     cephBlockPools:
       - name: ceph-blockpool
