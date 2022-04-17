@@ -103,10 +103,10 @@ spec:
             # @default cpu 3000m
             cpu: 100m
             memory: 256Mi
-        crashcollector:
-          requests:
-            cpu: 50m
-            memory: 100Mi 
+        # crashcollector:
+        #   requests:
+        #     cpu: 50m
+        #     memory: 100Mi 
 
     cephBlockPools:
       - name: ceph-blockpool
