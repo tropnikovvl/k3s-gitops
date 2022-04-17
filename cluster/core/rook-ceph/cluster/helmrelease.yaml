@@ -52,12 +52,15 @@ spec:
     cephClusterSpec:
       crashCollector:
         disable: false
+
       mgr:
         count: 2
+
       dashboard:
         enabled: true
         urlPrefix: /
         ssl: false
+
       storage:
         useAllNodes: false
         useAllDevices: false
@@ -76,61 +79,34 @@ spec:
 
       resources:
         mgr:
-          limits:
-            cpu: "500m"
-            memory: "1Gi"
           requests:
-            cpu: "150m"
-            memory: "512Mi"
-        mon:
-          limits:
-            cpu: "500m"
-            memory: "2Gi"
-          requests:
-            cpu: "250m"
-            memory: "1Gi"
-        osd:
-          limits:
-            cpu: "500m"
-            memory: "4Gi"
-          requests:
-            cpu: "250m"
-            memory: "4Gi"
-        prepareosd:
-          limits:
-            cpu: "250m"
-            memory: "200Mi"
-          requests:
-            cpu: "250m"
-            memory: "50Mi"
+            # @default cpu 600m
+            cpu: 200m
+            memory: 512Mi
         mgr-sidecar:
-          limits:
-            cpu: "250m"
-            memory: "100Mi"
+          # @default cpu 600m
           requests:
-            cpu: "100m"
-            memory: "40Mi"
+            cpu: 50m
+            memory: 256Mi
+        mon:
+          requests:
+            # @default cpu 1000m
+            cpu: 100m
+            memory: 256Mi
+        osd:
+          requests:
+            # @default cpu 3000m
+            cpu: 300m
+            memory: 512Mi
+        prepareosd:
+          requests:
+            # @default cpu 3000m
+            cpu: 100m
+            memory: 256Mi
         crashcollector:
-          limits:
-            cpu: "250m"
-            memory: "60Mi"
           requests:
-            cpu: "100m"
-            memory: "60Mi"
-        cleanup:
-          limits:
-            cpu: "250m"
-            memory: "1Gi"
-          requests:
-            cpu: "250m"
-            memory: "100Mi"            
-        rdbplugin-provisioner:
-          limits:
-            cpu: "250m"
-            memory: "1Gi"
-          requests:
-            cpu: "250m"
-            memory: "100Mi"  
+            cpu: 50m
+            memory: 200Mi 
 
     cephBlockPools:
       - name: ceph-blockpool
