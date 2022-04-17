@@ -34,20 +34,20 @@ spec:
     toolbox:
       enabled: true
 
-    ingress:
-      ingressClassName: traefik
-      dashboard:
-        annotations:
-          cert-manager.io/cluster-issuer: "letsencrypt-production"
-          hajimari.io/enable: "true"
-          hajimari.io/appName: "Rook"
-        host:
-          name: "rook.${SECRET_DOMAIN}"
-          path: "/"
-        tls:
-          - secretName: tls.rook
-            hosts:
-              - "rook.${SECRET_DOMAIN}"
+    # ingress:
+    #   ingressClassName: traefik
+    #   dashboard:
+    #     annotations:
+    #       cert-manager.io/cluster-issuer: "letsencrypt-production"
+    #       hajimari.io/enable: "true"
+    #       hajimari.io/appName: "Rook"
+    #     host:
+    #       name: "rook.${SECRET_DOMAIN}"
+    #       path: "/"
+    #     tls:
+    #       - secretName: tls.rook
+    #         hosts:
+    #           - "rook.${SECRET_DOMAIN}"
 
     cephClusterSpec:
       crashCollector:
@@ -57,7 +57,7 @@ spec:
         count: 2
 
       dashboard:
-        enabled: true
+        enabled: false
         urlPrefix: /
         ssl: false
 
