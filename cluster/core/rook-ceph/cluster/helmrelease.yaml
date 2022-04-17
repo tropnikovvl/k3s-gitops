@@ -35,17 +35,20 @@ spec:
       enabled: true
 
     ingress:
+      ingressClassName: traefik
       dashboard:
         annotations:
+          cert-manager.io/cluster-issuer: "letsencrypt-production"
           hajimari.io/enable: "true"
-          hajimari.io/icon: "harddisk"
-          hajimari.io/appName: "rook-ceph"
+          hajimari.io/appName: "Rook"
         host:
           name: "rook.${SECRET_DOMAIN}"
           path: "/"
         tls:
-          - hosts:
+          - secretName: tls.rook
+            hosts:
               - "rook.${SECRET_DOMAIN}"
+
     cephClusterSpec:
       crashCollector:
         disable: false
