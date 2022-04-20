@@ -15,7 +15,7 @@ resources:
   - kpg-charts.yaml
   - kubernetes-sigs-descheduler-charts.yaml
   - lwolf-charts.yaml
-  - metallb-charts.yaml
+  - metrics-server-charts.yaml
   - reflector-charts.yaml
   - rook-ceph-charts.yaml
   - stakater-charts.yaml
