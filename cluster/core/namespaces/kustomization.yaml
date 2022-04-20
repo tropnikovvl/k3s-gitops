@@ -4,7 +4,6 @@ kind: Kustomization
 resources:
   - calico-system.yaml
   - cert-manager.yaml
-  - databases.yaml
   - home-automation.yaml
   - network.yaml
   - home.yaml
