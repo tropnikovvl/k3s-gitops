@@ -5,7 +5,7 @@ resources:
   - descheduler
   - goldilocks
   - kube-cleanup-operator
-  # - kured
+  - kured
   - metrics-server
-  # - node-feature-discovery
+  - node-feature-discovery
   - reloader
