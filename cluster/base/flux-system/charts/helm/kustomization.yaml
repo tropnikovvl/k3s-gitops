@@ -13,13 +13,13 @@ resources:
   - infracloudio-charts.yaml
   - jetstack-charts.yaml
   - k8s-at-home-charts.yaml
+  - k8s-gateway-charts.yaml
   - kpg-charts.yaml
-  - kubernetes-sigs-descheduler-charts.yaml
+  - descheduler-charts.yaml
   - lwolf-charts.yaml
   - metrics-server-charts.yaml
   - reflector-charts.yaml
   - rook-ceph-charts.yaml
   - stakater-charts.yaml
   - traefik-charts.yaml
-  - vmware-tanzu-charts.yaml
   - weaveworks-kured.yaml
