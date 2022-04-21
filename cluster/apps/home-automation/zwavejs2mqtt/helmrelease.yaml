@@ -20,6 +20,10 @@ spec:
   dependsOn:
     - name: traefik
       namespace: network
+    - name: rook-ceph
+      namespace: rook-ceph
+    - name: node-feature-discovery
+      namespace: kube-system
 
   values:
     image:
