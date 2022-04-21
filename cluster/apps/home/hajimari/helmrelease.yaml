@@ -20,6 +20,8 @@ spec:
   dependsOn:
     - name: traefik
       namespace: network
+    - name: rook-ceph
+      namespace: rook-ceph
 
   values:
     image:
