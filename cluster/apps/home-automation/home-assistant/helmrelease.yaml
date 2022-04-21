@@ -89,14 +89,6 @@ spec:
             hosts:
               - "home.${SECRET_DOMAIN}"
 
-    resources:
-      requests:
-        cpu: 22m
-        memory: 350M
-      limits:
-        cpu: 112m
-        memory: 1222M
-
     addons:
       codeserver:
         enabled: true
@@ -135,11 +127,3 @@ spec:
         volumeMounts:
           - name: config
             mountPath: /config
-
-        resources:
-          requests:
-            cpu: 10m
-            memory: 163M
-          limits:
-            cpu: 35m
-            memory: 525M
