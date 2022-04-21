@@ -77,3 +77,11 @@ spec:
         enabled: true
         type: emptyDir
         medium: Memory
+
+    resources:
+      requests:
+        cpu: 15m
+        memory: 1164M
+      limits:
+        cpu: 1308m
+        memory: 3731M

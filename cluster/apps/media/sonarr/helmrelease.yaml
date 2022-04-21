@@ -83,10 +83,10 @@ spec:
         mountPath: /config/Backups
         readOnly: false
 
-
     resources:
       requests:
-        cpu: "0.04"
-        memory: "256M"
+        cpu: 15m
+        memory: 586M
       limits:
-        memory: "512M"
+        cpu: 73m
+        memory: 1875M
