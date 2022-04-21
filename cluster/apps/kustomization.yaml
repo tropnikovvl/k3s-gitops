@@ -7,9 +7,9 @@ resources:
   #- default
   - flux-system
   #- home
-  #- home-automation
+  - home-automation
   - kube-system
   #- media
   - monitoring
   - network
-  #- system-upgrade
+  - system-upgrade
