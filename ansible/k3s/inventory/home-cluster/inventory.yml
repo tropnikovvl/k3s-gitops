@@ -31,9 +31,3 @@ all:
       hosts:
         k3s-ma-[01:03]:
         k3s-wo-[01:05]:
-
-router:
-  hosts:
-    gateway:
-      ansible_host: 192.168.10.1
-      ansible_user: root
