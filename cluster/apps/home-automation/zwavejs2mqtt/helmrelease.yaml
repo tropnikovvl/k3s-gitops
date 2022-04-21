@@ -71,10 +71,11 @@ spec:
 
     resources:
       requests:
-        cpu: 10m
-        memory: 64Mi
+        cpu: 22m
+        memory: 110M
       limits:
-        memory: 256Mi
+        cpu: 73m
+        memory: 351M
 
     affinity:
       nodeAffinity:

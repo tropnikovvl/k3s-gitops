@@ -53,3 +53,11 @@ spec:
           - secretName: teslamate-cert
             hosts:
               - "teslamate.${SECRET_DOMAIN}"
+
+    resources:
+      requests:
+        cpu: 15m
+        memory: 203M
+      limits:
+        cpu: 73m
+        memory: 724M

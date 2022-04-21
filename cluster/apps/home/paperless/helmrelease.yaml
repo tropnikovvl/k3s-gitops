@@ -78,7 +78,23 @@ spec:
             hosts:
               - "dms.${SECRET_DOMAIN}"
 
+    resources:
+      requests:
+        cpu: 10m
+        memory: 379M
+      limits:
+        cpu: 73m
+        memory: 1218M
+
     additionalContainers:
       - name: broker
         image: redis:6.2
         imagePullPolicy: IfNotPresent
+
+        resources:
+          requests:
+            cpu: 10m
+            memory: 53M
+          limits:
+            cpu: 35m
+            memory: 53M

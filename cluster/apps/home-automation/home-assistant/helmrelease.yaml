@@ -89,10 +89,11 @@ spec:
 
     resources:
       requests:
-        cpu: 75m
-        memory: 512Mi
+        cpu: 22m
+        memory: 350M
       limits:
-        memory: 1024Mi
+        cpu: 112m
+        memory: 1222M
 
     addons:
       codeserver:
@@ -135,7 +136,8 @@ spec:
 
         resources:
           requests:
-            cpu: 35m
-            memory: 128Mi
+            cpu: 10m
+            memory: 163M
           limits:
-            memory: 512Mi
+            cpu: 35m
+            memory: 525M
