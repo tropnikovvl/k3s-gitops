@@ -1,5 +1,5 @@
 ---
-all:
+kubernetes:
   children:
     master:
       hosts:
@@ -26,8 +26,3 @@ all:
           ansible_host: 192.168.10.35
       vars:
         ansible_user: ubuntu
-
-    nodes:
-      hosts:
-        k3s-ma-[01:03]:
-        k3s-wo-[01:05]:
