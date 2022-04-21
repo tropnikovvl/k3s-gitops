@@ -4,12 +4,12 @@ kind: Kustomization
 resources:
   - calico-system
   - cert-manager
-  - default
+  #- default
   - flux-system
   #- home
-  - home-automation
+  #- home-automation
   - kube-system
   #- media
   - monitoring
   - network
-  - system-upgrade
+  #- system-upgrade
