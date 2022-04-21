@@ -53,6 +53,33 @@ spec:
       crashCollector:
         disable: false
 
+      healthCheck:
+        daemonHealth:
+          mon:
+            disabled: false
+            interval: 60s
+        livenessProbe:
+          mon:
+            probe:
+              timeoutSeconds: 10
+          mgr:
+            probe:
+              timeoutSeconds: 10
+          osd:
+            probe:
+              timeoutSeconds: 5
+
+        startupProbe:
+          mon:
+            probe:
+              timeoutSeconds: 10
+          mgr:
+            probe:
+              timeoutSeconds: 10
+          osd:
+            probe:
+              timeoutSeconds: 5
+
       mgr:
         count: 2
 
