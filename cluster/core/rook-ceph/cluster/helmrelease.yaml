@@ -80,52 +80,33 @@ spec:
       resources:
         mgr:
           requests:
-            cpu: "63m"
-            memory: "512M"
-          limits:
-            memory: "1485M"
+            # @default cpu 600m
+            cpu: 200m
+            memory: 100Mi
+        mgr-sidecar:
+          # @default cpu 600m
+          requests:
+            cpu: 50m
+            memory: 50Mi
         mon:
           requests:
-            cpu: "49m"
-            memory: "1165M"
-          limits:
-            memory: "3390M"
+            # @default cpu 1000m
+            cpu: 100m
+            memory: 256Mi
         osd:
           requests:
-            cpu: "511m"
-            memory: "4067M"
-          limits:
-            memory: "4067M"
+            # @default cpu 3000m
+            cpu: 300m
+            memory: 512Mi
         prepareosd:
           requests:
-            cpu: "250m"
-            memory: "50Mi"
-          limits:
-            memory: "200Mi"
-        mgr-sidecar:
-          requests:
-            cpu: "49m"
-            memory: "79M"
-          limits:
-            memory: "227M"
+            # @default cpu 3000m
+            cpu: 100m
+            memory: 256Mi
         crashcollector:
           requests:
-            cpu: "15m"
-            memory: "64M"
-          limits:
-            memory: "64M"
-        logcollector:
-          requests:
-            cpu: "100m"
-            memory: "100M"
-          limits:
-            memory: "1G"
-        cleanup:
-          requests:
-            cpu: "250m"
-            memory: "100M"
-          limits:
-            memory: "1G"
+            cpu: 50m
+            memory: 200Mi
 
     cephBlockPools:
       - name: ceph-blockpool
