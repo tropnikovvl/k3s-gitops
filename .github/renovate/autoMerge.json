@@ -1,21 +1,21 @@
 {
-    "packageRules": [
-      {
-        "matchDatasources": [
-          "action",
-          "docker"
-        ],
-        "automerge": true,
-        "automergeType": "branch",
-        "requiredStatusChecks": null,
-        "matchUpdateTypes": [
-          "minor",
-          "patch"
-        ],
-        "matchPackageNames": [
-          "renovatebot/github-action",
-          "ghcr.io/k8s-at-home/prowlarr-nightly"
-        ]
-      }
-    ]
-  }
+  "packageRules": [
+    {
+      "matchDatasources": [
+        "docker",
+        "github-tags"
+      ],
+      "automerge": true,
+      "automergeType": "branch",
+      "requiredStatusChecks": null,
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
+      "matchPackageNames": [
+        "ghcr.io/k8s-at-home/prowlarr-nightly",
+        "renovatebot/github-action"
+      ]
+    }
+  ]
+}
