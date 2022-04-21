@@ -37,36 +37,6 @@
   retries: 5
   until: apt_install_common is success
 
-- name: Remove snapd
-  block:
-    - name: Check if snap is installed
-      ansible.builtin.debug:
-        msg: "snapd is installed"
-      register: snapd_check
-    - name: Remove snap packages
-      ansible.builtin.command: snap remove {{ item }}
-      loop:
-        - lxd
-        - core18
-        - core20
-        - snapd
-      when:
-        - snapd_check.failed is defined
-    - name: Remove files
-      ansible.builtin.file:
-        state: absent
-        path: "{{ item }}"
-      loop:
-        - "/home/{{ ansible_user }}/.snap"
-        - "/snap"
-        - "/var/snap"
-        - "/var/lib/snapd"
-        - "/var/cache/snapd"
-        - "/usr/lib/snapd"
-  when:
-    - "'snapd' in os_packages_remove"
-    - "'snapd' in ansible_facts.packages"
-
 - name: Check if Raspberry Pi
   command: grep -q  "Raspberry Pi" /proc/cpuinfo
   ignore_errors: true

@@ -22,7 +22,7 @@ kubernetes:
           ansible_host: 192.168.10.34
           rook_ceph_devices:
             - /dev/sdb
-        k3s-05:
-          ansible_host: 192.168.10.35
+        # k3s-05:
+          # ansible_host: 192.168.10.35
       vars:
         ansible_user: ubuntu
