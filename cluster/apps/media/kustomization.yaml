@@ -10,4 +10,4 @@ resources:
   #- radarr-kids
   #- radarr-uhd
   #- sabnzbd
-  # - sonarr
+  - sonarr
