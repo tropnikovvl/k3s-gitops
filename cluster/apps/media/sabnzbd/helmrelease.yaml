@@ -63,8 +63,11 @@ spec:
           - "sabnzbd.${SECRET_DOMAIN}"
 
     podSecurityContext:
+      runAsUser: 568
+      runAsGroup: 568
+      fsGroup: 568
       supplementalGroups:
-      - 100
+        - 100
 
     persistence:
       config:

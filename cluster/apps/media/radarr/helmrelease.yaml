@@ -83,6 +83,13 @@ spec:
         mountPath: /config/Backups
         readOnly: false
 
+    podSecurityContext:
+      runAsUser: 568
+      runAsGroup: 568
+      fsGroup: 568
+      supplementalGroups:
+        - 100
+
     resources:
       requests:
         cpu: 15m
