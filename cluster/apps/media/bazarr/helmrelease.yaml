@@ -24,7 +24,7 @@ spec:
   values:
     image:
       repository: ghcr.io/k8s-at-home/bazarr
-      tag: v1.0.3
+      tag: 1.0.4-development
 
     env:
       TZ: "Europe/Berlin"

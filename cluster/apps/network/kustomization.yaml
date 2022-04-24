@@ -7,5 +7,5 @@ resources:
   - home-dns
   - network-ups-tools
   - traefik
-  - unifi
+  # - unifi
   - wildcard-certificate
