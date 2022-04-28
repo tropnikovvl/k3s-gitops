@@ -35,7 +35,7 @@ spec:
             fi
         workingDir: /data
         volumeMounts:
-          - name: config
+          - name: data
             mountPath: /data
 
     image:
