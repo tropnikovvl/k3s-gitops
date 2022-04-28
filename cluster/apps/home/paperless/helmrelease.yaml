@@ -27,7 +27,7 @@ spec:
   values:
     image:
       repository: ghcr.io/paperless-ngx/paperless-ngx
-      tag: 1.6.0
+      tag: ngx-1.7.0
 
     env:
       PAPERLESS_OCR_LANGUAGE: deu
