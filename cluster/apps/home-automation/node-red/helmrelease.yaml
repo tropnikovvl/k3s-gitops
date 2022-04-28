@@ -66,8 +66,10 @@ spec:
             hosts:
               - "nodered.${SECRET_DOMAIN}"
 
-    securityContext:
-      privileged: true
+    podSecurityContext:
+      runAsUser: 1000
+      runAsGroup: 1000
+
 
     persistence:
       data:
