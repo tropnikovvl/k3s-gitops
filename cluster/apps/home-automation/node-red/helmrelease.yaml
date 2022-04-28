@@ -66,6 +66,9 @@ spec:
             hosts:
               - "nodered.${SECRET_DOMAIN}"
 
+    securityContext:
+      privileged: true
+
     persistence:
       data:
         enabled: true
