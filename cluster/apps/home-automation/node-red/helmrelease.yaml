@@ -21,12 +21,30 @@ spec:
       namespace: network
 
   values:
+    initContainers:
+      npm-update:
+        image: node:18-alpine
+        command:
+          - /bin/sh
+          - -c
+          - |
+            if [[ -f /data/package.json ]]; then
+                npm install --save $(npm outdated | cut -d' ' -f 1 | sed '1d' | xargs -I '$' echo '$@latest' | xargs echo);
+            else
+                echo "Skipping npm updates, no package.json found.";
+            fi
+        workingDir: /data
+        volumeMounts:
+          - name: config
+            mountPath: /data
+
     image:
       repository: nodered/node-red
       tag: 2.2.2
 
     env:
       NODE_RED_ENABLE_PROJECTS: "true"
+      NODE_RED_ENABLE_SAFE_MODE: "false"
 
     ingress:
       main:
@@ -52,8 +70,11 @@ spec:
       data:
         enabled: true
         existingClaim: node-red-config-v1
+        mountPath: "/data"
 
     resources:
       requests:
-        cpu: 15m
-        memory: 105M
+        cpu: 100m
+        memory: 250Mi
+      limits:
+        memory: 500Mi
