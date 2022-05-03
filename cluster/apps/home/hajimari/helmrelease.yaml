@@ -34,7 +34,6 @@ spec:
     hajimari:
       namespaceSelector:
         matchNames:
-        - databases
         - home
         - home-automation
         - media
@@ -51,9 +50,6 @@ spec:
         - name: AdGuardHome
           url: "http://gw01.${SECRET_DOMAIN}:3010"
           icon: shield-home
-        - name: vzlogger
-          url: "http://vzlogger.${SECRET_DOMAIN}"
-          icon: home-lightning-bolt-outline
         - name: Zigbee2mqtt
           url: "http://zigbee.${SECRET_DOMAIN}:8080"
           icon: zigbee
