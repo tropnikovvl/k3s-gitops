@@ -4,5 +4,6 @@ kind: Kustomization
 resources:
   - freshrss
   - hajimari
+  - node-red
   - paperless
   # - teslamate
