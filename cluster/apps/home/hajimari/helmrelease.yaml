@@ -54,7 +54,7 @@ spec:
           url: "http://zigbee.${SECRET_DOMAIN}:8080"
           icon: zigbee
         - name: PGAdmin
-          url: "http://pgadmin.${SECRET_DOMAIN}"
+          url: "https://pgadmin.${SECRET_DOMAIN}"
           icon: database-cog  
         - name: Jellyfin
           url: "http://192.168.10.15:8096"
