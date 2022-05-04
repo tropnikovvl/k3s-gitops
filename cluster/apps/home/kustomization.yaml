@@ -6,4 +6,5 @@ resources:
   - hajimari
   - node-red
   - paperless
+  - recipes
   # - teslamate
