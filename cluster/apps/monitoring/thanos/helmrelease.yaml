@@ -31,10 +31,6 @@ spec:
       namespace: monitoring
 
   values:
-    image:
-      registry: public.ecr.aws
-      repository: bitnami/thanos
-
     query:
       enabled: true
       replicaLabels:
