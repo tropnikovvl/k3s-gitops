@@ -10,7 +10,7 @@ spec:
     spec:
       # renovate: registryUrl=https://k8s-at-home.com/charts
       chart: freshrss
-      version: 6.3.1
+      version: 6.3.2
       sourceRef:
         kind: HelmRepository
         name: k8s-at-home-charts
@@ -26,7 +26,7 @@ spec:
   values:
     image:
       repository: ghcr.io/linuxserver/freshrss
-      tag: 1.18.1
+      tag: 1.19.2
       pullPolicy: IfNotPresent
 
     env:
