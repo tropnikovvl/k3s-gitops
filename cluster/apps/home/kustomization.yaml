@@ -9,5 +9,4 @@ resources:
   - node-red
   - paperless
   - recipes
-  - redis
   # - teslamate
