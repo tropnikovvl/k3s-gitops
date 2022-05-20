@@ -48,6 +48,8 @@ spec:
         annotations:
           kubernetes.io/tls-acme: "true"
           traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+          hajimari.io/enable: "true"
+          hajimari.io/icon: "cash"
         hosts:
           - host: "firefly.${SECRET_DOMAIN}"
             paths:

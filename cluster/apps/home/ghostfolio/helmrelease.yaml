@@ -45,6 +45,8 @@ spec:
         annotations:
           kubernetes.io/tls-acme: "true"
           traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+          hajimari.io/enable: "true"
+          hajimari.io/icon: "bank"
         hosts:
           - host: "ghostfolio.${SECRET_DOMAIN}"
             paths:
