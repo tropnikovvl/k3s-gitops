@@ -24,9 +24,12 @@ spec:
       repository: fireflyiii/core
       tag: version-5.7.6
     env:
+      TZ: "Europe/Berlin"
+      DEFAULT_LANGUAGE: "de_DE"
+      DEFAULT_LOCALE: "equal"
       APP_KEY: ${SECRET_FIREFLY_APP_KEY}
       APP_URL: firefly.${SECRET_DOMAIN}
-      TRUSTED_PROXIES: "*"
+      TRUSTED_PROXIES: "**"
       DB_CONNECTION: mysql
       DB_HOST: ${SECRET_FIREFLY_MYSQL_HOST}
       DB_DATABASE: firefly
