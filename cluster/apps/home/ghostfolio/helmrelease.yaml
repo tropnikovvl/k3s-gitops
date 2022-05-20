@@ -26,11 +26,12 @@ spec:
     env:
       TZ: "Europe/Berlin"
       DATABASE_URL: ${SECRET_GHOSTFOLIO_DBURL}
-      REDIS_HOST: redis://localhost:6379
+      REDIS_HOST: localhost
+      REDIS_PORT: "6379"
       ACCESS_TOKEN_SALT: ${SECRET_GHOSTFOLIO_SALT}
       JWT_SECRET_KEY: ${SECRET_GHOSTFOLIO_JWTKEY}
       COMPOSE_PROJECT_NAME: ghostfolio
-      PORT: 3333
+      PORT: "3333"
 
     service:
       main:
