@@ -30,6 +30,7 @@ spec:
       ACCESS_TOKEN_SALT: ${SECRET_GHOSTFOLIO_SALT}
       JWT_SECRET_KEY: ${SECRET_GHOSTFOLIO_JWTKEY}
       COMPOSE_PROJECT_NAME: ghostfolio
+      PORT: 3333
 
     service:
       main:
