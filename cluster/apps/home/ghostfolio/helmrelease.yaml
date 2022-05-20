@@ -26,7 +26,7 @@ spec:
     env:
       TZ: "Europe/Berlin"
       DATABASE_URL: ${SECRET_GHOSTFOLIO_DBURL}
-      REDIS_HOST: redis.home.svc.cluster.local
+      REDIS_HOST: redis://localhost:6379
       ACCESS_TOKEN_SALT: ${SECRET_GHOSTFOLIO_SALT}
       JWT_SECRET_KEY: ${SECRET_GHOSTFOLIO_JWTKEY}
       COMPOSE_PROJECT_NAME: ghostfolio
@@ -59,3 +59,14 @@ spec:
         memory: 100Mi
       limits:
         memory: 500Mi
+
+    additionalContainers:
+      - name: broker
+        image: redis:7.0
+        imagePullPolicy: IfNotPresent
+        resources:
+          requests:
+            cpu: 11m
+            memory: 32M
+          limits:
+            memory: 32M
