@@ -25,6 +25,8 @@ spec:
       tag: version-5.7.6
     env:
       APP_KEY: ${SECRET_FIREFLY_APP_KEY}
+      APP_URL: firefly.${SECRET_DOMAIN}
+      TRUSTED_PROXIES: **
       DB_CONNECTION: mysql
       DB_HOST: ${SECRET_FIREFLY_MYSQL_HOST}
       DB_DATABASE: firefly
