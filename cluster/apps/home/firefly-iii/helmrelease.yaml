@@ -26,6 +26,12 @@ spec:
     env:
       APP_KEY: ${SECRET_FIREFLY_APP_KEY}
 
+    service:
+      main:
+        ports:
+          http:
+            port: 8080
+
     ingress:
       main:
         enabled: true
