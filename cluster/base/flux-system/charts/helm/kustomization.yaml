@@ -15,6 +15,7 @@ resources:
   - jetstack-charts.yaml
   - k8s-at-home-charts.yaml
   - k8s-gateway-charts.yaml
+  - kasten-charts.yaml
   - kpg-charts.yaml
   - descheduler-charts.yaml
   - lwolf-charts.yaml
