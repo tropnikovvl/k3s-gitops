@@ -241,13 +241,6 @@ spec:
             key: objstore.yml
 
         additionalScrapeConfigs:
-          - job_name: coredns
-            scrape_interval: 1m
-            scrape_timeout: 10s
-            honor_timestamps: true
-            static_configs:
-              - targets:
-                  - "gw01.${SECRET_DOMAIN}:9153"
           - job_name: node-exporter
             scrape_interval: 1m
             scrape_timeout: 10s
