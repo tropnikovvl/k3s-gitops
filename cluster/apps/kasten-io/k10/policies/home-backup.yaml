@@ -1,0 +1,44 @@
+kind: Policy
+apiVersion: config.kio.kasten.io/v1alpha1
+metadata:
+  name: home-backup
+  namespace: kasten-io
+spec:
+  frequency: "@daily"
+  retention:
+    daily: 7
+    weekly: 4
+    monthly: 12
+  selector:
+    matchExpressions:
+      - key: k10.kasten.io/appNamespace
+        operator: In
+        values:
+          - home
+  actions:
+    - action: backup
+      backupParameters:
+        filters:
+          includeResources:
+            - resource: persistentvolumeclaims
+              matchExpressions:
+                - key: kasten.io/backup-volume
+                  operator: In
+                  values:
+                    - enabled
+        profile:
+          name: home
+          namespace: kasten-io
+    - action: export
+      exportParameters:
+        frequency: "@hourly"
+        receiveString: bIzAPpoanmFVliZClTJzgvBTcj4JLWSe1BKKoxsHd6whBb5Dm0GPfpy5f4m866EwPlHGzKuNGU+u7zELhTr9h2p+owspCbKKYt2h7tPJ4ayHiOAy/VMNPU6Ru7HdJKt/Qo82knkNwdQAs7OQ7NyVnV+YN/TXxnRu3CDdP3+Uw9mIktMpHnSNoT2Jv0LgLRBH4v5DPdipuDxq00o3MTiL9929XXSzHSjrpihO/IrbWJdep4bOOnTYbsUDs6SuidqyZJbfIPjMK9NzS3Dooksp7mDI4OOZKrOO1QuPBCh/RGh2G3LGuG4n5Dam/J3W7NlohhRiDtNEhEUemdgv2CPSWvZL5KdIZBNBsMVoypCmsqvyggrPhtbht2poyQzzkyRosFPg4ycoAzVwmCNUWWCROk0
+        profile:
+          name: home
+          namespace: kasten-io
+        migrationToken:
+          name: home-backup-migration-token-dbf9x
+          namespace: kasten-io
+        exportData:
+          enabled: true
+      retention: {}
