@@ -28,24 +28,25 @@ spec:
     nodeFeatureRule:
       createCRD: true
 
-    sources:
-      - custom
-      - pci
-      - usb
-
-    config: |
-      sources:
-        usb:
-          deviceClassWhitelist:
-            - "02"
-            - "0e"
-            - "ef"
-            - "fe"
-            - "ff"
-          deviceLabelFields:
-            - "class"
-            - "vendor"
-            - "device"
+      config:
+        core:
+          sources:
+            - custom
+            - pci
+            - usb
+        sources:
+          usb:
+            deviceClassWhitelist:
+              - "02"
+              - "03"
+              - "0e"
+              - "ef"
+              - "fe"
+              - "ff"
+            deviceLabelFields:
+              - class
+              - vendor
+              - device
 
         custom:
         - name: "intel-gpu"
