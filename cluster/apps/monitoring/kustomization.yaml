@@ -7,3 +7,4 @@ resources:
   - loki
   - promtail
   - thanos
+  - uptimerobot-heartbeat
