@@ -69,25 +69,6 @@ spec:
         externalIPs:
           - ${LB_UNIFI}
         externalTrafficPolicy: Local
-      # udp:
-      #   enabled: true
-      #   type: LoadBalancer
-      #   externalIPs:
-      #     - ${LB_UNIFI}
-      #   externalTrafficPolicy: Local
-      #   ports:
-      #     stun:
-      #       enabled: true
-      #       port: 3478
-      #       protocol: UDP
-      #     syslog:
-      #       enabled: true
-      #       port: 5514
-      #       protocol: UDP
-      #     discovery:
-      #       enabled: true
-      #       port: 10001
-      #       protocol: UDP
 
     resources:
       requests:
