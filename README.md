@@ -22,4 +22,4 @@ For more information, head on over to my [docs](https://cbirkenbeul.github.io/k3
 
 ## :handshake:&nbsp; Community
 
-Thanks to all the people who donate their time to the [Kubernetes @Home](https://github.com/k8s-at-home/) community.
+Thanks to all the people who donate their time to the [Kubernetes @Home](https://github.com/k8s-at-home/) community
