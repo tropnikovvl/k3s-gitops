@@ -29,7 +29,7 @@ spec:
     service:
       main:
         type: LoadBalancer
-        externalIPs: 
+        externalIPs:
           - ${LB_MOSQUITTO}
         externalTrafficPolicy: Local
 

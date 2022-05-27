@@ -34,12 +34,12 @@ spec:
     hajimari:
       namespaceSelector:
         matchNames:
-        - home
-        - home-automation
-        - media
-        - monitoring
-        - network
-        - rook-ceph
+          - home
+          - home-automation
+          - media
+          - monitoring
+          - network
+          - rook-ceph
       customApps:
         - name: UnRaid
           url: "http://tower.${SECRET_DOMAIN}"
@@ -55,33 +55,33 @@ spec:
           icon: zigbee
         - name: PGAdmin
           url: "https://pgadmin.${SECRET_DOMAIN}"
-          icon: database-cog  
+          icon: database-cog
         - name: Jellyfin
           url: "http://192.168.10.15:8096"
-          icon: movie     
+          icon: movie
       groups:
-      - name: Social Media
-        links:
-        - name: Instagram
-          url: 'https://instagram.com'
-        - name: Tweetdeck
-          url: 'https://tweetdeck.twitter.com/'
-      - name: Tesla
-        links:
-        - name: Tronity
-          url: 'https://app.tronity.io/dashboard'
-        - name: TFF-Forum
-          url: 'https://tff-forum.de'
-      - name: Photovoltaik
-        links:
-        - name: Kostal Portal
-          url: 'https://www.kostal-solar-portal.com/#/site/206273/dashboard/'
-      - name: Design
-        links:
-        - name: SimpleIcons
-          url: 'https://simpleicons.org/'
-        - name: Material Design Icons
-          url: 'https://materialdesignicons.com/'
+        - name: Social Media
+          links:
+            - name: Instagram
+              url: 'https://instagram.com'
+            - name: Tweetdeck
+              url: 'https://tweetdeck.twitter.com/'
+        - name: Tesla
+          links:
+            - name: Tronity
+              url: 'https://app.tronity.io/dashboard'
+            - name: TFF-Forum
+              url: 'https://tff-forum.de'
+        - name: Photovoltaik
+          links:
+            - name: Kostal Portal
+              url: 'https://www.kostal-solar-portal.com/#/site/206273/dashboard/'
+        - name: Design
+          links:
+            - name: SimpleIcons
+              url: 'https://simpleicons.org/'
+            - name: Material Design Icons
+              url: 'https://materialdesignicons.com/'
 
     ingress:
       main:
@@ -90,14 +90,14 @@ spec:
         annotations:
           traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
         hosts:
-        - host: "hajimari.${SECRET_DOMAIN}"
-          paths:
-          - path: /
-            pathType: Prefix
+          - host: "hajimari.${SECRET_DOMAIN}"
+            paths:
+              - path: /
+                pathType: Prefix
         tls:
-        - hosts:
-          - "hajimari.${SECRET_DOMAIN}"
-          secretName: hajimari-cert
+          - hosts:
+              - "hajimari.${SECRET_DOMAIN}"
+            secretName: hajimari-cert
     persistence:
       data:
         enabled: true

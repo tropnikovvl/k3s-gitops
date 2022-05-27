@@ -31,7 +31,7 @@ spec:
     service:
       main:
         type: LoadBalancer
-        externalIPs: 
+        externalIPs:
           - ${LB_NUT}
         externalTrafficPolicy: Local
 
@@ -70,11 +70,11 @@ spec:
       nodeAffinity:
         requiredDuringSchedulingIgnoredDuringExecution:
           nodeSelectorTerms:
-          - matchExpressions:
-            - key: feature.node.kubernetes.io/custom-ups-apc
-              operator: In
-              values:
-              - "true"
+            - matchExpressions:
+                - key: feature.node.kubernetes.io/custom-ups-apc
+                  operator: In
+                  values:
+                    - "true"
 
     resources:
       requests:

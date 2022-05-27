@@ -39,28 +39,28 @@ spec:
           hajimari.io/enable: "true"
           hajimari.io/icon: "download-box"
         hosts:
-        - host: "sabnzbd.${SECRET_DOMAIN}"
-          paths:
-          - path: /
-            pathType: Prefix
+          - host: "sabnzbd.${SECRET_DOMAIN}"
+            paths:
+              - path: /
+                pathType: Prefix
         tls:
-        - secretName: sabnzbd-cert
-          hosts:
-          - "sabnzbd.${SECRET_DOMAIN}"
+          - secretName: sabnzbd-cert
+            hosts:
+              - "sabnzbd.${SECRET_DOMAIN}"
       api:
         enabled: true
         ingressClassName: "traefik"
         annotations:
           traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
         hosts:
-        - host: "sabnzbd.${SECRET_DOMAIN}"
-          paths:
-          - path: /api
-            pathType: Prefix
+          - host: "sabnzbd.${SECRET_DOMAIN}"
+            paths:
+              - path: /api
+                pathType: Prefix
         tls:
-        - secretName: sabnzbd-cert
-          hosts:
-          - "sabnzbd.${SECRET_DOMAIN}"
+          - secretName: sabnzbd-cert
+            hosts:
+              - "sabnzbd.${SECRET_DOMAIN}"
 
     podSecurityContext:
       runAsUser: 568

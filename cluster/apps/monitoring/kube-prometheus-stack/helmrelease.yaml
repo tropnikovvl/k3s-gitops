@@ -39,23 +39,23 @@ spec:
           slack_api_url: "${SECRET_ALERT_MANAGER_DISCORD_WEBHOOK}"
           resolve_timeout: 5m
         receivers:
-        - name: 'null'
-        - name: 'discord'
-          slack_configs:
-          - channel: '#prometheus'
-            icon_url: https://avatars3.githubusercontent.com/u/3380462
-            username: 'Prometheus'
-            send_resolved: true
-            title: |-
-              [{{ .Status | toUpper }}{{ if eq .Status "firing" }}:{{ .Alerts.Firing | len }}{{ end }}] {{ if ne .CommonAnnotations.summary ""}}{{ .CommonAnnotations.summary }}{{ else }}{{ .CommonLabels.alertname }}{{ end }}
-            text: >-
-              {{ range .Alerts -}}
-                **Alert:** {{ .Annotations.title }}{{ if .Labels.severity }} - `{{ .Labels.severity }}`{{ end }}
-              **Description:** {{ if ne .Annotations.description ""}}{{ .Annotations.description }}{{else}}N/A{{ end }}
-              **Details:**
-                {{ range .Labels.SortedPairs }} • *{{ .Name }}:* `{{ .Value }}`
-                {{ end }}
-              {{ end }}
+          - name: 'null'
+          - name: 'discord'
+            slack_configs:
+              - channel: '#prometheus'
+                icon_url: https://avatars3.githubusercontent.com/u/3380462
+                username: 'Prometheus'
+                send_resolved: true
+                title: |-
+                  [{{ .Status | toUpper }}{{ if eq .Status "firing" }}:{{ .Alerts.Firing | len }}{{ end }}] {{ if ne .CommonAnnotations.summary ""}}{{ .CommonAnnotations.summary }}{{ else }}{{ .CommonLabels.alertname }}{{ end }}
+                text: >-
+                  {{ range .Alerts -}}
+                    **Alert:** {{ .Annotations.title }}{{ if .Labels.severity }} - `{{ .Labels.severity }}`{{ end }}
+                  **Description:** {{ if ne .Annotations.description ""}}{{ .Annotations.description }}{{else}}N/A{{ end }}
+                  **Details:**
+                    {{ range .Labels.SortedPairs }} • *{{ .Name }}:* `{{ .Value }}`
+                    {{ end }}
+                  {{ end }}
         route:
           group_by: ['alertname', 'job']
           group_wait: 30s
@@ -63,19 +63,19 @@ spec:
           repeat_interval: 6h
           receiver: 'discord'
           routes:
-          - receiver: 'null'
-            match:
-              alertname: Watchdog
-          - receiver: 'discord'
-            match_re:
-              severity: critical|warning|error
-            continue: true
+            - receiver: 'null'
+              match:
+                alertname: Watchdog
+            - receiver: 'discord'
+              match_re:
+                severity: critical|warning|error
+              continue: true
         inhibit_rules:
-        - source_match:
-            severity: 'critical'
-          target_match:
-            severity: 'warning'
-          equal: ['alertname', 'namespace']
+          - source_match:
+              severity: 'critical'
+            target_match:
+              severity: 'warning'
+            equal: ['alertname', 'namespace']
       ingress:
         enabled: true
         pathType: Prefix
@@ -83,11 +83,11 @@ spec:
         annotations:
           traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
         hosts:
-        - "alert-manager.${SECRET_DOMAIN}"
-        tls:
-        - hosts:
           - "alert-manager.${SECRET_DOMAIN}"
-          secretName: alert-manager-cert
+        tls:
+          - hosts:
+              - "alert-manager.${SECRET_DOMAIN}"
+            secretName: alert-manager-cert
       alertmanagerSpec:
         storage:
           volumeClaimTemplate:
@@ -108,7 +108,7 @@ spec:
           multicluster:
             etcd:
               enabled: true
- 
+
     kubelet:
       enabled: true
       serviceMonitor:
@@ -117,10 +117,10 @@ spec:
             sourceLabels:
               - node
             targetLabel: instance
- 
+
     kubeApiServer:
       enabled: true
- 
+
     kubeControllerManager:
       enabled: true
       endpoints:
@@ -199,11 +199,11 @@ spec:
         annotations:
           traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
         hosts:
-        - "prometheus.${SECRET_DOMAIN}"
-        tls:
-        - hosts:
           - "prometheus.${SECRET_DOMAIN}"
-          secretName: prom-server-cert
+        tls:
+          - hosts:
+              - "prometheus.${SECRET_DOMAIN}"
+            secretName: prom-server-cert
       resources:
         requests:
           memory: 512Mi

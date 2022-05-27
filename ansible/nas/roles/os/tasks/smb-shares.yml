@@ -1,8 +1,8 @@
 ---
-- name: Ensure Dateien share directory exists 
+- name: Ensure Dateien share directory exists
   file:
     path: /nas02/shares/Dateien
-    state: directory 
+    state: directory
     mode: 0777
 
 - name: Create smb.conf file
@@ -17,12 +17,12 @@
     dest: "/etc/avahi/services/smb.service"
     mode: 0644
 
-- name: Restart smbd.service 
+- name: Restart smbd.service
   ansible.builtin.systemd:
     state: restarted
     name: smbd.service
 
-- name: Restart avahi-daemon.service 
+- name: Restart avahi-daemon.service
   ansible.builtin.systemd:
     state: restarted
     name: avahi-daemon.service

@@ -33,8 +33,8 @@ spec:
       enabled: true
 
     extraArgs:
-    - --dns01-recursive-nameservers=1.1.1.1:53
-    - --dns01-recursive-nameservers-only
+      - --dns01-recursive-nameservers=1.1.1.1:53
+      - --dns01-recursive-nameservers-only
 
     cainjector:
       replicaCount: 1
@@ -43,8 +43,8 @@ spec:
 
     podDnsConfig:
       nameservers:
-      - "1.1.1.1"
-      - "8.8.8.8"
+        - "1.1.1.1"
+        - "8.8.8.8"
 
     prometheus:
       enabled: true

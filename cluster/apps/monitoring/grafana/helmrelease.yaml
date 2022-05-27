@@ -26,7 +26,7 @@ spec:
     createNamespace: true
     remediation:
       retries: 3
-  
+
   upgrade:
     remediation:
       retries: 3
@@ -68,69 +68,69 @@ spec:
         hajimari.io/enable: "true"
         hajimari.io/icon: "chart-areaspline"
       hosts:
-      - "grafana.${SECRET_DOMAIN}"
-      tls:
-      - hosts:
         - "grafana.${SECRET_DOMAIN}"
+      tls:
+        - hosts:
+            - "grafana.${SECRET_DOMAIN}"
 
     persistence:
       enabled: true
       existingClaim: grafana-config-v1
 
     plugins:
-    - natel-discrete-panel
-    - pr0ps-trackmap-panel
-    - grafana-piechart-panel
-    - grafana-clock-panel
-    - vonage-status-panel
-    - grafana-worldmap-panel
+      - natel-discrete-panel
+      - pr0ps-trackmap-panel
+      - grafana-piechart-panel
+      - grafana-clock-panel
+      - vonage-status-panel
+      - grafana-worldmap-panel
 
     dashboardProviders:
       dashboardproviders.yaml:
         apiVersion: 1
         providers:
-        - name: 'default'
-          orgId: 1
-          folder: ''
-          type: file
-          disableDeletion: false
-          editable: true
-          options:
-            path: /var/lib/grafana/dashboards/default
-        - name: 'teslamate'
-          orgId: 1
-          folder: Teslamate
-          type: file
-          disableDeletion: false
-          # updateIntervalSeconds: -1
-          allowUiUpdates: true
-          options:
-            path: /var/lib/grafana/dashboards/teslamate
+          - name: 'default'
+            orgId: 1
+            folder: ''
+            type: file
+            disableDeletion: false
+            editable: true
+            options:
+              path: /var/lib/grafana/dashboards/default
+          - name: 'teslamate'
+            orgId: 1
+            folder: Teslamate
+            type: file
+            disableDeletion: false
+            # updateIntervalSeconds: -1
+            allowUiUpdates: true
+            options:
+              path: /var/lib/grafana/dashboards/teslamate
 
     datasources:
       datasources.yaml:
         apiVersion: 1
         datasources:
-        - name: Prometheus
-          type: prometheus
-          access: proxy
-          url: http://thanos-query:9090
-          isDefault: true
-        - name: Loki
-          type: loki
-          access: proxy
-          url: http://loki:3100
-        - name: TeslaMate
-          type: postgres
-          access: proxy
-          url: ${SECRET_TESLAMATE_POSTGRES_HOST}
-          database: teslamate
-          user: ${SECRET_TESLAMATE_POSTGRES_USER}
-          secureJsonData:
-            password: "${SECRET_TESLAMATE_POSTGRES_PASSWORD}"
-          jsonData:
-            postgresVersion: 1000
-            sslmode: disable
+          - name: Prometheus
+            type: prometheus
+            access: proxy
+            url: http://thanos-query:9090
+            isDefault: true
+          - name: Loki
+            type: loki
+            access: proxy
+            url: http://loki:3100
+          - name: TeslaMate
+            type: postgres
+            access: proxy
+            url: ${SECRET_TESLAMATE_POSTGRES_HOST}
+            database: teslamate
+            user: ${SECRET_TESLAMATE_POSTGRES_USER}
+            secureJsonData:
+              password: "${SECRET_TESLAMATE_POSTGRES_PASSWORD}"
+            jsonData:
+              postgresVersion: 1000
+              sslmode: disable
 
     dashboards:
       default:

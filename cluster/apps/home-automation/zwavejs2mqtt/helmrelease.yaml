@@ -53,14 +53,14 @@ spec:
           hajimari.io/enable: "true"
           hajimari.io/icon: "z-wave"
         hosts:
-        - host: "zwave.${SECRET_DOMAIN}"
-          paths:
-          - path: /
-            pathType: Prefix
+          - host: "zwave.${SECRET_DOMAIN}"
+            paths:
+              - path: /
+                pathType: Prefix
         tls:
-        - secretName: zwavejs2mqtt-cert
-          hosts:
-          - "zwave.${SECRET_DOMAIN}"
+          - secretName: zwavejs2mqtt-cert
+            hosts:
+              - "zwave.${SECRET_DOMAIN}"
 
     persistence:
       config:
@@ -85,5 +85,5 @@ spec:
       nodeAffinity:
         requiredDuringSchedulingIgnoredDuringExecution:
           nodeSelectorTerms:
-          - matchExpressions:
-            - {key: "feature.node.kubernetes.io/custom-zwave", operator: In, values: ["true"]}
+            - matchExpressions:
+                - {key: "feature.node.kubernetes.io/custom-zwave", operator: In, values: ["true"]}
