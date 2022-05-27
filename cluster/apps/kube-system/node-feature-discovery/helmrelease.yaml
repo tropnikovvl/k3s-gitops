@@ -28,26 +28,24 @@ spec:
     nodeFeatureRule:
       createCRD: true
 
-      config:
-        core:
-          sources:
-            - custom
-            - pci
-            - usb
-        sources:
-          usb:
-            deviceClassWhitelist:
-              - "02"
-              - "03"
-              - "0e"
-              - "ef"
-              - "fe"
-              - "ff"
-            deviceLabelFields:
-              - class
-              - vendor
-              - device
+    sources:
+      - custom
+      - pci
+      - usb
 
+    config: |
+      sources:
+        usb:
+          deviceClassWhitelist:
+            - "02"
+            - "0e"
+            - "ef"
+            - "fe"
+            - "ff"
+          deviceLabelFields:
+            - "class"
+            - "vendor"
+            - "device"
         custom:
         - name: "intel-gpu"
           matchOn:
@@ -59,7 +57,6 @@ spec:
             - usbId:
                 vendor: ["051d",]
                 device: ["0002"]
-
         - name: "zwave"
           matchOn:
             - usbId:
@@ -70,7 +67,6 @@ spec:
             - usbId:
                 vendor: ["1eaf"]
                 device: ["0004"]
-
     podAnnotations:
       configmap.reloader.stakater.com/reload: "node-feature-discovery"
 
