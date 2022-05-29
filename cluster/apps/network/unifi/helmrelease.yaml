@@ -44,6 +44,21 @@ spec:
     env:
       timezone: "Europe/Berlin"
 
+    controllerService:
+      enabled: true
+      type: ClusterIP
+      ingress:
+        enabled: true
+        annotations:
+          cert-manager.io/cluster-issuer: letsencrypt-production
+        path: /inform
+        hosts:
+          - "unifi.${SECRET_DOMAIN}"
+        tls:
+          - secretName: unifi-cert
+            hosts:
+              - "unifi.${SECRET_DOMAIN}"
+
     ingress:
       main:
         enabled: true
