@@ -31,15 +31,15 @@ spec:
       data:
         enabled: true
         existingClaim: unifi-data-v1
-      # backup:
-      #   enabled: true
-      #   type: custom
-      #   volumeSpec:
-      #     nfs:
-      #       server: "${NFS_SERVER}"
-      #       path: /mnt/user/k3s-backup/unifi
-      #   mountPath: /var/lib/unifi/backup
-      #   readOnly: false
+      backup:
+        enabled: true
+        type: custom
+        volumeSpec:
+          nfs:
+            server: "${NFS_SERVER}"
+            path: /mnt/user/k3s-backup/unifi
+        mountPath: /var/lib/unifi/backup
+        readOnly: false
 
     env:
       timezone: "Europe/Berlin"
