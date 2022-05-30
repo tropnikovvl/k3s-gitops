@@ -42,7 +42,7 @@ spec:
         readOnly: false
 
     env:
-      timezone: "Europe/Berlin"
+      TZ: ${TZ}
 
     controllerService:
       enabled: true
