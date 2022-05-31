@@ -18,6 +18,7 @@ services:
       - traefik.http.routers.unifi.rule=Host(`unifi.{{ SECRET_DOMAIN }}`)
       - traefik.http.routers.unifi.entrypoints=websecure
       - traefik.http.routers.unifi.tls.certresolver=letsencrypt
+      - traefik.http.services.unifi.loadbalancer.server.scheme=https
       - traefik.http.services.unifi.loadbalancer.server.port=8443
 
 volumes:
@@ -26,4 +27,4 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: "{{ containers_base_dir }}/data/unifi/data"
+      device: "{{ containers_base_dir }}/data/unifi"
