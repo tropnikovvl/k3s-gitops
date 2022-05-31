@@ -30,7 +30,7 @@ spec:
       pullPolicy: IfNotPresent
 
     env:
-      TZ: "Europe/Berlin"
+      TZ: "${TZ}"
 
     persistence:
       config:

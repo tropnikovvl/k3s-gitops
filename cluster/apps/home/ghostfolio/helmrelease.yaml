@@ -24,7 +24,7 @@ spec:
       repository: ghostfolio/ghostfolio
       tag: 1.155.0
     env:
-      TZ: "Europe/Berlin"
+      TZ: "${TZ}"
       DATABASE_URL: ${SECRET_GHOSTFOLIO_DBURL}
       REDIS_HOST: localhost
       REDIS_PORT: "6379"

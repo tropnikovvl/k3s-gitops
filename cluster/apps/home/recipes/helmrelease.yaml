@@ -30,6 +30,7 @@ spec:
       pullPolicy: IfNotPresent
 
     env:
+      TIMEZONE: "${TZ}"
       SECRET_KEY: ${SECRET_RECIPES_SECRET_KEY}
       DEBUG: "0"
       ALLOWED_HOSTS: "*"
@@ -40,7 +41,6 @@ spec:
       POSTGRES_USER: "${SECRET_RECIPES_POSTGRES_USER}"
       POSTGRES_PASSWORD: "${SECRET_RECIPES_POSTGRES_PASSWORD}"
       GUNICORN_MEDIA: "0"
-      TIMEZONE: Europe/Berlin
       FRACTION_PREF_DEFAULT: "0"
       COMMENT_PREF_DEFAULT: "1"
       SHOPPING_MIN_AUTOSYNC_INTERVAL: "5"

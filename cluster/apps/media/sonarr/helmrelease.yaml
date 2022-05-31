@@ -27,7 +27,7 @@ spec:
       tag: v3.0.8.1507
 
     env:
-      TZ: "Europe/Berlin"
+      TZ: "${TZ}"
 
     ingress:
       main:

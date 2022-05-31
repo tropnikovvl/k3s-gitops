@@ -30,6 +30,7 @@ spec:
       tag: ngx-1.7.0
 
     env:
+      TZ: "${TZ}"
       PAPERLESS_OCR_LANGUAGE: deu
       PAPERLESS_TIME_ZONE: "Europe/Berlin"
       PAPERLESS_CONSUMER_POLLING: "60"

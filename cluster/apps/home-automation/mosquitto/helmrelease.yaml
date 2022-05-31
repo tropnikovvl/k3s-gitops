@@ -26,6 +26,9 @@ spec:
       repository: eclipse-mosquitto
       tag: 2.0.14
 
+    env:
+      TZ: "${TZ}"
+
     service:
       main:
         type: LoadBalancer

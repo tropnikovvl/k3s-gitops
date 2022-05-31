@@ -27,7 +27,7 @@ spec:
       tag: v3.5.3
 
     env:
-      TZ: "Europe/Berlin"
+      TZ: "${TZ}"
       HOST_WHITELIST_ENTRIES: "sabnzbd.${SECRET_DOMAIN}"
 
     ingress:

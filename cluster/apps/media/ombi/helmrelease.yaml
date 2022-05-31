@@ -25,8 +25,9 @@ spec:
     image:
       repository: ghcr.io/linuxserver/ombi
       tag: version-v4.0.1430
+
     env:
-      TZ: "Europe/Berlin"
+      TZ: "${TZ}"
 
     ingress:
       main:

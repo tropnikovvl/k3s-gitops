@@ -26,7 +26,7 @@ spec:
       tag: 2.2.2
 
     env:
-      TZ: Europe/Berlin
+      TZ: "${TZ}"
       NODE_RED_ENABLE_PROJECTS: "true"
       NODE_RED_ENABLE_SAFE_MODE: "false"
 
