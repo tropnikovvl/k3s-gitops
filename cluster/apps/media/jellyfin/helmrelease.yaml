@@ -1,0 +1,81 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: jellyfin
+  namespace: media
+spec:
+  interval: 5m
+  chart:
+    spec:
+      chart: jellyfin
+      version: 9.4.2
+      sourceRef:
+        kind: HelmRepository
+        name: k8s-at-home-charts
+        namespace: flux-system
+  values:
+    image:
+      repository: ghcr.io/k8s-at-home/jellyfin
+      tag: 10.7.7
+    env:
+      TZ: "${TZ}"
+      JELLYFIN_CACHE_DIR: "/config/cache"
+    podSecurityContext:
+      supplementalGroups:
+        - 44
+        - 109
+        - 100
+    service:
+      main:
+        type: LoadBalancer
+        loadBalancerIP: "${LB_JELLYFIN}"
+        externalTrafficPolicy: Local
+    ingress:
+      main:
+        enabled: true
+        ingressClassName: "traefik"
+        annotations:
+          traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+          hajimari.io/enable: "true"
+          hajimari.io/icon: "filmstrip"
+        hosts:
+          - host: "jellyfin.${SECRET_DOMAIN}"
+            paths:
+              - path: /
+                pathType: Prefix
+        tls:
+          - hosts:
+              - "jellyfin.${SECRET_DOMAIN}"
+    persistence:
+      config:
+        enabled: true
+        existingClaim: jellyfin-data-v1
+      media:
+        enabled: true
+        type: custom
+        volumeSpec:
+          nfs:
+            server: "${NFS_SERVER}"
+            path: /mnt/user/media
+        mountPath: /media
+      transcode:
+        enabled: true
+        type: emptyDir
+
+    resources:
+      requests:
+        memory: 1000Mi
+        gpu.intel.com/i915: 1
+      limits:
+        memory: 4000Mi
+        gpu.intel.com/i915: 1
+    affinity:
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+            - matchExpressions:
+                - key: feature.node.kubernetes.io/custom-intel-gpu
+                  operator: In
+                  values:
+                    - "true"
