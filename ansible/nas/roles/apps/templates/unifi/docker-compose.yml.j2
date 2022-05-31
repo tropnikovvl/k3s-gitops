@@ -6,20 +6,11 @@ services:
     image: jacobalberty/unifi:v7.1.66
     container_name: unifi
     restart: unless-stopped
+    network_mode: "host"
     volumes:
       - unifi-data:/unifi
-    ports:
-      - 8080:8080
-      - 3478:3478/udp
     environment:
       - TZ="Europe/Berlin"
-    labels:
-      - traefik.enable=true
-      - traefik.http.routers.unifi.rule=Host(`unifi.{{ SECRET_DOMAIN }}`)
-      - traefik.http.routers.unifi.entrypoints=websecure
-      - traefik.http.routers.unifi.tls.certresolver=letsencrypt
-      - traefik.http.services.unifi.loadbalancer.server.scheme=https
-      - traefik.http.services.unifi.loadbalancer.server.port=8443
 
 volumes:
   unifi-data:
