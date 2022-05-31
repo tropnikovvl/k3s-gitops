@@ -1,0 +1,22 @@
+---
+- name: Create unifi directories
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+  loop:
+    - "{{ containers_base_dir }}/apps/unifi"
+    - "{{ containers_base_dir }}/data/unifi"
+
+- block:
+    - name: Create unifi docker compose file
+      ansible.builtin.template:
+        src: unifi/docker-compose.yml.j2
+        dest: "{{ containers_base_dir }}/apps/unifi/docker-compose.yml"
+        mode: 0755
+
+    - name: Create unifi systemd service file
+      ansible.builtin.template:
+        src: "docker-compose@.service.j2"
+        dest: "/etc/systemd/system/docker-compose@unifi.service"
+        mode: 0644
+  notify: Restart unifi

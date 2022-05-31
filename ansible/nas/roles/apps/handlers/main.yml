@@ -1,11 +1,4 @@
 ---
-- name: Restart cadvisor
-  ansible.builtin.systemd:
-    name: "docker-compose@cadvisor.service"
-    state: restarted
-    enabled: true
-    daemon_reload: true
-
 - name: Restart minio
   ansible.builtin.systemd:
     name: "docker-compose@minio.service"
@@ -34,20 +27,6 @@
     enabled: true
     daemon_reload: true
 
-- name: Restart promtail
-  ansible.builtin.systemd:
-    name: "docker-compose@promtail.service"
-    state: restarted
-    enabled: true
-    daemon_reload: true
-
-- name: Restart time-machine
-  ansible.builtin.systemd:
-    name: "docker-compose@time-machine.service"
-    state: restarted
-    enabled: true
-    daemon_reload: true
-
 - name: Restart traefik
   ansible.builtin.systemd:
     name: "docker-compose@traefik.service"
@@ -55,16 +34,9 @@
     enabled: true
     daemon_reload: true
 
-- name: Restart vault
+- name: Restart unifi
   ansible.builtin.systemd:
-    name: "docker-compose@vault.service"
-    state: restarted
-    enabled: true
-    daemon_reload: true
-
-- name: Restart vector
-  ansible.builtin.systemd:
-    name: "docker-compose@vector.service"
+    name: "docker-compose@unifi.service"
     state: restarted
     enabled: true
     daemon_reload: true
