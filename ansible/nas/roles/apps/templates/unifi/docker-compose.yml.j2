@@ -15,10 +15,10 @@ services:
       - TZ="Europe/Berlin"
     labels:
       - traefik.enable=true
-      - traefik.http.routers.pgadmin.rule=Host(`unifi.{{ SECRET_DOMAIN }}`)
-      - traefik.http.routers.pgadmin.entrypoints=websecure
-      - traefik.http.routers.pgadmin.tls.certresolver=letsencrypt
-      - traefik.http.services.pgadmin.loadbalancer.server.port=8443
+      - traefik.http.routers.unifi.rule=Host(`unifi.{{ SECRET_DOMAIN }}`)
+      - traefik.http.routers.unifi.entrypoints=websecure
+      - traefik.http.routers.unifi.tls.certresolver=letsencrypt
+      - traefik.http.services.unifi.loadbalancer.server.port=8443
 
 volumes:
   unifi-data:
@@ -26,4 +26,4 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: "{{ containers_base_dir }}/data/unifi-controller/data"
+      device: "{{ containers_base_dir }}/data/unifi/data"
