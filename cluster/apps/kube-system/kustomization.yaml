@@ -4,6 +4,7 @@ kind: Kustomization
 resources:
   - descheduler
   - external-snapshotter
+  - intel-gpu-plugin
   - kube-cleanup-operator
   - metrics-server
   - node-feature-discovery
