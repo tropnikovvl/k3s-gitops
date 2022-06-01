@@ -56,8 +56,8 @@ spec:
         cpu: 35m
         memory: 105M
 
-    tolerations:
-      - key: "arch"
-        operator: "Equal"
-        value: "arm64"
-        effect: "NoSchedule"
+    # tolerations:
+    #   - key: "arch"
+    #     operator: "Equal"
+    #     value: "arm64"
+    #     effect: "NoSchedule"
