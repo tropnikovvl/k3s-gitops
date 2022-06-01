@@ -96,16 +96,6 @@ spec:
               resources:
                 requests:
                   storage: 1Gi
-        affinity:
-          nodeAffinity:
-            requiredDuringSchedulingIgnoredDuringExecution:
-              nodeSelectorTerms:
-                - matchExpressions:
-                    - key: kubernetes.io/arch
-                      operator: In
-                      values:
-                        - "amd64"
-
 
     kube-state-metrics:
       fullnameOverride: kube-state-metrics
@@ -241,15 +231,6 @@ spec:
               resources:
                 requests:
                   storage: 10Gi
-        affinity:
-          nodeAffinity:
-            requiredDuringSchedulingIgnoredDuringExecution:
-              nodeSelectorTerms:
-                - matchExpressions:
-                    - key: kubernetes.io/arch
-                      operator: In
-                      values:
-                        - "amd64"
 
         thanos:
           image: quay.io/thanos/thanos:v0.26.0

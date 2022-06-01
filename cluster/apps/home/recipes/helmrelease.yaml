@@ -86,3 +86,9 @@ spec:
           - secretName: recipes-cert
             hosts:
               - "recipes.${SECRET_DOMAIN}"
+
+    tolerations:
+      - key: "arch"
+        operator: "Equal"
+        value: "arm64"
+        effect: "NoSchedule"
