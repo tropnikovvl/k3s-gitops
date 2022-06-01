@@ -31,43 +31,43 @@ spec:
         configmap.reloader.stakater.com/reload: node-feature-discovery-worker-conf
       nodeSelector:
         node-role.kubernetes.io/worker: "true"
+      config:
+        core:
+          sources:
+            - custom
+            - pci
+            - usb
 
-    sources:
-      - custom
-      - pci
-      - usb
-
-    config: |
-      sources:
-        usb:
-          deviceClassWhitelist:
-            - "02"
-            - "0e"
-            - "ef"
-            - "fe"
-            - "ff"
-          deviceLabelFields:
-            - "class"
-            - "vendor"
-            - "device"
-        custom:
-        - name: "intel-gpu"
-          matchOn:
-            - pciId:
-                class: ["0300"]
-                vendor: ["8086"]
-        - name: "ups-apc"
-          matchOn:
-            - usbId:
-                vendor: ["051d",]
-                device: ["0002"]
-        - name: "zwave"
-          matchOn:
-            - usbId:
-                vendor: ["0658"]
-                device: ["0200"]
-        - name: "ender3"
-          matchOn:
-            - usbId:
-                vendor: ["1eaf"]
-                device: ["0004"]
+        sources:
+          usb:
+            deviceClassWhitelist:
+              - "02"
+              - "0e"
+              - "ef"
+              - "fe"
+              - "ff"
+            deviceLabelFields:
+              - "class"
+              - "vendor"
+              - "device"
+          custom:
+            - name: "intel-gpu"
+              matchOn:
+                - pciId:
+                    class: ["0300"]
+                    vendor: ["8086"]
+            - name: "ups-apc"
+              matchOn:
+                - usbId:
+                    vendor: ["051d"]
+                    device: ["0002"]
+            - name: "zwave"
+              matchOn:
+                - usbId:
+                    vendor: ["0658"]
+                    device: ["0200"]
+            - name: "ender3"
+              matchOn:
+                - usbId:
+                    vendor: ["1eaf"]
+                    device: ["0004"]
