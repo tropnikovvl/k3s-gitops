@@ -96,6 +96,16 @@ spec:
               resources:
                 requests:
                   storage: 1Gi
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: kubernetes.io/arch
+                    operator: In
+                    values:
+                      - "amd64"
+
 
     kube-state-metrics:
       fullnameOverride: kube-state-metrics
@@ -249,3 +259,13 @@ spec:
               - targets:
                   - "gw01.${SECRET_DOMAIN}:9100"
                   - "nas02.${SECRET_DOMAIN}:9100"
+
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: kubernetes.io/arch
+                    operator: In
+                    values:
+                      - "amd64"
