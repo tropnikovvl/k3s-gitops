@@ -82,3 +82,9 @@ spec:
         memory: "256M"
       limits:
         memory: "512M"
+
+    tolerations:
+      - key: "arch"
+        operator: "Equal"
+        value: "arm64"
+        effect: "NoSchedule"
