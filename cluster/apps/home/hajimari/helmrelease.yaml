@@ -56,9 +56,6 @@ spec:
         - name: PGAdmin
           url: "https://pgadmin.${SECRET_DOMAIN}"
           icon: database-cog
-        - name: Jellyfin
-          url: "http://192.168.10.15:8096"
-          icon: movie
         - name: UniFi
           url: "https://unifi.${SECRET_DOMAIN}:8443"
           icon: network
