@@ -28,6 +28,10 @@ kubernetes:
           ansible_host: 192.168.10.36
         k3s-rpi-01:
           ansible_host: 192.168.10.41
+        k3s-rpi-02:
+          ansible_host: 192.168.10.42
+        k3s-rpi-03:
+          ansible_host: 192.168.10.43
 
       vars:
         ansible_user: ubuntu
