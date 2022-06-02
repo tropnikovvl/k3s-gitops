@@ -133,7 +133,7 @@ spec:
         crashcollector:
           requests:
             cpu: 50m
-            memory: 100Mi
+            memory: 200Mi
 
     cephBlockPoolsVolumeSnapshotClass:
       enabled: true
