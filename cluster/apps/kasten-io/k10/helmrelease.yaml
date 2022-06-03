@@ -45,6 +45,8 @@ spec:
         kubernetes.io/tls-acme: "true"
         cert-manager.io/cluster-issuer: letsencrypt-production
         traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+        hajimari.io/enable: "true"
+        hajimari.io/icon: "cloud-upload"
       urlPath: k10
       hosts:
         - "k10.${SECRET_DOMAIN}"
