@@ -118,8 +118,8 @@ markdown_extensions:
         - ../../docs/src/
         - ../../docs/_includes/
         - docs/_includes/
-      auto_append:
-        - abbreviations.md
+      # auto_append:
+      #   - abbreviations.md
       check_paths: true
   - pymdownx.highlight:
       anchor_linenums: true
