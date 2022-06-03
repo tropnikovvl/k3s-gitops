@@ -1,4 +1,5 @@
-name: docs
+---
+name: Push - build mkdocs
 
 on:
   workflow_dispatch:
@@ -6,9 +7,9 @@ on:
     branches:
       - main
     paths:
-      - '.github/workflows/docs.yaml'
-      - '.github/mkdocs/**'
-      - 'docs/**'
+      - ".github/workflows/docs.yaml"
+      - ".github/mkdocs/**"
+      - "docs/**"
 
 jobs:
   build:
@@ -21,5 +22,5 @@ jobs:
         uses: mhausenblas/mkdocs-deploy-gh-pages@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          CONFIG_FILE: .github/mkdocs/mkdocs.yaml
+          CONFIG_FILE: .github/mkdocs/mkdocs.yml
           REQUIREMENTS: .github/mkdocs/requirements.txt
