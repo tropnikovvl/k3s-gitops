@@ -1,15 +1,15 @@
 ---
 # Project information
-site_name: Truxnell | K8S Home-Cluster
+site_name: teqqy | K8S Home-Cluster
 site_description: >-
   This repo is my homelab, declared in yaml and applied to my
   Kurbenetes cluster in a declarative gitOps fashion via flux.
 site_author: Nat Allan
-site_url: https://truxnell.github.io/home-cluster
+site_url: https://cbirkenbeul.github.io/k3s-gitops/
 
 # https://squidfunk.github.io/mkdocs-material/setup/adding-a-git-repository/#repository-name
-repo_name: Truxnell/home-cluster
-repo_url: https://github.com/Truxnell/home-cluster
+repo_name: christianb/k3s-gitops
+repo_url: https://github.com/christianb/k3s-gitops
 
 # https://squidfunk.github.io/mkdocs-material/setup/adding-a-git-repository/#edit-button
 edit_uri: "edit/main/docs/src/"
