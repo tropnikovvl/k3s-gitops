@@ -134,22 +134,22 @@ markdown_extensions:
 
 nav:
   - Introduction: index.md
-  - General:
-      - Hardware: general/hardware.md
-  - Repository:
-      - Semantic Commits: repository/semantic-git-messages.md
-      - Folder Structure: repository/folder-structure.md
-  - Sidero & Talos:
-      - Introduction: sidero/sidero-intro.md
-      - Installation: sidero/sidero-install.md
-      - Retrieve talosconfig: sidero/retrieve_talosconfig.md
-  - Diagrams:
-      - Network Map: diagrams/network-map.md
-      - Cluster Map: diagrams/cluster-map.md
-  - Cluster:
-      - Bootstrap Workflow: cluster/bootstrap-workflow.md
-  - Applications:
-      - k10: apps/k10.md
+  # - General:
+  #     - Hardware: general/hardware.md
+  # - Repository:
+  #     - Semantic Commits: repository/semantic-git-messages.md
+  #     - Folder Structure: repository/folder-structure.md
+  # - Sidero & Talos:
+  #     - Introduction: sidero/sidero-intro.md
+  #     - Installation: sidero/sidero-install.md
+  #     - Retrieve talosconfig: sidero/retrieve_talosconfig.md
+  # - Diagrams:
+  #     - Network Map: diagrams/network-map.md
+  #     - Cluster Map: diagrams/cluster-map.md
+  # - Cluster:
+  #     - Bootstrap Workflow: cluster/bootstrap-workflow.md
+  # - Applications:
+  #     - k10: apps/k10.md
       # - Get Started: get-started/index.md
       # - Guides:
       #     - Installation: guides/installation.md
