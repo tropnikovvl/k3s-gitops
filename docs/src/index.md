@@ -1,4 +1,4 @@
-# Truxnell's Home-Cluster
+# teqqys Home-Cluster
 
 This [git repo]() is my homelab, stored in a declaritve yaml format.  This allows me to have a single source of written truth for my homelab, declaring how and where I want it setup.
 
