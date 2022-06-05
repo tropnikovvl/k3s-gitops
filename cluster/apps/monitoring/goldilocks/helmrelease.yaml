@@ -25,14 +25,11 @@ spec:
   values:
     dashboard:
       replicaCount: 1
-      ingress:
-        enabled: true
-        ingressClassName: "traefik"
-        hosts:
-          - host: &host "goldilocks.${SECRET_PUBLIC_DOMAIN}"
-            paths:
-              - path: /
-                type: Prefix
-        tls:
-          - hosts:
-              - *host
+    ingress:
+      enabled: true
+      ingressClassName: "traefik"
+      hosts:
+        - "goldilocks.${SECRET_DOMAIN}"
+      tls:
+        - hosts:
+            - "goldilocks.${SECRET_DOMAIN}"
