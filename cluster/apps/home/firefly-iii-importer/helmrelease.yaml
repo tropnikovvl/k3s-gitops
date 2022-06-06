@@ -26,8 +26,8 @@ spec:
     env:
       TZ: "${TZ}"
       FIREFLY_III_ACCESS_TOKEN: ${SECRET_FIREFLY_III_ACCESS_TOKEN}
-      FIREFLY_III_URL: firefly-iii.home.svc.cluster.local
-      VANITY_URL: https://firefly.${SECRET_DOMAIN}
+      FIREFLY_III_URL: "http://firefly-iii.home.svc.cluster.local:8080"
+      VANITY_URL: "https://firefly.${SECRET_DOMAIN}"
 
     service:
       main:
