@@ -28,6 +28,12 @@ spec:
       FIREFLY_III_ACCESS_TOKEN: ${SECRET_FIREFLY_III_ACCESS_TOKEN}
       FIREFLY_III_URL: firefly.${SECRET_DOMAIN}
 
+    service:
+      main:
+        ports:
+          http:
+            port: 8080
+
     ingress:
       main:
         enabled: true
@@ -52,3 +58,9 @@ spec:
         memory: 100Mi
       limits:
         memory: 500Mi
+
+    tolerations:
+      - key: "arch"
+        operator: "Equal"
+        value: "arm64"
+        effect: "NoSchedule"
