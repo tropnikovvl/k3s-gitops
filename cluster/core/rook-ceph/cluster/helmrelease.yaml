@@ -103,9 +103,9 @@ spec:
           - name: "k3s-04"
             devices:
               - name: "sdb"
-          # - name: "k3s-05"
-          #   devices:
-          #     - name: "sdb"
+          - name: "k3s-05"
+            devices:
+              - name: "sdb"
 
       resources:
         mgr:
