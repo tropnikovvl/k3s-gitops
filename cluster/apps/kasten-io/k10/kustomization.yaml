@@ -7,3 +7,4 @@ resources:
   - policies
   - profiles
   - helmrelease.yaml
+  - secret.sops.yaml
