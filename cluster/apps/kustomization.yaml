@@ -7,10 +7,10 @@ resources:
   - flux-system
   # - home
   # - home-automation
-  - kasten-io
+  # - kasten-io
   - kube-system
   - media
-  - monitoring
+  # - monitoring
   - network
   - rook-ceph
   - system-upgrade
