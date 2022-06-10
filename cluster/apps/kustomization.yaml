@@ -5,8 +5,8 @@ resources:
   - calico-system
   - cert-manager
   - flux-system
-  # - home
-  # - home-automation
+  - home
+  - home-automation
   - kasten-io
   - kube-system
   - media
