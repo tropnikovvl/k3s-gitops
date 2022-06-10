@@ -4,7 +4,7 @@ kind: Kustomization
 resources:
   # - freshrss
   # - ghostfolio
-  # - hajimari
+  - hajimari
   - node-red
-  # - paperless
+  - paperless
   # - recipes
