@@ -22,7 +22,7 @@ spec:
       nameOverride: *app
     image:
       repository: ghostfolio/ghostfolio
-      tag: 1.156.0
+      tag: 1.157.0
     env:
       TZ: "${TZ}"
       DATABASE_URL: ${SECRET_GHOSTFOLIO_DBURL}
