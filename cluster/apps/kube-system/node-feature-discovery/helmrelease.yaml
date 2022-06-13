@@ -91,10 +91,6 @@ spec:
                     device: ["0004"]
 
       tolerations:
-        - key: arm64
-          operator: Exists
-        - key: "node-role.kubernetes.io/master"
-          operator: "Exists"
         - effect: "NoExecute"
           operator: "Exists"
         - effect: "NoSchedule"
