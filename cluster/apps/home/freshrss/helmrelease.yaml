@@ -42,7 +42,6 @@ spec:
         enabled: true
         ingressClassName: "traefik"
         annotations:
-          kubernetes.io/tls-acme: "true"
           cert-manager.io/cluster-issuer: "letsencrypt-production"
           traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
           external-dns/is-public: "true"
@@ -56,14 +55,6 @@ spec:
           - secretName: freshrss-cert
             hosts:
               - "freshrss.${SECRET_DOMAIN}"
-
-    resources:
-      requests:
-        cpu: 15m
-        memory: 105M
-      limits:
-        cpu: 35m
-        memory: 205M
 
     tolerations:
       - key: "arch"
