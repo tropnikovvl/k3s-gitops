@@ -36,7 +36,6 @@ spec:
 
     ingress:
       dashboard:
-        enabled: true
         ingressClassName: "traefik"
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
@@ -44,14 +43,9 @@ spec:
           hajimari.io/enable: "true"
           hajimari.io/icon: "home-assistant"
         hosts:
-          - host: "rook.${SECRET_DOMAIN}"
-            paths:
-              - path: /
-                pathType: Prefix
-        tls:
-          - secretName: rook-cert
-            hosts:
-              - "rook.${SECRET_DOMAIN}"
+          name: "rook.${SECRET_DOMAIN}"
+          path: "/"
+
 
     cephClusterSpec:
       crashCollector:
