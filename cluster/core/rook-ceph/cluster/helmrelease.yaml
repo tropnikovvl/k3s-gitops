@@ -35,10 +35,11 @@ spec:
       enabled: true
 
     ingress:
-      ingressClassName: traefik
+      ingressClassName: "traefik"
       dashboard:
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
+          traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
           hajimari.io/enable: "true"
           hajimari.io/appName: "Rook"
         host:
