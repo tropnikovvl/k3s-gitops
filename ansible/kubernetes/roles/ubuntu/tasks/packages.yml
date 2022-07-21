@@ -13,6 +13,7 @@
 - name: Install common packages
   ansible.builtin.apt:
     name:
+      - apparmor-utils
       - apt-transport-https
       - arptables
       - ca-certificates
