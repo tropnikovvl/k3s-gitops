@@ -53,3 +53,9 @@ spec:
             podsHavingTooManyRestarts:
               podRestartThreshold: 100
               includingInitContainers: true
+
+    tolerations:
+      - key: "arch"
+        operator: "Equal"
+        value: "arm64"
+        effect: "NoSchedule"
