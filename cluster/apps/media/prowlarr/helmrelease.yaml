@@ -67,20 +67,8 @@ spec:
         mountPath: /config/Backups
         readOnly: false
 
-    affinity:
-      nodeAffinity:
-        requiredDuringSchedulingIgnoredDuringExecution:
-          nodeSelectorTerms:
-            - matchExpressions:
-                - key: kubernetes.io/arch
-                  operator: In
-                  values:
-                    - "amd64"
-
-    resources:
-      requests:
-        cpu: 15m
-        memory: 145M
-      limits:
-        cpu: 35m
-        memory: 794M
+    tolerations:
+      - key: "arch"
+        operator: "Equal"
+        value: "arm64"
+        effect: "NoSchedule"

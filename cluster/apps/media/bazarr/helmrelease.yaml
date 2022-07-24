@@ -77,13 +77,6 @@ spec:
       supplementalGroups:
         - 100
 
-    resources:
-      requests:
-        cpu: "0.04"
-        memory: "256M"
-      limits:
-        memory: "512M"
-
     tolerations:
       - key: "arch"
         operator: "Equal"

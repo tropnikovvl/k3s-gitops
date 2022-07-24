@@ -91,10 +91,3 @@ spec:
             path: /mnt/user/k3s-backup/radarr-uhd
         mountPath: /config/Backups
         readOnly: false
-
-    resources:
-      requests:
-        cpu: 100m
-        memory: 250Mi
-      limits:
-        memory: 2000Mi

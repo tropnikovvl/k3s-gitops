@@ -92,13 +92,6 @@ spec:
       supplementalGroups:
         - 100
 
-    resources:
-      requests:
-        cpu: 100m
-        memory: 250Mi
-      limits:
-        memory: 2000Mi
-
     tolerations:
       - key: "arch"
         operator: "Equal"
