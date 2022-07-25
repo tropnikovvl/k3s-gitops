@@ -28,9 +28,3 @@ spec:
       - --delete-evicted-pods-after=60m
       - --delete-orphaned-pods-after=60m
       - --legacy-mode=false
-
-    tolerations:
-      - key: "arch"
-        operator: "Equal"
-        value: "arm64"
-        effect: "NoSchedule"
