@@ -206,7 +206,7 @@ spec:
           hajimari.io/enable: "true"
           hajimari.io/icon: "database-search-outline"
         hosts:
-          - &host "prometheus.${SECRET_PUBLIC_DOMAIN}"
+          - &host "prometheus.${SECRET_DOMAIN}"
         tls:
           - hosts:
               - *host
