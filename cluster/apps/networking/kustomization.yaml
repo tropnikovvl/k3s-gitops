@@ -2,9 +2,9 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
+  - namespace.yaml
   - cloudflare-ddns
   - external-dns
   - home-dns
+  - ingress-nginx
   - network-ups-tools
-  - traefik
-  - wildcard-certificate

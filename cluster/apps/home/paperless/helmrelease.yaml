@@ -17,11 +17,14 @@ spec:
         namespace: flux-system
       interval: 5m
 
-  dependsOn:
-    - name: traefik
-      namespace: network
-    - name: rook-ceph
-      namespace: rook-ceph
+  install:
+    createNamespace: true
+    remediation:
+      retries: 5
+
+  upgrade:
+    remediation:
+      retries: 5
 
   # See https://github.com/k8s-at-home/charts/blob/master/charts/paperless/values.yaml
   values:
