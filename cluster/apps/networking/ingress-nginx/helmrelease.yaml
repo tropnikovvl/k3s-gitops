@@ -22,9 +22,9 @@ spec:
   upgrade:
     remediation:
       retries: 5
-  dependsOn:
-    - name: cert-manager
-      namespace: cert-manager
+  # dependsOn:
+  #   - name: cert-manager
+  #     namespace: cert-manager
   values:
     controller:
       replicaCount: 3
@@ -62,14 +62,14 @@ spec:
             any: true
       extraArgs:
         default-ssl-certificate: "networking/${SECRET_DOMAIN/./-}-tls"
-      topologySpreadConstraints:
-        - maxSkew: 1
-          topologyKey: kubernetes.io/hostname
-          whenUnsatisfiable: DoNotSchedule
-          labelSelector:
-            matchLabels:
-              app.kubernetes.io/name: ingress-nginx
-              app.kubernetes.io/component: controller
+      # topologySpreadConstraints:
+      #   - maxSkew: 1
+      #     topologyKey: kubernetes.io/hostname
+      #     whenUnsatisfiable: DoNotSchedule
+      #     labelSelector:
+      #       matchLabels:
+      #         app.kubernetes.io/name: ingress-nginx
+      #         app.kubernetes.io/component: controller
       podAnnotations:
         configmap.reloader.stakater.com/reload: "cloudflare-proxied-networks"
       resources:
