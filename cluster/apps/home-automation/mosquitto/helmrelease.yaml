@@ -46,16 +46,12 @@ spec:
         externalTrafficPolicy: Local
 
     persistence:
-      data:
-        enabled: true
-        accessMode: ReadWriteOnce
-        size: 1Gi
-        storageClassName: ceph-block
       configinc:
         enabled: true
-        accessMode: ReadWriteOnce
-        size: 1Gi
-        storageClassName: ceph-block
+        existingClaim: mosquitto-config-v1
+      data:
+        enabled: true
+        existingClaim: mosquitto-data-v1
 
     resources:
       requests:

@@ -71,7 +71,7 @@ spec:
     persistence:
       config:
         enabled: true
-        existingClaim: zwavejs2mqtt-data-v1
+        existingClaim: zwavejs2mqtt-config-v1
       usb:
         enabled: true
         hostPath: /dev/serial/by-id/usb-0658_0200-if00
