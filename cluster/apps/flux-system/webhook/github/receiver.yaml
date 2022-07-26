@@ -14,30 +14,30 @@ spec:
   resources:
     - apiVersion: source.toolkit.fluxcd.io/v1beta2
       kind: GitRepository
-      name: flux-system
+      name: flux-cluster
       namespace: flux-system
-
     - apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
       kind: Kustomization
       name: apps
       namespace: flux-system
-
+    - apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+      kind: Kustomization
+      name: charts
+      namespace: flux-system
+    - apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+      kind: Kustomization
+      name: config
+      namespace: flux-system
     - apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
       kind: Kustomization
       name: core
       namespace: flux-system
-
+    - apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+      kind: Kustomization
+      name: flux-cluster
+      namespace: flux-system
     - apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
       kind: Kustomization
       name: crds
       namespace: flux-system
 
-    - apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
-      kind: Kustomization
-      name: flux-system
-      namespace: flux-system
-
-    - apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
-      kind: Kustomization
-      name: traefik-crds
-      namespace: flux-system
