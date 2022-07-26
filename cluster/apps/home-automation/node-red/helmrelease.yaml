@@ -65,7 +65,6 @@ spec:
       supplementalGroups:
         - 1000
 
-
     persistence:
       data:
         enabled: true
