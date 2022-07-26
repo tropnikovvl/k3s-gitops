@@ -71,9 +71,7 @@ spec:
     persistence:
       config:
         enabled: true
-        accessMode: ReadWriteOnce
-        size: 2Gi
-        storageClassName: "ceph-block"
+        existingClaim: node-red-data-v1
       usb:
         enabled: true
         hostPath: /dev/serial/by-id/usb-0658_0200-if00
