@@ -18,7 +18,7 @@ spec:
       interval: 5m
 
   dependsOn:
-    - name: nginx
+    - name: ingress-nginx
       namespace: networking
     - name: rook-ceph
       namespace: rook-ceph
