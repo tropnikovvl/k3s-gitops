@@ -32,21 +32,19 @@ spec:
     ingress:
       main:
         enabled: true
-        ingressClassName: "traefik"
+        ingressClassName: "nginx"
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
-          traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
           hajimari.io/enable: "true"
           hajimari.io/icon: "filmstrip"
         hosts:
-          - host: "ombi.${SECRET_DOMAIN}"
+          - host: &host "ombi.${SECRET_DOMAIN}"
             paths:
               - path: /
                 pathType: Prefix
         tls:
-          - secretName: ombi-cert
-            hosts:
-              - "ombi.${SECRET_DOMAIN}"
+          - hosts:
+              - *host
 
     persistence:
       config:
