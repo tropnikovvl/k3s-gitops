@@ -1,11 +1,11 @@
 ---
-apiVersion: source.toolkit.fluxcd.io/v1beta2
+apiVersion: source.toolkit.fluxcd.io/v1beta1
 kind: GitRepository
 metadata:
-  name: flux-cluster
+  name: flux-system
   namespace: flux-system
 spec:
-  interval: 10m
+  interval: 1m0s
   ref:
     branch: main
   url: https://github.com/cbirkenbeul/k3s-gitops
@@ -13,13 +13,16 @@ spec:
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
 kind: Kustomization
 metadata:
-  name: flux-cluster
+  name: flux-system
   namespace: flux-system
 spec:
-  interval: 10m
-  path: ./cluster/flux
+  interval: 10m0s
+  path: ./cluster/base
   prune: true
-  wait: false
   sourceRef:
     kind: GitRepository
-    name: flux-cluster
+    name: flux-system
+  decryption:
+    provider: sops
+    secretRef:
+      name: sops-age
