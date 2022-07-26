@@ -81,16 +81,19 @@ spec:
       ingress:
         enabled: true
         pathType: Prefix
-        ingressClassName: "traefik"
+        ingressClassName: "nginx"
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
-          traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+          hajimari.io/enable: "true"
+          hajimari.io/icon: "fire-alert"
         hosts:
-          - "alert-manager.${SECRET_DOMAIN}"
+          - host: &host "alertmanager.${SECRET_DOMAIN}"
+            paths:
+              - path: /
+                pathType: Prefix
         tls:
           - hosts:
-              - "alert-manager.${SECRET_DOMAIN}"
-            secretName: alert-manager-cert
+              - *host
       alertmanagerSpec:
         storage:
           volumeClaimTemplate:
@@ -198,16 +201,17 @@ spec:
       ingress:
         enabled: true
         pathType: Prefix
-        ingressClassName: "traefik"
+        ingressClassName: "nginx"
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
-          traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+          hajimari.io/enable: "true"
+          hajimari.io/icon: "database-search-outline"
         hosts:
-          - "prometheus.${SECRET_DOMAIN}"
-        tls:
-          - hosts:
-              - "prometheus.${SECRET_DOMAIN}"
-            secretName: prom-server-cert
+          - host: &host "prometheus.${SECRET_DOMAIN}"
+            paths:
+              - path: /
+                pathType: Prefix
+
       resources:
         requests:
           memory: 512Mi
