@@ -53,19 +53,17 @@ spec:
               - *host
       api:
         enabled: true
-        ingressClassName: "traefik"
+        ingressClassName: "nginx"
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
-          traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
         hosts:
-          - host: "radarr.${SECRET_DOMAIN}"
+          - host: &host "radarr.${SECRET_DOMAIN}"
             paths:
               - path: /api
                 pathType: Prefix
         tls:
-          - secretName: radarr-cert
-            hosts:
-              - "radarr.${SECRET_DOMAIN}"
+          - hosts:
+              - *host
 
     persistence:
       config:
