@@ -20,7 +20,7 @@
 "repositories": ["cbirkenbeul/k3s-gitops"],
 "onboarding": false,
 "requireConfig": false,
-"gitAuthor": "rosey-bot <98030736+rosey-bot[bot]@users.noreply.github.com>",
+"gitAuthor": "Renovate Bot <bot@renovateapp.com>",
 "dependencyDashboardTitle": "Renovate Dashboard 🤖",
 "suppressNotifications": ["prIgnoreNotification"],
 "rebaseWhen": "conflicted",
