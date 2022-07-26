@@ -17,10 +17,10 @@ spec:
         namespace: flux-system
 
   dependsOn:
-    - name: traefik
-      namespace: network
-    - name: kube-prometheus-stack
-      namespace: monitoring
+    - name: ingress-nginx
+      namespace: networking
+    - name: rook-ceph
+      namespace: rook-ceph
 
   install:
     createNamespace: true

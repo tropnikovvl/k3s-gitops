@@ -26,6 +26,12 @@ spec:
     remediation:
       retries: 5
 
+  dependsOn:
+    - name: ingress-nginx
+      namespace: networking
+    - name: rook-ceph
+      namespace: rook-ceph
+
   values:
     image:
       repository: vabene1111/recipes

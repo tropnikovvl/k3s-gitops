@@ -26,6 +26,12 @@ spec:
     remediation:
       retries: 5
 
+  dependsOn:
+    - name: ingress-nginx
+      namespace: networking
+    - name: rook-ceph
+      namespace: rook-ceph
+
   # See https://github.com/k8s-at-home/charts/blob/master/charts/paperless/values.yaml
   values:
     image:
