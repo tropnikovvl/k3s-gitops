@@ -130,67 +130,54 @@
     },
     // packages with loose versioning
     {
-      "matchDatasources": [
-        "docker",
-        "github-releases"
-      ],
-      "versioning": "loose",
-      "matchPackageNames": [
-        "ghcr.io/k8s-at-home/plex",
-        "ghcr.io/k8s-at-home/qbittorrent",
-        "Hypfer/Valetudo"
-      ]
-    },
-    // group packages
-    {
-      "groupName": "rook-ceph-suite",
-      "matchDatasources": [
-        "docker",
-        "helm"
-      ],
-      "matchPackagePatterns": [
-        "^rook.ceph"
-      ],
-      "additionalBranchPrefix": "",
+      "description": "Cert-Manager image (for CRDs) and chart",
+      "groupName": "Cert-Manager",
+      "matchPackagePatterns": ["cert-manager"],
+      "matchDatasources": ["docker", "helm"],
+      "group": { "commitMessageTopic": "{{{groupName}}} group" },
       "separateMinorPatch": true
     },
     {
-      "groupName": "external-snapshotter-suite",
-      "matchDatasources": [
-        "docker",
-        "github-releases"
-      ],
-      "matchPackagePatterns": [
-        "external-snapshotter",
-        "snapshot-controller"
-      ],
-      "additionalBranchPrefix": "",
+      "description": "External Snapshotter kustomization (for CRDs) and chart",
+      "groupName": "External Snapshotter",
+      "matchPackagePatterns": ["external-snapshotter", "snapshot-controller"],
+      "matchDatasources": ["docker", "github-tags"],
+      "group": { "commitMessageTopic": "{{{groupName}}} group" },
       "separateMinorPatch": true
     },
     {
-      "groupName": "system-upgrade-controller-suite",
-      "matchDatasources": [
-        "docker",
-        "github-tags"
-      ],
-      "matchPackagePatterns": [
-        "rancher/system-upgrade-controller"
-      ],
-      "additionalBranchPrefix": "",
+      "description": "Node Feature Discovery kustomization (for CRDs) and chart",
+      "groupName": "Node Feature Discovery",
+      "matchPackagePatterns": ["node-feature-discovery"],
+      "matchDatasources": ["helm", "github-tags"],
+      "group": { "commitMessageTopic": "{{{groupName}}} group" },
       "separateMinorPatch": true
     },
     {
-      "groupName": "vector-suite",
-      "matchDatasources": [
-        "docker",
-        "github-releases",
-        "helm"
-      ],
-      "matchPackagePatterns": [
-        "vector"
-      ],
-      "additionalBranchPrefix": "",
+      "description": "Rook-Ceph image and chart",
+      "groupName": "Rook-Ceph",
+      "matchPackagePatterns": ["rook.ceph"],
+      "matchDatasources": ["docker", "helm"],
+      "group": { "commitMessageTopic": "{{{groupName}}} group" },
       "separateMinorPatch": true
+    },
+    {
+      "description": "Thanos image and chart - mismatched versions",
+      "groupName": "Thanos",
+      "matchPackagePatterns": ["thanos"],
+      "matchDatasources": ["docker", "github-releases", "helm"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "group": { "commitMessageTopic": "{{{groupName}}} group" },
+      "separateMinorPatch": false
+    },
+    {
+      "description": "Vector image and chart - mismatched versions",
+      "groupName": "Vector",
+      "matchPackagePatterns": ["vector"],
+      "matchDatasources": ["docker", "github-releases", "helm"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "group": { "commitMessageTopic": "{{{groupName}}} group" },
+      "separateMinorPatch": false
     }
   ]
 }
