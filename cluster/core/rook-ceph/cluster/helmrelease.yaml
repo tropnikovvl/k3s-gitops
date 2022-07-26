@@ -35,20 +35,20 @@ spec:
       enabled: true
 
     ingress:
-      ingressClassName: traefik
+      ingressClassName: nginx
       dashboard:
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
           hajimari.io/enable: "true"
           hajimari.io/appName: "Rook"
-          traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
-        host:
-          name: "rook.${SECRET_DOMAIN}"
-          path: "/"
+        hosts:
+          - host: &host "rook.${SECRET_DOMAIN}"
+            paths:
+              - path: /
+                pathType: Prefix
         tls:
-          - secretName: tls.rook
-            hosts:
-              - "rook.${SECRET_DOMAIN}"
+          - hosts:
+              - *host
 
     cephClusterSpec:
       crashCollector:

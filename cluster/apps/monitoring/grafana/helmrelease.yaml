@@ -39,7 +39,6 @@ spec:
       GF_EXPLORE_ENABLED: true
       GF_PANELS_DISABLE_SANITIZE_HTML: true
       GF_LOG_FILTERS: rendering:debug
-      VAR_BLOCKY_URL: "http://blocky.network.svc.cluster.local:4000"
 
     grafana.ini:
       server:
@@ -63,7 +62,7 @@ spec:
 
     ingress:
       enabled: true
-      ingressClassName: "traefik"
+      ingressClassName: "nginx"
       annotations:
         cert-manager.io/cluster-issuer: "letsencrypt-production"
         hajimari.io/enable: "true"
@@ -71,12 +70,14 @@ spec:
         external-dns/is-public: "true"
         external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
 
-      hosts:
-        - "grafana.${SECRET_DOMAIN}"
-      tls:
-        - hosts:
-            - "grafana.${SECRET_DOMAIN}"
-          secretName: grafana-tls
+        hosts:
+          - host: &host "grafana.${SECRET_DOMAIN}"
+            paths:
+              - path: /
+                pathType: Prefix
+        tls:
+          - hosts:
+              - *host
 
     plugins:
       - natel-discrete-panel
