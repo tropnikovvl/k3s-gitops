@@ -13,6 +13,7 @@ resources:
   - grafana-loki-charts.yaml
   - hajimari-charts.yaml
   - infracloudio-charts.yaml
+  - ingress-nginx-charts.yaml
   - jetstack-charts.yaml
   - k8s-at-home-charts.yaml
   - k8s-gateway-charts.yaml
@@ -25,5 +26,4 @@ resources:
   - reflector-charts.yaml
   - rook-ceph-charts.yaml
   - stakater-charts.yaml
-  - traefik-charts.yaml
   - weaveworks-kured-charts.yaml
