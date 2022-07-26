@@ -69,21 +69,19 @@ spec:
     ingress:
       main:
         enabled: true
-        ingressClassName: "traefik"
+        ingressClassName: "nginx"
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
-          traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
           hajimari.io/enable: "true"
           hajimari.io/icon: "note-multiple"
         hosts:
-          - host: "dms.${SECRET_DOMAIN}"
+          - host: &host "dms.${SECRET_DOMAIN}"
             paths:
               - path: /
                 pathType: Prefix
         tls:
-          - secretName: paperless-cert
-            hosts:
-              - "dms.${SECRET_DOMAIN}"
+          - hosts:
+              - *host
 
     resources:
       requests:
