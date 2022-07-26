@@ -33,7 +33,7 @@ spec:
           value: "${TZ}"
       service:
         externalIPs:
-          - "${SVC_NGINX_ADDR}"
+          - "${LB_INGRESS}"
         externalTrafficPolicy: Local
       publishService:
         enabled: true
