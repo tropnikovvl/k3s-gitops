@@ -78,6 +78,7 @@ spec:
             target_match:
               severity: 'warning'
             equal: ['alertname', 'namespace']
+
       ingress:
         enabled: true
         pathType: Prefix
@@ -87,13 +88,11 @@ spec:
           hajimari.io/enable: "true"
           hajimari.io/icon: "fire-alert"
         hosts:
-          - host: &host "alertmanager.${SECRET_DOMAIN}"
-            paths:
-              - path: /
-                pathType: Prefix
+          - &host "alert-manager.${SECRET_DOMAIN}"
         tls:
           - hosts:
               - *host
+
       alertmanagerSpec:
         storage:
           volumeClaimTemplate:
@@ -207,10 +206,10 @@ spec:
           hajimari.io/enable: "true"
           hajimari.io/icon: "database-search-outline"
         hosts:
-          - host: &host "prometheus.${SECRET_DOMAIN}"
-            paths:
-              - path: /
-                pathType: Prefix
+          - &host "prometheus.${SECRET_PUBLIC_DOMAIN}"
+        tls:
+          - hosts:
+              - *host
 
       resources:
         requests:
