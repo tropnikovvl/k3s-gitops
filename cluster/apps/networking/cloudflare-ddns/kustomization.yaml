@@ -4,7 +4,7 @@ kind: Kustomization
 resources:
   - cron-job.yaml
   - secret.sops.yaml
-namespace: network
+namespace: networking
 configMapGenerator:
   - name: cloudflare-ddns
     files:
