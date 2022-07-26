@@ -37,9 +37,9 @@ spec:
         profile:
           name: home
           namespace: kasten-io
-        migrationToken:
-          name: home-backup-migration-token-sbgnr
-          namespace: kasten-io
+        # migrationToken:
+        #   name: home-backup-migration-token-sbgnr
+        #   namespace: kasten-io
         exportData:
           enabled: true
       retention: {}
