@@ -10,12 +10,12 @@ vars:
 
 dotenv: [".config.env"]
 
-env:
-  KUBECONFIG: "{{.PROJECT_DIR}}/provision/kubeconfig"
+# env:
+#   KUBECONFIG: "~/.kube/config"
 
-# includes:
+includes:
 #   ansible: .taskfiles/AnsibleTasks.yml
-#   cluster: .taskfiles/ClusterTasks.yml
+  cluster: .taskfiles/ClusterTasks.yml
 #   precommit: .taskfiles/PrecommitTasks.yml
 #   terraform: .taskfiles/TerraformTasks.yml
 

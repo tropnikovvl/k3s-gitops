@@ -4,7 +4,7 @@ kind: Kustomization
 resources:
   # - blueprints
   - monitoring
-  - policies
-  - profiles
+  # - policies
+  # - profiles
   - helmrelease.yaml
   - secret.sops.yaml
