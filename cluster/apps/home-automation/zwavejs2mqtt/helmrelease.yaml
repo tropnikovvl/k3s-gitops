@@ -48,21 +48,19 @@ spec:
     ingress:
       main:
         enabled: true
-        ingressClassName: "traefik"
+        ingressClassName: "nginx"
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
-          traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
           hajimari.io/enable: "true"
           hajimari.io/icon: "z-wave"
         hosts:
-          - host: "zwave.${SECRET_DOMAIN}"
+          - host: &host "zwave.${SECRET_DOMAIN}"
             paths:
               - path: /
                 pathType: Prefix
         tls:
-          - secretName: zwavejs2mqtt-cert
-            hosts:
-              - "zwave.${SECRET_DOMAIN}"
+          - hosts:
+              - *host
 
     persistence:
       config:
