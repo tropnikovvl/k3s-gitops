@@ -37,9 +37,9 @@ spec:
         profile:
           name: home
           namespace: kasten-io
-        # migrationToken:
-        #   name: home-backup-migration-token-sfx2p
-        #   namespace: kasten-io
+        migrationToken:
+          name: home-backup-migration-token-hfs4f
+          namespace: kasten-io
         exportData:
           enabled: true
       retention: {}
