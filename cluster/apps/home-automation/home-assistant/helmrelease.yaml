@@ -105,7 +105,7 @@ spec:
             hajimari.io/enable: "true"
             hajimari.io/icon: "microsoft-visual-studio-code"
           hosts:
-            - host: &host "ha-code.${SECRET_DOMAIN}"
+            - host: &host "ha-vscode.${SECRET_DOMAIN}"
               paths:
                 - path: /
                   pathType: Prefix
