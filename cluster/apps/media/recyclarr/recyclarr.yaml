@@ -9,7 +9,7 @@
 # https://github.com/rcdailey/trash-updater/wiki/Configuration-Reference
 
 sonarr:
-  - base_url: http://sonarr
+  - base_url: http://sonarr.media.svc.cluster.local:8989
     api_key: ${SONARR_APIKEY}
     quality_definition: hybrid
     release_profiles:
@@ -20,7 +20,7 @@ sonarr:
 
 
 radarr:
-  - base_url: http://radarr
+  - base_url: http://radarr.media.svc.cluster.local:7878
     api_key: ${RADARR_APIKEY}
     delete_old_custom_formats: true
     quality_definition:
