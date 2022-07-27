@@ -186,7 +186,7 @@ radarr:
 #           - name: UHD
 #             score: 0
 
-  - base_url: http://radarr-kids
+  - base_url: http://radarr-kids.media.svc.cluster.local:7878
     api_key: ${RADARR_KIDS_APIKEY}
     delete_old_custom_formats: true
     quality_definition:
