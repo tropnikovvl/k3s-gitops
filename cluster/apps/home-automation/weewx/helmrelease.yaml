@@ -31,6 +31,12 @@ spec:
     env:
       TZ: "${TZ}"
 
+    service:
+      main:
+        ports:
+          http:
+            port: *port
+
     persistence:
       config:
         enabled: true
