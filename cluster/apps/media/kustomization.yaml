@@ -10,6 +10,6 @@ resources:
   - radarr
   - radarr-kids
   - radarr-uhd
-  - recyclarr
+ # - recyclarr
   - sabnzbd
   - sonarr
