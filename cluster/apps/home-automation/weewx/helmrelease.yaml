@@ -27,7 +27,7 @@ spec:
       nameOverride: *app
     image:
       repository: docker.io/felddy/weewx
-      tag: 4.8
+      tag: latest
     env:
       TZ: "${TZ}"
 
