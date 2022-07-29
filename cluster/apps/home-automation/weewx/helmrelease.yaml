@@ -33,9 +33,7 @@ spec:
 
     service:
       main:
-        ports:
-          http:
-            port: *port
+        enabled: false
 
     persistence:
       config:
