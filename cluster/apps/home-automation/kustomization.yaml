@@ -6,5 +6,5 @@ resources:
   - home-assistant
   - mosquitto
   - node-red
-  # - weewx
+  - weewx
   - zwavejs2mqtt

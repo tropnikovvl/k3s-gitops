@@ -26,8 +26,8 @@ spec:
     global:
       nameOverride: *app
     image:
-      repository: felddy/weewx
-      tag: 4.8
+      repository: ghcr.io/felddy/weewx
+      tag: nightly
 
     env:
       TZ: "${TZ}"
