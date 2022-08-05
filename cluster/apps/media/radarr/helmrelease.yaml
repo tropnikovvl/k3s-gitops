@@ -102,6 +102,15 @@ spec:
           port: 9794
           additionalMetrics: true
           unknownQueueItems: true
+        resources:
+          requests:
+            cpu: 11m
+            memory: 37M
+
+    resources:
+      requests:
+        cpu: 671m
+        memory: 717M
 
     podSecurityContext:
       runAsUser: 568

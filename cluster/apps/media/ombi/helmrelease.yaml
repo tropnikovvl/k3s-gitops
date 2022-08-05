@@ -53,6 +53,11 @@ spec:
         enabled: true
         existingClaim: ombi-config-v1
 
+    resources:
+      requests:
+        cpu: 15m
+        memory: 184M
+
     tolerations:
       - key: "arch"
         operator: "Equal"

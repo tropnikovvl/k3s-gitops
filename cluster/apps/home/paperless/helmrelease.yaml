@@ -91,11 +91,8 @@ spec:
 
     resources:
       requests:
-        cpu: 10m
-        memory: 379M
-      limits:
-        cpu: 73m
-        memory: 1218M
+        cpu: 11m
+        memory: 381M
 
     additionalContainers:
       - name: broker
@@ -104,5 +101,5 @@ spec:
 
         resources:
           requests:
-            cpu: 100m
-            memory: 1G
+            cpu: 11m
+            memory: 32M

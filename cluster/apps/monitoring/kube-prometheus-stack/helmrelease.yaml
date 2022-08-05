@@ -102,6 +102,11 @@ spec:
                 requests:
                   storage: 1Gi
 
+      resources:
+        requests:
+          cpu: 11m
+          memory: 37M
+
     kube-state-metrics:
       fullnameOverride: kube-state-metrics
 

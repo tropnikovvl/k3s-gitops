@@ -90,6 +90,11 @@ spec:
     podAnnotations:
       secret.reloader.stakater.com/reload: home-assistant-secrets
 
+    resources:
+      requests:
+        cpu: 35m
+        memory: 324M
+
     addons:
       codeserver:
         enabled: true
@@ -127,3 +132,8 @@ spec:
         volumeMounts:
           - name: config
             mountPath: /config
+
+        resources:
+          requests:
+            cpu: 11m
+            memory: 94M

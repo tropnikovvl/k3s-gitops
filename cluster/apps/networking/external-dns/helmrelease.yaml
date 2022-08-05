@@ -42,9 +42,8 @@ spec:
     txtOwnerId: "default"
     domainFilters:
       - "${SECRET_DOMAIN}"
+
     resources:
       requests:
-        memory: 100Mi
-        cpu: 25m
-      limits:
-        memory: 250Mi
+        cpu: 15m
+        memory: 64M

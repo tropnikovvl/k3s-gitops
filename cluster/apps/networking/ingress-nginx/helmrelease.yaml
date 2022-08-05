@@ -72,12 +72,12 @@ spec:
       #         app.kubernetes.io/component: controller
       podAnnotations:
         configmap.reloader.stakater.com/reload: "cloudflare-proxied-networks"
-      resources:
-        requests:
-          cpu: 10m
-          memory: 250Mi
-        limits:
-          memory: 500Mi
+
+    resources:
+      requests:
+        cpu: 23m
+        memory: 226M
+
     defaultBackend:
       enabled: true
       image:
