@@ -10,3 +10,4 @@ resources:
   - promtail
   - thanos
   - uptimerobot-heartbeat
+  - vpa
