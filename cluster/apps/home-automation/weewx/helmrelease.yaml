@@ -33,8 +33,9 @@ spec:
       TZ: "${TZ}"
 
     podSecurityContext:
-      supplementalGroups:
-        - 421
+      runAsUser: 421
+      runAsGroup: 421
+      fsGroup: 421
 
     service:
       main:
