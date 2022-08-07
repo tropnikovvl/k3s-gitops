@@ -35,10 +35,7 @@ spec:
         storageClass: ceph-block
     auth:
       tokenAuth:
-        enabled: false
-      basicAuth:
         enabled: true
-        htpasswd: 'teqqy:$apr1$1yv0iamj$xMFFeAuvhOSWp4zUtHVrM.'
     clusterName: k8s
     ingress:
       create: true
