@@ -36,7 +36,7 @@ spec:
   values:
     image:
       repository: ghcr.io/paperless-ngx/paperless-ngx
-      tag: ngx-1.8.0
+      tag: "1.8"
 
     env:
       TZ: "${TZ}"
