@@ -40,11 +40,11 @@ spec:
 
     env:
       TZ: "${TZ}"
-      APP_URL: https://monica.{$SECRET_DOMAIN}
-      DB_HOST: "{$SECRET_MONICA_MYSQL_HOST}"
-      DB_DATABASE: monica
-      DB_USERNAME: "{$SECRET_MONICA_MYSQL_USER}"
-      DB_PASSWORD: "{$SECRET_MONICA_MYSQL_PASSWORD}"
+      APP_URL: https://monica.${SECRET_DOMAIN}
+      DB_HOST: "${SECRET_MONICA_MYSQL_HOST}"
+      DB_DATABASE: "monica"
+      DB_USERNAME: "${SECRET_MONICA_MYSQL_USER}"
+      DB_PASSWORD: "${SECRET_MONICA_MYSQL_PASSWORD}"
 
     persistence:
       config:
