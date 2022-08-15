@@ -5,6 +5,7 @@ resources:
   - namespace.yaml
   - freshrss
   - hajimari
+  - monica
   - paperless
   - recipes
   - theme-park
