@@ -35,19 +35,22 @@ spec:
       enabled: true
 
     ingress:
-      ingressClassName: nginx
       dashboard:
+        ingressClassName: "nginx"
         annotations:
+          nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
           cert-manager.io/cluster-issuer: "letsencrypt-production"
+          external-dns/is-public: "false"
           hajimari.io/enable: "true"
-          hajimari.io/appName: "Rook"
-        hosts:
-          - host: &host "rook.${SECRET_DOMAIN}"
-            paths:
-              - path: /
-                pathType: Prefix
+          hajimari.io/icon: content-save
+          hajimari.io/appName: "rook-ceph"
+
+        host:
+          name: &host "rook.${SECRET_DOMAIN}"
+          path: "/"
         tls:
-          - hosts:
+          - secretName: tls.rook-ceph
+            hosts:
               - *host
 
     cephClusterSpec:
