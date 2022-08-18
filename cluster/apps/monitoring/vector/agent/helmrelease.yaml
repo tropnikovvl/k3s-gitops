@@ -5,17 +5,16 @@ metadata:
   name: vector-agent
   namespace: monitoring
 spec:
-  interval: 15m
+  interval: 10m
   chart:
     spec:
       chart: vector
       version: 0.15.1
       sourceRef:
         kind: HelmRepository
-        name: vector-charts
+        name: vector
         namespace: flux-system
   install:
-    createNamespace: true
     remediation:
       retries: 5
   upgrade:
@@ -23,7 +22,6 @@ spec:
       retries: 5
   dependsOn:
     - name: vector-aggregator
-      namespace: monitoring
   values:
     image:
       repository: timberio/vector
@@ -33,7 +31,6 @@ spec:
       data_dir: /vector-data-dir
       api:
         enabled: false
-      # Sources
       sources:
         journal_logs:
           type: journald
@@ -48,21 +45,20 @@ spec:
             pod_name: "pod_name"
         vector_metrics:
           type: internal_metrics
-      # Sinks
       sinks:
-        loki_journal_sink:
+        loki_journal:
           type: vector
           inputs:
             - journal_logs
           address: vector-aggregator:6000
           version: "2"
-        loki_kubernetes_sink:
+        loki_kubernetes:
           type: vector
           inputs:
             - kubernetes_logs
           address: vector-aggregator:6010
           version: "2"
-        prometheus_sink:
+        prom_exporter:
           type: prometheus_exporter
           inputs:
             - vector_metrics
@@ -71,7 +67,10 @@ spec:
       enabled: false
     podMonitor:
       enabled: true
-      jobLabel: vector-agent
-      port: prometheus-sink
     securityContext:
       privileged: true
+    tolerations:
+      - effect: NoSchedule
+        operator: Exists
+      - effect: NoExecute
+        operator: Exists

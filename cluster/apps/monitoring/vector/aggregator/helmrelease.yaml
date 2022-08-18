@@ -5,17 +5,16 @@ metadata:
   name: vector-aggregator
   namespace: monitoring
 spec:
-  interval: 15m
+  interval: 10m
   chart:
     spec:
       chart: vector
       version: 0.15.1
       sourceRef:
         kind: HelmRepository
-        name: vector-charts
+        name: vector
         namespace: flux-system
   install:
-    createNamespace: true
     remediation:
       retries: 5
   upgrade:
@@ -23,20 +22,15 @@ spec:
       retries: 5
   dependsOn:
     - name: loki
-      namespace: monitoring
   values:
     image:
       repository: timberio/vector
       tag: 0.23.3-debian
     role: Stateless-Aggregator
-    replicas: 3
     customConfig:
       data_dir: /vector-data-dir
       api:
         enabled: false
-      #
-      # Sources
-      #
       sources:
         journal_logs:
           type: vector
@@ -46,15 +40,8 @@ spec:
           type: vector
           address: 0.0.0.0:6010
           version: "2"
-        opnsense_filterlog_logs:
-          type: syslog
-          address: 0.0.0.0:5140
-          mode: udp
         vector_metrics:
           type: internal_metrics
-      #
-      # Transformations
-      #
       transforms:
         kubernetes_logs_remap:
           type: remap
@@ -63,10 +50,6 @@ spec:
           source: |
             # Standardize 'app' index
             .custom_app_name = .pod_labels."app.kubernetes.io/name" || .pod_labels.app || .pod_labels."k8s-app" || "unknown"
-
-      #
-      # Sinks
-      #
       sinks:
         loki_journal:
           type: loki
@@ -102,20 +85,7 @@ spec:
               {{`{{ kubernetes.pod_namespace }}`}}
             node: >-
               {{`{{ kubernetes.pod_node_name }}`}}
-        loki_opnsense_filterlog:
-          type: loki
-          inputs:
-            - opnsense_filterlog_route._unmatched
-            - opnsense_filterlog_geoip
-          endpoint: http://loki-gateway:80
-          encoding:
-            codec: json
-          batch:
-            max_bytes: 2049000
-          out_of_order_action: accept
-          labels:
-            hostname: opnsense
-        prometheus_sink:
+        prom_exporter:
           type: prometheus_exporter
           inputs:
             - vector_metrics
@@ -123,22 +93,10 @@ spec:
     service:
       enabled: true
       type: LoadBalancer
+      annotations:
+        metallb.universe.tf/loadBalancerIPs: "${LB_VECTOR}"
     podMonitor:
       enabled: true
-      jobLabel: vector-aggregator
-      port: prometheus-sink
-    affinity:
-      podAntiAffinity:
-        preferredDuringSchedulingIgnoredDuringExecution:
-          - weight: 100
-            podAffinityTerm:
-              labelSelector:
-                matchExpressions:
-                  - key: app.kubernetes.io/component
-                    operator: In
-                    values:
-                      - Stateless-Aggregator
-              topologyKey: kubernetes.io/hostname
   postRenderers:
     - kustomize:
         patchesJson6902:
@@ -146,10 +104,6 @@ spec:
               kind: Service
               name: vector-aggregator
             patch:
-              - op: add
-                path: /spec/externalIPs
-                value:
-                  - "${LB_SYSLOG}"
               - op: replace
                 path: /spec/externalTrafficPolicy
                 value: Local
