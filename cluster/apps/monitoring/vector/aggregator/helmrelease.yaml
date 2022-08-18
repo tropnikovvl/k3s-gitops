@@ -92,7 +92,6 @@ spec:
           address: 0.0.0.0:9090
 
     service:
-      annotations:
       enabled: true
       type: LoadBalancer
 
