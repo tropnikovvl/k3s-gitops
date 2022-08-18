@@ -32,7 +32,7 @@ spec:
     replicas: 1
     persistence:
       enabled: true
-      existingClaim: minio
+      existingClaim: minio-data-v1
     ingress:
       enabled: true
       ingressClassName: nginx
