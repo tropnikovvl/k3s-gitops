@@ -92,17 +92,6 @@ spec:
         analytics:
           reporting_enabled: false
 
-    config:
-      storage_config:
-        aws:
-          s3: s3://${SECRET_MINIO_LOKI_ACCESS_KEY}:${SECRET_MINIO_LOKI_SECRET_KEY}@${SECRET_MINIO_REGION}/loki
-          endpoint: ${SECRET_MINIO_SERVER}
-          s3forcepathstyle: true
-        boltdb_shipper:
-          active_index_directory: /data/index
-          cache_location: /data/boltdb-cache
-          shared_store: s3
-
     gateway:
       enabled: true
       replicas: 3
@@ -147,3 +136,21 @@ spec:
         enabled: false
         grafanaAgent:
           installOperator: false
+
+  valuesFrom:
+    - targetPath: loki.structuredConfig.common.storage.s3.bucketnames
+      kind: ConfigMap
+      name: loki-chunks-bucket-v1
+      valuesKey: SECRET_MINIO_LOKI_BUCKET
+    - targetPath: loki.structuredConfig.common.storage.s3.endpoint
+      kind: Secret
+      name: loki-chunks-bucket-v1
+      valuesKey: SECRET_MINIO_SERVER
+    - targetPath: loki.structuredConfig.common.storage.s3.access_key_id
+      kind: Secret
+      name: loki-chunks-bucket-v1
+      valuesKey: SECRET_MINIO_LOKI_ACCESS_KEY
+    - targetPath: loki.structuredConfig.common.storage.s3.secret_access_key
+      kind: Secret
+      name: loki-chunks-bucket-v1
+      valuesKey: SECRET_MINIO_LOKI_SECRET_KEY
