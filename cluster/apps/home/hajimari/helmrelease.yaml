@@ -117,7 +117,6 @@ spec:
         cpu: 15m
         memory: 64M
 
-
     tolerations:
       - key: "arch"
         operator: "Equal"

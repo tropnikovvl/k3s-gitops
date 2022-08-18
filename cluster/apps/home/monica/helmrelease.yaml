@@ -67,3 +67,9 @@ spec:
         tls:
           - hosts:
               - *host
+
+    tolerations:
+      - key: "arch"
+        operator: "Equal"
+        value: "arm64"
+        effect: "NoSchedule"

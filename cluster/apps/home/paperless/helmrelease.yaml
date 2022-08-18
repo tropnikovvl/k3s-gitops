@@ -94,6 +94,13 @@ spec:
         cpu: 11m
         memory: 381M
 
+    tolerations:
+      - key: "arch"
+        operator: "Equal"
+        value: "arm64"
+        effect: "NoSchedule"
+
+
     additionalContainers:
       - name: broker
         image: redis:7.0
@@ -103,3 +110,9 @@ spec:
           requests:
             cpu: 11m
             memory: 32M
+
+        tolerations:
+          - key: "arch"
+            operator: "Equal"
+            value: "arm64"
+            effect: "NoSchedule"
