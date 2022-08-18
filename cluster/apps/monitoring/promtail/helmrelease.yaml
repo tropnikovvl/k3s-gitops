@@ -46,7 +46,7 @@ spec:
       enabled: true
 
     tolerations:
-    - key: "arm64"
-      operator: "Exists"
-    - key: "node-role.kubernetes.io/master"
-      operator: "Exists"
+      - key: "arch"
+        operator: "Equal"
+        value: "arm64"
+        effect: "NoSchedule"
