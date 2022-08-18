@@ -14,10 +14,6 @@
   tags:
     - node-exporter
 
-- import_tasks: minio.yml
-  tags:
-    - minio
-
 - import_tasks: traefik.yml
   tags:
     - traefik
