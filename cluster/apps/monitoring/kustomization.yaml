@@ -6,6 +6,7 @@ resources:
   - goldilocks
   - grafana
   - kube-prometheus-stack
+  - loki
   - thanos
   - uptimerobot-heartbeat
   # - vector
