@@ -13,12 +13,13 @@ spec:
       version: 7.1.2
       sourceRef:
         kind: HelmRepository
-        name: k8s-at-home
+        name: k8s-at-home-charts
         namespace: flux-system
   values:
     image:
       repository: photoprism/photoprism
       tag: 220730-bullseye
+
     env:
       PHOTOPRISM_SITE_URL: https://photos.${SECRET_DOMAIN}/
       PHOTOPRISM_SITE_TITLE: Home Photos
@@ -29,6 +30,7 @@ spec:
       PHOTOPRISM_THUMB_UNCACHED: true
       PHOTOPRISM_THUMB_SIZE_UNCACHED: 1280
       PHOTOPRISM_JPEG_SIZE: 1280
+
     ingress:
       main:
         enabled: true
@@ -47,6 +49,7 @@ spec:
           - hosts:
               - *host
             secretName: photoprism-tls
+
     persistence:
       config:
         enabled: true
