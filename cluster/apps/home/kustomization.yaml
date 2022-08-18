@@ -7,6 +7,6 @@ resources:
   - hajimari
   - monica
   - paperless
-  - photoprism
+  # - photoprism
   - recipes
   - theme-park
