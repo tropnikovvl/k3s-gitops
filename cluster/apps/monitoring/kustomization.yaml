@@ -9,5 +9,4 @@ resources:
   - loki
   - thanos
   - uptimerobot-heartbeat
-  - vector
   - vpa
