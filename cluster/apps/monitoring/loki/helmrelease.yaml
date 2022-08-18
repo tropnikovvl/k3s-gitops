@@ -20,6 +20,10 @@ spec:
     image:
       repository: ghcr.io/k8s-at-home/loki
 
+    env:
+      - name: TZ
+        value: ${TZ}
+
     config:
       storage_config:
         aws:
@@ -30,6 +34,33 @@ spec:
           active_index_directory: /data/index
           cache_location: /data/boltdb-cache
           shared_store: s3
+
+      ruler:
+        storage:
+          type: local
+          local:
+            directory: /rules
+        rule_path: /tmp/scratch
+        alertmanager_url: http://alertmanager-operated.monitoring:9093
+        ring:
+          kvstore:
+            store: inmemory
+        enable_api: true
+
+    ingress:
+      enabled: true
+      ingressClassName: "nginx"
+      annotations:
+        cert-manager.io/cluster-issuer: "letsencrypt-production"
+        external-dns/is-public: "false"
+      hosts:
+        - host: &host "loki.${SECRET_DOMAIN}"
+          paths:
+            - /
+      tls:
+        - hosts:
+            - *host
+          secretName: tls.loki
 
     serviceMonitor:
       enabled: true
