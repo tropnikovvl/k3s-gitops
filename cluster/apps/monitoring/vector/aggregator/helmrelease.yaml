@@ -107,4 +107,7 @@ spec:
             patch:
               - op: add
                 path: /spec/loadBalancerIP
-                value: ${LB_SYSLOG}
+                value: "${LB_SYSLOG}"
+              - op: replace
+                path: /spec/externalTrafficPolicy
+                value: Local
