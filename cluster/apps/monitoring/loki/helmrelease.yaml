@@ -51,11 +51,14 @@ spec:
                 period: 24h
         common:
           path_prefix: /var/loki
-          replication_factor: 3
+          replication_factor: 1
           storage:
             s3:
-              s3: null
+              endpoint: ${SECRET_MINIO_SERVER}
               insecure: true
+              bucketnames: loki
+              access_key_id: "${SECRET_MINIO_LOKI_ACCESS_KEY}"
+              secret_access_key: "${SECRET_MINIO_LOKI_SECRET_KEY}"
               s3forcepathstyle: true
           ring:
             kvstore:
@@ -136,21 +139,3 @@ spec:
         enabled: false
         grafanaAgent:
           installOperator: false
-
-  valuesFrom:
-    - targetPath: loki.structuredConfig.common.storage.s3.bucketnames
-      kind: ConfigMap
-      name: loki-chunks-bucket-v1
-      valuesKey: BUCKET_NAME
-    - targetPath: loki.structuredConfig.common.storage.s3.endpoint
-      kind: Secret
-      name: loki-chunks-bucket-v1
-      valuesKey: SECRET_MINIO_SERVER
-    - targetPath: loki.structuredConfig.common.storage.s3.access_key_id
-      kind: Secret
-      name: loki-chunks-bucket-v1
-      valuesKey: SECRET_MINIO_LOKI_ACCESS_KEY
-    - targetPath: loki.structuredConfig.common.storage.s3.secret_access_key
-      kind: Secret
-      name: loki-chunks-bucket-v1
-      valuesKey: SECRET_MINIO_LOKI_SECRET_KEY
