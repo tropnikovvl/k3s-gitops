@@ -4,6 +4,7 @@ kind: Kustomization
 resources:
   - dashboard
   - bucket-config.yaml
+  - bucket-secret.sops.yaml
   - config-map.yaml
   - helmrelease.yaml
   - prometheus-rule.yaml
