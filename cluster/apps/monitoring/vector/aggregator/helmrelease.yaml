@@ -90,14 +90,15 @@ spec:
           inputs:
             - vector_metrics
           address: 0.0.0.0:9090
+
     service:
+      annotations:
       enabled: true
       type: LoadBalancer
-      externalIPs:
-        - ${LB_SYSLOG}
-      externalTrafficPolicy: Local
+
     podMonitor:
       enabled: true
+
   postRenderers:
     - kustomize:
         patchesJson6902:
@@ -105,6 +106,6 @@ spec:
               kind: Service
               name: vector-aggregator
             patch:
-              - op: replace
-                path: /spec/externalTrafficPolicy
-                value: Local
+              - op: add
+                path: /spec/loadBalancerIP
+                value: ${LB_SYSLOG}
