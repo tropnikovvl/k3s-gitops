@@ -110,9 +110,3 @@ spec:
           requests:
             cpu: 11m
             memory: 32M
-
-        tolerations:
-          - key: "arch"
-            operator: "Equal"
-            value: "arm64"
-            effect: "NoSchedule"

@@ -32,6 +32,7 @@ spec:
     ingress:
       main:
         enabled: true
+        ingressClassName: "nginx"
         annotations:
           external-dns.alpha.kubernetes.io/target: ${SECRET_DOMAIN}
           cert-manager.io/cluster-issuer: letsencrypt-production
@@ -53,9 +54,3 @@ spec:
       originals:
         enabled: true
         existingClaim: photoprism-data-v1
-    resources:
-      requests:
-        cpu: 1
-        memory: 2Gi
-      limits:
-        memory: 6Gi
