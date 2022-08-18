@@ -18,6 +18,7 @@ spec:
     image:
       registry: ghcr.io
       repository: k8s-at-home/promtail
+
     config:
       lokiAddress: http://loki:3100/loki/api/v1/push
       snippets:
@@ -31,6 +32,7 @@ spec:
             relabel_configs:
             - source_labels: ['__syslog_message_hostname']
               target_label: host
+
     extraPorts:
       syslog:
         name: syslog
@@ -39,5 +41,12 @@ spec:
           type: LoadBalancer
           externalIPs:
             - ${LB_SYSLOG}
+
     serviceMonitor:
       enabled: true
+
+    tolerations:
+    - key: "arm64"
+      operator: "Exists"
+    - key: "node-role.kubernetes.io/master"
+      operator: "Exists"
