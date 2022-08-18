@@ -54,7 +54,8 @@ spec:
           replication_factor: 1
           storage:
             s3:
-              endpoint: ${SECRET_MINIO_SERVER}
+              endpoint: "${SECRET_MINIO_SERVER}"
+              region: "${SECRET_MINIO_REGION}"
               insecure: true
               bucketnames: loki
               access_key_id: "${SECRET_MINIO_LOKI_ACCESS_KEY}"
