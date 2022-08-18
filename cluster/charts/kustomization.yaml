@@ -21,6 +21,7 @@ resources:
   - descheduler-charts.yaml
   - lwolf-charts.yaml
   - metrics-server-charts.yaml
+  - minio-charts.yaml
   - node-feature-discovery-charts.yaml
   - reflector-charts.yaml
   - rook-ceph-charts.yaml
