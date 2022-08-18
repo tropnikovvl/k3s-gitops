@@ -1,0 +1,61 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: photoprism
+  namespace: media
+spec:
+  releaseName: photoprism
+  interval: 10m
+  chart:
+    spec:
+      chart: photoprism
+      version: 7.1.2
+      sourceRef:
+        kind: HelmRepository
+        name: k8s-at-home
+        namespace: flux-system
+  values:
+    image:
+      repository: photoprism/photoprism
+      tag: 220730-bullseye
+    env:
+      PHOTOPRISM_SITE_URL: https://photos.${SECRET_DOMAIN}/
+      PHOTOPRISM_SITE_TITLE: Home Photos
+      PHOTOPRISM_SITE_AUTHOR: teqqy
+      PHOTOPRISM_PUBLIC: false
+      PHOTOPRISM_READONLY: false
+      PHOTOPRISM_THUMB_SIZE: 1280
+      PHOTOPRISM_THUMB_UNCACHED: true
+      PHOTOPRISM_THUMB_SIZE_UNCACHED: 1280
+      PHOTOPRISM_JPEG_SIZE: 1280
+    ingress:
+      main:
+        enabled: true
+        annotations:
+          external-dns.alpha.kubernetes.io/target: ${SECRET_DOMAIN}
+          cert-manager.io/cluster-issuer: letsencrypt-production
+          hajimari.io/enable: "true"
+          hajimari.io/icon: image-multiple
+        hosts:
+          - host: &host photos.${SECRET_DOMAIN}
+            paths:
+              - path: /
+                pathType: Prefix
+        tls:
+          - hosts:
+              - *host
+            secretName: photoprism-tls
+    persistence:
+      config:
+        enabled: true
+        existingClaim: photoprism-config-v1
+      originals:
+        enabled: true
+        existingClaim: photoprism-data-v1
+    resources:
+      requests:
+        cpu: 1
+        memory: 2Gi
+      limits:
+        memory: 6Gi
