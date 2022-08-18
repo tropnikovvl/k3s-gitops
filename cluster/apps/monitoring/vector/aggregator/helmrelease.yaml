@@ -93,8 +93,9 @@ spec:
     service:
       enabled: true
       type: LoadBalancer
-      annotations:
-        metallb.universe.tf/loadBalancerIPs: "${LB_VECTOR}"
+      externalIPs:
+        - ${LB_SYSLOG}
+      externalTrafficPolicy: Local
     podMonitor:
       enabled: true
   postRenderers:
