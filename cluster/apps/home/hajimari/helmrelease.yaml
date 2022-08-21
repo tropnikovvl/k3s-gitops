@@ -98,6 +98,8 @@ spec:
         ingressClassName: "nginx"
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
+          hajimari.io/enable: "true"
+          hajimari.io/icon: cloud-search
         hosts:
           - host: &host "hajimari.${SECRET_DOMAIN}"
             paths:
@@ -116,6 +118,9 @@ spec:
       requests:
         cpu: 15m
         memory: 64M
+
+    podAnnotations:
+      configmap.reloader.stakater.com/reload: "hajimari-settings"
 
     tolerations:
       - key: "arch"
