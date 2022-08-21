@@ -2,34 +2,43 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: ombi
-  namespace: media
+  name: &app jellyseerr
+  namespace: default
 spec:
-  interval: 5m
+  interval: 15m
   chart:
     spec:
-      # renovate: registryUrl=https://k8s-at-home.com/charts
-      chart: ombi
-      version: 11.5.2
+      chart: app-template
+      version: 0.1.1
       sourceRef:
         kind: HelmRepository
-        name: k8s-at-home-charts
+        name: bjw-s-charts
         namespace: flux-system
-      interval: 5m
 
-  dependsOn:
-    - name: ingress-nginx
-      namespace: networking
-    - name: rook-ceph
-      namespace: rook-ceph
+  install:
+    createNamespace: true
+    remediation:
+      retries: 5
+
+  upgrade:
+    remediation:
+      retries: 5
 
   values:
     image:
-      repository: ghcr.io/linuxserver/ombi
-      tag: version-v4.0.1430
+      repository: docker.io/fallenbagel/jellyseerr
+      tag: 1.1.1
 
     env:
       TZ: "${TZ}"
+      LOG_LEVEL: "info"
+      PORT: &port 80
+
+    service:
+      main:
+        ports:
+          http:
+            port: *port
 
     ingress:
       main:
@@ -40,7 +49,7 @@ spec:
           hajimari.io/enable: "true"
           hajimari.io/icon: "movie-search"
         hosts:
-          - host: &host "ombi.${SECRET_DOMAIN}"
+          - host: &host "{{ .Release.Name }}.${SECRET_DOMAIN}"
             paths:
               - path: /
                 pathType: Prefix
@@ -51,15 +60,12 @@ spec:
     persistence:
       config:
         enabled: true
-        existingClaim: ombi-config-v1
+        existingClaim: jellyseerr-config-v1
+        mountPath: /app/config
 
     resources:
       requests:
-        cpu: 15m
-        memory: 184M
-
-    tolerations:
-      - key: "arch"
-        operator: "Equal"
-        value: "arm64"
-        effect: "NoSchedule"
+        cpu: 10m
+        memory: 250Mi
+      limits:
+        memory: 500Mi
