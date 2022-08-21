@@ -5,11 +5,11 @@ resources:
   - namespace.yaml
   - bazarr
   - jellyfin
+  - jellyseer
   - ombi
   - prowlarr
   - radarr
   - radarr-kids
   - radarr-uhd
- # - recyclarr
   - sabnzbd
   - sonarr
