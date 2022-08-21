@@ -5,7 +5,7 @@ resources:
   - namespace.yaml
   - bazarr
   - jellyfin
-  - jellyseer
+  - jellyseerr
   - ombi
   - prowlarr
   - radarr
