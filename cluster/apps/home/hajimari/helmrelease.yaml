@@ -121,9 +121,3 @@ spec:
 
     podAnnotations:
       configmap.reloader.stakater.com/reload: "hajimari-settings"
-
-    tolerations:
-      - key: "arch"
-        operator: "Equal"
-        value: "arm64"
-        effect: "NoSchedule"
