@@ -28,6 +28,9 @@ spec:
       limits:
         memory: 64M
 
+    metrics:
+      enabled: true
+
     service:
       main:
         ports:
