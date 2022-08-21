@@ -49,7 +49,7 @@ spec:
           hajimari.io/enable: "true"
           hajimari.io/icon: "movie-search"
         hosts:
-          - host: &host "{{ .Release.Name }}.${SECRET_DOMAIN}"
+          - host: &host "jellyseerr.${SECRET_DOMAIN}"
             paths:
               - path: /
                 pathType: Prefix
