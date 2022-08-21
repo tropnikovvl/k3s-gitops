@@ -5,14 +5,12 @@ resources:
   - bitnami-charts.yaml
   - bjw-s-charts.yaml
   - coredns-charts.yaml
-  - deliveryhero-charts.yaml
   - emberstack-charts.yaml
   - external-dns-charts.yaml
   - fairwinds-charts.yaml
   - grafana-charts.yaml
   - grafana-loki-charts.yaml
   - hajimari-charts.yaml
-  - infracloudio-charts.yaml
   - ingress-nginx-charts.yaml
   - jetstack-charts.yaml
   - k8s-at-home-charts.yaml
@@ -28,4 +26,3 @@ resources:
   - rook-ceph-charts.yaml
   - stakater-charts.yaml
   - vector-charts.yaml
-  - weaveworks-kured-charts.yaml
