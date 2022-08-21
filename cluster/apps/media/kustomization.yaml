@@ -6,7 +6,6 @@ resources:
   - bazarr
   - jellyfin
   - jellyseerr
-  - ombi
   - prowlarr
   - radarr
   - radarr-kids
