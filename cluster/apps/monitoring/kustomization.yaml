@@ -8,6 +8,7 @@ resources:
   - kube-prometheus-stack
   - loki
   - promtail
+  - speedtest-exporter
   - thanos
   - uptimerobot-heartbeat
   - vpa
