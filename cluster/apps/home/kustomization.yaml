@@ -6,6 +6,7 @@ resources:
   - freshrss
   # - hajimari
   - monica
+  - n8n
   - paperless
   - photoprism
   - recipes
