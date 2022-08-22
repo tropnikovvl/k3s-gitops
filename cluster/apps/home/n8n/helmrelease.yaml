@@ -22,7 +22,10 @@ spec:
       tag: 0.191.1
 
     service:
-      enabled: false
+      main:
+        ports:
+          http:
+            port: *port
 
     ingress:
       main:
