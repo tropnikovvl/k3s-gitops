@@ -21,6 +21,12 @@ spec:
       repository: n8nio/n8n
       tag: 0.191.1
 
+    env:
+      tz: "${TZ}"
+      N8N_PORT: "5678"
+      N8N_PROTOCOL: "https"
+      NODE_ENV: "production"
+
     service:
       main:
         ports:
