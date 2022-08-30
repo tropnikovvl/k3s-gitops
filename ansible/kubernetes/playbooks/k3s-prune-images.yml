@@ -1,0 +1,9 @@
+---
+- hosts:
+    - master
+    - worker
+  become: true
+  gather_facts: true
+  tasks:
+    - name: Prune old images
+      ansible.builtin.shell: k3s crictl rmi --prune
