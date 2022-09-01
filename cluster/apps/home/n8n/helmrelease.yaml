@@ -19,7 +19,7 @@ spec:
   values:
     image:
       repository: n8nio/n8n
-      tag: 0.192.2
+      tag: 0.193.3
 
     env:
       GENERIC_TIMEZONE: "${TZ}"
