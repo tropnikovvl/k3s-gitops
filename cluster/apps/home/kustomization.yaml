@@ -4,6 +4,7 @@ kind: Kustomization
 resources:
   - namespace.yaml
   - freshrss
+  - ghostfolio
   # - hajimari
   - monica
   - n8n
