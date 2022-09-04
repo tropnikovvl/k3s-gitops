@@ -7,7 +7,7 @@ resources:
   - grafana
   - kube-prometheus-stack
   - loki
-  - network-ups-tools
+  # - network-ups-tools
   - promtail
   - speedtest-exporter
   - thanos
