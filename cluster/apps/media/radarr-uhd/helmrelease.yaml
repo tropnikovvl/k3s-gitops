@@ -28,16 +28,12 @@ spec:
 
     env:
       TZ: "${TZ}"
-      RADARR__INSTANCE_NAME: Radarr-UHD
-      RADARR__PORT: &port 80
-      RADARR__APPLICATION_URL: "https://{{ .Release.Name }}.${SECRET_DOMAIN}"
-      RADARR__LOG_LEVEL: info
 
     service:
       main:
         ports:
           http:
-            port: *port
+            port: 7878
 
     ingress:
       main:
