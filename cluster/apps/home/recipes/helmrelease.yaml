@@ -93,11 +93,6 @@ spec:
           - hosts:
               - *host
 
-    resources:
-      requests:
-        cpu: 11m
-        memory: 145M
-
     tolerations:
       - key: "arch"
         operator: "Equal"
