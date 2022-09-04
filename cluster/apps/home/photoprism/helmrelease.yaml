@@ -34,6 +34,12 @@ spec:
       PHOTOPRISM_THUMB_SIZE_UNCACHED: 1280
       PHOTOPRISM_JPEG_SIZE: 1280
 
+    service:
+      main:
+        ports:
+          http:
+            port: 80
+
     ingress:
       main:
         enabled: true

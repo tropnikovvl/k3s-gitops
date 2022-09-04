@@ -37,6 +37,12 @@ spec:
       repository: monica
       tag: 3.7.0
 
+    service:
+      main:
+        ports:
+          http:
+            port: 80
+
     env:
       TZ: "${TZ}"
       APP_URL: https://monica.${SECRET_DOMAIN}

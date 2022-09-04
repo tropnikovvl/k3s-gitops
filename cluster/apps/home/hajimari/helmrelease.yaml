@@ -39,6 +39,12 @@ spec:
     env:
       TZ: "${TZ}"
 
+    service:
+      main:
+        ports:
+          http:
+            port: 80
+
     hajimari:
       namespaceSelector:
         matchNames:
