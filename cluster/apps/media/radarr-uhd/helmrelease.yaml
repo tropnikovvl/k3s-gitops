@@ -24,7 +24,7 @@ spec:
   values:
     image:
       repository: ghcr.io/onedr0p/radarr-nightly
-      tag: "4.2.3.6555"
+      tag: "4.2.3.6559"
 
     env:
       TZ: "${TZ}"
