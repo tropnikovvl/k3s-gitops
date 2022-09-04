@@ -7,4 +7,3 @@ resources:
   - external-dns
   - home-dns
   - ingress-nginx
-  - network-ups-tools

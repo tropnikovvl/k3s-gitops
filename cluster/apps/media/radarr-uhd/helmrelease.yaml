@@ -2,20 +2,18 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: radarr-uhd
+  name: &app radarr-uhd
   namespace: media
 spec:
-  interval: 5m
+  interval: 15m
   chart:
     spec:
-      # renovate: registryUrl=https://k8s-at-home.com/charts
-      chart: radarr
-      version: 16.3.2
+      chart: app-template
+      version: 0.1.1
       sourceRef:
         kind: HelmRepository
-        name: k8s-at-home-charts
+        name: bjw-s-charts
         namespace: flux-system
-      interval: 5m
 
   dependsOn:
     - name: ingress-nginx
@@ -27,8 +25,19 @@ spec:
     image:
       repository: ghcr.io/onedr0p/radarr-nightly
       tag: "4.2.3.6555"
+
     env:
       TZ: "${TZ}"
+      RADARR__INSTANCE_NAME: Radarr
+      RADARR__PORT: &port 80
+      RADARR__APPLICATION_URL: "https://{{ .Release.Name }}.${SECRET_DOMAIN}"
+      RADARR__LOG_LEVEL: info
+
+    service:
+      main:
+        ports:
+          http:
+            port: *port
 
     ingress:
       main:
@@ -46,19 +55,6 @@ spec:
           - host: &host "radarr-uhd.${SECRET_DOMAIN}"
             paths:
               - path: /
-                pathType: Prefix
-        tls:
-          - hosts:
-              - *host
-      api:
-        enabled: true
-        ingressClassName: "nginx"
-        annotations:
-          cert-manager.io/cluster-issuer: "letsencrypt-production"
-        hosts:
-          - host: &host "radarr-uhd.${SECRET_DOMAIN}"
-            paths:
-              - path: /api
                 pathType: Prefix
         tls:
           - hosts:
