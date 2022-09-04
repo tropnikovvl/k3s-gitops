@@ -33,6 +33,10 @@ spec:
         externalIPs:
           - ${LB_NUT}
         externalTrafficPolicy: Local
+        ports:
+          http:
+            port: 3493
+            protocol: TCP
 
     config:
       mode: values
