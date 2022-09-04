@@ -132,61 +132,36 @@ spec:
       enabled: true
 
     kubeControllerManager:
-      enabled: true
-      endpoints:
-        - 192.168.10.31
-        - 192.168.10.32
-        - 192.168.10.33
-      service:
-        enabled: true
-        port: 10257
-        targetPort: 10257
-      serviceMonitor:
-        enabled: true
-        https: true
-        insecureSkipVerify: true
+      enabled: false
 
     kubeScheduler:
-      enabled: true
-      endpoints:
-        - 192.168.10.31
-        - 192.168.10.32
-        - 192.168.10.33
-      service:
-        enabled: true
-        port: 10259
-        targetPort: 10259
-      serviceMonitor:
-        enabled: true
-        https: true
-        insecureSkipVerify: true
+      enabled: false
 
     kubeProxy:
-      enabled: true
-      endpoints:
-        - 192.168.10.31
-        - 192.168.10.32
-        - 192.168.10.33
+      enabled: false
 
     kubeEtcd:
-      enabled: true
-      endpoints:
-        - 192.168.10.31
-        - 192.168.10.32
-        - 192.168.10.33
-      service:
-        enabled: true
-        port: 2381
-        targetPort: 2381
+      enabled: false
 
+    ###
+    ### Prometheus operator values
+    ###
     prometheusOperator:
+      resources:
+        requests:
+          cpu: 35m
+          memory: 273M
+        limits:
+          memory: 326M
+
       prometheusConfigReloader:
+        # resource config for prometheusConfigReloader
         resources:
           requests:
-            cpu: 100m
-            memory: 50Mi
+            cpu: 11m
+            memory: 32M
           limits:
-            memory: 100Mi
+            memory: 32M
 
     prometheus-node-exporter:
       fullnameOverride: node-exporter
