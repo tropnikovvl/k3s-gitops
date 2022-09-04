@@ -52,14 +52,30 @@ spec:
             port: 1883
             protocol: TCP
 
+    configmap:
+      config:
+        enabled: true
+        data:
+          mosquitto.conf: |
+            listener 1883
+            allow_anonymous true
+            persistence true
+            persistence_location /mosquitto/data
+            connection_messages false
 
     persistence:
-      configinc:
+      config:
         enabled: true
-        existingClaim: mosquitto-config-v1
+        type: custom
+        mountPath: /mosquitto/config/mosquitto.conf
+        subPath: mosquitto.conf
+        volumeSpec:
+          configMap:
+            name: mosquitto-config
       data:
         enabled: true
         existingClaim: mosquitto-data-v1
+        mountPath: /mosquitto/data
 
     resources:
       requests:
