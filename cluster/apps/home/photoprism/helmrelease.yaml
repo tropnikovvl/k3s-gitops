@@ -9,12 +9,14 @@ spec:
   interval: 10m
   chart:
     spec:
-      chart: photoprism
-      version: 7.1.2
+      chart: app-template
+      version: 0.1.1
+      interval: 15m
       sourceRef:
         kind: HelmRepository
-        name: k8s-at-home-charts
+        name: bjw-s-charts
         namespace: flux-system
+
   values:
     image:
       repository: photoprism/photoprism
