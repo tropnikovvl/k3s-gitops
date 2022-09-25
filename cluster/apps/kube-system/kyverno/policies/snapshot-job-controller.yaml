@@ -133,3 +133,8 @@ spec:
                           - topologyKey: kubernetes.io/hostname
                             labelSelector:
                               matchExpressions: "{{ nodeAffinity.ignored && [] || nodeAffinity.labels }}"
+                    tolerations:
+                      - key: "arch"
+                        operator: "Equal"
+                        value: "arm64"
+                        effect: "NoSchedule"
