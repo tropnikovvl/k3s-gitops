@@ -58,5 +58,6 @@ spec:
                 privileged: true
           volumes:
             - name: snapshots
-              hostPath:
-                path: /deadpool/containous/kopia-snapshots
+              nfs:
+                server: "${NFS_SERVER}"
+                path: /mnt/user/k3s-backup/snapshots

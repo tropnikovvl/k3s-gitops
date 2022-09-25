@@ -75,7 +75,7 @@ spec:
               - *host
     podSecurityContext:
       supplementalGroups:
-        - 1042
+        - 100
     persistence:
       config:
         enabled: true
