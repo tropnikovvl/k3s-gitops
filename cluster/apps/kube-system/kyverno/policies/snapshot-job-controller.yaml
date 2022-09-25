@@ -93,9 +93,9 @@ spec:
                         image: ghcr.io/onedr0p/kopia:0.11.3@sha256:72406602c99357951cb7284abbf88699081d60f6cffd22baddd8a6a2afe919f5
                         env:
                           - name: KOPIA_CACHE_DIRECTORY
-                            value: /data/backups/{{ namespace }}/{{ claimName }}/cache
+                            value: /data/{{ namespace }}/{{ claimName }}/cache
                           - name: KOPIA_LOG_DIR
-                            value: /data/backups/{{ namespace }}/{{ claimName }}/logs
+                            value: /data/{{ namespace }}/{{ claimName }}/logs
                           - name: KOPIA_PASSWORD
                             value: "none"
                         command:
