@@ -88,7 +88,7 @@ spec:
         enabled: true
         type: nfs
         server: "${NFS_SERVER}"
-        path: mnt/user/k3s-backup/snapshots
+        path: /mnt/user/k3s-backup/snapshots
         mountPath: /snapshots
     podAnnotations:
       configmap.reloader.stakater.com/reload: *app
