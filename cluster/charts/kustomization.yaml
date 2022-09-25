@@ -14,6 +14,7 @@ resources:
   - ingress-nginx-charts.yaml
   - jetstack-charts.yaml
   - kasten-charts.yaml
+  - kyverno-charts.yaml
   - kpg-charts.yaml
   - descheduler-charts.yaml
   - lwolf-charts.yaml
