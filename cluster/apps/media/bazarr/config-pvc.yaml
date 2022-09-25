@@ -4,6 +4,11 @@ kind: PersistentVolumeClaim
 metadata:
   name: bazarr-config-v1
   namespace: media
+  labels:
+    app.kubernetes.io/name: &name bazarr
+    app.kubernetes.io/instance: *name
+    snapshot.home.arpa/enabled: "true"
+
 spec:
   accessModes:
     - ReadWriteOnce
