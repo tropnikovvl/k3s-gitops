@@ -80,17 +80,5 @@ spec:
     resources:
       requests:
         memory: 1000Mi
-        gpu.intel.com/i915: 1
       limits:
         memory: 4000Mi
-        gpu.intel.com/i915: 1
-
-    affinity:
-      nodeAffinity:
-        requiredDuringSchedulingIgnoredDuringExecution:
-          nodeSelectorTerms:
-            - matchExpressions:
-                - key: feature.node.kubernetes.io/custom-intel-gpu
-                  operator: In
-                  values:
-                    - "true"
