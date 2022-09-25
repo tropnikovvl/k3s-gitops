@@ -124,8 +124,9 @@ spec:
                         persistentVolumeClaim:
                           claimName: "{{ claimName }}"
                       - name: snapshots
-                        hostPath:
-                          path: /deadpool/containous/kopia-snapshots
+                        nfs:
+                          server: "${NFS_SERVER}"
+                          path: /mnt/user/k3s-backup/snapshots
                     affinity:
                       podAffinity:
                         requiredDuringSchedulingIgnoredDuringExecution:
