@@ -93,9 +93,9 @@ spec:
                         image: ghcr.io/onedr0p/kopia:0.11.3@sha256:72406602c99357951cb7284abbf88699081d60f6cffd22baddd8a6a2afe919f5
                         env:
                           - name: KOPIA_CACHE_DIRECTORY
-                            value: /snapshots/{{ namespace }}/{{ appName }}/{{ claimName }}/cache
+                            value: /data/backups/{{ namespace }}/{{ claimName }}/cache
                           - name: KOPIA_LOG_DIR
-                            value: /snapshots/{{ namespace }}/{{ appName }}/{{ claimName }}/logs
+                            value: /data/backups/{{ namespace }}/{{ claimName }}/logs
                           - name: KOPIA_PASSWORD
                             value: "none"
                         command:
@@ -114,7 +114,7 @@ spec:
                             printf "\e[1;32m%-6s\e[m\n" "[10/10] Disconnect from repo ..."     && kopia repo disconnect
                         volumeMounts:
                           - name: data
-                            mountPath: "/data/{{ namespace }}/{{ appName }}/{{ claimName }}"
+                            mountPath: "/data/{{ namespace }}/{{ claimName }}"
                           - name: snapshots
                             mountPath: /snapshots
                         securityContext:
