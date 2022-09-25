@@ -6,7 +6,7 @@ resources:
   - external-snapshotter
   - intel-gpu-plugin
   - kube-cleanup-operator
-  - kyverno
+  # - kyverno
   - metrics-server
   - node-feature-discovery
   - reflector
