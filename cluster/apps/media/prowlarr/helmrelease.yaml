@@ -24,7 +24,7 @@ spec:
   values:
     image:
       repository: ghcr.io/onedr0p/prowlarr-nightly
-      tag: "0.4.7.1990"
+      tag: "0.4.7.1995"
 
     env:
       TZ: "${TZ}"
