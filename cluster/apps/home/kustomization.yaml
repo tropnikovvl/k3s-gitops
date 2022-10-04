@@ -5,7 +5,7 @@ resources:
   - namespace.yaml
   - freshrss
   - ghostfolio
-  # - hajimari
+  - hajimari
   - monica
   - n8n
   - paperless

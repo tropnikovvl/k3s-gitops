@@ -54,48 +54,48 @@ spec:
           - monitoring
           - network
           - rook-ceph
-      customApps:
-        - name: UnRaid
-          url: "http://tower.${SECRET_DOMAIN}"
-          icon: nas
-        - name: opnSense
-          url: "https://gw01.${SECRET_DOMAIN}"
-          icon: router
-        - name: AdGuardHome
-          url: "http://gw01.${SECRET_DOMAIN}:3010"
-          icon: shield-home
-        - name: Zigbee2mqtt
-          url: "http://zigbee.${SECRET_DOMAIN}:8080"
-          icon: zigbee
-        - name: PGAdmin
-          url: "https://pgadmin.${SECRET_DOMAIN}"
-          icon: database-cog
-        - name: UniFi
-          url: "https://unifi.${SECRET_DOMAIN}:8443"
-          icon: network
-      groups:
-        - name: Social Media
-          links:
-            - name: Instagram
-              url: 'https://instagram.com'
-            - name: Tweetdeck
-              url: 'https://tweetdeck.twitter.com/'
-        - name: Tesla
-          links:
-            - name: Tronity
-              url: 'https://app.tronity.io/dashboard'
-            - name: TFF-Forum
-              url: 'https://tff-forum.de'
-        - name: Photovoltaik
-          links:
-            - name: Kostal Portal
-              url: 'https://www.kostal-solar-portal.com/#/site/206273/dashboard/'
-        - name: Design
-          links:
-            - name: SimpleIcons
-              url: 'https://simpleicons.org/'
-            - name: Material Design Icons
-              url: 'https://materialdesignicons.com/'
+      # customApps:
+      #   - name: UnRaid
+      #     url: "http://tower.${SECRET_DOMAIN}"
+      #     icon: nas
+      #   - name: opnSense
+      #     url: "https://gw01.${SECRET_DOMAIN}"
+      #     icon: router
+      #   - name: AdGuardHome
+      #     url: "http://gw01.${SECRET_DOMAIN}:3010"
+      #     icon: shield-home
+      #   - name: Zigbee2mqtt
+      #     url: "http://zigbee.${SECRET_DOMAIN}:8080"
+      #     icon: zigbee
+      #   - name: PGAdmin
+      #     url: "https://pgadmin.${SECRET_DOMAIN}"
+      #     icon: database-cog
+      #   - name: UniFi
+      #     url: "https://unifi.${SECRET_DOMAIN}:8443"
+      #     icon: network
+      # groups:
+      #   - name: Social Media
+      #     links:
+      #       - name: Instagram
+      #         url: 'https://instagram.com'
+      #       - name: Tweetdeck
+      #         url: 'https://tweetdeck.twitter.com/'
+      #   - name: Tesla
+      #     links:
+      #       - name: Tronity
+      #         url: 'https://app.tronity.io/dashboard'
+      #       - name: TFF-Forum
+      #         url: 'https://tff-forum.de'
+      #   - name: Photovoltaik
+      #     links:
+      #       - name: Kostal Portal
+      #         url: 'https://www.kostal-solar-portal.com/#/site/206273/dashboard/'
+      #   - name: Design
+      #     links:
+      #       - name: SimpleIcons
+      #         url: 'https://simpleicons.org/'
+      #       - name: Material Design Icons
+      #         url: 'https://materialdesignicons.com/'
 
     ingress:
       main:
