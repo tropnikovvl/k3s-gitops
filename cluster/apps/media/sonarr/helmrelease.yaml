@@ -23,8 +23,8 @@ spec:
 
   values:
     image:
-      repository: ghcr.io/onedr0p/sonarr-develop
-      tag: "4.0.0.133"
+      repository: ghcr.io/onedr0p/sonarr
+      tag: "3.0.9.1549"
 
     env:
       TZ: "${TZ}"
