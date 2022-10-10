@@ -28,19 +28,6 @@ spec:
       limits:
         memory: 64M
 
-    metrics:
-      enabled: true
-      serviceMonitor:
-        interval: 60m
-        scrapeTimeout: 1m
-      prometheusRule:
-        enabled: false
-        downloadLimit: 200
-        uploadLimit: 25
-        pingLimit: 30
-        jitterLimit: 35
-
-
     service:
       main:
         ports:
