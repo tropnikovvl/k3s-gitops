@@ -53,7 +53,7 @@ services:
       - traefik.http.services.pgadmin.loadbalancer.server.port=12080
 
   pgbackups:
-    image: docker.io/prodrigestivill/postgres-backup-local:14
+    image: docker.io/prodrigestivill/postgres-backup-local:15
     container_name: postgresql-pgbackups
     restart: unless-stopped
     network_mode: bridge
