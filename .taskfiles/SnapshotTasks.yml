@@ -4,7 +4,7 @@ version: "3"
 x-preconditions: &preconditions
   - &has-app
     msg: "App '{{.APP}}' not found"
-    sh: kubectl get deployment,statefulset -A | awk '/{{.APP}}\s/{print $1}' | grep .
+    sh: kubectl get deployment,statefulset -A | awk '/{{.APP}}/{print $1}' | grep .
   - &has-cronjob
     msg: "CronJob '{{.APP}}-{{.CLAIM}}-snapshot' in namespace '{{.NAMESPACE}}' not found"
     sh: kubectl get cronjob -n {{.NAMESPACE}} {{.APP}}-{{.CLAIM}}-snapshot
@@ -12,14 +12,14 @@ x-preconditions: &preconditions
     msg: "Claim '{{.CLAIM}}' in namespace '{{.NAMESPACE}}' not found"
     sh: kubectl get pvc -n {{.NAMESPACE}} {{.CLAIM}}
   - &has-restore-job-file
-    msg: "File '{{.PROJECT_DIR}}/hack/restore-job.yaml' not found"
-    sh: "test -f {{.PROJECT_DIR}}/hack/restore-job.yaml"
+    msg: "File '{{.PROJECT_DIR}}/hacks/restore-job.yaml' not found"
+    sh: "test -f {{.PROJECT_DIR}}/hacks/restore-job.yaml"
 
 x-vars: &vars
   NAMESPACE:
-    sh: kubectl get deployment,statefulset -A | awk '/{{.APP}}\s/{print $1}'
+    sh: kubectl get deployment,statefulset -A | awk '/{{.APP}}/{print $1}'
   NAME:
-    sh: kubectl get deployment,statefulset -n {{.NAMESPACE}} | awk '/{{.APP}}\s/{print $1}'
+    sh: kubectl get deployment,statefulset -n {{.NAMESPACE}} | awk '/{{.APP}}/{print $1}'
   SNAPSHOT: '{{.SNAPSHOT | default "latest"}}'
   TS: '{{now | date "20060102150405"}}'
 
@@ -28,10 +28,10 @@ tasks:
   list:
     desc: List all existing snapshots for an app and claim (task snapshot:list APP=plex CLAIM=plex [KOPIA_NAMESPACE=<namespace>])
     cmds:
-      - kubectl -n storage exec -it deployment/kopia -c kopia -- kopia snapshot list /data/{{.NAMESPACE}}/{{.APP}}/{{.CLAIM}} {{.CLI_ARGS}}
+      - kubectl -n {{.KOPIA_NAMESPACE | default "default"}} exec -it deployment/kopia -c kopia -- kopia snapshot list /data/{{.NAMESPACE}}/{{.APP}}/{{.CLAIM}} {{.CLI_ARGS}}
     vars: *vars
     preconditions:
-      - sh: kubectl -n storage get deployment kopia
+      - sh: kubectl -n {{.KOPIA_NAMESPACE | default "default"}} get deployment kopia
         msg: |
           deployment/kopia in namespace/storage not found
 
@@ -55,7 +55,7 @@ tasks:
       - flux -n {{.NAMESPACE}} suspend helmrelease {{.APP}}
       - kubectl -n {{.NAMESPACE}} scale {{.NAME}} --replicas 0
       - kubectl -n {{.NAMESPACE}} wait pod --for delete --selector="app.kubernetes.io/name={{.APP}}" --timeout=2m
-      - envsubst < <(cat ./hack/restore-job.yaml) | kubectl apply -f -
+      - envsubst < <(cat ./hacks/restore-job.yaml) | kubectl apply -f -
       - sleep 2
       - kubectl -n {{.NAMESPACE}} wait job --for condition=complete {{.APP}}-{{.CLAIM}}-restore --timeout={{.TIMEOUT | default "60m"}}
       - flux -n {{.NAMESPACE}} resume helmrelease {{.APP}}

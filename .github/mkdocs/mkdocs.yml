@@ -138,6 +138,7 @@ nav:
       - Hardware: general/hardware.md
   - Restore:
       - k10: restore/k10.md
+      - kopio: restore/kopio.md
   # - Repository:
   #     - Semantic Commits: repository/semantic-git-messages.md
   #     - Folder Structure: repository/folder-structure.md
