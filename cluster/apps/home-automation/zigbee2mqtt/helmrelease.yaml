@@ -54,7 +54,6 @@ spec:
       usb:
         enabled: true
         type: hostPath
-        mountPath: /dev/ttyACM0
         hostPath: /dev/serial/by-id/usb-ITEAD_SONOFF_Zigbee_3.0_USB_Dongle_Plus_V2_20220708085427-if00-port0
 
     resources:
@@ -70,3 +69,33 @@ spec:
           nodeSelectorTerms:
             - matchExpressions:
                 - {key: "feature.node.kubernetes.io/custom-zigbee", operator: In, values: ["true"]}
+
+    addons:
+      codeserver:
+        enabled: true
+        image:
+          repository: codercom/code-server
+          tag: 4.7.1
+        env:
+          TZ: "Europe/Berlin"
+        workingDir: "/data"
+        args:
+          - --auth
+          - "none"
+          - --user-data-dir
+          - "/data/.vscode"
+          - --extensions-dir
+          - "/data/.vscode"
+        ingress:
+          enabled: true
+          ingressClassName: "nginx"
+          annotations:
+            auth.home.arpa/enabled: "true"
+          hosts:
+            - host: "z2m-config.${SECRET_DOMAIN}"
+              paths:
+                - path: /
+                  pathType: Prefix
+        volumeMounts:
+          - name: data
+            mountPath: /data
