@@ -11,3 +11,4 @@ resources:
   - photoprism
   - recipes
   - theme-park
+  - zigbee2mqtt
