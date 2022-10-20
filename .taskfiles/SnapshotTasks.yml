@@ -28,12 +28,12 @@ tasks:
   list:
     desc: List all existing snapshots for an app and claim (task snapshot:list APP=plex CLAIM=plex [KOPIA_NAMESPACE=<namespace>])
     cmds:
-      - kubectl -n {{.KOPIA_NAMESPACE | default "default"}} exec -it deployment/kopia -c kopia -- kopia snapshot list /data/{{.NAMESPACE}}/{{.APP}}/{{.CLAIM}} {{.CLI_ARGS}}
+      - kubectl -n storage exec -it deployment/kopia -c kopia -- kopia snapshot list /data/{{.NAMESPACE}}/{{.APP}}/{{.CLAIM}} {{.CLI_ARGS}}
     vars: *vars
     preconditions:
-      - sh: kubectl -n {{.KOPIA_NAMESPACE | default "default"}} get deployment kopia
+      - sh: kubectl -n storage get deployment kopia
         msg: |
-          deployment/kopia in namespace/{{.KOPIA_NAMESPACE | default "default"}} not found
+          deployment/kopia in namespace/storage not found
 
   create:
     desc: Create a snapshot job for an app and claim (task snapshot:create APP=plex CLAIM=plex [TIMEOUT=<timeout>])
