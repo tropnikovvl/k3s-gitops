@@ -55,7 +55,7 @@ spec:
         enabled: true
         type: hostPath
         mountPath: /dev/ttyACM0
-        hostPath: /dev/serial/by-id/usb-ITEAD_SONOFF_Zigbee_3.0_USB_Dongle_Plus_V2_20220708085427-if00
+        hostPath: /dev/serial/by-id/usb-ITEAD_SONOFF_Zigbee_3.0_USB_Dongle_Plus_V2_20220708085427-if00-port0
 
     resources:
       requests:
