@@ -6,4 +6,5 @@ resources:
   - home-assistant
   - mosquitto
   - node-red
+  - zigbee2mqtt
   - zwavejs2mqtt
