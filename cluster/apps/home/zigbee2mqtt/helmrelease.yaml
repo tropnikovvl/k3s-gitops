@@ -23,6 +23,10 @@ spec:
 
     env:
       ZIGBEE2MQTT_DATA: /data
+      TZ: Europe/Berlin
+
+    securityContext:
+      privileged: true
 
     service:
       main:
@@ -51,7 +55,6 @@ spec:
         enabled: true
         type: hostPath
         hostPath: /dev/serial/by-id/usb-ITEAD_SONOFF_Zigbee_3.0_USB_Dongle_Plus_V2_20220708085427-if00
-        mountPath: /dev/serial/by-id/usb-ITEAD_SONOFF_Zigbee_3.0_USB_Dongle_Plus_V2_20220708085427-if00
 
     resources:
       requests:
