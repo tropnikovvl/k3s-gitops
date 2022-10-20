@@ -39,7 +39,7 @@ spec:
         enabled: true
         ingressClassName: "nginx"
         hosts:
-          - host: &host "zigbee.${INGRESS_DOMAIN}"
+          - host: &host "zigbee.${SECRET_DOMAIN}"
             paths:
               - path: /
         tls:
