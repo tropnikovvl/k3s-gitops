@@ -87,6 +87,11 @@ spec:
                 - usbId:
                     vendor: ["1eaf"]
                     device: ["0004"]
+            - name: "zigbee"
+              matchOn:
+                - usbId:
+                    vendor: ["1a86"]
+                    device: ["55d4"]
 
       tolerations:
         - effect: "NoExecute"
