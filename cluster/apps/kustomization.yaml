@@ -14,4 +14,3 @@ resources:
   - networking
   - rook-ceph
   - storage
-  - system-upgrade
