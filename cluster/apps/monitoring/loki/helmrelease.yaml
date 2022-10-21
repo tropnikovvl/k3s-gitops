@@ -67,8 +67,8 @@ spec:
               region: "${SECRET_MINIO_REGION}"
               insecure: true
               bucketnames: loki
-              access_key_id: "${SECRET_MINIO_LOKI_ACCESS_KEY}"
-              secret_access_key: "${SECRET_MINIO_LOKI_SECRET_KEY}"
+              access_key_id: "${SECRET_MINIO_ACCESS_KEY}"
+              secret_access_key: "${SECRET_MINIO_SECRET_KEY}"
               s3forcepathstyle: true
           ring:
             kvstore:

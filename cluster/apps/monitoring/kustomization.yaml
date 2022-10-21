@@ -5,11 +5,11 @@ resources:
   - namespace.yaml
   # - goldilocks
   # - grafana
-  # - kube-prometheus-stack
+  - kube-prometheus-stack
   # - loki
   # - network-ups-tools
   # - promtail
   # - speedtest-exporter
-  # - thanos
+  - thanos
   - uptimerobot-heartbeat
   - vpa
