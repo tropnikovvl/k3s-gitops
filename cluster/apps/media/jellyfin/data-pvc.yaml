@@ -5,7 +5,6 @@ metadata:
   name: jellyfin-data-v1
   namespace: media
   labels:
-    kasten.io/backup-volume: "enabled"
     app.kubernetes.io/name: &name jellyfin
     app.kubernetes.io/instance: *name
     snapshot.home.arpa/enabled: "true"
