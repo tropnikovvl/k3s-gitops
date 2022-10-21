@@ -63,7 +63,7 @@ spec:
           replication_factor: 1
           storage:
             s3:
-              endpoint: minio.minio:9000
+              endpoint: minio.storage:9000
               region: "${SECRET_MINIO_REGION}"
               insecure: true
               bucketnames: loki
