@@ -32,14 +32,14 @@
         "matchUpdateTypes": ["minor", "patch"],
         "group": { "commitMessageTopic": "{{{groupName}}} group" },
         "separateMinorPatch": false
-      },
-      {
-      "description": "Cloudnative Postgres image and chart",
-      "groupName": "Cloudnative-Postgres",
-      "matchPackagePatterns": ["cloudnative-pg"],
-      "matchDatasources": ["docker", "helm"],
-      "group": { "commitMessageTopic": "{{{groupName}}} group" },
-      "separateMinorPatch": true
       }
+      // {
+      // "description": "Cloudnative Postgres image and chart",
+      // "groupName": "Cloudnative-Postgres",
+      // "matchPackagePatterns": ["cloudnative-pg"],
+      // "matchDatasources": ["docker", "helm"],
+      // "group": { "commitMessageTopic": "{{{groupName}}} group" },
+      // "separateMinorPatch": true
+      // }
     ]
   }
