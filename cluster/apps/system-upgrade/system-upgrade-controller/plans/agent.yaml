@@ -27,3 +27,22 @@ spec:
     skipWaitForDeleteTimeout: 60
   upgrade:
     image: rancher/k3s-upgrade
+
+  tolerations:
+    - key: kubernetes.io/arch
+      operator: Equal
+      value: amd64
+
+    - key: kubernetes.io/arch
+      operator: Equal
+      value: arm64
+
+    - key: kubernetes.io/arch
+      operator: Equal
+      value: arm
+
+    - key: arm
+      operator: Exists
+
+    - key: arch
+      operator: Exists
