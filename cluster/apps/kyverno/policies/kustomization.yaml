@@ -6,3 +6,4 @@ resources:
   - apply-ingress-whitelist-annotations.yaml
   - delete-cpu-limits.yaml
   - snapshot-job-controller.yaml
+  - sync-postgres-secrets.yaml
