@@ -9,14 +9,6 @@
         "separateMinorPatch": true
       },
       {
-        "description": "External Snapshotter kustomization (for CRDs) and chart",
-        "groupName": "External Snapshotter",
-        "matchPackagePatterns": ["external-snapshotter", "snapshot-controller"],
-        "matchDatasources": ["docker", "github-tags"],
-        "group": { "commitMessageTopic": "{{{groupName}}} group" },
-        "separateMinorPatch": true
-      },
-      {
         "description": "Node Feature Discovery kustomization (for CRDs) and chart",
         "groupName": "Node Feature Discovery",
         "matchPackagePatterns": ["node-feature-discovery"],
@@ -42,13 +34,12 @@
         "separateMinorPatch": false
       },
       {
-        "description": "Vector image and chart - mismatched versions",
-        "groupName": "Vector",
-        "matchPackagePatterns": ["vector"],
-        "matchDatasources": ["docker", "github-releases", "helm"],
-        "matchUpdateTypes": ["minor", "patch"],
-        "group": { "commitMessageTopic": "{{{groupName}}} group" },
-        "separateMinorPatch": false
+      "description": "Cloudnative Postgres image and chart",
+      "groupName": "Cloudnative-Postgres",
+      "matchPackagePatterns": ["cloudnative-pg"],
+      "matchDatasources": ["docker", "helm"],
+      "group": { "commitMessageTopic": "{{{groupName}}} group" },
+      "separateMinorPatch": true
       }
     ]
   }
