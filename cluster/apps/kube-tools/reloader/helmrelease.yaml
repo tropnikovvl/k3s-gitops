@@ -2,17 +2,17 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: reflector
-  namespace: kube-system
+  name: reloader
+  namespace: kube-tools
 spec:
   interval: 5m
   chart:
     spec:
-      chart: reflector
-      version: 6.1.47
+      chart: reloader
+      version: v0.0.124
       sourceRef:
         kind: HelmRepository
-        name: emberstack-charts
+        name: stakater-charts
         namespace: flux-system
       interval: 5m
 
@@ -26,6 +26,10 @@ spec:
       retries: 3
 
   values:
-    configuration:
-      logging:
-        minimumLevel: Debug
+    fullnameOverride: reloader
+
+    tolerations:
+      - key: "arch"
+        operator: "Equal"
+        value: "arm64"
+        effect: "NoSchedule"
