@@ -10,7 +10,7 @@ resources:
   - kube-system
   - kyverno
   - media
-  - minio
+  # - minio
   - monitoring
   - networking
   - rook-ceph

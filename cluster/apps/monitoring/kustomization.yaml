@@ -4,12 +4,12 @@ kind: Kustomization
 resources:
   - namespace.yaml
   # - goldilocks
-  - grafana
-  - kube-prometheus-stack
-  - loki
+  # - grafana
+  # - kube-prometheus-stack
+  # - loki
   # - network-ups-tools
-  - promtail
-  - speedtest-exporter
-  - thanos
+  # - promtail
+  # - speedtest-exporter
+  # - thanos
   - uptimerobot-heartbeat
   - vpa
