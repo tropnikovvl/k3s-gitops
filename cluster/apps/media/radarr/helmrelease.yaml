@@ -89,9 +89,3 @@ spec:
       fsGroup: 568
       supplementalGroups:
         - 100
-
-    tolerations:
-      - key: "arch"
-        operator: "Equal"
-        value: "arm64"
-        effect: "NoSchedule"
