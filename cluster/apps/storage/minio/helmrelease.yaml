@@ -23,7 +23,7 @@ spec:
   values:
     image:
       repository: quay.io/minio/minio
-      tag: RELEASE.2022-10-15T19-57-03Z
+      tag: RELEASE.2022-10-24T18-35-07Z
     mode: standalone
     ignoreChartChecksums: true
     rootUser: "${SECRET_MINIO_ROOT_USER}"
