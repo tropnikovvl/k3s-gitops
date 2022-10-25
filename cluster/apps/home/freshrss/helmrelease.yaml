@@ -68,3 +68,10 @@ spec:
           - hosts:
               - *host
 
+    resources:
+      requests:
+        cpu: 15m
+        memory: 64M
+      limits:
+        cpu: 15m
+        memory: 64M

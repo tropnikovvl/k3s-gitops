@@ -85,10 +85,7 @@ spec:
     resources:
       requests:
         cpu: 15m
-        memory: 184M
-
-    tolerations:
-      - key: "arch"
-        operator: "Equal"
-        value: "arm64"
-        effect: "NoSchedule"
+        memory: 204M
+      limits:
+        cpu: 15m
+        memory: 204M

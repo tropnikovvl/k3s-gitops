@@ -105,7 +105,10 @@ spec:
       resources:
         requests:
           cpu: 11m
-          memory: 37M
+          memory: 50M
+        limits:
+          cpu: 11m
+          memory: 50M
 
     kube-state-metrics:
       fullnameOverride: kube-state-metrics
@@ -158,10 +161,11 @@ spec:
         # resource config for prometheusConfigReloader
         resources:
           requests:
-            cpu: 11m
-            memory: 32M
+            cpu: 15m
+            memory: 184M
           limits:
-            memory: 32M
+            cpu: 15m
+            memory: 184M
 
     nodeExporter:
       serviceMonitor:
@@ -190,10 +194,11 @@ spec:
 
       resources:
         requests:
-          memory: 512Mi
-          cpu: 250m
+          cpu: 247m
+          memory: 2824M
         limits:
-          memory: 2048Mi
+          cpu: 247m
+          memory: 2824M
 
       thanosService:
         enabled: true

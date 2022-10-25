@@ -92,8 +92,11 @@ spec:
 
     resources:
       requests:
-        cpu: 35m
-        memory: 324M
+        cpu: 23m
+        memory: 443M
+      limits:
+        cpu: 23m
+        memory: 443M
 
     addons:
       codeserver:

@@ -101,14 +101,10 @@ spec:
     resources:
       requests:
         cpu: 11m
-        memory: 381M
-
-    tolerations:
-      - key: "arch"
-        operator: "Equal"
-        value: "arm64"
-        effect: "NoSchedule"
-
+        memory: 411M
+      limits:
+        cpu: 11m
+        memory: 411M
 
     additionalContainers:
       - name: broker

@@ -54,8 +54,10 @@ spec:
               podRestartThreshold: 100
               includingInitContainers: true
 
-    tolerations:
-      - key: "arch"
-        operator: "Equal"
-        value: "arm64"
-        effect: "NoSchedule"
+    resources:
+      requests:
+        cpu: 35m
+        memory: 94M
+      limits:
+        cpu: 35m
+        memory: 94M

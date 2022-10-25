@@ -45,8 +45,10 @@ spec:
     serviceMonitor:
       enabled: true
 
-    tolerations:
-      - key: "arch"
-        operator: "Equal"
-        value: "arm64"
-        effect: "NoSchedule"
+    resources:
+      requests:
+        cpu: 49m
+        memory: 127M
+      limits:
+        cpu: 49m
+        memory: 127M

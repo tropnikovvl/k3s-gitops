@@ -93,8 +93,10 @@ spec:
           - hosts:
               - *host
 
-    tolerations:
-      - key: "arch"
-        operator: "Equal"
-        value: "arm64"
-        effect: "NoSchedule"
+    resources:
+      requests:
+        cpu: 11m
+        memory: 381M
+      limits:
+        cpu: 11m
+        memory: 381M

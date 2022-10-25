@@ -42,6 +42,14 @@ spec:
                     operator: In
                     values: [""]
 
+      resources:
+        requests:
+          cpu: 23m
+          memory: 64M
+        limits:
+          cpu: 23m
+          memory: 64M
+
     worker:
       annotations:
         configmap.reloader.stakater.com/reload: node-feature-discovery-worker-conf
@@ -92,6 +100,14 @@ spec:
                 - usbId:
                     vendor: ["1a86"]
                     device: ["55d4"]
+
+      resources:
+        requests:
+          cpu: 15m
+          memory: 64M
+        limits:
+          cpu: 15m
+          memory: 64M
 
       tolerations:
         - effect: "NoExecute"
