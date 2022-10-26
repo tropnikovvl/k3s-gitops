@@ -132,10 +132,10 @@ spec:
           datasource: Prometheus
         # Ref: https://grafana.com/grafana/dashboards/11315
         nut-status:
-          gnetId: 14104
-          revision: 3
+          gnetId: 15406
+          revision: 1
           datasource: Prometheus
-        # Ref: https://grafana.com/grafana/dashboards/11315
+        # Ref: https://grafana.com/grafana/dashboards/15406
 
     podAnnotations:
       configmap.reloader.stakater.com/reload: "grafana"
