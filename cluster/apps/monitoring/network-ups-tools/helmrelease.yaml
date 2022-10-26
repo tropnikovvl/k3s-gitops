@@ -26,8 +26,8 @@ spec:
     service:
       main:
         type: LoadBalancer
-        annotations:
-          metallb.universe.tf/loadBalancerIPs: "${LB_NUT}"
+        externalIPs:
+          - ${LB_NUT}
         externalTrafficPolicy: Local
         ports:
           http:
