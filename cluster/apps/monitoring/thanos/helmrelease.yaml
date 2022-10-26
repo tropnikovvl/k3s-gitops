@@ -48,7 +48,7 @@ spec:
         ingressClassName: "nginx"
         tls: true
 
-    existingObjstoreSecret: thanos-objstore
+    existingObjstoreSecret: &secret thanos-objstore
 
     queryFrontend:
       enabled: false
