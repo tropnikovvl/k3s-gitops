@@ -53,7 +53,7 @@ spec:
         enabled: true
         type: hostPath
         hostPath: /dev/bus/usb/001/002
-        mountPath: /dev/bus/usb/001/001
+        mountPath: /dev/bus/usb/001/002
         readOnly: false
     configmap:
       config:
