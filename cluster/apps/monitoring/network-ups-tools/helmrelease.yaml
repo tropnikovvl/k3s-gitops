@@ -69,7 +69,7 @@ spec:
               password  = "${SECRET_NUT_PASSWORD}"
               actions = SET
               instcmds = ALL
-              upsmon primary
+              upsmon master
           ups.conf: |-
             [cyber-power]
               driver = usbhid-ups
