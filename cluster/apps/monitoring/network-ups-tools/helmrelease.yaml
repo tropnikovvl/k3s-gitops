@@ -77,7 +77,7 @@ spec:
               desc = "CyberPower CP1350PFCLCD"
               pollinterval = 10
           upsmon.conf: |-
-            MONITOR cyber-power@localhost:3493 1 upsmon "${SECRET_NUT_PASSWORD}" primary
+            MONITOR cyber-power@localhost:3493 1 upsmon "${SECRET_NUT_PASSWORD}" master
             SHUTDOWNCMD "/sbin/shutdown -h +0"
             POWERDOWNFLAG /etc/killpower
             POLLFREQ 15
