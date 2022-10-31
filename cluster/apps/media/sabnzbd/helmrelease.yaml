@@ -64,6 +64,7 @@ spec:
         tls:
           - hosts:
               - *host
+            secretName: sabnzbd-tls
 
     podSecurityContext:
       runAsUser: 568

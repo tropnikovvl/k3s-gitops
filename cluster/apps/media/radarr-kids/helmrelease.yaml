@@ -55,6 +55,7 @@ spec:
         tls:
           - hosts:
               - *host
+            secretName: radarr-kids-tls
 
     persistence:
       config:

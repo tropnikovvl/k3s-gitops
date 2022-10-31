@@ -53,6 +53,7 @@ spec:
         tls:
           - hosts:
               - *host
+            secretName: prowlarr-tls
 
     podSecurityContext:
       runAsUser: 568

@@ -55,6 +55,7 @@ spec:
         tls:
           - hosts:
               - *host
+            secretName: radarr-uhd-tls
 
     podSecurityContext:
       runAsUser: 568

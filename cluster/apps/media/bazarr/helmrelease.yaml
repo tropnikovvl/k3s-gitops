@@ -52,6 +52,7 @@ spec:
         tls:
           - hosts:
               - *host
+            secretName: bazarr-tls
 
     persistence:
       config:
