@@ -61,9 +61,3 @@ spec:
       servicemonitor:
         enabled: true
         prometheusInstance: monitoring
-
-    tolerations:
-      - key: "arch"
-        operator: "Equal"
-        value: "arm64"
-        effect: "NoSchedule"
