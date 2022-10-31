@@ -5,7 +5,7 @@ metadata:
   name: webhook-receiver
   namespace: flux-system
   annotations:
-    external-dns.home.arpa/enabled: "true"
+    external-dns/is-public: "true"
     cert-manager.home.arpa/enabled: "true"
 spec:
   ingressClassName: nginx
