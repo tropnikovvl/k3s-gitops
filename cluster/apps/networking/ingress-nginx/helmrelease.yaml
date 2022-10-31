@@ -27,14 +27,19 @@ spec:
   #     namespace: cert-manager
   values:
     controller:
-      replicaCount: 3
+      replicaCount: 2
       extraEnvs:
         - name: TZ
           value: "${TZ}"
+
       service:
         externalIPs:
-          - "${LB_INGRESS}"
+          - ${LB_INGRESS}
+        enableHttp: false
         externalTrafficPolicy: Local
+        annotations:
+          external-dns.alpha.kubernetes.io/hostname: ${SECRET_DOMAIN}
+
       publishService:
         enabled: true
       ingressClassResource:
@@ -64,16 +69,10 @@ spec:
           namespace: networking
           namespaceSelector:
             any: true
+
       extraArgs:
         default-ssl-certificate: "networking/${SECRET_DOMAIN/./-}-tls"
-      # topologySpreadConstraints:
-      #   - maxSkew: 1
-      #     topologyKey: kubernetes.io/hostname
-      #     whenUnsatisfiable: DoNotSchedule
-      #     labelSelector:
-      #       matchLabels:
-      #         app.kubernetes.io/name: ingress-nginx
-      #         app.kubernetes.io/component: controller
+
       podAnnotations:
         configmap.reloader.stakater.com/reload: "cloudflare-proxied-networks"
 
