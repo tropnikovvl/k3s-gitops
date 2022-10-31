@@ -5,4 +5,4 @@ resources:
   - dashboard
   - monitoring
   - notifications
-  - webhook
+  # - webhook
