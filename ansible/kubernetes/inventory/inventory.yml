@@ -7,6 +7,8 @@ kubernetes:
           ansible_host: 192.168.10.31
         k3s-02:
           ansible_host: 192.168.10.32
+          rook_devices:
+            - /dev/nvme0n1
         k3s-03:
           ansible_host: 192.168.10.33
           rook_devices:
@@ -20,16 +22,6 @@ kubernetes:
           ansible_host: 192.168.10.34
           rook_devices:
             - /dev/sdb
-        k3s-05:
-          ansible_host: 192.168.10.35
-          rook_devices:
-            - /dev/sdb
-        k3s-rpi-01:
-          ansible_host: 192.168.10.41
-        k3s-rpi-02:
-          ansible_host: 192.168.10.42
-        k3s-rpi-03:
-          ansible_host: 192.168.10.43
 
       vars:
         ansible_user: ubuntu
