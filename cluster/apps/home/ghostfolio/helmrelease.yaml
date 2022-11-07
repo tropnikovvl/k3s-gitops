@@ -9,7 +9,7 @@ spec:
   chart:
     spec:
       chart: app-template
-      version: 0.2.2
+      version: 1.0.1
       interval: 15m
       sourceRef:
         kind: HelmRepository
@@ -21,7 +21,7 @@ spec:
   values:
     image:
       repository: ghostfolio/ghostfolio
-      tag: "1.208.0"
+      tag: "1.209.0"
     env:
       TZ: "${TZ}"
       ACCESS_TOKEN_SALT: "${SECRET_GHOSTFOLIO_ACCESS_TOKEN_SALT}"
