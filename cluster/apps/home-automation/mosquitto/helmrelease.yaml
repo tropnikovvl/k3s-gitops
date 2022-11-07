@@ -52,7 +52,7 @@ spec:
             port: 1883
             protocol: TCP
 
-    configmap:
+    configMaps:
       config:
         enabled: true
         data:
