@@ -48,13 +48,12 @@ spec:
             port: 80
     ingress:
       main:
-        enabled: true
         ingressClassName: "nginx"
         annotations:
           hajimari.io/enable: "true"
           hajimari.io/icon: "microsoft-visual-studio-code"
         hosts:
-          - host: &host "ha-vscode.${EXTERNAL_DOMAIN}"
+          - host: &host "ha-vscode.${SECRET_DOMAIN}"
             paths:
               - path: /
                 pathType: Prefix
