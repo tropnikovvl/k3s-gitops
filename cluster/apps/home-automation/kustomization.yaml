@@ -4,7 +4,7 @@ kind: Kustomization
 resources:
   - namespace.yaml
   - home-assistant
-  # - home-assistant-code
+  - home-assistant-code
   - mosquitto
   - node-red
   - zwavejs2mqtt
