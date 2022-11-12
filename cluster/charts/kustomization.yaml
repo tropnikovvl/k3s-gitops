@@ -17,6 +17,7 @@ resources:
   - kpg-charts.yaml
   - descheduler-charts.yaml
   - lwolf-charts.yaml
+  - mastodon-charts.yaml
   - metrics-server-charts.yaml
   - minio-charts.yaml
   - node-feature-discovery-charts.yaml
