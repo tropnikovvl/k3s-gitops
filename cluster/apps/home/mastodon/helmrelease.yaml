@@ -56,7 +56,7 @@ spec:
 
     ingress:
       enabled: true
-      ingressClassName: nginx-external
+      ingressClassName: nginx
       hosts:
         - host: mastodon.${SECRET_DOMAIN}
           paths:
@@ -84,7 +84,7 @@ spec:
     redis:
       master:
         persistence:
-          storageClass: rook-ceph-block
+          storageClass: ceph-block
           size: 1Gi
       password: "${SECRET_MASTODON_REDIS_PASSWORD}"
       auth:
