@@ -5,6 +5,7 @@ resources:
   - namespace.yaml
   - freshrss
   - ghostfolio
+  - mastodon
   - paperless
   - recipes
   - theme-park
