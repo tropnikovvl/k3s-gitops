@@ -37,8 +37,6 @@ spec:
           - ${LB_INGRESS}
         enableHttp: false
         externalTrafficPolicy: Local
-        annotations:
-          external-dns.alpha.kubernetes.io/hostname: ${SECRET_DOMAIN}
 
       publishService:
         enabled: true
