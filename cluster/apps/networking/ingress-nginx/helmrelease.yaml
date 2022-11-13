@@ -94,17 +94,17 @@ spec:
         cpu: 23m
         memory: 226M
 
-    defaultBackend:
-      enabled: true
-      image:
-        repository: ghcr.io/tarampampam/error-pages
-        tag: 2.19.0
-      replicaCount: 1
-      extraEnvs:
-        - name: TEMPLATE_NAME
-          value: ghost
-        - name: SHOW_DETAILS
-          value: "false"
+    # defaultBackend:
+    #   enabled: true
+    #   image:
+    #     repository: ghcr.io/tarampampam/error-pages
+    #     tag: 2.19.0
+    #   replicaCount: 1
+    #   extraEnvs:
+    #     - name: TEMPLATE_NAME
+    #       value: ghost
+    #     - name: SHOW_DETAILS
+    #       value: "false"
 
   # valuesFrom:
   #   # Cloudflare Networks
