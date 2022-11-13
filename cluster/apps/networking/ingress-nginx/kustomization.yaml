@@ -6,9 +6,9 @@ resources:
   - dashboard
   - helmrelease.yaml
   - certificate.yaml
-configMapGenerator:
-  - name: cloudflare-proxied-networks
-    files:
-      - cloudflare-proxied-networks.txt
-generatorOptions:
-  disableNameSuffixHash: true
+# configMapGenerator:
+#   - name: cloudflare-proxied-networks
+#     files:
+#       - cloudflare-proxied-networks.txt
+# generatorOptions:
+#   disableNameSuffixHash: true
