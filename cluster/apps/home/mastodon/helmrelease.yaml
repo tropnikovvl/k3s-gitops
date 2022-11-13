@@ -29,7 +29,7 @@ spec:
       web_domain: mastodon.${SECRET_DOMAIN}
       singleUserMode: true
       s3:
-        enabled: true
+        enabled: false
         access_key: "${SECRET_MINIO_ACCESS_KEY}"
         access_secret: "${SECRET_MINIO_ACCESS_KEY}"
         bucket: "mastodon"
