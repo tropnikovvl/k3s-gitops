@@ -59,6 +59,9 @@ spec:
       ingressClassName: nginx
       annotations:
         nginx.ingress.kubernetes.io/proxy-body-size: 10m
+        external-dns/is-public: "true"
+        external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
+
       hosts:
         - host: mastodon.${SECRET_DOMAIN}
           paths:
