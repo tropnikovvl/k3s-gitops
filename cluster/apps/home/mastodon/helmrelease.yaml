@@ -33,6 +33,7 @@ spec:
         access_key: "${SECRET_MINIO_ACCESS_KEY}"
         access_secret: "${SECRET_MINIO_ACCESS_KEY}"
         bucket: "mastodon"
+        region: "eu-germany-1"
         endpoint: https://s3.${SECRET_DOMAIN}
         hostname: s3.${SECRET_DOMAIN}
       secrets:
