@@ -29,13 +29,13 @@ spec:
       web_domain: mastodon.${SECRET_DOMAIN}
       singleUserMode: true
       s3:
-        enabled: false
+        enabled: true
         access_key: "${SECRET_MINIO_ACCESS_KEY}"
-        access_secret: "${SECRET_MINIO_ACCESS_KEY}"
+        access_secret: "${SECRET_MINIO_SECRET_KEY}"
         bucket: "mastodon"
         region: "eu-germany-1"
         endpoint: https://s3.${SECRET_DOMAIN}
-        hostname: s3.${SECRET_DOMAIN}
+        # hostname: s3.${SECRET_DOMAIN}
       secrets:
         secret_key_base: "${SECRET_MASTODON_SECRET_KEY_BASE}"
         otp_secret: "${SECRET_MASTODON_OTP_SECRET}"
