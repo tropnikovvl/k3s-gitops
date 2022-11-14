@@ -25,7 +25,7 @@ spec:
         enabled: true
         username: teqqy
         email: ${SECRET_CLOUDFLARE_EMAIL}
-      local_domain: ${SECRET_DOMAIN}
+      local_domain: mastodon.${SECRET_DOMAIN}
       web_domain: mastodon.${SECRET_DOMAIN}
       singleUserMode: true
       s3:
