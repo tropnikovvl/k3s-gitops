@@ -61,7 +61,6 @@ spec:
         proxy-body-size: "100M"
         ssl-protocols: "TLSv1.3 TLSv1.2"
         use-forwarded-headers: "true"
-        whitelist-source-range: "0.0.0.0/8"
 
       metrics:
         enabled: true
