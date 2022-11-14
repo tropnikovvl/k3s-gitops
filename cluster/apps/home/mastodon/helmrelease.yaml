@@ -25,8 +25,8 @@ spec:
         enabled: true
         username: teqqy
         email: ${SECRET_CLOUDFLARE_EMAIL}
-      local_domain: mastodon.${SECRET_DOMAIN}
-      web_domain: mastodon.${SECRET_DOMAIN}
+      local_domain: mastodon.${SECRET_PUBLIC_DOMAIN}
+      web_domain: mastodon.${SECRET_PUBLIC_DOMAIN}
       singleUserMode: true
       s3:
         enabled: true
@@ -35,7 +35,7 @@ spec:
         bucket: "mastodon"
         region: "eu-germany-1"
         endpoint: https://s3.${SECRET_DOMAIN}
-        # hostname: s3.${SECRET_DOMAIN}
+        # hostname: s3.${SECRET_PUBLIC_DOMAIN}
       secrets:
         secret_key_base: "${SECRET_MASTODON_SECRET_KEY_BASE}"
         otp_secret: "${SECRET_MASTODON_OTP_SECRET}"
@@ -43,7 +43,7 @@ spec:
           private_key: "${SECRET_MASTODON_VAPID_PRIVATE_KEY}"
           public_key: "${SECRET_MASTODON_VAPID_PUBLIC_KEY}"
       smtp:
-        domain: ${SECRET_DOMAIN}
+        domain: ${SECRET_PUBLIC_DOMAIN}
         from_address: ${SECRET_MASTODON_SMTP_USER}
         server: ${SECRET_MAIL_HOST}
         port: 587
@@ -60,17 +60,17 @@ spec:
       annotations:
         nginx.ingress.kubernetes.io/proxy-body-size: 10m
         external-dns/is-public: "true"
-        external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
+        external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_PUBLIC_DOMAIN}"
         external-dns.home.arpa/enabled: "true"
         cert-manager.io/cluster-issuer: "letsencrypt-production"
       hosts:
-        - host: mastodon.${SECRET_DOMAIN}
+        - host: mastodon.${SECRET_PUBLIC_DOMAIN}
           paths:
             - path: '/'
       tls:
         - secretName: mastodon-cert
           hosts:
-            - mastodon.${SECRET_DOMAIN}
+            - mastodon.${SECRET_PUBLIC_DOMAIN}
 
     elasticsearch:
       enabled: true
