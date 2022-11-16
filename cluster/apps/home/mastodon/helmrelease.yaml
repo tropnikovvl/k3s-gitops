@@ -17,7 +17,7 @@ spec:
   values:
     image:
       repository: tootsuite/mastodon
-      tag: v3.5.3
+      tag: v4.0.2
       pullPolicy: IfNotPresent
 
     mastodon:
