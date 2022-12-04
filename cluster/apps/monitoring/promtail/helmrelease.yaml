@@ -15,10 +15,6 @@ spec:
         name: grafana-charts
         namespace: flux-system
   values:
-    image:
-      registry: ghcr.io
-      repository: k8s-at-home/promtail
-
     config:
       lokiAddress: http://loki:3100/loki/api/v1/push
       snippets:
