@@ -6,11 +6,4 @@ metadata:
   namespace: flux-system
 spec:
   interval: 30m
-  ref:
-    branch: main
-  url: https://github.com/mastodon/mastodon
-  ignore: |
-    # exclude all
-    /*
-    # include gitops dirs
-    !/chart
+  url: https://github.com/mastodon/chart
