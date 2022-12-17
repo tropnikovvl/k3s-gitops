@@ -21,7 +21,7 @@ spec:
   values:
     image:
       repository: ghostfolio/ghostfolio
-      tag: "1.218.0"
+      tag: "1.219.0"
     env:
       TZ: "${TZ}"
       ACCESS_TOKEN_SALT: "${SECRET_GHOSTFOLIO_ACCESS_TOKEN_SALT}"
