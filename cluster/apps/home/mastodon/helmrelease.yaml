@@ -8,12 +8,13 @@ spec:
   interval: 15m
   chart:
     spec:
-      chart: mastodon-charts
+      chart: ./
       version: 4.0.0
       sourceRef:
         kind: GitRepository
         name: mastodon-charts
         namespace: flux-system
+
   values:
     image:
       repository: tootsuite/mastodon
