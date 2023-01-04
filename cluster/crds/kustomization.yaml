@@ -5,4 +5,3 @@ resources:
   - cert-manager
   - external-dns
   - kube-prometheus-stack
-  - rook-ceph

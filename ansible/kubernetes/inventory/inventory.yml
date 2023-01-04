@@ -3,25 +3,17 @@ kubernetes:
   children:
     master:
       hosts:
-        k3s-01:
-          ansible_host: 192.168.10.31
-        k3s-02:
-          ansible_host: 192.168.10.32
-          rook_devices:
-            - /dev/nvme0n1
-        k3s-03:
-          ansible_host: 192.168.10.33
-          rook_devices:
-            - /dev/sdb
+        k3s-prod-01:
+          ansible_host: 192.168.10.110
       vars:
         ansible_user: ubuntu
 
     worker:
       hosts:
-        k3s-04:
-          ansible_host: 192.168.10.34
-          rook_devices:
-            - /dev/sdb
+        k3s-prod-02:
+          ansible_host: 192.168.10.111
+        k3s-prod-03:
+          ansible_host: 192.168.10.112
 
       vars:
         ansible_user: ubuntu
