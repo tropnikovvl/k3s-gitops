@@ -12,6 +12,8 @@
     - open-iscsi
     - smartmontools
     - socat
+    - qemu-guest-agent
+    - vim
 
 - name: Configure smartd
   ansible.builtin.copy:
