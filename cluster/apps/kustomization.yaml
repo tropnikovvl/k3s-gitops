@@ -5,11 +5,7 @@ resources:
   - calico-system
   - cert-manager
   - flux-system
-  # - home
-  # - home-automation
   - kube-tools
-  # - kyverno
-  # - media
-  # - monitoring
+  - monitoring
   - networking
   - system-upgrade
